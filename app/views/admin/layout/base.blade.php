@@ -10,7 +10,7 @@
 
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
     {{ HTML::style("public/admin/libs/font-awesome/css/font-awesome.min.css") }}
-    {{ HTML::style("public/admin/libs/iCheck/custom.css") }}
+    {{ HTML::style("public/admin/libs/icheck/custom.css") }}
     {{ HTML::style("public/admin/libs/datapicker/datepicker3.css") }}
     {{ HTML::style("public/admin/libs/summernote/summernote.css") }}
     {{ HTML::style("public/admin/libs/summernote/summernote-bs3.css") }}
@@ -93,7 +93,7 @@
     <!-- Library scripts -->
     {{ HTML::script("public/admin/libs/jquery/jquery-1.10.2.js") }}
     {{ HTML::script("public/admin/libs/bootstrap/bootstrap.min.js") }}
-    {{ HTML::script("public/admin/libs/iCheck/icheck.min.js") }}
+    {{ HTML::script("public/admin/libs/icheck/icheck.min.js") }}
     {{ HTML::script("public/admin/libs/jquery-form/jquery.form.min.js") }}
     {{ HTML::script("public/admin/libs/summernote/summernote.min.js") }}
     {{ HTML::script("public/admin/libs/datapicker/bootstrap-datepicker.js") }}
