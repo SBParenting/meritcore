@@ -212,11 +212,23 @@ class Access {
      */ 
     public function unlock($password=false)
     {
-        if (\Access::active() && ($password===false || \Access::user()->password == \Hash::make($password)) )
+        if (\Access::active())
         {
-            \Access::user()->fill(['locked' => false])->save();
+            if ($password === false)
+            {
+                \Auth::user()->fill(['locked' => false])->save();
 
-            return true;
+                return true;
+            }
+            else
+            {
+                if (\Auth::validate(['username' => \Auth::user()->username, 'password' => $password]))
+                {
+                    \Auth::user()->fill(['locked' => false])->save();
+
+                    return true;
+                }
+            }
         }
 
         return false;

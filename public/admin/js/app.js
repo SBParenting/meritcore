@@ -113,6 +113,7 @@ jQuery(function() {
 					{
 						$('.page-lock').removeClass('has-error');
 						$('body').removeClass('app-locked');
+						$('.page-lock').find("input[name='password']").val("");
 					}
 					else 
 					{
