@@ -215,7 +215,11 @@ class Access {
         if (\Access::active() && ($password===false || \Access::user()->password == \Hash::make($password)) )
         {
             \Access::user()->fill(['locked' => false])->save();
+
+            return true;
         }
+
+        return false;
     }
 
      /**

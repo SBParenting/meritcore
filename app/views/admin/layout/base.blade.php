@@ -68,7 +68,7 @@
                         <div class="lock-pwd">
                             <form class="unlock-form">
                                 <div class="form-group">
-                                    <input type="password" placeholder="Password" class="form-control">
+                                    <input name='password' type="password" placeholder="Password" class="form-control">
                                     <a href="{{ url('unlock') }}" class="btn-submit js-post-unlock">
                                         <i class="fa fa-arrow-right"></i>
                                     </a>

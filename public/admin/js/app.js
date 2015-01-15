@@ -105,7 +105,9 @@ jQuery(function() {
 
 				var input = $(this).parent().find("input[name='password']");
 
-				$.api.post( $(this).attr('href'), {password:input.val()}, function(response) {
+				var data = {password:input.val()};
+
+				$.api.post( $(this).attr('href'), data, function(response) {
 
 					if (response.result)
 					{
