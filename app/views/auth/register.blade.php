@@ -30,7 +30,7 @@
 		               	<h3>Welcome to {{ \Config::get('site.title') }}</h3>
 		        		<p>To create an account please enter your information below.</p>
 
-		                {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off']) }}
+		                {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
 
 		                	<!-- Tricking the browser so that login fields are not autofilled -->
 		                	<input style="display:none">

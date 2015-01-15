@@ -21,7 +21,7 @@
 		               	<h3>Welcome to {{ \Config::get('site.title') }}</h3>
 		        		<p>To sign in please enter your account information below.</p>
 
-		                {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off']) }}
+		                {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
 		                    
 		                    <fieldset>
 		                        <div class="form-group">

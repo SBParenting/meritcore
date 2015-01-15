@@ -30,7 +30,7 @@ jQuery(function() {
 
 		initControls: function(){
 
-			$('form').off('keydown').on('keydown', function(e) {
+			$('form').not('.submit-on-enter').off('keydown').on('keydown', function(e) {
 				if (e.which == 13)
 				{
 					e.preventDefault();

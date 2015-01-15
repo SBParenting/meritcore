@@ -22,7 +22,7 @@
 				        
 				        <p>Not a problem! Just enter your email address below and we will send a reset link.</p>
 		       
-				        {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off']) }}
+				        {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
 
 				        	<fieldset>
 		                        <div class="form-group">

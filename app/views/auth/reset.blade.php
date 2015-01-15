@@ -22,7 +22,7 @@
 				        
 				        <p>Please enter a new password below.</p>
 		       
-				        {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off']) }}
+				        {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
 
 				        {{ Form::hidden('token', $token) }}
 
