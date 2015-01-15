@@ -11,3 +11,7 @@
 |
 */
 
+Artisan::add(new TaskCommand);
+
+Artisan::add(new Libraries\Generator\GeneratorBuildCommand);
+Artisan::add(new Libraries\Generator\GeneratorRollbackCommand);

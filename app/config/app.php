@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://meritcore.aquaserver',
+	'url' => 'http://localhost',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return array(
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'gxAlNxGJSF9imzhzRU5iHM2RNZYXWhm0',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -121,7 +121,9 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-
+		'Libraries\FormBuilder\FormBuilderServiceProvider',
+		'Libraries\Access\AccessServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 	),
 
 	/*
@@ -164,7 +166,7 @@ return array(
 		'Eloquent'          => 'Illuminate\Database\Eloquent\Model',
 		'Event'             => 'Illuminate\Support\Facades\Event',
 		'File'              => 'Illuminate\Support\Facades\File',
-		'Form'              => 'Illuminate\Support\Facades\Form',
+		'Form'              => 'Libraries\FormBuilder\FormBuilderFacade',
 		'Hash'              => 'Illuminate\Support\Facades\Hash',
 		'HTML'              => 'Illuminate\Support\Facades\HTML',
 		'Input'             => 'Illuminate\Support\Facades\Input',
@@ -188,7 +190,9 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
-
+		
+		'Access'            => 'Libraries\Access\AccessFacade',
+		'ImageTool'         => 'Intervention\Image\Facades\Image'
 	),
 
 );

@@ -3,16 +3,23 @@
 class BaseController extends Controller {
 
 	/**
-	 * Setup the layout used by the controller.
+	 * Check if the controller may be accessed by the current user.
 	 *
 	 * @return void
 	 */
-	protected function setupLayout()
+	protected function access($id)
 	{
-		if ( ! is_null($this->layout))
+		if (!Access::can($id))
 		{
-			$this->layout = View::make($this->layout);
+			App::abort(403);
 		}
+
+		\View::share(['locked' => Access::isLocked()]);	
+	}
+
+	protected function sorting($sorting)
+	{
+		\View::share(['sorting' => $sorting]);
 	}
 
 }

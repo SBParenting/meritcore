@@ -1,0 +1,94 @@
+@extends('admin.layout.base')
+
+	@section('content')
+
+		<div id="page-wrapper" class="white-bg">
+
+			@include('admin.partials.header')
+
+			<div class="row wrapper border-bottom white-bg page-heading">
+				<div class="col-lg-8">
+					<h2>$$HEADING</h2>
+					<ol class="breadcrumb">
+						<li>
+							<a href="{{ url('admin/dashboard') }}">Home</a>
+						</li>
+						<li>
+							<a href="{{ url('$$BASEURL') }}">Manage $$RESOURCE</a>
+						</li>
+
+						<li class="active">
+
+							@if (!empty($record))
+								<strong>{{ $record->$$FIELD1 }}</strong>	
+							@else				
+								<strong>Add New $$MODEL</strong>
+							@endif
+						</li>
+					</ol>
+				</div>
+				<div class="col-lg-4">
+					<div class="title-action">
+						<a href="{{ url('$$BASEURL') }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Back to $$RESOURCE</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="wrapper wrapper-content animated">
+				
+				<div class="row">
+
+					<div class="col-lg-12">
+
+										 
+						<form method="post" class="form-horizontal">
+
+							{{ Form::hidden('id') }}
+
+							<div class="form-group">
+								<label class="col-md-2 control-label">$$FIELD_LABEL1</label>
+								<div class="col-md-4">{{ Form::text('$$FIELD1', null, ['class' => 'form-control', 'placeholder' => '$$FIELD_LABEL1']) }}</div>
+							</div>
+
+							<div class="hr-line-dashed"></div>
+
+							<div class="form-group">
+								<label class="col-md-2 control-label">$$FIELD_LABEL2</label>
+								<div class="col-md-4">{{ Form::text('$$FIELD2', null, ['class' => 'form-control', 'placeholder' => '$$FIELD_LABEL2']) }}</div>
+							</div>
+
+							<div class="hr-line-dashed"></div>
+
+							<div class="form-group">
+								<label class="col-md-2 control-label">$$FIELD_LABEL3</label>
+								<div class="col-md-4">{{ Form::text('$$FIELD3', null, ['class' => 'form-control', 'placeholder' => '$$FIELD_LABEL3']) }}</div>
+							</div>
+
+							<div class="hr-line-dashed"></div>
+
+							<div class="form-group">
+								<label class="col-md-2 control-label">$$FIELD_LABEL4</label>
+								<div class="col-md-4">{{ Form::text('$$FIELD4', null, ['class' => 'form-control', 'placeholder' => '$$FIELD_LABEL4']) }}</div>
+							</div>
+
+							<div class="hr-line-dashed"></div>		
+	
+							<div class="form-group">
+								<div class="col-md-10 col-sm-offset-2 text-right">
+									<a href="{{ url('$$BASEURL') }}" class="btn btn-white close-button">Cancel</a>
+									<button class="btn btn-primary" type="submit"><i class="fa fa-check"></i> Save changes</button>
+								</div>
+							</div>
+						
+						</form>
+
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+
+	@stop
+
+@stop

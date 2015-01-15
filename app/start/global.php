@@ -49,7 +49,34 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
+
+	switch ($code)
+	{
+		case 403: 
+
+			if (Request::ajax())
+			{
+				return Response::json(['result' => false, 'msg' => 'You do not have access to the requested resource or action.']);
+			}
+			else {
+				return View::make('errors.403');		
+			}
+
+		case 404: 
+
+			if (Request::ajax())
+			{
+				return Response::json(['result' => false, 'msg' => 'The requested resource or action does not exist.']);
+			}
+			else {
+				return View::make('errors.404');		
+			}
+
+		//case 500: return View::make('errors.500');
+	}
 });
+
+
 
 /*
 |--------------------------------------------------------------------------

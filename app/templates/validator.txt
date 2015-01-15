@@ -1,0 +1,26 @@
+<?php namespace Services\Validators;
+
+use Libraries\Validator\LaravelValidator;
+use Libraries\Validator\Validable;
+
+class $$MODELValidator extends LaravelValidator implements Validable 
+{
+
+	public function create()
+	{
+		$this->rules = array(
+			$$CREATE_RULES
+		);
+
+		return $this;
+	}
+
+	public function update()
+	{
+		$this->rules = array(
+			$$UPDATE_RULES
+		);
+
+		return $this;
+	}
+}

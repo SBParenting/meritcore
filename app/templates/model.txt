@@ -1,0 +1,24 @@
+<?php
+
+class $$MODEL extends BaseModel {
+
+	protected $table = '$$TABLE';
+
+	protected $fillable = [$$FIELDS_MODEL];
+
+	public static function getListable()
+    {
+        $query = self::query();
+
+        switch($sort = self::getSort('$$FIELD1', 'asc'))
+        {
+            case '$$FIELD1':
+                $query->orderBy('$$FIELD1', $sort->order);
+
+            default:
+                $query->orderBy($sort->sort, $sort->order);
+        }
+
+        return $query;
+    }   
+}
