@@ -1,3 +1,5 @@
+.idea
+.idea/workspace.xml
 /bootstrap/compiled.php
 /vendor
 composer.phar
