@@ -283,6 +283,8 @@ jQuery(function() {
 			$('.toggle-min').on('click', function(e) {
 				e.preventDefault();
 				$('body').toggleClass('nav-min');
+				$("#nav").find("ul.open").hide();
+
 			});
 			$('.menu-button').on('click', function (e) {
 				e.preventDefault();

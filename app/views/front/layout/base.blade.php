@@ -8,9 +8,12 @@
 
     <title>Front</title>
 
-    {{ HTML::style("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css") }}
-    {{ HTML::style("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css") }}
+    {{ HTML::style("public/front/libs/bootstrap/css/bootstrap.min.css") }}
+    {{ HTML::style("public/front/libs/bootstrap/css/bootstrap-theme.min.css") }}
+    {{ HTML::style("public/front/libs/font-awesome/css/font-awesome.min.css") }}
     {{ HTML::style("public/front/css/style.css") }}
+
+    {{ HTML::script("public/front/libs/modernizr/modernizr.js") }}
 
 </head>
 
@@ -24,8 +27,8 @@
 
     </div>
 
-    <!-- Mainly scripts -->
-    {{ HTML::script("//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js") }}
-    {{ HTML::script("//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js") }}
+    {{ HTML::script("public/front/libs/jquery/jquery.min.js") }}
+    {{ HTML::script("public/front/libs/bootstrap/js/bootstrap.min.js") }}
+    
 </body>
 </html>

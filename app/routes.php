@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function() {
-	return \Redirect::to('/admin/dashboard');
-});
+
+
+Route::get('survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
 
 Route::controller('password', 'Controllers\Auth\RemindersController');
 Route::get('login', 'Controllers\Auth\AuthController@getLogin');

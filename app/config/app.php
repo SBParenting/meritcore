@@ -123,7 +123,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Libraries\FormBuilder\FormBuilderServiceProvider',
 		'Libraries\Access\AccessServiceProvider',
-		'Intervention\Image\ImageServiceProvider',
+		'Intervention\Image\ImageServiceProvider'
 	),
 
 	/*

@@ -12,8 +12,6 @@ class FilesController extends \BaseController {
 
 	public function __construct()
 	{
-		parent::__construct();
-		
 		$this->access('content:manage_files');
 		
 		\View::share(['nav_level1' => 'content', 'nav_level2' => 'content.files']);

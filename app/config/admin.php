@@ -14,6 +14,7 @@ return array(
 			'color' => 'red',
 		],
 
+		/*
 		[
 			'id'       => 'content',
 			'title'    => 'Website Content',
@@ -48,6 +49,7 @@ return array(
 
 			],
 		],
+		*/
 
 		[
 			'id'       => 'users',
