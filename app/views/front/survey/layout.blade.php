@@ -17,6 +17,8 @@
     {{ HTML::style("public/front/css/survey.css") }}
     {{ HTML::script("public/front/libs/modernizr/modernizr.js") }}
 
+    @yield('css')
+
 </head>
 
 <body>
@@ -37,6 +39,8 @@
     {{ HTML::script("public/front/libs/menu/menu.js") }}
     {{ HTML::script("public/front/libs/scroller/scroller.js") }}
     {{ HTML::script("public/front/js/survey.js") }}
+
+    @yield('script')
 
 </body>
 </html>

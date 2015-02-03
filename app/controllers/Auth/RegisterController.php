@@ -8,7 +8,7 @@ class RegisterController extends \Controller {
 
 	public function getIndex()
 	{
-		return \View::make('auth.register');
+		return \View::make('front.auth.register');
 	}
 
 	public function postIndex()

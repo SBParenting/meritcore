@@ -72,6 +72,21 @@ return array(
 			],
 		],
 
+			[
+			'id'       => 'children',
+			'title'    => 'Children',
+			'url'      => 'admin/children',
+			'icon'     => 'fa-picture',
+
+			'children' => [
+				[
+					'id'    => 'children.list',
+					'title' => 'Manage Children',
+					'url'   => 'admin/children',
+				],
+			],
+		],
+
 	],
 
 	'navigation_colors' => ['danger', 'orange', 'warning', 'success', 'primary-light', 'primary', 'violet', 'danger', 'orange', 'warning', 'success', 'primary-light', 'primary', 'violet'],

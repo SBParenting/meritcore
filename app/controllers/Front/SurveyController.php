@@ -15,6 +15,8 @@ class SurveyController extends \BaseController {
 		return \View::make('front.survey.base')->with('questions', $questions);
 	}
 
+	
+
 	public function getSbp()
 	{
 		return \View::make('front.survey.sbp_base');

@@ -11,8 +11,6 @@
 |
 */
 
-
-
 Route::get('survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
 
 Route::controller('password', 'Controllers\Auth\RemindersController');
@@ -31,12 +29,13 @@ Route::group(['prefix' => 'admin', 'before' => 'auth'], function() {
 	Route::get('users/roles/{id?}', 'Controllers\Admin\Users\RolesController@getIndex');
 	Route::post('users/roles/update/{id}', 'Controllers\Admin\Users\RolesController@postUpdate');
 	Route::controller('users', 'Controllers\Admin\Users\UsersController');
-
+	Route::get('children' , 'Controllers\Admin\Children\ChildrenController@getIndex');
 	Route::group(['prefix' => 'content'], function() {
 		Route::controller('pages', 'Controllers\Admin\Content\PagesController');
 		Route::controller('posts', 'Controllers\Admin\Content\PostsController');
 		Route::controller('images', 'Controllers\Admin\Content\ImagesController');
 		Route::controller('files', 'Controllers\Admin\Content\FilesController');
+		
 	});
 });
 
