@@ -8,7 +8,7 @@
 			<div class="survey-block survey-header">
 				<div class="container">
 					<a href="#" class="logo"><img src="{{ url('public/front/img/sbp-logo.png') }}" /></a>
-					<h1 style="text-align: center; color: #666;" >SIGN UP</h1>
+					<h1 style="text-align: center; color: #666;" >LOG IN</h1>
 				</div>
 			</div>
 
@@ -25,10 +25,10 @@
 		        		</p>
 
 		        	</div> -->
-		     
+		        
 
 							<div class="form-container hide-post-success" id="register-form-width">
-								   <div class="form-group form-head-text"><span class="line-thru">Fill in all the information to get you family started</span></div>
+								<div class="form-group form-head-text"><span class="line-thru">Fill in all the information to get back to your family journey </span></div>
 
 									<section>
 										 {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
@@ -57,15 +57,8 @@
 										</div>
 										<br/>
 										<div class="form-group"> 
-										<p class="text-muted text-medium">
-
-										By clicking on Sign up, you agree to 
-										<a href="javascript:;">terms &amp; conditions</a>
-										and
-										<a href="javascript:;">privacy policy</a>
-										 </p>
 										 <div class="divider"></div>
-										<button type="submit" class="btn btn-lg btn-block btn-orange">Sign Up</button>
+										<button type="submit" class="btn btn-lg btn-block btn-orange">Log in</button>
 
 										</div>
 
@@ -76,9 +69,10 @@
 									</section>
 									{{ Form::close() }}	
 									<section>
+									 <p class="text-center"><a href="{{ URL::to('password/remind') }}">Forgot your password?</a></p>
 										<p class="text-center text-muted"> 
 
-											Already have an account? <a href="{{URL::to('login')}}">Log in now</a>
+											Don't have an account yet? <a href="{{URL::to('register')}}">Sign up</a>
 
 										</p>
 								</section>

@@ -141,21 +141,164 @@
 	.survey-header .header-link i	{ font-size: 20px; }
 }
 
+
+.add-child-form {background-image: url(/public/front/img/green-bg.png); 
+					background-size: cover;
+			}
 .signup-area {
-	background: #ccc;
+	/*background-image: url('/public/admin/images/background/5.jpg') ;*/
+	background-color: #ccc;
 }
-.form-head-text {width: 740px;}
+.form-head-text {width: 720px;}
 .btn-orange{background-color: #ff7000;
 			color: #fff;}
 
  #register-form-width { max-width: 460px;}
 
- .cycling-logos {float: right;
- 				margin-right: 60px;
- 				margin-top: -268px;
- 				background-color: white;
-					width: 230px;
-					height: 255px;
-					clear: both;
+ .cycling-logos {
+ 	/*position: relative;*/
+	/*left: 60.13em;*/
+	float:right;
+	border-radius: 3px;
+	margin-right: 5.75em;
+	margin-top: -19.25em;
+	background-color: white;
+	width: 15.38em;
+	height: 18.94em;
+	clear: both;
+}
+
+@media (max-width: 1200px) {
+	.cycling-logos {
+		margin-top: 0;
+		float: inherit;
+		margin:auto;
+	}
+		.change-avatar {
+		margin-top: 0;
+		float: inherit;
+		margin:auto;
+	}
+	.form-head-text { width: 400px;}
+}
+
+.form-inner { position: relative; height: 100%; }
+
+/* Female button styles */
+
+ .ui-radio2 {
+  position: relative;
+  margin: 0 20px 10px 20px;
+}
+.ui-radio2 input[type="radio"] + span:hover {
+  cursor: pointer;
+}
+.ui-radio2 input[type="radio"]:disabled + span:hover {
+  cursor: not-allowed;
+}
+.ui-radio2 input[type="radio"] {
+  display: none;
+}
+.ui-radio2 input[type="radio"] + span {
+  font-weight: normal;
+}
+.ui-radio2 input[type="radio"] + span:before {
+  content: "";
+  width: 75px;
+  height: 82px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-left: -20px;
+  background-image: url(/public/front/img/girl-avatar.png);
+  border-radius: 
+  border: 1px solid #ccc;
+}
+.ui-radio2 input[type="radio"]:disabled + span:before {
+  opacity: .65;
+  border: 1px solid #ccc;
+  cursor: no-drop;
+}
+.ui-radio2 input[type="radio"]:checked + span:after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 7px;
+  left: -15px;
+  background-color: #1C7EBB;
+  border-radius: 50%;
+  display: block;
+}
+.ui-radio2 input[type="radio"]:disabled:checked + span:after {
+  opacity: .65;
+  cursor: no-drop;
+  background-color: #ccc;
+}
+/* end female button style */
+
+#calculate-age {font-size: 30px;
+				font-weight: bold;
+				padding-right: 10px;
+				margin-left: 12px;
+				color: #444444;
 				}
+.text {font-size:16px;
+		color: #444444;}
+
+		 .id-input{ width: 62%!important;	
+		 			margin-right: 12px;}
+
+
+		.id-text{
+				margin-top: 14px;
+		 			
+		 		}
+		 		 .change-avatar {
+ 	/*position: relative;*/
+	/*left: 60.13em;*/
+	float:right;
+	border-radius: 3px;
+	margin-right:;
+	margin-top: -27.25em;
+	background-color: white;
+	width: 20.38em;
+	height: 26.94em;
+	clear: both;
+}
+.dropzone.dz-clickable{cursor: pointer;}
+
+.dropzone {
+			border-radius: 5px;
+			background: url(/public/front/img/change-avatar.png);
+			width: 325px;
+			float:right;
+	border-radius: 3px;
+	margin-right: -365px;
+	margin-top: -27.65em;
+	
+	width: 24.65em;
+	height: 26.85em;
+	clear: both;}
+
+.dropzone:hover{ background:url(/public/front/img/change-avatar-mouseover.png);}
+
+
+
+.child-thumbnail { width: 90px;
+					margin-top: 8px;
+					border-radius: 8px;
+					height: 85px;
+					border: 2px solid;
+					background-image: url(/public/front/img/question-mark.png);
+					background-repeat: no-repeat;
+					background-position: center;}
+
+.child-name { padding: 8px;}
+
+
+
+
+
+
 

@@ -10,6 +10,13 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::get('children/add' , function(){
+
+	return View::make('front.children.add_child');
+
+
+});
+
 
 Route::get('survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
 
