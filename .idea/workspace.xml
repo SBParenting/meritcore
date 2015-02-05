@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d3d86b7-72eb-43b5-8dc5-565cf5fd4187" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/validators/UserValidator.php" afterPath="$PROJECT_DIR$/app/services/validators/UserValidator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/admin/js/form.js" afterPath="$PROJECT_DIR$/public/admin/js/form.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/main.css" afterPath="$PROJECT_DIR$/public/front/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/auth/register.blade.php" afterPath="$PROJECT_DIR$/app/views/front/auth/register.blade.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/Children.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Admin/Children/ChildrenController.php" afterPath="$PROJECT_DIR$/app/controllers/Admin/Children/ChildrenController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/children/children.blade.php" afterPath="$PROJECT_DIR$/app/views/admin/children/children.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="meritcore.iws" />
@@ -31,75 +30,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="register.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/auth/register.blade.php">
+      <file leaf-file-name="children.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/admin/children/children.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.12" vertical-offset="534" max-vertical-offset="1755">
-              <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="10.0" vertical-offset="300" max-vertical-offset="1920">
-              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegisterController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/Auth/RegisterController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="1005">
-              <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserValidator.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/services/validators/UserValidator.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.416666" vertical-offset="167" max-vertical-offset="870">
-              <caret line="48" column="43" selection-start-line="48" selection-start-column="43" selection-end-line="48" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/auth/layout/base.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.125" vertical-offset="0" max-vertical-offset="660">
-              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/front/auth/register.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.625" vertical-offset="705" max-vertical-offset="1770">
-              <caret line="88" column="67" selection-start-line="88" selection-start-column="67" selection-end-line="88" selection-end-column="67" />
+            <state vertical-scroll-proportion="0.940407" vertical-offset="238" max-vertical-offset="1080">
+              <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
               <folding>
-                <element signature="e#599#619#0#HTML" expanded="true" />
+                <element signature="e#582#601#0#HTML" expanded="true" />
+                <element signature="e#1614#1641#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2015_02_03_233344_make_username_nullable_on_users_table.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_02_03_233344_make_username_nullable_on_users_table.php">
+      <file leaf-file-name="ChildrenController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Admin/Children/ChildrenController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30523255" vertical-offset="0" max-vertical-offset="688">
-              <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+            <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="450">
+              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Children.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/Children.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="225">
+              <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Model.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.4" vertical-offset="9635" max-vertical-offset="47280">
+              <caret line="677" column="22" selection-start-line="677" selection-start-column="22" selection-end-line="677" selection-end-column="22" />
               <folding>
-                <marker date="1423006922000" expanded="true" signature="258:309" placeholder="ALTER TABLE users..." />
+                <element signature="e#47#60#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -149,6 +119,10 @@
         <option value="$PROJECT_DIR$/app/services/validators/UserValidator.php" />
         <option value="$PROJECT_DIR$/app/views/front/auth/register.blade.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_02_03_233344_make_username_nullable_on_users_table.php" />
+        <option value="$PROJECT_DIR$/app/controllers/Admin/Children/ChildrenController.php" />
+        <option value="$PROJECT_DIR$/app/database/migrations/2015_02_04_184119_create_children_table.php" />
+        <option value="$PROJECT_DIR$/app/models/Children.php" />
+        <option value="$PROJECT_DIR$/app/views/admin/children/children.blade.php" />
       </list>
     </option>
   </component>
@@ -387,6 +361,72 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="children" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -410,6 +450,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -507,6 +565,80 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Users" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Children" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -523,13 +655,14 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../greely" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="FullScreen" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="LayoutCode.rearrangeEntriesBlade" value="false" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
@@ -799,12 +932,12 @@
       <workItem from="1420490293095" duration="2569000" />
       <workItem from="1421858881708" duration="9114000" />
       <workItem from="1421881403861" duration="547000" />
-      <workItem from="1422997424858" duration="7239000" />
+      <workItem from="1422997424858" duration="17433000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19469000" />
+    <option name="totallyTimeSpent" value="29663000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1173" extended-state="6" />
@@ -860,54 +993,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/auth/layout/base.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="660">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/local/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bootstrap/start.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="1035">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/front/layout/base.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="555">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin/layout/base.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="1740">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/libraries/Access/Access.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2422" max-vertical-offset="3795">
@@ -1141,14 +1226,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Base.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15684411" vertical-offset="0" max-vertical-offset="1440">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/libraries/Validator/LaravelValidator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33284885" vertical-offset="581" max-vertical-offset="1485">
@@ -1169,22 +1246,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37063953" vertical-offset="0" max-vertical-offset="688">
           <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="10.0" vertical-offset="300" max-vertical-offset="1920">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/auth/register.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.12" vertical-offset="534" max-vertical-offset="1755">
-          <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -1237,6 +1298,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_02_03_233344_make_username_nullable_on_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6104651" vertical-offset="0" max-vertical-offset="688">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <marker date="1423006922000" expanded="true" signature="-1:-1" placeholder="ALTER TABLE users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/front/auth/register.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-25.625" vertical-offset="705" max-vertical-offset="1770">
@@ -1247,12 +1318,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_02_03_233344_make_username_nullable_on_users_table.php">
+    <entry file="file://$PROJECT_DIR$/app/models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30523255" vertical-offset="0" max-vertical-offset="688">
-          <caret line="15" column="56" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.042775664" vertical-offset="15" max-vertical-offset="1920">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6131179" vertical-offset="0" max-vertical-offset="1052">
+          <caret line="43" column="1" selection-start-line="0" selection-start-column="0" selection-end-line="43" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/auth/register.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.12" vertical-offset="534" max-vertical-offset="1755">
+          <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Admin/Users/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="81.25" vertical-offset="1950" max-vertical-offset="3420">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/database/migrations/2015_02_04_184119_create_children_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.875" vertical-offset="0" max-vertical-offset="675">
+          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Admin/Children/ChildrenController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="450">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.0494186" vertical-offset="752" max-vertical-offset="1440">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Children.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="225">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.4" vertical-offset="9635" max-vertical-offset="47280">
+          <caret line="677" column="22" selection-start-line="677" selection-start-column="22" selection-end-line="677" selection-end-column="22" />
           <folding>
-            <marker date="1423006922000" expanded="true" signature="258:309" placeholder="ALTER TABLE users..." />
+            <element signature="e#47#60#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin/children/children.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.940407" vertical-offset="238" max-vertical-offset="1080">
+          <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+          <folding>
+            <element signature="e#582#601#0#HTML" expanded="true" />
+            <element signature="e#1614#1641#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

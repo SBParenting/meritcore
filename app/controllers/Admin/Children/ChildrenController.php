@@ -17,9 +17,9 @@ class ChildrenController extends \BaseController {
 
 	public function getIndex()
 	{
-		return \View::make('admin.children.children');
+		$children = \Children::all();
+
+		return \View::make('admin.children.children')->with('children',$children);
 	}
 
 }
-
-
