@@ -154,6 +154,8 @@
 .form-head-text {width: 720px;}
 .btn-orange{background-color: #ff7000;
 			color: #fff;}
+.btn-orange:hover{background-color: #e36b14;
+					color: #eee!important;}
 
  #register-form-width { max-width: 460px;}
 
@@ -195,7 +197,7 @@
 }
 .ui-radio2 input[type="radio"] + span:hover {
   cursor: pointer;
-  
+
 }
 .ui-radio2 input[type="radio"]:disabled + span:hover {
   cursor: not-allowed;

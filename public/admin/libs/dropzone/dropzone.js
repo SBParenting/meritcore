@@ -307,7 +307,7 @@
                     acceptedMimeTypes: null,
                     autoProcessQueue: true,
                     autoQueue: true,
-                    addRemoveLinks: false,
+                    addRemoveLinks: true,
                     previewsContainer: null,
                     dictDefaultMessage: "",
                     dictFallbackMessage: "Your browser does not support drag'n'drop file uploads.",
