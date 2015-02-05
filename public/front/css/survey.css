@@ -145,6 +145,8 @@
 .add-child-form {background-image: url(/public/front/img/green-bg.png); 
 					background-size: cover;
 			}
+.form-bg {background-image: url(/public/front/img/grey-bg.png); 
+					background-size: cover; }
 .signup-area {
 	/*background-image: url('/public/admin/images/background/5.jpg') ;*/
 	background-color: #ccc;
@@ -179,7 +181,8 @@
 		float: inherit;
 		margin:auto;
 	}
-	.form-head-text { width: 400px;}
+	.form-head-text { width: 900px;
+						padding: 10px;}
 }
 
 .form-inner { position: relative; height: 100%; }
@@ -192,9 +195,11 @@
 }
 .ui-radio2 input[type="radio"] + span:hover {
   cursor: pointer;
+  
 }
 .ui-radio2 input[type="radio"]:disabled + span:hover {
   cursor: not-allowed;
+
 }
 .ui-radio2 input[type="radio"] {
   display: none;
@@ -298,7 +303,44 @@
 
 
 
-
-
-
+/* Line thru for Login and Register forms */
+.page-signin .line-thru2,
+.page-signup .line-thru2 {
+  margin: 1em 0;
+  display: block;
+  font-size: .875em;
+  font-weight: bold;
+  margin-bottom: 2em;
+  position: relative;
+  left: 125px;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+  color: #999;
+}
+.page-signin .line-thru2:before,
+.page-signup .line-thru2:before {
+height: 10px;
+/* background-color: rgba(0,0,0,0); */
+content: '';
+margin: -10px 0 0 -350px;
+left: 50%;
+position: absolute;
+top: 50%;
+z-index: -1;
+width: 175px;
+border-bottom: 1px solid #999;
+}
+.page-signin .line-thru2:after,
+.page-signup .line-thru2:after {
+ width: 175px;
+border-bottom: 1px solid #999;
+content: '';
+display: block;
+position: absolute;
+top: 49%;
+z-index: -2;
+left: 90%;
+}
+/* end */
 

@@ -13,7 +13,7 @@
 			</div>
 
 			<div class="survey-block survey-content page-signup">
-				<div class="survey-inner signup-area">
+				<div class="form-inner form-bg">
 					<div class="signup-body"></div>
 						<div class="container register-form">
 					<!--		<div class="form-container show-post-success closed">
@@ -28,7 +28,7 @@
 		        
 
 							<div class="form-container hide-post-success" id="register-form-width">
-								<div class="form-group form-head-text"><span class="line-thru">Fill in all the information to get back to your family journey </span></div>
+								<span class="line-thru2">Fill in all the information to get back to your family journey </span>
 
 									<section>
 										 {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
