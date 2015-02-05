@@ -45,11 +45,8 @@ class UserValidator extends LaravelValidator implements Validable
 	public function register()
 	{
 		$this->rules = array(
-			'first_name' => 'required',
-			'last_name'  => 'required',
-			'username'   => 'required|min:4|unique:users,username',
 			'email'      => 'required|email|unique:users,email',
-			'password'   => 'required|min:8|confirmed',
+			'password'   => 'required|min:8',
 		);
 
 		return $this;

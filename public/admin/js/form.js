@@ -25,10 +25,12 @@ jQuery(function() {
 				return e.which != 13;
 			});
 
-			$('.i-checks').iCheck({
-				checkboxClass: 'icheckbox_square-green',
-				radioClass: 'iradio_square-green',
-			});
+			if ($('.i-checks').length != 0) {
+				$('.i-checks').iCheck({
+					checkboxClass: 'icheckbox_square-green',
+					radioClass: 'iradio_square-green',
+				});
+			}
 
 			$('.get-form-avatar').off('change').on('change', function() {
 				if ($(this).val() != "")

@@ -11100,3 +11100,7 @@ left: 71%;
 .form-validation .ng-invalid.ng-dirty {
   border-color: #E94B3B;
 }
+
+.popover-content {
+  color:black!important;
+}

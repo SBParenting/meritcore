@@ -16,7 +16,7 @@
 				<div class="form-inner form-bg">
 					<div class="signup-body"></div>
 						<div class="container register-form">
-					<!--		<div class="form-container show-post-success closed">
+					<div class="form-container show-post-success closed" style="display:none">
 
 		               	<h3>Your account was created successfully!</h3>
 		        		<p>We sent an email verification message to your email address. In the meantime, you can continue to log in the site.</p>
@@ -24,8 +24,9 @@
 		        			<a href="{{ url('login') }}" class="btn btn-success">Log In</a>
 		        		</p>
 
-		        	</div> -->
-		     
+
+		        	</div>
+		        
 
 							<div class="form-container hide-post-success" id="register-form-width">
 								   <span class="line-thru2">Fill in all the information to get you family started</span>
@@ -86,7 +87,7 @@
 							
 							</div>
 
-						<div class="cycling-logos">Cycling logos </div>
+						<div class="cycling-logos hide-post-success">Cycling logos </div>
 						</div>			
 
 				</div>
@@ -99,5 +100,15 @@
 @section('css')
 
 {{ HTML::style("public/front/css/main.css") }}
+
+@stop
+
+@section('script')
+
+{{ HTML::script("public/admin/libs/jquery-form/jquery.form.min.js") }}
+
+{{ HTML::script("public/admin/js/api.js") }}
+{{ HTML::script("public/admin/js/app.js") }}
+{{ HTML::script("public/admin/js/form.js") }}
 
 @stop
