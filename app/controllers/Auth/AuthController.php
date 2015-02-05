@@ -9,7 +9,7 @@ class AuthController extends \Controller {
 	{
 		if (\Auth::check()) return \Redirect::to('/admin/dashboard');
 
-		return \View::make('auth.login');
+		return \View::make('front.auth.login');
 	}
 
 	public function postLogin()

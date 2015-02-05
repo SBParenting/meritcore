@@ -1543,7 +1543,7 @@ dd {
     white-space: nowrap;
   }
   .dl-horizontal dd {
-    margin-left: 180px;
+    margin-left: 0;
   }
 }
 
@@ -7488,14 +7488,14 @@ span.block {
 }
 .ui-radio input[type="radio"] + span:before {
   content: "";
-  width: 18px;
-  height: 18px;
+  width: 75px;
+  height: 82px;
   display: inline-block;
   vertical-align: middle;
   margin-right: 10px;
   margin-left: -20px;
-  background: white;
-  border-radius: 50%;
+  background-image: url(/public/front/img/boy-avatar.png);
+  border-radius: 
   border: 1px solid #ccc;
 }
 .ui-radio input[type="radio"]:disabled + span:before {
@@ -10462,33 +10462,36 @@ button.toast-close-button {
   display: block;
   font-size: .875em;
   font-weight: bold;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   position: relative;
   text-align: center;
   width: 100%;
   z-index: 1;
+  color: #FFF;
 }
 .page-signin .line-thru:before,
 .page-signup .line-thru:before {
-  width: 50px;
-  height: 10px;
-  background-color: 
-  content: '';
-  margin: -5px 0 0 -20px;
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  z-index: -1;
+height: 10px;
+/* background-color: rgba(0,0,0,0); */
+content: '';
+margin: -10px 0 0 -350px;
+left: 50%;
+position: absolute;
+top: 50%;
+z-index: -1;
+width: 200px;
+border-bottom: 1px solid #fff;
 }
 .page-signin .line-thru:after,
 .page-signup .line-thru:after {
-  width: 100%;
-  border-bottom: 1px solid #d9d9d9;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 49%;
-  z-index: -2;
+ width: 200px;
+border-bottom: 1px solid #FFF;
+content: '';
+display: block;
+position: absolute;
+top: 49%;
+z-index: -2;
+left: 71%;
 }
 
 .page-profile img.media-object {
