@@ -16,7 +16,7 @@
     {{ HTML::style("public/front/fonts/style.css") }}
     {{ HTML::style("public/front/css/survey.css") }}
     {{ HTML::script("public/front/libs/modernizr/modernizr.js") }}
-    {{HTML::script("public/admin/libs/datapicker/datepicker3.css")}}
+    {{HTML::style("public/admin/libs/datapicker/datepicker3.css")}}
     {{HTML::script("public/admin/libs/dropzone/dropzone.css")}}
     @yield('css')
 

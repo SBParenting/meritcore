@@ -55,8 +55,10 @@
 												<img src="/public/front/img/cake-icon.png" width="19px" height="20px">
 
 											 </span>
-											 <input type="text" class="form-control" id="cal" placeholder="Birth Date*">								 			
+											 <input type="text" class="form-control" id="cal" placeholder="Birth Date*">	
+										
 											 	</div>
+											 	
 											 	</div>
 
 											 		
@@ -72,7 +74,7 @@
 
 																					 
 												<label class="ui-radio">
-											 <input type="radio" id="male" name="radio2" value="option2">
+											 <input type="radio" id="male" name="radio1" value="option2">
 											       <span></span>
 											 	</label>
 											 	<span id="calculate-age">?</span><span class="text">years old</span>
