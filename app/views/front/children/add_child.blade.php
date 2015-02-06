@@ -52,13 +52,13 @@
 											<div class="input-group input-group-lg">
 												
 											<span class="input-group-addon">
-												<img src="/public/front/img/cake-icon.png" width="19px" height="20px">
+												<img src="/public/front/img/cake-icon.png" width="20px" height="20px">
 
 											 </span>
-											 <input type="text" class="form-control" id="cal" placeholder="Birth Date*">	
+											 <input type="text" class="form-control cal-icon" id="cal" placeholder="Birth Date*">	
 										
 											 	</div>
-											 	
+											 		
 											 	</div>
 
 											 		
