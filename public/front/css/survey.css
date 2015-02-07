@@ -302,7 +302,18 @@
 					background-repeat: no-repeat;
 					background-position: center;}
 
-.child-name { padding: 8px;}
+
+.child-selected { width: 90px;
+					margin-top: 8px;
+					border-radius: 8px;
+					height: 85px;
+					border: 2px solid black;
+					background-image: url(/public/front/img/question-mark.png);
+					background-repeat: no-repeat;
+					background-position: center;}
+
+.child-name { padding: 8px;
+				color: black;}
 
 
 
@@ -343,7 +354,7 @@ display: block;
 position: absolute;
 top: 49%;
 z-index: -2;
-left: 88%;
+left: 85%;
 }
 /* end */
 
@@ -424,11 +435,25 @@ display: none;
 display: none;
 }
 
-
-
 }
 
 
 
+.purchase-app-btn { padding: 20px;}
+.purchase-app-btn button { padding: 20px;
+							border-radius: 3px;}
+
+.select-child { position: relative;
+				left: 4.5%;}
+
+.select-child-mouseover:hover {background: url(/public/front/img/add-child-mouseover.png);
+								background-position: center ;
+									background-size: 450px;
+									background-repeat: no-repeat;}
 
 
+	@media (max-width: 619px) {
+
+.child-selected { display: none;
+
+	 }
