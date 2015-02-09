@@ -10,12 +10,10 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('children/add' , function(){
+Route::get('children/add','Controllers\Admin\Children\ChildrenController@getAdd');
+Route::post('children/add','Controllers\Admin\Children\ChildrenController@postAdd');
 
-	return View::make('front.children.add_child');
-
-
-});
+Route::post('file-upload','Controllers\Admin\Children\ChildrenController@uploadImage');
 
 
 Route::get('survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndex');

@@ -23,7 +23,6 @@
 		        		<p>
 		        			<a href="{{ url('login') }}" class="btn btn-success">Log In</a>
 		        		</p>
-
 		        	</div>
 							<div class="form-container hide-post-success" id="register-form-width">
 								   <span class="line-thru2">Fill in all the information to get you family started</span>

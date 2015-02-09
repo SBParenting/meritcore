@@ -43,7 +43,7 @@
 											<span class=" glyphicon glyphicon-user"></span>
 
 											 </span>
-											  {{ Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'First Name', 'autocomplete' => 'Off']) }}
+											  {{ Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'First Name*', 'autocomplete' => 'Off']) }}
 											</div>
 
 										</div>
@@ -55,7 +55,7 @@
 												<img src="/public/front/img/cake-icon.png" width="19px" height="20px">
 
 											 </span>
-											 <input type="text" class="form-control" id="cal" placeholder="Birth Date">								 			
+											 <input type="text" class="form-control" id="cal" placeholder="Birth Date*">								 			
 											 	</div>
 											 	</div>
 
@@ -72,7 +72,7 @@
 
 																					 
 												<label class="ui-radio">
-											 <input type="radio" id="male" name="radio2" value="option2">
+											 <input type="radio" id="male" name="radio1" value="option2">
 											       <span></span>
 											 	</label>
 											 	<span id="calculate-age">?</span><span class="text">years old</span>
@@ -134,8 +134,20 @@
 
 <script type="text/javascript">
 
-$('#cal').datepicker();
- </script>
+$('#cal').datepicker().on('change', function(e) { 
+
+	var currentDate = new Date(); 
+	var selectedDate = new Date($(this).val()); 
+	var age = currentDate.getFullYear() - selectedDate.getFullYear(); 
+	var m = currentDate.getMonth() - selectedDate.getMonth(); 
+	if (m < 0 || (m === 0 && currentDate.getDate() < selectedDate.getDate())) { 
+		age--; 
+	} 
+	$('#calculate-age').html(age); });;
+
+
+
+</script>
 @stop
 
 

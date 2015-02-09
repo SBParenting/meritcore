@@ -7505,14 +7505,14 @@ span.block {
 }
 .ui-radio input[type="radio"]:checked + span:after {
   content: "";
-  width: 8px;
-  height: 8px;
+  width: 75px;
+  height: 82px;
   position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #1C7EBB;
-  border-radius: 50%;
+  top: 0px;
+  left: -20px;
+  border-radius: 9%;
   display: block;
+  border: 5px solid #1C7EBB;
 }
 .ui-radio input[type="radio"]:disabled:checked + span:after {
   opacity: .65;

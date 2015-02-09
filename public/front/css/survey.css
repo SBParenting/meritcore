@@ -154,6 +154,8 @@
 .form-head-text {width: 720px;}
 .btn-orange{background-color: #ff7000;
 			color: #fff;}
+.btn-orange:hover{background-color: #e36b14;
+					color: #eee!important;}
 
  #register-form-width { max-width: 460px;}
 
@@ -183,6 +185,11 @@
 	}
 	.form-head-text { width: 900px;
 						padding: 10px;}
+
+	#dropzone form {
+		float:inherit;
+		margin-top:0;
+	}
 }
 
 .form-inner { position: relative; height: 100%; }
@@ -195,7 +202,7 @@
 }
 .ui-radio2 input[type="radio"] + span:hover {
   cursor: pointer;
-  
+
 }
 .ui-radio2 input[type="radio"]:disabled + span:hover {
   cursor: not-allowed;
@@ -226,14 +233,14 @@
 }
 .ui-radio2 input[type="radio"]:checked + span:after {
   content: "";
-  width: 8px;
-  height: 8px;
+  width: 75px;
+  height: 82px;
   position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #1C7EBB;
-  border-radius: 50%;
+  top: 0px;
+  left: -20px;
+  border-radius: 9%;
   display: block;
+  border: 5px solid #1C7EBB;
 }
 .ui-radio2 input[type="radio"]:disabled:checked + span:after {
   opacity: .65;

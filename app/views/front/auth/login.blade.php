@@ -40,7 +40,7 @@
 											<span class=" glyphicon glyphicon-envelope"></span>
 
 											 </span>
-											  {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email', 'autocomplete' => 'Off']) }}
+											  {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Email', 'autocomplete' => 'Off']) }}
 											</div>
 
 										</div>
@@ -88,6 +88,15 @@
 
 		</div>
 	</div>
+@stop
+@section('script')
+
+	{{ HTML::script("public/admin/libs/jquery-form/jquery.form.min.js") }}
+
+{{ HTML::script("public/admin/js/api.js") }}
+{{ HTML::script("public/admin/js/app.js") }}
+{{ HTML::script("public/admin/js/form.js") }}
+
 @stop
 
 @section('css')

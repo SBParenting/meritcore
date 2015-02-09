@@ -22,4 +22,25 @@ class ChildrenController extends \BaseController {
 		return \View::make('admin.children.children')->with('children',$children);
 	}
 
+	public function uploadImage()
+	{
+		$input = \Input::file('file');
+
+		$extension = $input->getClientOriginalExtension();
+
+		$filename = str_random(32).'.'.$extension;
+
+		$input->move('uploads/children/',$filename);
+
+		return 'uploads/children/'.$filename;
+	}
+
+	public function getAdd() {
+		return \View::make('front.children.add_child');
+	}
+
+	public function postAdd() {
+		return json_encode(\Input::all());
+	}
+
 }
