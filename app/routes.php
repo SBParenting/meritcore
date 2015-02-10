@@ -15,6 +15,12 @@ Route::post('children/add','Controllers\Admin\Children\ChildrenController@postAd
 
 Route::post('file-upload','Controllers\Admin\Children\ChildrenController@uploadImage');
 
+Route::get('children/select' , function(){
+
+	return View::make('front.children.select_child');
+
+});
+
 
 Route::get('survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
 

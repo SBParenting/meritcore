@@ -259,7 +259,8 @@
 		color: #444444;}
 
 		 .id-input{ width: 62%!important;	
-		 			margin-right: 12px;}
+		 			margin-right: 12px;
+		 		}
 
 
 		.id-text{
@@ -306,7 +307,18 @@
 					background-repeat: no-repeat;
 					background-position: center;}
 
-.child-name { padding: 8px;}
+
+.child-selected { width: 90px;
+					margin-top: 8px;
+					border-radius: 8px;
+					height: 85px;
+					border: 2px solid black;
+					background-image: url(/public/front/img/question-mark.png);
+					background-repeat: no-repeat;
+					background-position: center;}
+
+.child-name { padding: 8px;
+				color: black;}
 
 
 
@@ -347,7 +359,105 @@ display: block;
 position: absolute;
 top: 49%;
 z-index: -2;
-left: 90%;
+left: 85%;
 }
 /* end */
 
+.cal-icon {
+	background-image: url(/public/front/img/calendar-icon.png)!important;
+	background-position:  right 10px center;
+	background-repeat: no-repeat;
+}
+
+
+@media (max-width: 1202px) {
+.page-signin .line-thru2,
+.page-signup .line-thru2 {
+  margin: 1em 0;
+  display: block;
+  font-size: .875em;
+  font-weight: bold;
+  margin-bottom: 2em;
+  position: relative;
+  left: 5px;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+  color: #999;
+}
+.page-signin .line-thru2:before,
+.page-signup .line-thru2:before {
+height: 10px;
+/* background-color: rgba(0,0,0,0); */
+content: '';
+margin: -10px 0 0 -350px;
+left: 80%;
+position: absolute;
+top: 50%;
+z-index: -1;
+width: 25px;
+border-bottom: 1px solid #999;
+}
+.page-signin .line-thru2:after,
+.page-signup .line-thru2:after {
+ width: 25px;
+border-bottom: 1px solid #999;
+content: '';
+display: block;
+position: absolute;
+top: 49%;
+z-index: -2;
+left: 90%;
+}
+	
+}
+
+@media (max-width: 475px) {
+.page-signin .line-thru2,
+.page-signup .line-thru2 {
+  margin: 1em 0;
+  display: block;
+  font-size: .875em;
+  font-weight: bold;
+  margin-bottom: 2em;
+  position: relative;
+  left: 5px;
+  text-align: center;
+  width: 100%;
+  z-index: 1;
+  color: #999;
+}
+.page-signin .line-thru2:before,
+.page-signup .line-thru2:before {
+display: none;
+}
+.page-signin .line-thru2:after,
+.page-signup .line-thru2:after {
+display: none;
+}
+
+}
+
+
+
+.purchase-app-btn { padding: 20px;}
+.purchase-app-btn button { padding: 20px;
+							border-radius: 3px;}
+
+.select-child { position: relative;
+				left: 4.5%;}
+
+.select-child-mouseover:hover {
+	background: url(/public/front/img/add-child-mouseover.png);
+	background-position: center ;
+	background-size: 450px;
+	background-repeat: no-repeat;
+}
+
+
+	@media (max-width: 619px) {
+
+		.child-selected {
+			display: none;
+		}
+	}

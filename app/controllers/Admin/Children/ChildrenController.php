@@ -32,7 +32,7 @@ class ChildrenController extends \BaseController {
 
 		$input->move('uploads/children/',$filename);
 
-		return 'uploads/children/'.$filename;
+		return \Response::json(['result'=>true,'msg'=>'uploads/children/'.$filename]);
 	}
 
 	public function getAdd() {
@@ -40,7 +40,20 @@ class ChildrenController extends \BaseController {
 	}
 
 	public function postAdd() {
-		return json_encode(\Input::all());
+		$child = new \Child;
+
+		$val = $child->validator()->with(\Input::all())->action('create');
+
+		if (!$val->passes()) {
+			return $val->toJsonResponse();
+		} else {
+			$child->fill($val->data());
+			$child->save();
+
+			return \Response::json(['result' => true, 'msg' => trans('crud.success_added') ]);
+		}
+
+		return \Response::json(['result' => false, 'msg' => trans('crud.failed_added')]);
 	}
 
 }

@@ -11104,3 +11104,30 @@ left: 71%;
 .popover-content {
   color:black!important;
 }
+
+.dz-preview {
+    margin-top:-22px!important;
+    margin-left:-22px!important;
+    width: 342px;
+    height: 372px;
+}
+
+.dropzone .dz-preview .dz-details {
+    width: 330px;
+    height: 304px;
+}
+
+.dropzone .dz-preview .dz-details img {
+    width: 330px;
+    height: 304px;
+}
+
+.dropzone {
+    background: url('/public/front/img/change-avatar.png')!important;
+    background-size: 100%;
+}
+
+.dropzone:hover {
+    border: 4px hidden #ff7000;
+    border-radius:10px;
+}
