@@ -127,6 +127,7 @@
 .survey-row td .connector.first 		{ left: 50%; width: 50%; }
 .survey-row td .connector.last 			{ width: 50%; }
 
+
 @media (max-width: 992px) {
 	.survey-header .logo img 		{ width: 150px; }
 	.survey-header h1 				{ font-size: 26pt; }
@@ -140,6 +141,66 @@
 	.survey-header .header-link 	{ line-height: 20px; }	
 	.survey-header .header-link i	{ font-size: 20px; }
 }
+
+
+.progress-blue {background-color: #247fb9;
+				border-bottom-left-radius: 2em;
+				border-top-left-radius: 2em;
+
+			}
+
+
+.progress-green {background-color: #1d5c2e;
+					 }
+.progress-bar-container {border: 1px solid white;
+							border-radius: 2em;
+						background-color: #96b09d;}
+
+				
+
+.question-strength {width: 100%;
+					height: 5%;
+					background-color: #d7f0f2;
+					color: #777777;
+					}
+.question-strength ul li{list-style-type: none;
+	display: inline-block;
+		position: relative;
+		font-size: 15px;
+		left: 40%;
+		padding-left: 80px;}
+
+		.question-strength ul li span{	display: block;
+			width:70px;
+			padding: none;}
+
+			.question-strength ul li:nth-child(2){ position: relative;
+													top: -10px;
+
+			;}
+			.question-strength ul li:nth-child(3){ position: relative;
+													top: -10px;
+			;}
+			.question-strength ul li:nth-child(4){ position: relative;
+													top: -10px;
+			;}
+
+
+
+
+
+.btn-container {margin-top: 30px;
+
+	width: 100%;
+background: url(../img/bg.jpg) center no-repeat; background-size: cover;}
+
+.btn-container .btn-right {margin-right: 21%;
+							margin-top: 5px;}
+.btn-container .btn-left {margin-left: 21%;
+							margin-top: 5px;}
+
+
+
 
 
 .add-child-form {background-image: url(/public/front/img/green-bg.png); 
@@ -354,7 +415,7 @@ display: block;
 position: absolute;
 top: 49%;
 z-index: -2;
-left: 85%;
+left: 90%;
 }
 /* end */
 
@@ -406,7 +467,7 @@ display: block;
 position: absolute;
 top: 49%;
 z-index: -2;
-left: 90%;
+left: 95%;
 }
 	
 }
@@ -454,6 +515,6 @@ display: none;
 
 	@media (max-width: 619px) {
 
-.child-selected { display: none;
+.child-selected { display:;
 
 	 }

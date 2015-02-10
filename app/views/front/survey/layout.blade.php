@@ -42,6 +42,7 @@
     {{ HTML::script("public/front/js/survey.js") }}
     {{HTML::script("public/admin/libs/datapicker/bootstrap-datepicker.js")}}
     {{HTML::script("public/admin/libs//dropzone/dropzone.js")}}
+    {{HTML::script("public/front/libs/flipster/src/js/jquery.flipster.js")}}
     @yield('script')
 
 </body>
