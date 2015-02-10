@@ -11131,3 +11131,24 @@ left: 71%;
     border: 4px hidden #ff7000;
     border-radius:10px;
 }
+
+.has-error dd {
+    position:relative;
+}
+
+.error {
+    display:none;
+}
+
+.has-error .error {
+    width: 19px;
+    height: 19px;
+    border-radius: 30px;
+    background: #B13D31;
+    display: inline-block;
+    position:absolute;
+    left:-10px;
+    top:-10px;
+    padding-left:6px;
+    font-weight: bold;
+}

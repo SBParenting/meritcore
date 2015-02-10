@@ -50,7 +50,7 @@
 							</div>
 
 							<div class="radio-buttons">
-								<dl class="dl-horizontal">
+								<dl class="dl-horizontal" data-name="sex">
 									<dd>
 										<label class="ui-radio2">
 											<input type="radio"  id="female" name="sex" value="female">
@@ -61,6 +61,7 @@
 											<input type="radio" id="male" name="sex" value="male">
 											<span></span>
 										</label>
+                                        <span class="error">x</span>
 										<span id="calculate-age">?</span><span class="text">years old</span>
 									</dd>
 								</dl>
