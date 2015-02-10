@@ -11,7 +11,7 @@ class RemindersController extends \Controller {
 	 */
 	public function getRemind()
 	{
-		return \View::make('auth.remind');
+		return \View::make('front.auth.remind');
 	}
 
 	/**

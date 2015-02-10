@@ -13,55 +13,28 @@
 					</td>
 					<td>{{ $question->question }}</td>
 					<td>
+						<div class="slider slider-horizontal">
+							<div class="slider-track">
+								<div class="slider-selection" style="left: 0%; width: 80%;"> </div>
+								<div class="slider-handle min-slider-handle round" tabindex="0" style="left 90%; "></div>
+								<div class=" slider-handle max-slider-handle round hide"></div>
+							</div>
+
+
+						</div>
 						
-						<span class="circle-selector fa-stack fa-lg">
-							<span class="connector first"></span>
-							<i class="fa fa-circle fa-stack-2x bg"></i>
-							<i class="fa fa-circle fa-stack-2x border"></i>
-							<div class="fa fa-circle selector" data-url="{{ url('api.survey.save') }}" data-value="1" data-question-id="{{ $question->id }}"></div>
-						</span>
-						<br />
-						strongly agree
 					</td>
 					<td>
-						<span class="circle-selector fa-stack fa-lg">
-							<span class="connector"></span>
-							<i class="fa fa-circle fa-stack-2x bg"></i>
-							<i class="fa fa-circle fa-stack-2x border"></i>
-							<div class="fa fa-circle selector" data-url="{{ url('api.survey.save') }}" data-value="2" data-question-id="{{ $question->id }}"></div>
-						</span>
-						<br />
-						agree
+						
 					</td>
 					<td>
-						<span class="circle-selector fa-stack fa-lg" style="position: relative;">
-							<span class="connector"></span>
-							<i class="fa fa-circle fa-stack-2x bg"></i>
-							<i class="fa fa-circle fa-stack-2x border"></i>
-							<div class="fa fa-circle selector" data-url="{{ url('api.survey.save') }}" data-value="3" data-question-id="{{ $question->id }}"></div>
-						</span>
-						<br />
-						not sure
+						
 					</td>
 					<td>
-						<span class="circle-selector fa-stack fa-lg">
-							<span class="connector"></span>
-						  	<i class="fa fa-circle fa-stack-2x bg"></i>
-						  	<i class="fa fa-circle fa-stack-2x border"></i>
-						  	<div class="fa fa-circle selector" data-url="{{ url('api.survey.save') }}" data-value="4" data-question-id="{{ $question->id }}"></div>
-						</span>
-						<br />
-						disagree
+					
 					</td>
 					<td>
-						<span class="circle-selector fa-stack fa-lg">
-							<span class="connector last"></span>
-						  	<i class="fa fa-circle fa-stack-2x bg"></i>
-						  	<i class="fa fa-circle fa-stack-2x border"></i>
-						  	<div class="fa fa-circle selector" data-url="{{ url('api.survey.save') }}" data-value="5" data-question-id="{{ $question->id }}"></div>
-						</span>
-						<br />
-						strongly disagree
+				
 					</td>
 				</tr>
 			</table>
