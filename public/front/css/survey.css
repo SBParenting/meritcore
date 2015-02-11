@@ -167,8 +167,7 @@
 					margin: 0;
 					border-top: 1px solid black;
 					}
-.question-strength ul li a {background: url(/public/front/img/green-bg.png); 
-							background-position: center ;
+.question-strength ul li a {
 
 							padding-left: 50px;
 							padding-right: 50px;
@@ -180,31 +179,24 @@
 
 		.question-strenght ul {height: 100%;}					
 
-.question-strength ul li{list-style-type: none;
+.question-strength ul li{
+    list-style-type: none;
 	display: inline-block;
-		text-align: center;
-		position: relative;
-		font-size: 15px;
-		
-		left: 40%;
-		height: 100%;
-	
-		
-		
-		}
+    text-align: center;
+    position: relative;
+    font-size: 15px;
+    background: url(/public/front/img/green-bg.png) center;
+    left: 40%;
+    height: 100%;
+}
 
 
-			.question-strength ul li:nth-child(2){ position: relative;
-													top: -10px; 
-
-
-			;}
-			.question-strength ul li:nth-child(3){ position: relative;
-													top: -10px;
-			;}
-			.question-strength ul li:nth-child(4){ position: relative;
-													top: -10px;
-			;}
+.question-strength ul li:nth-child(2), .question-strength ul li:nth-child(3), .question-strength ul li:nth-child(4){
+    position: relative;
+    top: -21px;
+    padding-left: 10.5px;
+    padding-right: 10.5px;
+}
 
 
 

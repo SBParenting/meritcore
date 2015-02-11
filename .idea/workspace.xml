@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d3d86b7-72eb-43b5-8dc5-565cf5fd4187" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/front/auth/reset.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Auth/RemindersController.php" afterPath="$PROJECT_DIR$/app/controllers/Auth/RemindersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/auth/register.blade.php" afterPath="$PROJECT_DIR$/app/views/front/auth/register.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/auth/remind.blade.php" afterPath="$PROJECT_DIR$/app/views/front/auth/remind.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/survey.css" afterPath="$PROJECT_DIR$/public/front/css/survey.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="meritcore.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,8 +106,8 @@
       <file leaf-file-name="survey.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/front/css/survey.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.91635686" vertical-offset="7174" max-vertical-offset="8250">
-              <caret line="544" column="1" selection-start-line="544" selection-start-column="1" selection-end-line="544" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.24907063" vertical-offset="2282" max-vertical-offset="8130">
+              <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -979,12 +973,12 @@
       <workItem from="1421881403861" duration="547000" />
       <workItem from="1422997424858" duration="33454000" />
       <workItem from="1423517051440" duration="1080000" />
-      <workItem from="1423518279030" duration="33071000" />
+      <workItem from="1423518279030" duration="34182000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79835000" />
+    <option name="totallyTimeSpent" value="80946000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1173" extended-state="6" />
@@ -1367,18 +1361,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/front/auth/remind.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.958334" vertical-offset="268" max-vertical-offset="1320">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding>
-            <element signature="e#618#640#0#HTML" expanded="true" />
-            <element signature="e#1112#1132#0#HTML" expanded="true" />
-            <element signature="e#1187#1207#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/auth/reset.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.74334604" vertical-offset="103" max-vertical-offset="1170">
@@ -1424,10 +1406,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/front/auth/remind.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.958334" vertical-offset="268" max-vertical-offset="1320">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="e#618#640#0#HTML" expanded="true" />
+            <element signature="e#1112#1132#0#HTML" expanded="true" />
+            <element signature="e#1187#1207#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/front/css/survey.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91635686" vertical-offset="7174" max-vertical-offset="8250">
-          <caret line="544" column="1" selection-start-line="544" selection-start-column="1" selection-end-line="544" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.24907063" vertical-offset="2282" max-vertical-offset="8130">
+          <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
           <folding />
         </state>
       </provider>
