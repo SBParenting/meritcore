@@ -104,13 +104,13 @@
 .survey-row .container 					{ height: 100%; }
 .survey-row table 						{ width: 100%; height: inherit; border-collapse: none; }
 .survey-row td 							{ text-align: center; position: relative; vertical-align: middle; }
-.survey-row td:first-child 				{ width: 12.5%; } 	
-.survey-row td:nth-child(2)				{ width: 25%; font-size: 12pt; } 	
-.survey-row td:nth-child(3)				{ width: 12.5%; white-space: nowrap; } 	
-.survey-row td:nth-child(4)				{ width: 12.5%; white-space: nowrap; } 	
-.survey-row td:nth-child(5)				{ width: 12.5%; white-space: nowrap; } 	
-.survey-row td:nth-child(6)				{ width: 12.5%; white-space: nowrap; } 	
-.survey-row td:nth-child(7)				{ width: 12.5%; white-space: nowrap; } 	
+.survey-row td:first-child 				{ width: 8.5%; } 	
+.survey-row td:nth-child(2)				{ width: 15%; font-size: 12pt; padding-right: 35px;} 	
+.survey-row td:nth-child(3)				{ width: 100% white-space: nowrap; } 	
+.survey-row td:nth-child(4)				{  white-space: nowrap; } 	
+.survey-row td:nth-child(5)				{  white-space: nowrap; } 	
+.survey-row td:nth-child(6)				{  white-space: nowrap; } 	
+.survey-row td:nth-child(7)				{  white-space: nowrap; } 	
 
 .circle-number  						{ text-align: center; width: 60pt; height: auto; }
 .survey-row .done .circle-number  		{ opacity: 0.4; }
@@ -154,7 +154,8 @@
 					 }
 .progress-bar-container {border: 1px solid white;
 							border-radius: 2em;
-						background-color: #96b09d;}
+						background-color: #96b09d;
+						box-shadow: 1px 1px 10px 1px  #666;}
 
 				
 
@@ -518,3 +519,6 @@ display: none;
 .child-selected { display:;
 
 	 }
+
+
+
