@@ -29,11 +29,11 @@
 			<div class="survey-block survey-content">
 			<div class="question-strength">
 			<ul> 
-			<li><span>strongly agree<span></li>
-			<li class="list-item">agree</li>
-			<li class="list-item">not sure</li>
-			<li class="list-item">disagree</li>
-			<li><span>strongly disagree</span></li>
+			<li class="list-item" id="strongly-agree"><a>strongly <br/> agree</a></li>
+			<li class="list-item" id="agree"><a>agree</a></li>
+			<li class="list-item" id="not-sure"><a>not sure</a></li>
+			<li class="list-item" id="disagree"><a>disagree</a></li>
+			<li class="list-item" id="strongly-disagree"><a>strongly<br> disagree</a></li>
 
 
 

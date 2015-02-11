@@ -7,6 +7,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/auth/register.blade.php" afterPath="$PROJECT_DIR$/app/views/front/auth/register.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/auth/remind.blade.php" afterPath="$PROJECT_DIR$/app/views/front/auth/remind.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/survey.css" afterPath="$PROJECT_DIR$/public/front/css/survey.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="meritcore.iws" />
@@ -31,127 +32,117 @@
     <favorites_list name="meritcore" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="add_child.blade.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/front/children/add_child.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-28.75" vertical-offset="255" max-vertical-offset="2265">
-                  <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
-                  <folding>
-                    <element signature="e#3454#3475#0#HTML" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ChildrenController.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/controllers/Admin/Children/ChildrenController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-21.875" vertical-offset="0" max-vertical-offset="1065">
-                  <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="select_child.blade.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/front/children/select_child.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-30.708334" vertical-offset="493" max-vertical-offset="1560">
-                  <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/routes.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="900">
-                  <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/controllers/Auth/AuthController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="990">
-                  <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="156" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="RemindersController.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/controllers/Auth/RemindersController.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-26.875" vertical-offset="0" max-vertical-offset="1275">
-                  <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="remind.blade.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/front/auth/remind.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-21.958334" vertical-offset="268" max-vertical-offset="1320">
-                  <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#618#640#0#HTML" expanded="true" />
-                    <element signature="e#1112#1132#0#HTML" expanded="true" />
-                    <element signature="e#1187#1207#0#HTML" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="reset.blade.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/views/front/auth/reset.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.256654" vertical-offset="0" max-vertical-offset="1560">
-                  <caret line="18" column="119" selection-start-line="18" selection-start-column="97" selection-end-line="18" selection-end-column="119" />
-                  <folding>
-                    <element signature="e#341#381#0#HTML" expanded="true" />
-                    <element signature="e#748#791#0#HTML" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="login.blade.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/front/auth/login.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1665">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="register.blade.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/views/front/auth/register.blade.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.256654" vertical-offset="0" max-vertical-offset="1725">
-                  <caret line="18" column="115" selection-start-line="18" selection-start-column="115" selection-end-line="18" selection-end-column="115" />
-                  <folding>
-                    <element signature="e#593#636#0#HTML" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="add_child.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/front/children/add_child.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-28.75" vertical-offset="255" max-vertical-offset="2265">
+              <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
+              <folding>
+                <element signature="e#3454#3475#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChildrenController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Admin/Children/ChildrenController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.875" vertical-offset="0" max-vertical-offset="1065">
+              <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="select_child.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/front/children/select_child.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-30.708334" vertical-offset="493" max-vertical-offset="1560">
+              <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.75" vertical-offset="0" max-vertical-offset="900">
+              <caret line="22" column="64" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AuthController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Auth/AuthController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="990">
+              <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="156" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RemindersController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Auth/RemindersController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-26.875" vertical-offset="0" max-vertical-offset="1275">
+              <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="remind.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/front/auth/remind.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.958334" vertical-offset="268" max-vertical-offset="1320">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding>
+                <element signature="e#618#640#0#HTML" expanded="true" />
+                <element signature="e#1112#1132#0#HTML" expanded="true" />
+                <element signature="e#1187#1207#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="survey.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/front/css/survey.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.91635686" vertical-offset="7174" max-vertical-offset="8250">
+              <caret line="544" column="1" selection-start-line="544" selection-start-column="1" selection-end-line="544" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reset.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/front/auth/reset.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="1560">
+              <caret line="18" column="119" selection-start-line="18" selection-start-column="97" selection-end-line="18" selection-end-column="119" />
+              <folding>
+                <element signature="e#341#381#0#HTML" expanded="true" />
+                <element signature="e#748#791#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/front/auth/login.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1665">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -180,7 +171,6 @@
         <option value="$PROJECT_DIR$/public/admin/js/form.js" />
         <option value="$PROJECT_DIR$/app/views/front/children/add_child.blade.php" />
         <option value="$PROJECT_DIR$/public/front/css/main.css" />
-        <option value="$PROJECT_DIR$/public/front/css/survey.css" />
         <option value="$PROJECT_DIR$/public/admin/js/api.js" />
         <option value="$PROJECT_DIR$/app/controllers/Admin/Children/ChildrenController.php" />
         <option value="$PROJECT_DIR$/app/views/front/children/select_child.blade.php" />
@@ -189,6 +179,7 @@
         <option value="$PROJECT_DIR$/app/controllers/Auth/RemindersController.php" />
         <option value="$PROJECT_DIR$/app/views/front/auth/reset.blade.php" />
         <option value="$PROJECT_DIR$/app/views/front/auth/register.blade.php" />
+        <option value="$PROJECT_DIR$/public/front/css/survey.css" />
       </list>
     </option>
   </component>
@@ -239,6 +230,60 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="meritcore" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="front" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -934,12 +979,12 @@
       <workItem from="1421881403861" duration="547000" />
       <workItem from="1422997424858" duration="33454000" />
       <workItem from="1423517051440" duration="1080000" />
-      <workItem from="1423518279030" duration="32684000" />
+      <workItem from="1423518279030" duration="33071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79448000" />
+    <option name="totallyTimeSpent" value="79835000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1173" extended-state="6" />
@@ -1240,14 +1285,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/front/css/survey.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.914204" vertical-offset="6886" max-vertical-offset="7935">
-          <caret line="523" column="1" selection-start-line="523" selection-start-column="1" selection-end-line="523" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/admin/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8985">
@@ -1366,9 +1403,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/front/auth/register.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.256654" vertical-offset="0" max-vertical-offset="1725">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding>
+            <element signature="e#593#636#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/front/auth/reset.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.256654" vertical-offset="0" max-vertical-offset="1560">
+        <state vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="1560">
           <caret line="18" column="119" selection-start-line="18" selection-start-column="97" selection-end-line="18" selection-end-column="119" />
           <folding>
             <element signature="e#341#381#0#HTML" expanded="true" />
@@ -1377,13 +1424,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/front/auth/register.blade.php">
+    <entry file="file://$PROJECT_DIR$/public/front/css/survey.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.256654" vertical-offset="0" max-vertical-offset="1725">
-          <caret line="18" column="115" selection-start-line="18" selection-start-column="115" selection-end-line="18" selection-end-column="115" />
-          <folding>
-            <element signature="e#593#636#0#HTML" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.91635686" vertical-offset="7174" max-vertical-offset="8250">
+          <caret line="544" column="1" selection-start-line="544" selection-start-column="1" selection-end-line="544" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>

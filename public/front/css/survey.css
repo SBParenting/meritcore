@@ -104,13 +104,13 @@
 .survey-row .container 					{ height: 100%; }
 .survey-row table 						{ width: 100%; height: inherit; border-collapse: none; }
 .survey-row td 							{ text-align: center; position: relative; vertical-align: middle; }
-.survey-row td:first-child 				{ width: 12.5%; } 	
-.survey-row td:nth-child(2)				{ width: 25%; font-size: 12pt; } 	
-.survey-row td:nth-child(3)				{ width: 12.5%; white-space: nowrap; } 	
-.survey-row td:nth-child(4)				{ width: 12.5%; white-space: nowrap; } 	
-.survey-row td:nth-child(5)				{ width: 12.5%; white-space: nowrap; } 	
-.survey-row td:nth-child(6)				{ width: 12.5%; white-space: nowrap; } 	
-.survey-row td:nth-child(7)				{ width: 12.5%; white-space: nowrap; } 	
+.survey-row td:first-child 				{ width: 8.5%; } 	
+.survey-row td:nth-child(2)				{ width: 15%; font-size: 12pt; padding-right: 35px;} 	
+.survey-row td:nth-child(3)				{ width: 100% white-space: nowrap; } 	
+.survey-row td:nth-child(4)				{  white-space: nowrap; } 	
+.survey-row td:nth-child(5)				{  white-space: nowrap; } 	
+.survey-row td:nth-child(6)				{  white-space: nowrap; } 	
+.survey-row td:nth-child(7)				{  white-space: nowrap; } 	
 
 .circle-number  						{ text-align: center; width: 60pt; height: auto; }
 .survey-row .done .circle-number  		{ opacity: 0.4; }
@@ -154,7 +154,8 @@
 					 }
 .progress-bar-container {border: 1px solid white;
 							border-radius: 2em;
-						background-color: #96b09d;}
+						background-color: #96b09d;
+						box-shadow: 1px 1px 10px 1px  #666;}
 
 				
 
@@ -162,20 +163,40 @@
 					height: 5%;
 					background-color: #d7f0f2;
 					color: #777777;
+					padding: 0;
+					margin: 0;
+					border-top: 1px solid black;
 					}
+.question-strength ul li a {background: url(/public/front/img/green-bg.png); 
+							background-position: center ;
+
+							padding-left: 50px;
+							padding-right: 50px;
+							padding-bottom: 30px;
+							text-decoration: none;
+							display: block;
+							color: #777777;}
+
+
+		.question-strenght ul {height: 100%;}					
+
 .question-strength ul li{list-style-type: none;
 	display: inline-block;
+		text-align: center;
 		position: relative;
 		font-size: 15px;
+		
 		left: 40%;
-		padding-left: 80px;}
+		height: 100%;
+	
+		
+		
+		}
 
-		.question-strength ul li span{	display: block;
-			width:70px;
-			padding: none;}
 
 			.question-strength ul li:nth-child(2){ position: relative;
-													top: -10px;
+													top: -10px; 
+
 
 			;}
 			.question-strength ul li:nth-child(3){ position: relative;
