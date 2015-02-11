@@ -19,6 +19,8 @@ Route::post('file-upload','Controllers\Admin\Children\ChildrenController@uploadI
 Route::get('survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
 
 Route::controller('password', 'Controllers\Auth\RemindersController');
+Route::get('remind', 'Controllers\Auth\RemindersController@getRemind');
+Route::post('remind', 'Controllers\Auth\RemindersController@postRemind');
 Route::get('login', 'Controllers\Auth\AuthController@getLogin');
 Route::post('login', 'Controllers\Auth\AuthController@postLogin');
 Route::get('logout', 'Controllers\Auth\AuthController@getLogout');

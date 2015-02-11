@@ -41,7 +41,7 @@ class RemindersController extends \Controller {
 	{
 		if (is_null($token)) \App::abort(404);
 
-		return \View::make('auth.reset')->with('token', $token);
+		return \View::make('front.auth.reset')->with('token', $token);
 	}
 
 	/**

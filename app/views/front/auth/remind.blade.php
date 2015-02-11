@@ -15,24 +15,21 @@
 			<div class="survey-block survey-content page-signup">
 				<div class="form-inner form-bg">
 					<div class="signup-body"></div>
-						<div class="container register-form">
-					<div class="form-container show-post-success closed">
+                    <div class="container register-form">
+	    				<div class="form-container show-post-success closed" style="display: none;">
 
-		               	<h3>Your account was created successfully!</h3>
-		        		<p>We sent an email verification message to your email address. In the meantime, you can continue to log in the site.</p>
-		        		<p>
-		        			<a href="{{ url('login') }}" class="btn btn-success">Log In</a>
-		        		</p>
-
-		        	</div>
+		                   	<h3>Your password has been reset!</h3>
+		            		<p>We sent an email with the next steps to change your password. If you didn't receive the message, please, click on the button below.</p>
+		            		<p><a href="{{ url('remind') }}" class="btn btn-success">Try Again</a></p>
+		        	    </div>
 		        
 
-							<div class="form-container hide-post-success" id="register-form-width">
-								<h3 style="color: #666;">Forgot password?</h3>
+                        <div class="form-container hide-post-success" id="register-form-width">
+                            <h3 style="color: #666;">Forgot password?</h3>
 				        
-				        <p style="color: #666;">Not a problem! Just enter your email address below and we will send a reset link.</p>
+				            <p style="color: #666;">Not a problem! Just enter your email address below and we will send a reset link.</p>
 		       
-				        {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
+				            {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
 
 				        	<fieldset>
 		                        <div class="form-group">
@@ -48,30 +45,24 @@
 		                        </div>
 		                    </fieldset>
 			       	
-				       	{{ Form::close() }}
+				       	    {{ Form::close() }}
 
-				       	<section>
-				       		<hr />
-		                    <p class="text-left"><a href="{{ URL::to('login') }}">&larr; Back to login</a></p>
-		                </section>
+				       	    <section>
+				       		    <hr />
+		                        <p class="text-left"><a href="{{ URL::to('login') }}">&larr; Back to login</a></p>
+		                    </section>
 
 
-										
-
-								
-									</section>
-									{{ Form::close() }}	
+                            {{ Form::close() }}
 					
 
 							
-							</div>
+                        </div>
 
-						<div class="cycling-logos">Cycling logos </div>
-						</div>			
-
+						<div class="cycling-logos hide-post-success">Cycling logos </div>
+                    </div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 @stop

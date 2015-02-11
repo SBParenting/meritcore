@@ -16,7 +16,7 @@
 				<div class="form-inner form-bg">
 					<div class="signup-body"></div>
 						<div class="container register-form">
-					<div class="form-container show-post-success closed" style="display:none">
+					<div class="form-container show-post-success closed" style="display:none;color:black!important;">
 
 		               	<h3>Your account was created successfully!</h3>
 		        		<p>We sent an email verification message to your email address. In the meantime, you can continue to log in the site.</p>
