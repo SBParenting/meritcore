@@ -163,20 +163,40 @@
 					height: 5%;
 					background-color: #d7f0f2;
 					color: #777777;
+					padding: 0;
+					margin: 0;
+					border-top: 1px solid black;
 					}
+.question-strength ul li a {background: url(/public/front/img/green-bg.png); 
+							background-position: center ;
+
+							padding-left: 50px;
+							padding-right: 50px;
+							padding-bottom: 30px;
+							text-decoration: none;
+							display: block;
+							color: #777777;}
+
+
+		.question-strenght ul {height: 100%;}					
+
 .question-strength ul li{list-style-type: none;
 	display: inline-block;
+		text-align: center;
 		position: relative;
 		font-size: 15px;
+		
 		left: 40%;
-		padding-left: 80px;}
+		height: 100%;
+	
+		
+		
+		}
 
-		.question-strength ul li span{	display: block;
-			width:70px;
-			padding: none;}
 
 			.question-strength ul li:nth-child(2){ position: relative;
-													top: -10px;
+													top: -10px; 
+
 
 			;}
 			.question-strength ul li:nth-child(3){ position: relative;
@@ -519,6 +539,7 @@ display: none;
 .child-selected { display:;
 
 	 }
+
 
 
 
