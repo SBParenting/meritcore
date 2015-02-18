@@ -12,16 +12,22 @@
 					<a href="#" id="showPage" class="header-link"><i class="icon-help"></i> help</a>
 					<a href="#" id="showMenu" class="header-link"><i class="icon-menu"></i> menu</a>
 						
+						<div class="child-image">
 						<a href="#" class="logo"><div class="logo child-thumbnail"></div>
 							<p class="child-name">Child name</p></a>
-
-					<h1>CHILD SURVEY</h1>
+							</div>
+					<h1 class="survey-name" >CHILD SURVEY</h1>
+				
+					<div class="bar-container">
+						<span class="progress-label-1">PARENT FOCUS</span>
+					<span class="progress-label-2">CHILD SURVEY</span>
 				<div class="progress ng-isolate-scope progress-bar-container" max="max" value="dynamic">
+			
   <div class="progress-bar progress-blue" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="91" aria-valuemin="0" aria-valuemax="200" ng-style="{width: percent + '%'}" aria-valuetext="46%" ng-transclude="" style="width: 10%;"><span class="ng-binding ng-scope">10/10</span></div>
    <div class="progress-bar progress-green" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="200" ng-style="{width: percent + '%'}" aria-valuetext="46%" ng-transclude="" style="width: 60%;"><span class="ng-binding ng-scope">30/62</span></div>
 
 </div>
-
+</div>
 				</div>
 				
 			</div>

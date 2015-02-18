@@ -1,10 +1,10 @@
 
 @foreach ($questions as $question)
 
-	<div class="survey-row">
+	<div class="survey-row  ">
 		
 
-		<div class="container">
+		<div class="container hidden-xs">
 			<table>
 				<tr>
 					<td>
@@ -13,30 +13,23 @@
 							<span class="fa color">{{ $question->num }}</span>
 						</span>
 					</td>
-					<td>{{ $question->question }}</td>
+						<td>{{ $question->question }}</td>
 					<td>
-						
-						<div  class="" data-url="{{ url('api.survey.save') }}" data-value="1" data-question-id="{{ $question->id }}">
-						
-							
-									
-									<div class="slider ui-slider ui-slider-handle ui-slider-horizontal ui-slider-range-max ui-slider-range-min">
+						<div  class="" data-url="{{ url('api.survey.save') }}" data-value="1" data-question-id="{{ $question->id }}">	
+								<div class="slider">
 									<div>
-									<img src="/public/front/img/grey-circle.png" class="grey-circle" height="18px" width="18px" style="position: relative; top: -11px; left: -4px; z-index: 2;">
-									<img src="/public/front/img/orange-circle.png"  class="orange-circle" height="18px" width="18px" style="float: right; position: relative; top: -8px; right: -4px;">
+										<img src="/public/front/img/grey-circle.png" class="grey-circle" height="18px" width="18px" style="position: relative; top: -11px; left: -4px; z-index: 2;">
+										<img src="/public/front/img/orange-circle.png"  class="orange-circle" height="18px" width="18px" style="float: right; position: relative; top: -8px; right: -4px;">
 									</div>
-									</div>
-									
-
+								</div>
 							</div>
-
 						</div>
-						<br/>
 					</td>
 				</tr>
 			</table>
 		</div>
 	</div>
+	
 		
 	
 
@@ -55,54 +48,54 @@
         min: 0,
       	max: 100,
         value: 50,
-       step: 2 ,
+        step: 1 ,
         animate: true,
+        slide:  function(e,ui){
+        		
+        	$(this).find('.ui-slider-handle').css({
+        		"background": " url('/public/front/img/white-circle.png')",
+        		"text-align": "center",
+        		padding: '12px 0 0 0',
+                width: '43px',
+                height: '47px',
+        		top: "-22px"
+        	});
 
-        slide: function(e){
+			$('.question-strength , .answers').find('.list-item').css({'background-color': 'transparent'}).find('a').css({"color": '#777777'});
 
-			$('.question-strength').find('.list-item').css({'background-color': 'transparent' , "color": '#777777'});
+			var color = $(this).parents('.survey-row').css('background-color');
+
+            $(this).find('.ui-slider-handle').html(ui.value);
 
         	$.each($('.slider'),function(){
         		var position = $(this).slider("option", "value");
-
         		if ($(this).find('.ui-slider-handle').css('background-image') == "url(http://meritcore.local/public/front/img/white-circle.png)") {
+        	
 	        		if (position >= 0 && position <= 20) {
-	        			$('#strongly-agree').css({"background-color": '#247fb9', "color": '#fff' });
+	        			$('#strongly-agree, #not-at-all').css({"background-color": color}).find('a').css({"color": '#ffffff'});
 	        		}
 
 	        		if (position >= 20 && position <= 40) {
-	        			$('#agree').css({"background-color": '#247fb9', "color": '#fff' });
+	        			$('#agree , #not-so-much').css({"background-color": color}).find('a').css({"color": '#ffffff'});
 	        		}
         			if (position >= 40 && position <= 60) {
-	        			$('#not-sure').css({"background-color": '#247fb9', "color": '#fff' });
+	        			$('#not-sure').css({"background-color": color }).find('a').css({"color": '#ffffff'});
 	        		}
 	        	
     				if (position >= 60 && position <= 80) {
-	        			$('#disagree').css({"background-color": '#247fb9', "color": '#fff' });
+	        			$('#disagree , #somewhat-concern').css({"background-color": color }).find('a').css({"color": '#ffffff'});
 	        		}
 					if (position >= 80 && position <= 100) {
-	        			$('#strongly-disagree').css({"background-color": '#247fb9', "color": '#fff' });
+	        			$('#strongly-disagree , #major-concern ').css({"background-color": color }).find('a').css({"color": '#ffffff'});
 	        		}
         			
         		}
-        		
+
 
         	});
         },
 
-       change: function(){
-
-        	$(this).find('.ui-slider-handle').css({
-        		"background": " url('/public/front/img/white-circle.png')",
-        		padding: '23px', 
-        		top: "-22px"
-
-        	});
-
-
-        }
-
-        
+       change: function(){}
     });
 
 $('.ui-slider-horizontal').height(3);
@@ -130,6 +123,19 @@ $('.ui-widget-content').css({
 'background':  "#fdb535"
 
 });
+
+
+
+
+var sliderPosition = $('.slider') , initialValue = 50;
+
+var updateSliderValue = function (e , ui){
+
+	var slider = $(this).data().slider;
+slider.element.find(".ui-slider-handle").text(slider.value());
+};
+
+
 
 </script>
 @stop
