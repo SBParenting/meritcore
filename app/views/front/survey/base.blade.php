@@ -17,7 +17,7 @@
 							<p class="child-name">Child name</p></a>
 							</div>
 					<h1 class="survey-name" >CHILD SURVEY</h1>
-				
+					<span class="show-name">Childs name</span>
 					<div class="bar-container">
 						<span class="progress-label-1">PARENT FOCUS</span>
 					<span class="progress-label-2">CHILD SURVEY</span>

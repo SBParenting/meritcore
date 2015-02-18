@@ -4,7 +4,7 @@
 	<div class="survey-row  ">
 		
 
-		<div class="container hidden-xs">
+		<div class="container ">
 			<table>
 				<tr>
 					<td>
@@ -15,11 +15,11 @@
 					</td>
 						<td>{{ $question->question }}</td>
 					<td>
-						<div  class="" data-url="{{ url('api.survey.save') }}" data-value="1" data-question-id="{{ $question->id }}">	
+						<div  class="" data-usrl="{{ url('api.survey.save') }}" data-value="1" data-question-id="{{ $question->id }}">	
 								<div class="slider">
 									<div>
-										<img src="/public/front/img/grey-circle.png" class="grey-circle" height="18px" width="18px" style="position: relative; top: -11px; left: -4px; z-index: 2;">
-										<img src="/public/front/img/orange-circle.png"  class="orange-circle" height="18px" width="18px" style="float: right; position: relative; top: -8px; right: -4px;">
+										<img src="/public/front/img/grey-circle.png" class="grey-circle" height="18px" width="18px">
+										<img src="/public/front/img/orange-circle.png"  class="orange-circle" height="18px" width="18px">
 									</div>
 								</div>
 							</div>
@@ -32,8 +32,8 @@
 	
 		
 	
-
 @endforeach
+
 
 @section('script')
 

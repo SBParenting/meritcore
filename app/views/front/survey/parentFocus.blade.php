@@ -13,10 +13,13 @@
 					<a href="#" id="showMenu" class="header-link"><i class="icon-menu"></i> menu</a>
 						
 						<div class="child-image">
-						<a href="#" class="logo"><div class="logo child-thumbnail"></div>
-							<p class="child-name">Child name</p></a>
+						<a href="#" class="logo">
+						<div class="logo child-thumbnail"></div>
+						<p class="child-name">Child name</p>
+							</a>
 							</div>
 					<h1 class="parent-focus">PARENT FOCUS</h1>
+						<span class="show-name">Childs name</span>
 				
 					<div class="bar-container">
 						<span class="progress-label-1">PARENT FOCUS</span>

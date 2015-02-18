@@ -126,27 +126,17 @@
 
 
 
+.show-name {display: none;}
+
+.btn-container {margin-top: 30px; width: 100%; background: url(../img/bg.jpg) center no-repeat; background-size: cover;}
+
+.btn-container .btn-right {margin-right: 11%; font-size: 16px; margin-top: 5px; margin-bottom: 5px; border-radius: 2px; width: 125px;}
+.btn-container .btn-left {margin-left: 11%; margin-top: 5px; margin-right: 21%; font-size: 16px; margin-top: 5px; margin-bottom: 5px; border-radius: 2px; width: 125px;}
 
 
-
-
-
-.progress-blue {background-color: #247fb9;
-				border-bottom-left-radius: 2em;
-				border-top-left-radius: 2em;
-
-			}
-
-
-.progress-green {background-color: #1d5c2e;
-					 }
-.progress-bar-container {border: 1px solid white;
-							position: absolute;
-							left: 12.5%;
-							border-radius: 2em;
-							width: 82%;
-						background-color: #96b09d;
-						box-shadow: 1px 1px 10px 1px  #666;}
+.progress-blue {background-color: #247fb9; border-bottom-left-radius: 2em; border-top-left-radius: 2em;}
+.progress-green {background-color: #1d5c2e;}
+.progress-bar-container {border: 1px solid white; position: absolute; left: 12.5%; border-radius: 2em; width: 82%; background-color: #96b09d; box-shadow: 1px 1px 10px 1px  #666;}
 
 	/* Child survey answers */			
 
@@ -162,10 +152,10 @@
 /* parent focus styles */ 
 .answers {width: 100%; height: 5%; background-color: #d7f0f2; color: #777777; padding: 0;margin: 0; border-top: 1px solid white;}
 .answers ul li a {padding-left: 44px; padding-right: 44px; padding-bottom: 30px; text-decoration: none; display: block; color: #777777;}
-.answers ul {height: 100%;}              
-.answers ul li{ list-style-type: none; display: inline-block;  text-align: center; position: relative;  font-size: 15px; left: 27.5%; height: 100%;}
+.answers ul {height: 100%; width: 100%;}              
+.answers ul li{ list-style-type: none; display: inline-block;  text-align: center; position: relative;  font-size: 15px; left: 27.8%; height: 100%;}
 .answers ul li:nth-child(1){  position: relative; font-size: 13px; left: 20.5%; height: 100%; padding: 0; text-align: left; color: #4a6eb5;}
-.answers ul li:nth-child(2){ position: relative; top: -20px;   text-align: center; position: relative; font-size: 15px; left: 27.5%; height: 100%;}
+.answers ul li:nth-child(2){ position: relative; top: -20px;   text-align: center; position: relative; font-size: 15px; left: 27.8%; height: 100%;}
 .answers ul li:nth-child(3), .answers ul li:nth-child(4){ position: relative; top: -20px; padding-left: 15.5px; padding-right: 15.5px;}
 
 .parent-focus {color: #003196!important;
@@ -175,115 +165,148 @@
 				margin: 0;}
 
 
-.slider > .ui-slider-handle { text-decoration: none;
-    						width: 35px;
-    						text-align: center; }
 
 
 /* End parent Focus styles */
 
 
 /* media queries */
+@media (max-width: 1595px){
+
+.progress-label-1 {display: none;}
+.progress-label-2 {display: none;}
+.progress-bar-container { top: 15px;}
+.child-name {display: none;}
+}
+
+
 
 @media (max-width: 1500px) {
 .survey-row .container {width: 90%; height: 100%;}
-	.survey-row .container td {font-size: 11pt; height: auto;}
-	.survey-row .container td h3 {font-size: 15pt;}
-	.survy-row .content {width: 100%; height: inherit; border-collapse: none; margin-top: 10px;}
-	.survey-row .content td {position: relative; vertical-align: middle;}
-	.survey-row .content td:first-child			{ width: 10%; text-align: center; } 	
+.survey-row .container td {font-size: 11pt; height: auto;}
+.survey-row .container td h3 {font-size: 15pt;}
+.survy-row .content {width: 100%; height: inherit; border-collapse: none; margin-top: 10px;}
+.survey-row .content td {position: relative; vertical-align: middle;}
+.survey-row .content td:first-child			{ width: 10%; text-align: center; } 	
 .survey-row .content td:nth-child(2)			{ width: 14%; text-align: left; } 
-	.circle-number { text-align: center; width: 80pt; height: auto; float: left; }
-	.answers ul {position: relative; right: -3%; padding: 0; margin-right: 15px;}
-
-	.answers ul li{ list-style-type: none; display: inline-block;  text-align: center; position: relative;  font-size: 15px; left: 18.3%; height: 100%;}
+.circle-number { text-align: center; width: 80pt; height: auto; float: left; }
+.answers ul {position: relative; right: -3%; padding: 0; margin-right: 15px;}
+.answers ul li{ list-style-type: none; display: inline-block;  text-align: center; position: relative;  font-size: 15px; left: 18.3%; height: 100%;}
 .answers ul li:nth-child(1){  position: relative; font-size: 13px; left: 15.5%; height: 100%; padding: 0; text-align: left; color: #4a6eb5;}
 .answers ul li:nth-child(2){ position: relative; top: -20px;   text-align: center; position: relative; font-size: 15px; left: 18.3%; height: 100%;}
 .answers ul li:nth-child(3), .answers ul li:nth-child(4){ position: relative; top: -20px; padding-left: 15.5px; padding-right: 15.5px;}
-	.answers ul li a { padding-bottom: 30px; text-decoration: none; display: block; color: #777777;}
+.answers ul li a { padding-bottom: 30px; text-decoration: none; display: block; color: #777777;}
+.grey-circle { position: relative; top: -12px!important; left: -4px; z-index: 2;}
+.btn-container .btn-right {margin-right: 1%; font-size: 14px; margin-top: 5px; margin-bottom: 5px; border-radius: 2px; width: 120px;}
+.btn-container .btn-left {margin-left: 1%; margin-right: 21%; font-size: 14px; margin-top: 5px; margin-bottom: 5px; border-radius: 2px; width: 120px;}
+/*.question-strength {width: 100%; height: 5%; background-color: #d7f0f2; color: #777777; padding: 0;margin: 0; border-top: 1px solid white;}
+.question-strength ul li a {padding-left: 55px; padding-right: 55px; padding-bottom: 30px; text-decoration: none; display: block; color: #777777;}
+.question-strength ul {height: 100%;}              
+.question-strength ul li{ list-style-type: none;display: inline-block;  text-align: center; position: relative; font-size: 15px; left: 34.3%; height: 100%;}
+.question-strength ul li:nth-child(2){ position: relative; top: -10px;  text-align: center; position: relative; font-size: 15px; left: 34.3%; height: 100%;}
+.question-strength ul li:nth-child(2), .question-strength ul li:nth-child(3), .question-strength ul li:nth-child(4){ position: relative; top: -21px; padding-left: 15.5px; padding-right: 15.5px;}*/
 }
 
 
 
 @media (max-width: 1200px) {
-	.survey-row .container {width: 100%; height: 100%;}
-	.survey-row .container td {font-size: 9pt; height: auto;}
-	.survey-row .container td h3 {font-size: 14pt;}
-	.survy-row .content {width: 100%; height: inherit; border-collapse: none; margin-top: 10px;}
-	.survey-row .content td {position: relative; vertical-align: middle;}
-	.survey-row .content td:first-child			{ width: 100%; text-align: center; } 	
+.survey-row .container {width: 100%; height: 100%;}
+.survey-row .container td {font-size: 9pt; height: auto;}
+.survey-row .container td h3 {font-size: 14pt;}
+.survy-row .content {width: 100%; height: inherit; border-collapse: none; margin-top: 10px;}
+.survey-row .content td {position: relative; vertical-align: middle;}
+.survey-row .content td:first-child			{ width: 100%; text-align: center; } 	
 .survey-row .content td:nth-child(2)			{ width: 20%; text-align: left; } 
-	.circle-number { text-align: center; width: 80pt; height: auto; float: left; }
-	.answers ul {position: relative; left: -9%; padding: 0;}
-	.answers ul li a { padding-bottom: 30px; text-decoration: none; display: block; color: #777777;}
-	.answers ul li{ list-style-type: none; display: inline-block;  text-align: center; position: relative;  font-size: 15px; left: 21.8%; height: 100%;}
+.circle-number { text-align: center; width: 80pt; height: auto; float: left; }
+.answers ul {position: relative; left: -9%; padding: 0;}
+.answers ul li a { padding-bottom: 30px; text-decoration: none; display: block; color: #777777;}
+.answers ul li{ list-style-type: none; display: inline-block;  text-align: center; position: relative;  font-size: 15px; left: 21.8%; height: 100%;}
 .answers ul li:nth-child(1){  position: relative; font-size: 13px; left: 15.5%; height: 100%; padding: 0; text-align: left; color: #4a6eb5;}
 .answers ul li:nth-child(2){ position: relative; top: -20px;   text-align: center; position: relative; font-size: 15px; left: 21.8%; height: 100%;}
 .answers ul li:nth-child(3), .answers ul li:nth-child(4){ position: relative; top: -20px; padding-left: 15.5px; padding-right: 15.5px;}
-
+.grey-circle { position: relative; top: -9px!important; left: -4px; z-index: 2;}
+.btn-container .btn-right {margin-right: 1%; font-size: 14px; margin-top: 5px; margin-bottom: 5px; border-radius: 2px; width: 120px;}
+.btn-container .btn-left {margin-left: 1%; margin-right: 21%; font-size: 14px; margin-top: 5px; margin-bottom: 5px; border-radius: 2px; width: 120px;}
+/*.question-strength {width: 100%; height: 5%; background-color: #d7f0f2; color: #777777; padding: 0;margin: 0; border-top: 1px solid white;}
+.question-strength ul li a {padding-left: 35px; padding-right: 35px; padding-bottom: 30px; text-decoration: none; display: block; color: #777777;}
+.question-strength ul {height: 100%;}              
+.question-strength ul li{ list-style-type: none;display: inline-block;  text-align: center; position: relative; font-size: 15px; left: 37.8%; height: 100%;}
+.question-strength ul li:nth-child(2){ position: relative; top: -10px;  text-align: center; position: relative; font-size: 15px; left: 37.8%; height: 100%;}
+.question-strength ul li:nth-child(2), .question-strength ul li:nth-child(3), .question-strength ul li:nth-child(4){ position: relative; top: -21px; padding-left: 15.5px; padding-right: 15.5px;}*/
 }
 
 
 @media (max-width: 992px) {
-	.survey-header .logo img 		{ width: 150px; }
-	.survey-header h1 				{ font-size: 26pt; }
-	.survey-header .header-link 	{ line-height: 28px; }
-	.survey-header .header-link i	{ font-size: 28px; }
-
-	.survey-row .container td {font-size:18px;}
+.survey-header .logo img 		{ width: 150px; }
+.survey-header h1 				{ font-size: 26pt; }
+.survey-header .header-link 	{ line-height: 28px; }
+.survey-header .header-link i	{ font-size: 28px; }
+.progress-bar-container {top: 30px;  s}
+.survey-row .container td {font-size:18px;}
+.answers {display: none;}
+.question-strength {display: none;}
+.grey-circle { position: relative; top: -9px!important; left: -4px; z-index: 2;}
+.btn-container .btn-right {margin-right: 1%; font-size: 11px; margin-top: -5px; margin-bottom: 5px; border-radius: 2px; width: 110px;}
+.btn-container .btn-left {margin-left: 1%; margin-right: 21%; font-size: 11px; margin-top: -5px; margin-bottom: 5px; border-radius: 2px; width: 110px;}
 }
 
 @media (max-width: 768px) {
-	/*.survey-content					{height: auto; margin-bottom: 0;}
-	.survey-block                   {position: static;} */
-	.survey-header .logo img 		{ width: 100px; }
-	.survey-header h1 				{ font-size: 18pt; }
-	.survey-header .header-link 	{ line-height: 20px; }	
-	.survey-header .header-link i	{ font-size: 20px; }
-
-	.survey-row .container td {font-size:14px;}
+.survey-header .logo img 		{ width: 100px; }
+.survey-header h1 				{ font-size: 15pt; }
+.survey-header .header-link 	{ line-height: 20px; }	
+.survey-header .header-link i	{ font-size: 20px; }
+.survey-row .container td {font-size:14px;}
 }
 
 @media screen and (max-height: 700px), screen and (max-width: 992px) {
-
-	.survey-row .circle-number  						{ width: 46px; }
-	.survey-row .circle-number i 						{ font-size: 46px; }
-	.survey-row .circle-number .color					{ font-size: 18px; line-height: 46px; width: 46px; height: 46px; }
-	.survey-row td 							{ font-size: 9pt; }
-
-	.survey-row .container td {font-size:12px;}
+.survey-row .circle-number  	{ width: 46px; }
+.survey-row .circle-number i 	{ font-size: 46px; }
+.survey-row .circle-number .color	{ font-size: 18px; line-height: 46px; width: 46px; height: 46px; }
+.survey-row td 							{ font-size: 9pt; }
+.progress-bar-container {top: 45px;}
+.survey-row .container td {font-size:12px;}
 		
 }
 
+@media (max-width: 700px){
+.survey-row	{ border-bottom: 1px solid #fff; width: 100%; }
+.survey-row .container 	{ height: auto; }
+.survey-row .content { width: 100%; height: inherit; border-collapse: none; margin-top: 10px; }
+.survey-row .content td { position: relative; vertical-align: middle; }
+.survey-row .content td:nth-child(1)			{ width: 80%; text-align: center; } 	
+.survey-row .content td:nth-child(2)			{ width: 80%; text-align: left; } 	
+.survey-row 	{ margin:  0; width: 100%; }
+.survey-row td 	{ position: relative; vertical-align: middle; text-align: center; font-size: 9pt; }
+.survey-row td:first-child		{ width: 20%; white-space: nowrap; }
+.survey-row td:nth-child(2)		{ width: 100%;  vertical-align: middle; text-align: center; }
+.survey-row td:nth-child(3)		{ width: 100%; white-space: nowrap; position: relative; top: 100px; left: -100px; padding-top: 15px;  position: absolute;  width: 80%; left: 10%;}
+.survey-row .container td {font-size: 8.2pt; height: auto;}
+.survey-row .container td h3 {font-size: 14pt;}
+.survey-row .circle-number  							{ text-align: center; width: 46px; height: 46px; position: relative; display: inline-block; }
+.survey-row .done .circle-number  					{ opacity: 0.4; }
+.survey-row .circle-number i 						{ font-size: 46px; position: absolute; top: 0; left: 0; z-index: 100; }
+.survey-row .circle-number .color { font-weight: 300; width: 46px; height: 46px; line-height: 46px; position: absolute; top: 0; left: 0; text-align: center; display: block; font-size: 22px; z-index: 101; font-style: normal; font-weight: normal; font-family: 'latolight', sans-serif;   }
+.grey-circle { position: relative; top: -9px!important; left: -4px; z-index: 2;}
+}
 
+@media (max-width: 584px) {
+
+	.progress-bar-container {top: 25px;}
+}
+
+@media (max-width: 460px) {
+	.child-image {display: none;}
+	.show-name { color: #666 ;
+			position: relative;
+			top: 25px;
+			display: inline;}
+
+	
+	.progress-bar-container {top: 15px;}
+}
 
 
 /*end media queries */
-
-
-
-
-
-
-.btn-container {margin-top: 30px;
-
-	width: 100%;
-background: url(../img/bg.jpg) center no-repeat; background-size: cover;}
-
-.btn-container .btn-right {margin-right: 21%;
-	font-size: 16px;
-							margin-top: 5px;
-							margin-bottom: 5px;
-							border-radius: 2px;
-							width: 125px;}
-.btn-container .btn-left {margin-left: 21%;
-							margin-top: 5px;
-							margin-right: 21%;
-	font-size: 16px;
-							margin-top: 5px;
-							margin-bottom: 5px;
-							border-radius: 2px;
-							width: 125px;}
 
 
 
@@ -470,7 +493,8 @@ background: url(../img/bg.jpg) center no-repeat; background-size: cover;}
 				position: relative;
 				left: 30px;
 				font-size: 12px;
-				color: black;}
+				color: black;
+				}
 
 
 
@@ -623,3 +647,10 @@ display: none;
 				top: 30px;}
 .progress-label-1 {color: #247fb9; font-size: 12px; position: relative; left: 3px;}
 .progress-label-2 {color: #1d5c2e; font-size: 12px; position: relative; left: 230px;}
+
+.grey-circle {
+position: relative; top: -11px; left: -4px; z-index: 2;
+}
+
+.orange-circle {float: right; position: relative; top: -8px; right: -4px;}
+
