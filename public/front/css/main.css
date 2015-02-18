@@ -7505,14 +7505,14 @@ span.block {
 }
 .ui-radio input[type="radio"]:checked + span:after {
   content: "";
-  width: 8px;
-  height: 8px;
+  width: 75px;
+  height: 82px;
   position: absolute;
-  top: 7px;
-  left: -15px;
-  background-color: #1C7EBB;
-  border-radius: 50%;
+  top: 0px;
+  left: -20px;
+  border-radius: 9%;
   display: block;
+  border: 5px solid #1C7EBB;
 }
 .ui-radio input[type="radio"]:disabled:checked + span:after {
   opacity: .65;
@@ -11103,4 +11103,52 @@ left: 71%;
 
 .popover-content {
   color:black!important;
+}
+
+.dz-preview {
+    margin-top:-22px!important;
+    margin-left:-22px!important;
+    width: 342px;
+    height: 372px;
+}
+
+.dropzone .dz-preview .dz-details {
+    width: 330px;
+    height: 304px;
+}
+
+.dropzone .dz-preview .dz-details img {
+    width: 330px;
+    height: 304px;
+}
+
+.dropzone {
+    background: url('/public/front/img/change-avatar.png')!important;
+    background-size: 100%;
+}
+
+.dropzone:hover {
+    border: 4px hidden #ff7000;
+    border-radius:10px;
+}
+
+.has-error dd {
+    position:relative;
+}
+
+.error {
+    display:none;
+}
+
+.has-error .error {
+    width: 19px;
+    height: 19px;
+    border-radius: 30px;
+    background: #B13D31;
+    display: inline-block;
+    position:absolute;
+    left:-10px;
+    top:-10px;
+    padding-left:6px;
+    font-weight: bold;
 }

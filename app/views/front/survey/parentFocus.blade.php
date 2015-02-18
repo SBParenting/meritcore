@@ -16,7 +16,7 @@
 						<a href="#" class="logo"><div class="logo child-thumbnail"></div>
 							<p class="child-name">Child name</p></a>
 							</div>
-					<h1 class="survey-name" >CHILD SURVEY</h1>
+					<h1 class="parent-focus">PARENT FOCUS</h1>
 				
 					<div class="bar-container">
 						<span class="progress-label-1">PARENT FOCUS</span>
@@ -33,13 +33,15 @@
 			</div>
 			
 			<div class="survey-block survey-content">
-			<div class="question-strength">
+			<div class="answers">
+
 			<ul> 
-			<li class="list-item" id="strongly-agree"><a>strongly <br/> agree</a></li>
-			<li class="list-item" id="agree"><a>agree</a></li>
+			<li class="rating-text">Rate how concerned you are with <br/> your child in the following areas below:</li>
+			<li class="list-item" id="not-at-all"><a>not at all</a></li>
+			<li class="list-item" id="not-so-much"><a>not so much</a></li>
 			<li class="list-item" id="not-sure"><a>not sure</a></li>
-			<li class="list-item" id="disagree"><a>disagree</a></li>
-			<li class="list-item" id="strongly-disagree"><a>strongly<br> disagree</a></li>
+			<li class="list-item" id="somewhat-concern"><a>somewhat<br/> a concern</a></li>
+			<li class="list-item" id="major-concern"><a>major<br/> concern</a></li>
 
 
 

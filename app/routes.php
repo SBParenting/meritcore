@@ -10,23 +10,18 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('children/add' , function(){
+Route::get('children/add','Controllers\Admin\Children\ChildrenController@getAdd');
+Route::post('children/add','Controllers\Admin\Children\ChildrenController@postAdd');
+Route::get('children/select','Controllers\Admin\Children\ChildrenController@getIndex');
 
-	return View::make('front.children.add_child');
-
-
-});
-
-Route::get('children/select' , function(){
-
-	return View::make('front.children.select_child');
-
-});
-
+Route::post('file-upload','Controllers\Admin\Children\ChildrenController@uploadImage');
 
 Route::get('survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
+Route::get('parent/survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndexParentFocus');
 
 Route::controller('password', 'Controllers\Auth\RemindersController');
+Route::get('remind', 'Controllers\Auth\RemindersController@getRemind');
+Route::post('remind', 'Controllers\Auth\RemindersController@postRemind');
 Route::get('login', 'Controllers\Auth\AuthController@getLogin');
 Route::post('login', 'Controllers\Auth\AuthController@postLogin');
 Route::get('logout', 'Controllers\Auth\AuthController@getLogout');
