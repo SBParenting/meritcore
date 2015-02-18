@@ -13,6 +13,14 @@ class CreateSurveyQuestionsTable extends Migration {
 	public function up()
 	{
 		//
+        Schema::create('survey_answers',function($table){
+            $table->increments('id');
+            $table->integer('survey_id');
+            $table->integer('question_id');
+            $table->string('answer');
+            $table->timestamps();
+            $table->softDeletes();
+        });
 	}
 
 	/**
@@ -23,6 +31,7 @@ class CreateSurveyQuestionsTable extends Migration {
 	public function down()
 	{
 		//
+        Schema::dropIfExists('survey_questions');
 	}
 
 }
