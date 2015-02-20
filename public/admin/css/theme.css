@@ -3641,7 +3641,7 @@ select[multiple].input-lg,
   background-color: #fff;
   border-color: #ccc;
 }
-.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
+.btn-default:hover, .btn-default:active, .btn-default.active, .open > .btn-default.dropdown-toggle {
   color: #333;
   background-color: #e6e6e6;
   border-color: #adadad;

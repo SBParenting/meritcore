@@ -206,3 +206,5 @@
 .pull-right.inline 	{ margin-left: 20px; }
 
 .closed { display: none; }
+.btn-warning.disabled { background: #999; border: 1px solid #777;} 
+.btn-warning.disabled:focus { background: #999; border: 1px solid #777;} 

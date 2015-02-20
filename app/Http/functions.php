@@ -77,3 +77,27 @@ if (!function_exists('shorten'))
 	}
 }
 
+if (!function_exists('can'))
+{
+	function can($arr1, $arr2=false)
+	{
+		if (\Auth::check())
+		{
+			if($arr2===false)
+			{
+				$arr2 = ['admin'];
+			}
+
+			if (is_string($arr1))
+			{
+				$arr1 = [$arr1];
+			}
+
+			return \Auth::user()->ability($arr2, $arr1);
+		}
+
+		return false;
+	}
+}
+
+

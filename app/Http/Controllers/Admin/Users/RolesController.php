@@ -49,7 +49,7 @@ class RolesController extends AdminController {
 		{
 			foreach (\Input::except('_token') as $id => $value)
 			{
-				if ($value === true)
+				if ($value == true)
 				{
 					$role->perms()->attach($id);
 				}

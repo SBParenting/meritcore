@@ -18,7 +18,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $table = 'users';
 
-	protected $fillable = ['first_name', 'last_name', 'username', 'email', 'password', 'role_id', 'status', 'verification_code', 'locked', 'updatable', 'deletable'];
+	protected $fillable = ['first_name', 'last_name', 'username', 'email', 'password', 'role_id', 'status', 'coupon_code', 'verification_code', 'locked', 'updatable', 'deletable'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -32,6 +32,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function profile()
     {
         return $this->hasOne('App\Models\Profile');
+    }
+
+    public function schools()
+    {
+        return $this->belongsToMany('App\Models\School', 'user_associations', 'user_id', 'school_id');
     }
 
     public function getName($format="L, F")

@@ -8,7 +8,7 @@ class AdminController extends Controller {
 
 	protected function access($id)
 	{
-		if (\Auth::user()->ability(['admin'], [$id]))
+		if (!\Auth::user()->ability(['admin'], [$id]))
 		{
 			App::abort(403);
 		}

@@ -64,6 +64,14 @@ jQuery(function() {
 				e.preventDefault();
 
 				$($(this).data('target')).remove();
+
+				var callback = $(this).data('callback');
+
+				if (typeof callback != 'undefined')
+				{
+					$.app.executeFunction(callback, window);
+				}
+
 			});
 
 			$('.js-post-confirm').off('click').on('click', function(e) {
@@ -74,9 +82,9 @@ jQuery(function() {
 				bootbox.confirm("<h1>Are you sure?</h1>", function(result) {
 
 					if(result) {
-						
+
 						$.api.post( elem.attr('href'), {'_token':token}, $.app.showPostRemoveResponse, elem );
-					} 
+					}
 
 				});
 
@@ -115,10 +123,10 @@ jQuery(function() {
 						$('body').removeClass('app-locked');
 						$('.page-lock').find("input[name='password']").val("");
 					}
-					else 
+					else
 					{
 						$.app.showNotification("danger", response.msg);
-						
+
 						$('.page-lock').addClass('has-error');
 					}
 				}, $(this) );
@@ -168,8 +176,6 @@ jQuery(function() {
 
 						var form = $(elem.data('target'));
 
-						console.log(elem.data('target'));
-
 						form.find("input[name='ids']").val(ids);
 
 						form.submit();
@@ -187,8 +193,6 @@ jQuery(function() {
 				var elem = $(this);
 
 				data[elem.data('record-id')] = event.target.checked;
-
-				console.log('ok');
 
 				$.api.post( elem.data('url'), data, $.app.showPostCheckboxResponse, elem );
 			});
@@ -356,7 +360,10 @@ jQuery(function() {
 					}
 					else
 					{
-						$.app.showNotification("success", response.msg);
+						if (response.msg)
+						{
+							$.app.showNotification("success", response.msg);
+						}
 					}
 
 					if (typeof elem.data('hide') != 'undefined')
@@ -586,6 +593,20 @@ jQuery(function() {
 					$.form.init();
 				}
 			}
+
+		},
+
+		executeFunction: function(functionName, context /*, args */) {
+
+			var args       = Array.prototype.slice.call(arguments).splice(2);
+			var namespaces = functionName.split(".");
+			var func       = namespaces.pop();
+
+			for(var i = 0; i < namespaces.length; i++) {
+				context = context[namespaces[i]];
+			}
+
+			return context[func].apply(this, args);
 
 		},
 

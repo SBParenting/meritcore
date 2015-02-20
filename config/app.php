@@ -142,6 +142,7 @@ return [
 		 */
 
 		'Zizaco\Entrust\EntrustServiceProvider',
+		//'Barryvdh\Debugbar\ServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -203,7 +204,8 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form'      => 'App\Libraries\FormBuilder\FormBuilderFacade',
 		'HTML'      => 'Illuminate\Html\HtmlFacade',
-		'Entrust'   => 'Zizaco\Entrust\EntrustFacade'
+		'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
+		'Debug' 	=> 'Barryvdh\Debugbar\Facade',
 	],
 
 ];

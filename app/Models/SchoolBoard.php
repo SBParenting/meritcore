@@ -4,7 +4,7 @@ class SchoolBoard extends \App\Models\Model {
 
 	protected $table = 'school_boards';
 
-	protected $fillable = ['title'];
+	protected $fillable = ['name'];
 
 	protected $related = ['school' => 'App\Models\School'];
 

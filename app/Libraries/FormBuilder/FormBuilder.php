@@ -134,9 +134,19 @@ class FormBuilder extends IlluminateFormBuilder {
             }
         }
 
-        if ($display == $attributes['placeholder'])
+        if (!empty($attributes['placeholder']))
         {
-            $type .= ' placeholding';
+            if ($display == $attributes['placeholder'])
+            {
+                $type .= ' placeholding';
+            }
+        }
+        else
+        {
+            if ($display == "Select an option")
+            {
+                $type .= ' placeholding';
+            }
         }
 
         $attributes = $this->html->attributes($attributes);

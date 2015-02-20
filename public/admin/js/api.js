@@ -30,7 +30,7 @@ jQuery(function( $ ) {
 					}
 					else
 					{
-						callback({result: false, msg: 'Connection error!'}, param);
+						callback({result: false, msg: 'There was an error processing your request: '+errorThrown}, param);
 					}
 				},
 				done: function(){
@@ -62,7 +62,7 @@ jQuery(function( $ ) {
 						}
 						else
 						{
-							callback({result: false, msg: 'Connection error!'}, param);
+							callback({result: false, msg: 'There was an error processing your request: '+errorThrown}, param);
 						}
 					}
 				},

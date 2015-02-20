@@ -6,7 +6,7 @@ class AuthController extends Controller {
 
 	public function getLogin()
 	{
-		if (\Auth::check()) return redirect('/admin/dashboard');
+		if (\Auth::check()) return redirect('/m');
 
 		return \View::make('auth.login');
 	}
@@ -22,7 +22,7 @@ class AuthController extends Controller {
 			$user->locked = false;
 			$user->save();
 
-			return \Response::json(['result' => true, 'msg' => 'Successfully logged in!', 'url' => \Session::get('url.intended', url('/admin/dashboard'))]);
+			return \Response::json(['result' => true, 'msg' => 'Successfully logged in!', 'url' => \Session::get('url.intended', url('/m'))]);
 		}
 
 		return \Response::json(['result' => false, 'msg' => 'Invalid login information, please try again.', 'fields' => ['username', 'password']]);

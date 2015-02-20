@@ -1,4 +1,4 @@
-@extends('auth.layout.base')
+@extends('common.layout.front')
 
 @section('title')
     Something's wrong with server

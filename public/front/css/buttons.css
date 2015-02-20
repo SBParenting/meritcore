@@ -86,6 +86,23 @@
   background-color: #fff;
 }
 
+.btn-line-warning {
+  border-color: #ea7705;
+}
+.btn-line-warning:hover, .btn-line-warning:focus, .btn-line-warning.focus, .btn-line-warning:active, .btn-line-warning.active, .open > .btn-line-warning.dropdown-toggle {
+  color: #fff;
+  background-color: #ffa64e;
+  border-color: #ea7705;
+}
+
+.btn-line-warning:hover i, .btn-line-warning:focus i, .btn-line-warning.focus i, .btn-line-warning:active i, .btn-line-warning.active i, .open > .btn-line-warning.dropdown-toggle i {
+  color: #fff !important;
+}
+
+.btn-line-info:hover i, .btn-line-info:focus i, .btn-line-info.focus i, .btn-line-info:active i, .btn-line-info.active i, .open > .btn-line-info.dropdown-toggle i {
+  color: #fff !important;
+}
+
 .btn-danger {
   color: #fff;
   background-color: #E94B3B;
@@ -106,4 +123,53 @@
 .btn-danger .badge {
   color: #E94B3B;
   background-color: #fff;
+}
+
+.spinner {
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+.spinner > div {
+  width: 11px;
+  height: 11px;
+  background-color: #fff;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+  animation: bouncedelay 1.4s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.spinner.green > div {
+  background-color: #016972;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
 }

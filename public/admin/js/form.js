@@ -225,7 +225,15 @@ jQuery(function() {
 					}
 					else
 					{
-						$.app.showNotification("success", response.msg);
+						if (response.msg)
+						{
+							$.app.showNotification("success", response.msg);
+						}
+					}
+
+					if (typeof form.data('return-url') != 'undefined')
+					{
+						$.app.loadUrl( form.data('return-url') );
 					}
 
 					if (typeof response.id != 'undefined')
@@ -233,7 +241,6 @@ jQuery(function() {
 						form.find("[name='id']").val( response.id );
 						form.find('.close-button').text('Close');
 					}
-
 					
 					$('.show-post-success').show();
 
@@ -307,8 +314,8 @@ jQuery(function() {
 			$.each(errors, function(key, value) {
 
 				var elem = form.find("[data-name='" + key + "']");
+				elem.popover('destroy');
 				var field = elem.parent();
-
 				field.addClass('has-error');
 
 				elem.attr('data-content', value);
@@ -416,34 +423,38 @@ jQuery(function() {
 
 		searchDropdown: function(dropdown, search) {
 
-			var data = $.form.getDataFromDropdown(dropdown);
-
-			var fuse = new Fuse(data, {keys: ['title'], id: 'id', threshold:0.5});
-
-			var result = $.form.maxArray(fuse.search(search), 10);
-
-			dropdown.find('li').not('.dropdown-search-input').addClass('closed');
-
-			if (result.length > 0)
+			if (typeof Fuse != 'undefined')
 			{
-				for (key in result)
+
+				var data = $.form.getDataFromDropdown(dropdown);
+
+				var fuse = new Fuse(data, {keys: ['title'], id: 'id', threshold:0.5});
+
+				var result = $.form.maxArray(fuse.search(search), 10);
+
+				dropdown.find('li').not('.dropdown-search-input').addClass('closed');
+
+				if (result.length > 0)
 				{
-					dropdown.find("a[data-value='" + result[key] + "']").parent().removeClass('closed');
-				}
-			}
-			else
-			{
-				var count = 0;
-				dropdown.find("li").not('.dropdown-search-input').each(function() {
-
-					if (count < 10)
+					for (key in result)
 					{
-						$(this).removeClass('closed');
+						dropdown.find("a[data-value='" + result[key] + "']").parent().removeClass('closed');
 					}
+				}
+				else
+				{
+					var count = 0;
+					dropdown.find("li").not('.dropdown-search-input').each(function() {
 
-					count++;
-				});
+						if (count < 10)
+						{
+							$(this).removeClass('closed');
+						}
 
+						count++;
+					});
+
+				}
 			}
 		},
 

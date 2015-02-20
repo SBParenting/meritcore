@@ -13,4 +13,14 @@ abstract class Controller extends BaseController {
 	{
 	    return ['result' => false, 'msg' => 'Please correct the indicated errors.', 'errors' => $validator->errors()];
 	}
+
+	protected function access($id)
+	{
+		if (!\Auth::user()->ability(['admin'], [$id]))
+		{
+			abort(403);
+		}
+
+		$this->user = \Auth::user();
+	}
 }

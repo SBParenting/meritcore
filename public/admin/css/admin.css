@@ -94,14 +94,14 @@ a 										{ text-decoration: none !important; }
 
 .input-group-lg .input-group-addon .glyphicon { line-height: 17px; }
 
-.form-group div {
+.form-group > div {
 	margin-bottom: 10px;
 }
 .form-horizontal .control-label {
 	margin-bottom: 10px;
 }
 
-.input-group .dropdown-toggle {
+.js-dropdown-select .dropdown-toggle {
 	position: relative;
 	z-index: 2;
 	float: left;
@@ -112,11 +112,11 @@ a 										{ text-decoration: none !important; }
 	text-align: left;
 }
 
-.input-group .dropdown-toggle.placeholding .display-value {
+.js-dropdown-select .dropdown-toggle.placeholding .display-value {
 	color: #999;
 }
 
-.input-group .dropdown-toggle .caret {
+.js-dropdown-select .dropdown-toggle .caret {
 	float: right;
 	margin: 8px 0;
 }

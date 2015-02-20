@@ -84,11 +84,13 @@ jQuery(function() {
 					row.addClass('done');
 
 					var token = $("input[name='_token']").val();
+					var secret = $("input[name='secret']").val();
 
 					var data = {
 						'question_id': $(this).data('question-id'),
 						'result': $(this).data('value'),
 						'_token': token,
+						'secret': secret,
 					};
 
 					$.api.post($(this).data('url'), data);
@@ -107,11 +109,13 @@ jQuery(function() {
 					}
 
 					var token = $("input[name='_token']").val();
+					var secret = $("input[name='secret']").val();
 
 					var data = {
 						'question_id': $(this).data('question-id'),
 						'result': 0,
 						'_token': token,
+						'secret': secret,
 					};
 
 					$.api.post($(this).data('url'), data);
@@ -126,8 +130,9 @@ jQuery(function() {
 				e.preventDefault();
 
 				var token = $("input[name='_token']").val();
+				var secret = $("input[name='secret']").val();
 
-				$.api.post($(this).data('url'), {'_token':token}, $.app.showPostResponse);
+				$.api.post($(this).data('url'), {'_token':token,'secret': secret}, $.app.showPostResponse);
 			});
 		},
 
