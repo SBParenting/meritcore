@@ -65,8 +65,8 @@ class Registration extends \App\Models\Model {
 			]);
 
 			UserAssoc::create([
-				'school_id' => $school_board->id,
-				'user_id'         => $user->id,
+				'school_id' => $school->id,
+				'user_id'   => $user->id,
 			]);
 		}
 
