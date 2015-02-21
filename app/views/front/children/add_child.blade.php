@@ -11,8 +11,12 @@
 				<a href="#" id="showPage" class="header-link"><i class="icon-help"></i> help</a>
 				<a href="#" id="showMenu" class="header-link"><i class="icon-menu"></i> menu</a>
 				<a href="#" class="logo"><div class="logo child-thumbnail"></div><p class="child-name">Child name</p></a>
-				<h1>ADD CHILD</h1>
-			</div>
+				@if(isset($model))
+                    <h1>UPDATE CHILD</h1>
+                @else
+                    <h1>ADD CHILD</h1>
+                @endif
+            </div>
 		</div>
 
 		<div class="survey-block survey-content page-signup">
@@ -27,7 +31,14 @@
 						<div class="form-group form-head-text"><span class="line-thru">Fill in the information to get your child started </span></div>
 
 						<section>
-							{{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
+
+                            @if(isset($model))
+                                {{ Form::model($model, ['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
+                            @else
+                                {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
+                            @endif
+
+                            {{ Form::hidden('user_id',\Auth::id()) }}
 
 							<div class="form-group">
 								<div class="input-group input-group-lg">
@@ -53,12 +64,13 @@
 								<dl class="dl-horizontal" data-name="sex">
 									<dd>
 										<label class="ui-radio2">
-											<input type="radio"  id="female" name="sex" value="female">
+
+                                            {{ Form::radio('sex','female') }}
 											<span ><label style="padding-left: 7px;">OR</label></span>
 										</label>
 
 										<label class="ui-radio">
-											<input type="radio" id="male" name="sex" value="male">
+											{{ Form::radio('sex','male') }}
 											<span></span>
 										</label>
                                         <span class="error">x</span>
@@ -81,14 +93,19 @@
                             {{ Form::hidden('avatar',null,['id'=>'avatar']) }}
 
 							<div class="form-group">
-								<button type="submit" class="btn btn-lg btn-block btn-orange">Sign up</button>
+                                @if(isset($model))
+								    <button type="submit" class="btn btn-lg btn-block btn-orange">Update Child</button>
+                                @else
+								    <button type="submit" class="btn btn-lg btn-block btn-orange">Add Child</button>
+                                @endif
 							</div>
 							{{ Form::close() }}
 
 						</section>
 
 						<div id="dropzone">
-							<form action="/file-upload" class="dropzone" id="changeAvatar">
+
+							<form action="/file-upload" class="dropzone" id="changeAvatar" {{ isset($model) ? "style='background:url(/public/uploads/children/squared-".$model->avatar.") 100% center no-repeat !important;'" : "" }}>
 								<div class="dz-message" style="color: black;"></div>
 							</form>
 						</div>
@@ -135,6 +152,8 @@
 			}
 			$('#calculate-age').html(age);
 		});
+
+        $('#cal').trigger('change');
 	</script>
 
 	{{ HTML::script("public/admin/libs/jquery-form/jquery.form.min.js") }}

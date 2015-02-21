@@ -3,8 +3,16 @@
 class SurveyController extends \BaseController
 {
 
-    public function getIndex()
+    public function getIndex($secret)
     {
+        $student_survey = \CampaignStudent::where('secret',$secret)->get();
+
+        if ($student_survey->isEmpty()) {
+            $string = str_random(40);
+            //TODO: add child id on session so it will be possible to create a new campaign.
+        }
+
+        //TODO: if there's a survey, check if it's completed or not to decide if you can go through the survey
         $questions = \SurveyQuestion::where('survey_id', 1)->paginate(5);
 
         return \View::make('front.survey.base')->with('questions', $questions);

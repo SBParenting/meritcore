@@ -47,6 +47,15 @@ Route::group(['prefix' => 'admin', 'before' => 'auth'], function() {
 	});
 });
 
+Route::group(['before' => 'auth'],function(){
+    Route::get('/','Controllers\Admin\Children\ChildrenController@getIndex');
+    Route::get('children/add','Controllers\Admin\Children\ChildrenController@getAdd');
+    Route::post('children/add','Controllers\Admin\Children\ChildrenController@postAdd');
+    Route::get('children/{id}','Controllers\Admin\Children\ChildrenController@view');
+    Route::post('children/{id}','Controllers\Admin\Children\ChildrenController@postUpdate');
+    Route::get('children/select','Controllers\Admin\Children\ChildrenController@getIndex');
+});
+
 Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');
 Route::get('/articles', 'Controllers\Front\HomeController@getPosts');
 Route::get('/{slug?}', 'Controllers\Front\HomeController@getIndex');

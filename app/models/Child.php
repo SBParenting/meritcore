@@ -6,5 +6,5 @@ class Child extends BaseModel {
 
     protected $table = 'children';
 
-    protected $fillable = ['first_name', 'last_name', 'birth_date', 'sex', 'student_id', 'avatar'];
+    protected $fillable = ['first_name', 'last_name', 'birth_date', 'sex', 'student_id', 'avatar', 'user_id'];
 }

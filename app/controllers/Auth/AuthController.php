@@ -14,7 +14,7 @@ class AuthController extends \Controller {
 
 	public function postLogin()
 	{
-		if (\Auth::attempt(\Input::only(['username', 'password']), \Input::get('remember') == '1'))
+		if (\Auth::attempt(\Input::only(['email', 'password']), \Input::get('remember') == '1'))
 		{
 			$user = \Auth::user();
 			$user->last_login = new \DateTime;

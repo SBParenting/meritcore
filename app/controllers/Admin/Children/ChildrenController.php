@@ -17,7 +17,7 @@ class ChildrenController extends \BaseController {
 
 	public function getIndex()
 	{
-		$children = \Child::all();
+		$children = \Child::where('user_id',\Auth::id())->get();
 
         return \View::make('front.children.select_child')->with('children',$children);
 	}
@@ -62,5 +62,28 @@ class ChildrenController extends \BaseController {
 
 		return \Response::json(['result' => false, 'msg' => trans('crud.failed_added')]);
 	}
+
+    public function postUpdate($id) {
+		$child = \Child::find($id);
+
+		$val = $child->validator()->with(\Input::all())->action('create');
+
+		if (!$val->passes()) {
+			return $val->toJsonResponse();
+		} else {
+			$child->fill($val->data());
+			$child->update();
+
+            return \Response::json(['result' => true, 'msg' => 'Child successfully saved!', 'url' => url('/children/select')]);
+		}
+
+		return \Response::json(['result' => false, 'msg' => trans('crud.failed_added')]);
+	}
+
+    public function view($id) {
+        $child = \Child::find($id);
+
+        return \View::make('front.children.add_child')->with('model',$child);
+    }
 
 }

@@ -40,7 +40,7 @@
 											<span class=" glyphicon glyphicon-envelope"></span>
 
 											 </span>
-											  {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Email', 'autocomplete' => 'Off']) }}
+											  {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email', 'autocomplete' => 'Off']) }}
 											</div>
 
 										</div>
