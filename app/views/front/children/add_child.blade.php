@@ -88,6 +88,7 @@
 									<p class="id-text"><a href="#">What is this for?</a></p>
 								</div>
 							</div>
+                                @include('front.partials.image-upload')
 							<p font-size="14pt;">* Required Fields</p>
 
                             {{ Form::hidden('avatar',null,['id'=>'avatar']) }}
@@ -102,13 +103,6 @@
 							{{ Form::close() }}
 
 						</section>
-
-						<div id="dropzone">
-
-							<form action="/file-upload" class="dropzone" id="changeAvatar" {{ isset($model) ? "style='background:url(/public/uploads/children/squared-".$model->avatar.") 100% center no-repeat !important;'" : "" }}>
-								<div class="dz-message" style="color: black;"></div>
-							</form>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -121,23 +115,14 @@
 @section('css')
 
 {{ HTML::style("public/front/css/main.css") }}
+{{ HTML::style("/public/front/css/font.css") }}
+{{ HTML::style("/public/front/css/picedit.css") }}
 
 @stop
 
 @section('script')
 
 	<script type="text/javascript">
-
-        Dropzone.options.changeAvatar = {
-            thumbnailWidth:"250",
-            thumbnailHeight:"250",
-            init: function() {
-                this.on('success',function(file,response){
-                    $('#avatar').val(response.msg);
-                });
-            }
-        };
-
 
 		$('#cal').datepicker({
 			format: 'yyyy-mm-dd'

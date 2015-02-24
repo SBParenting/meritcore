@@ -1153,3 +1153,7 @@ position: relative; top: -11px; left: -4px; z-index: 2;
 
 .orange-circle {float: right; position: relative; top: -8px; right: -4px;}
 
+.flip-items a img {
+    border-radius:10px;
+}
+

@@ -28,7 +28,15 @@
                         <div id="Carousel">
 		                    <ul class="flip-items">
                                 @foreach($children as $child)
-	    	 	                    <li><a href="{{URL::to('children/'.$child->id)}}"><span>{{$child->first_name}}</span><img src="{{ url('/public/uploads/children/squared-'.$child->avatar) }}" /></a></li>
+	    	 	                    <li>
+                                        <a href="{{URL::to('children/'.$child->id)}}"><span>{{$child->first_name}}</span>
+                                            @if($child->avatar)
+                                                <img src="{{ url('/public/uploads/children/squared-'.$child->avatar) }}" />
+                                            @else
+                                                <img src="{{ url('/public/front/img/'.$child->sex.'.png') }}" style="background-color: white;" />
+                                            @endif
+                                        </a>
+                                    </li>
                                 @endforeach
                                     <li><a href="{{URL::to('children/add')}}"><img src="{{ url('public/front/img/add-child.png') }}" /></a></li>
 		                    </ul>
