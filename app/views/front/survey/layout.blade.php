@@ -17,7 +17,6 @@
     {{ HTML::style("public/front/css/survey.css") }}
     {{ HTML::script("public/front/libs/modernizr/modernizr.js") }}
     {{ HTML::style("public/admin/libs/datapicker/datepicker3.css") }}
-    {{ HTML::style("public/admin/libs/dropzone/dropzone.css") }}
     @yield('css')
 
 </head>
@@ -41,7 +40,6 @@
     {{ HTML::script("public/front/libs/scroller/scroller.js") }}
     {{ HTML::script("public/front/js/survey.js") }}
     {{HTML::script("public/admin/libs/datapicker/bootstrap-datepicker.js")}}
-    {{HTML::script("public/admin/libs//dropzone/dropzone.js")}}
     {{HTML::script("public/front/libs/flipster/src/js/jquery.flipster.js")}}
     @yield('script')
 

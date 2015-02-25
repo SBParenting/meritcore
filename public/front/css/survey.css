@@ -937,21 +937,19 @@
 					background-position: center;}
 
 .dropzone {
-    border-radius: 5px;
-    background: url(/public/front/img/change-avatar.png);
-    width: 325px;
-    float: right;
+    background: white;
+    float: left;
     border-radius: 3px;
-    margin-right: -365px;
+    margin-left: 500px;
     margin-top: -27.65em;
-
-    width: 24.65em;
-    height: 26.85em;
+    width: 400px;
+    height: 400px;
     clear: both;
+    padding:0!important;
 }
 
 .dropzone:hover {
-    background: url(/public/front/img/change-avatar-mouseover.png);
+    /*background: url(/public/front/img/change-avatar-mouseover.png);*/
 }
 
 .child-thumbnail {

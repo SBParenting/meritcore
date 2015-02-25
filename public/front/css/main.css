@@ -312,8 +312,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../fonts/glyphicons-halflings-regular.eot");
-  src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+  src: url("../libs/bootstrap/fonts/glyphicons-halflings-regular.eot");
+  src: url("../libs/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../libs/bootstrap/fonts/glyphicons-halflings-regular.woff") format("woff"), url("../libs/bootstrap/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../libs/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
 .glyphicon {
   position: relative;
@@ -3174,58 +3174,52 @@ input[type="month"].input-lg,
   line-height: 1.33 \0;
 }
 
-_:-ms-fullscreen, :root input[type="date"],
-_:-ms-fullscreen, :root input[type="time"],
-_:-ms-fullscreen, :root input[type="datetime-local"],
-_:-ms-fullscreen, :root input[type="month"] {
+:-ms-fullscreen, :root input[type="date"],
+:-ms-fullscreen, :root input[type="time"],
+:-ms-fullscreen, :root input[type="datetime-local"],
+:-ms-fullscreen, :root input[type="month"] {
   line-height: 1.42857;
 }
-_:-ms-fullscreen.input-sm, .input-group-sm > _.form-control:-ms-fullscreen,
-.input-group-sm > _.input-group-addon:-ms-fullscreen,
-.input-group-sm > .input-group-btn > _.btn:-ms-fullscreen, :root input[type="date"].input-sm, :root .input-group-sm > input[type="date"].form-control,
+.input-group-sm > .form-control:-ms-fullscreen,
+.input-group-sm > .input-group-addon:-ms-fullscreen,
+.input-group-sm > .input-group-btn > .btn:-ms-fullscreen, :root input[type="date"].input-sm, :root .input-group-sm > input[type="date"].form-control,
 :root .input-group-sm > input[type="date"].input-group-addon,
 :root .input-group-sm > .input-group-btn > input[type="date"].btn,
-_:-ms-fullscreen.input-sm,
-.input-group-sm > _.form-control:-ms-fullscreen,
-.input-group-sm > _.input-group-addon:-ms-fullscreen,
-.input-group-sm > .input-group-btn > _.btn:-ms-fullscreen, :root input[type="time"].input-sm, :root .input-group-sm > input[type="time"].form-control,
+.input-group-sm > .form-control:-ms-fullscreen,
+.input-group-sm > .input-group-addon:-ms-fullscreen,
+.input-group-sm > .input-group-btn > .btn:-ms-fullscreen, :root input[type="time"].input-sm, :root .input-group-sm > input[type="time"].form-control,
 :root .input-group-sm > input[type="time"].input-group-addon,
 :root .input-group-sm > .input-group-btn > input[type="time"].btn,
-_:-ms-fullscreen.input-sm,
-.input-group-sm > _.form-control:-ms-fullscreen,
-.input-group-sm > _.input-group-addon:-ms-fullscreen,
-.input-group-sm > .input-group-btn > _.btn:-ms-fullscreen, :root input[type="datetime-local"].input-sm, :root .input-group-sm > input[type="datetime-local"].form-control,
+.input-group-sm > .form-control:-ms-fullscreen,
+.input-group-sm > .input-group-addon:-ms-fullscreen,
+.input-group-sm > .input-group-btn > .btn:-ms-fullscreen, :root input[type="datetime-local"].input-sm, :root .input-group-sm > input[type="datetime-local"].form-control,
 :root .input-group-sm > input[type="datetime-local"].input-group-addon,
 :root .input-group-sm > .input-group-btn > input[type="datetime-local"].btn,
-_:-ms-fullscreen.input-sm,
-.input-group-sm > _.form-control:-ms-fullscreen,
-.input-group-sm > _.input-group-addon:-ms-fullscreen,
-.input-group-sm > .input-group-btn > _.btn:-ms-fullscreen, :root input[type="month"].input-sm, :root .input-group-sm > input[type="month"].form-control,
+.input-group-sm > .form-control:-ms-fullscreen,
+.input-group-sm > .input-group-addon:-ms-fullscreen,
+.input-group-sm > .input-group-btn > .btn:-ms-fullscreen, :root input[type="month"].input-sm, :root .input-group-sm > input[type="month"].form-control,
 :root .input-group-sm > input[type="month"].input-group-addon,
 :root .input-group-sm > .input-group-btn > input[type="month"].btn {
   line-height: 1.5;
 }
-_:-ms-fullscreen.input-lg, .input-group-lg > _.form-control:-ms-fullscreen,
-.input-group-lg > _.input-group-addon:-ms-fullscreen,
-.input-group-lg > .input-group-btn > _.btn:-ms-fullscreen, :root input[type="date"].input-lg, :root .input-group-lg > input[type="date"].form-control,
+.input-group-lg > .form-control:-ms-fullscreen,
+.input-group-lg > .input-group-addon:-ms-fullscreen,
+.input-group-lg > .input-group-btn > .btn:-ms-fullscreen, :root input[type="date"].input-lg, :root .input-group-lg > input[type="date"].form-control,
 :root .input-group-lg > input[type="date"].input-group-addon,
 :root .input-group-lg > .input-group-btn > input[type="date"].btn,
-_:-ms-fullscreen.input-lg,
-.input-group-lg > _.form-control:-ms-fullscreen,
-.input-group-lg > _.input-group-addon:-ms-fullscreen,
-.input-group-lg > .input-group-btn > _.btn:-ms-fullscreen, :root input[type="time"].input-lg, :root .input-group-lg > input[type="time"].form-control,
+.input-group-lg > .form-control:-ms-fullscreen,
+.input-group-lg > .input-group-addon:-ms-fullscreen,
+.input-group-lg > .input-group-btn > .btn:-ms-fullscreen, :root input[type="time"].input-lg, :root .input-group-lg > input[type="time"].form-control,
 :root .input-group-lg > input[type="time"].input-group-addon,
 :root .input-group-lg > .input-group-btn > input[type="time"].btn,
-_:-ms-fullscreen.input-lg,
-.input-group-lg > _.form-control:-ms-fullscreen,
-.input-group-lg > _.input-group-addon:-ms-fullscreen,
-.input-group-lg > .input-group-btn > _.btn:-ms-fullscreen, :root input[type="datetime-local"].input-lg, :root .input-group-lg > input[type="datetime-local"].form-control,
+.input-group-lg > .form-control:-ms-fullscreen,
+.input-group-lg > .input-group-addon:-ms-fullscreen,
+.input-group-lg > .input-group-btn > .btn:-ms-fullscreen, :root input[type="datetime-local"].input-lg, :root .input-group-lg > input[type="datetime-local"].form-control,
 :root .input-group-lg > input[type="datetime-local"].input-group-addon,
 :root .input-group-lg > .input-group-btn > input[type="datetime-local"].btn,
-_:-ms-fullscreen.input-lg,
-.input-group-lg > _.form-control:-ms-fullscreen,
-.input-group-lg > _.input-group-addon:-ms-fullscreen,
-.input-group-lg > .input-group-btn > _.btn:-ms-fullscreen, :root input[type="month"].input-lg, :root .input-group-lg > input[type="month"].form-control,
+.input-group-lg > .form-control:-ms-fullscreen,
+.input-group-lg > .input-group-addon:-ms-fullscreen,
+.input-group-lg > .input-group-btn > .btn:-ms-fullscreen, :root input[type="month"].input-lg, :root .input-group-lg > input[type="month"].form-control,
 :root .input-group-lg > input[type="month"].input-group-addon,
 :root .input-group-lg > .input-group-btn > input[type="month"].btn {
   line-height: 1.33;
@@ -6491,7 +6485,7 @@ button.close {
   margin-left: -11px;
   border-bottom-width: 0;
   border-top-color: #999999;
-  border-top-color: fadein(rgba(0, 0, 0, 0.2), 5%);
+  /*border-top-color: fadein(rgba(0, 0, 0, 0.2), 5%);*/
   bottom: -11px;
 }
 .popover.top > .arrow:after {
@@ -6507,7 +6501,7 @@ button.close {
   margin-top: -11px;
   border-left-width: 0;
   border-right-color: #999999;
-  border-right-color: fadein(rgba(0, 0, 0, 0.2), 5%);
+  /*border-right-color: fadein(rgba(0, 0, 0, 0.2), 5%);*/
 }
 .popover.right > .arrow:after {
   content: " ";
@@ -6521,7 +6515,7 @@ button.close {
   margin-left: -11px;
   border-top-width: 0;
   border-bottom-color: #999999;
-  border-bottom-color: fadein(rgba(0, 0, 0, 0.2), 5%);
+  /*border-bottom-color: fadein(rgba(0, 0, 0, 0.2), 5%);*/
   top: -11px;
 }
 .popover.bottom > .arrow:after {
@@ -6537,7 +6531,7 @@ button.close {
   margin-top: -11px;
   border-right-width: 0;
   border-left-color: #999999;
-  border-left-color: fadein(rgba(0, 0, 0, 0.2), 5%);
+  /*border-left-color: fadein(rgba(0, 0, 0, 0.2), 5%);*/
 }
 .popover.left > .arrow:after {
   content: " ";
@@ -6574,7 +6568,7 @@ button.close {
   .carousel-inner > .item {
     transition: transform .6s ease-in-out;
     backface-visibility: hidden;
-    perspective: 1000;
+    perspective: 1000px;
   }
   .carousel-inner > .item.next, .carousel-inner > .item.active.right {
     transform: translate3d(100%, 0, 0);
@@ -7158,7 +7152,7 @@ span.block {
   font-weight: 300;
   color: #1C7EBB;
   background: -webkit-linear-gradient(92deg, #fb83fa, #00aced);
-  -webkit-background-clip: text;
+  -webkit-background-clip: content;
   -webkit-text-fill-color: transparent;
 }
 
@@ -7495,7 +7489,7 @@ span.block {
   margin-right: 10px;
   margin-left: -20px;
   background-image: url(/public/front/img/boy-avatar.png);
-  border-radius: 
+
   border: 1px solid #ccc;
 }
 .ui-radio input[type="radio"]:disabled + span:before {
@@ -7564,7 +7558,7 @@ span.block {
   position: absolute;
   top: 7px;
   left: -15px;
-  background: url("img/checkmark.png") no-repeat center center;
+  /*background: url("img/checkmark.png") no-repeat center center;*/
   background-size: 14px 14px;
   display: block;
 }
@@ -7576,7 +7570,7 @@ span.block {
 .ui-checkbox input[type="checkbox"]:disabled:checked + span:after {
   opacity: .65;
   cursor: no-drop;
-  background: url("img/checkmark.png") no-repeat center center;
+  /*background: url("../img/checkmark.png") no-repeat center center;*/
 }
 
 .ui-editor .btn-toolbar {
@@ -7762,7 +7756,7 @@ input.input-danger:focus {
   .ui-select select {
     width: 120%;
     width: -moz-calc(100% + 3em);
-    width: calc(100% + em);
+    width: calc(100% + 3em);
   }
 }
 /* Firefox focus has odd artifacts around the text, this kills that. See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-focusring */
@@ -8971,8 +8965,8 @@ img.img80_80 {
 }
 
 .flags-sprite, .flags-american, .flags-china, .flags-france, .flags-german, .flags-italy, .flags-japan, .flags-korea, .flags-portugal, .flags-russia, .flags-spain {
-  background-image: url('ui/images/flags-sa787615a22.png');
-  background-repeat: no-repeat;
+  /*background-image: url('ui/images/flags-sa787615a22.png');*/
+  /*background-repeat: no-repeat;*/
 }
 
 .flags-american {
@@ -11087,7 +11081,7 @@ left: 71%;
 }
 
 .body-lock #content {
-  background: url("../images/background/1.jpg") no-repeat center center fixed;
+  /*background: url("../images/background/1.jpg") no-repeat center center fixed;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -11123,15 +11117,9 @@ left: 71%;
 }
 
 .dropzone {
-    background: url('/public/front/img/change-avatar.png')!important;
+    background: white;
     background-size: 100%;
 }
-
-.dropzone:hover {
-    border: 4px hidden #ff7000;
-    border-radius:10px;
-}
-
 .has-error dd {
     position:relative;
 }

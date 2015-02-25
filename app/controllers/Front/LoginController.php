@@ -1,9 +1,11 @@
 <?php namespace Controllers\Front;
 
-class LoginController extends \BaseController {
+class LoginController extends \BaseController
+{
 
-	public function getIndex()
-	{
+    public function getIndex()
+    {
 
-		return \View::make('front.auth.login');
-	}
+        return \View::make('front.auth.login');
+    }
+}

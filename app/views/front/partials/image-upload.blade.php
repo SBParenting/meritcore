@@ -1,5 +1,5 @@
 <!-- begin_picedit_box -->
-<div class="picedit_box">
+<div class="picedit_box dropzone">
     <div class="picedit_message">
         <span class="picedit_control ico-picedit-close" data-action="hide_messagebox"></span>
         <div></div>
@@ -115,12 +115,3 @@
     </div>
 </div>
 <!-- end_picedit_box -->
-
-
-{{ HTML::script("/public/front/js/picedit.js") }}
-
-<script type="text/javascript">
-    $(function(){
-        $('.picedit_box').picEdit();
-    });
-</script>

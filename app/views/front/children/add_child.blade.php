@@ -33,9 +33,9 @@
 						<section>
 
                             @if(isset($model))
-                                {{ Form::model($model, ['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
+                                {{ Form::model($model, ['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter', 'files' => true]) }}
                             @else
-                                {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter']) }}
+                                {{ Form::open(['role' => 'form', 'novalidate', 'autocomplete' => 'Off', 'class' => 'submit-on-enter', 'files' => true]) }}
                             @endif
 
                             {{ Form::hidden('user_id',\Auth::id()) }}
@@ -88,7 +88,6 @@
 									<p class="id-text"><a href="#">What is this for?</a></p>
 								</div>
 							</div>
-                                @include('front.partials.image-upload')
 							<p font-size="14pt;">* Required Fields</p>
 
                             {{ Form::hidden('avatar',null,['id'=>'avatar']) }}
@@ -100,8 +99,9 @@
 								    <button type="submit" class="btn btn-lg btn-block btn-orange">Add Child</button>
                                 @endif
 							</div>
-							{{ Form::close() }}
+                                {{ Form::file('image',['id' => 'image', 'data-image' => isset($model) ? $model->avatar : 'false']) }}
 
+                                {{ Form::close() }}
 						</section>
 					</div>
 				</div>
@@ -146,5 +146,16 @@
 	{{ HTML::script("public/admin/js/api.js") }}
 	{{ HTML::script("public/admin/js/app.js") }}
 	{{ HTML::script("public/admin/js/form.js") }}
+
+    {{ HTML::script("/public/front/js/picedit.min.js") }}
+
+    <script type="text/javascript">
+        $(function(){
+            $('#image').picEdit({
+                'defaultImage': '/public/uploads/children/squared-'+$('#image').attr('data-image')
+            });
+            $('.picedit_box').addClass('dropzone');
+        });
+    </script>
 
 @stop

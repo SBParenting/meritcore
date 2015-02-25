@@ -22,32 +22,29 @@ class ChildrenController extends \BaseController {
         return \View::make('front.children.select_child')->with('children',$children);
 	}
 
-	public function uploadImage()
-	{
-		$input = \Input::file('file');
-
-		$extension = $input->getClientOriginalExtension();
-
-		$filename = str_random(32).'.'.$extension;
-
-		$input->move('uploads/children/',$filename);
-
-
-        $img = \ImageTool::make('uploads/children/'.$filename);
-
-        $img->crop(350,350);
-
-        $img->save('uploads/children/squared-'.$filename);
-
-		return \Response::json(['result'=>true,'msg'=>$filename]);
-	}
-
 	public function getAdd() {
 		return \View::make('front.children.add_child');
 	}
 
 	public function postAdd() {
 		$child = new \Child;
+
+        $input = \Input::all();
+        $image = \Input::file('image');
+
+        if (isset($image)) {
+            $extension = $image->getClientOriginalExtension();
+            $filename = str_random(32).'.'.$extension;
+
+            $image->move('uploads/children/',$filename);
+
+            $img = \ImageTool::make(public_path('uploads/children/'.$filename));
+
+            $img->fit(350);
+            $img->save('uploads/children/squared-'.$filename);
+
+            $input['avatar'] = $filename;
+        }
 
 		$val = $child->validator()->with(\Input::all())->action('create');
 
@@ -66,7 +63,29 @@ class ChildrenController extends \BaseController {
     public function postUpdate($id) {
 		$child = \Child::find($id);
 
-		$val = $child->validator()->with(\Input::all())->action('create');
+        $input = \Input::all();
+        $image = \Input::file('image');
+
+        if (isset($image)) {
+            $extension = $image->getClientOriginalExtension();
+            $filename = str_random(32).'.'.$extension;
+
+            if(!empty($child->avatar)) {
+                $filename = explode('.',$child->avatar)[0].'.'.$extension;
+            }
+
+            $image->move('uploads/children/',$filename);
+
+            $img = \ImageTool::make(public_path('uploads/children/'.$filename));
+
+            $img->fit(350);
+            $img->save('uploads/children/squared-'.$filename);
+
+            $input['avatar'] = $filename;
+        }
+
+
+		$val = $child->validator()->with($input)->action('create');
 
 		if (!$val->passes()) {
 			return $val->toJsonResponse();
