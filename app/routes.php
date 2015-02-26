@@ -16,9 +16,6 @@ Route::get('children/select','Controllers\Admin\Children\ChildrenController@getI
 
 Route::post('file-upload','Controllers\Admin\Children\ChildrenController@uploadImage');
 
-Route::get('survey/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
-Route::get('parent/survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndexParentFocus');
-
 Route::controller('password', 'Controllers\Auth\RemindersController');
 Route::get('remind', 'Controllers\Auth\RemindersController@getRemind');
 Route::post('remind', 'Controllers\Auth\RemindersController@postRemind');
@@ -54,6 +51,10 @@ Route::group(['before' => 'auth'],function(){
     Route::get('children/{id}','Controllers\Admin\Children\ChildrenController@view');
     Route::post('children/{id}','Controllers\Admin\Children\ChildrenController@postUpdate');
     Route::get('children/select','Controllers\Admin\Children\ChildrenController@getIndex');
+    Route::get('survey/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
+    Route::post('survey/save', 'Controllers\Front\SurveyController@saveQuestion');
+    Route::get('survey/finish/{student_id?}', 'Controllers\Front\SurveyController@finishSurvey');
+    Route::get('parent/survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndexParentFocus');
 });
 
 Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');

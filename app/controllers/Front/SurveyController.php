@@ -5,25 +5,75 @@ class SurveyController extends \BaseController
 
     public function getIndex($sid)
     {
-        $student_survey = \CampaignStudent::where('student_id',$sid)->get();
+        $student_survey = \CampaignStudent::where('student_id',$sid)->first();
 
         $child = \Child::find($sid);
 
-        if ($student_survey->isEmpty()) {
+        if (!isset($student_survey)) {
             $string = str_random(40);
             $student_survey = new \CampaignStudent();
             $student_survey->student_id = $child->id;
             $student_survey->campaign_id = $child->id;
             $student_survey->secret = $string;
             $student_survey->status = 'NotStarted';
+
+            $student_survey->save();
         }
 
-        //TODO: if there's a survey, check if it's completed or not to decide if you can go through the survey
+        $campaign_result = \CampaignResult::where('campaign_student_id',$student_survey->id)->get()->lists('result','question_id');
+
         $questions = \SurveyQuestion::where('survey_id', 1)->paginate(5);
 
-        return \View::make('front.survey.base')
-                    ->with('questions', $questions)
-                    ->with('child', $child);
+        if ($student_survey->status != "Completed") {
+            return \View::make('front.survey.base')
+                ->with('questions', $questions)
+                ->with('child', $child)
+                ->with('campaign_student',$student_survey)
+                ->with('answers',$campaign_result);
+        } else {
+            return \View::make('front.survey.completed');
+        }
+
+    }
+
+    public function finishSurvey($sid) {
+        $student_survey = \CampaignStudent::where('student_id',$sid)->first();
+
+        $questions = \SurveyQuestion::where('survey_id', 1)->count();
+        $campaign_result = \CampaignResult::where('campaign_student_id',$student_survey->id)->count();
+
+        if ($questions == $campaign_result) {
+            $student_survey->status = "Completed";
+        } elseif ($campaign_result != 0) {
+            $student_survey->status = "InProgress";
+        }
+
+        $student_survey->save();
+
+        return \Redirect::back()->with('message','Survey successfully saved!');
+    }
+
+    public function saveQuestion()
+    {
+        $input = \Input::all();
+        $child = \Child::find($input['child_id']);
+
+        $result = \CampaignResult::where('campaign_student_id',$input['campaign_student_id'])
+                                 ->where('question_id',$input['question_id'])
+                                 ->first();
+
+        if (!isset($result)){
+            $result = new \CampaignResult();
+        }
+
+        if (\Auth::id() == $child->user_id) {
+            $result->campaign_student_id = $input['campaign_student_id'];
+            $result->student_id = $input['child_id'];
+            $result->question_id = $input['question_id'];
+            $result->result = $input['result'];
+
+            $result->save();
+        }
     }
 
     public function getIndexParentFocus()

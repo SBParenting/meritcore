@@ -70,10 +70,15 @@
             <div class="survey-block survey-footer">
                 <div class="container btn-container">
 
-                    <a href="#" class="pull-left btn btn-primary btn-left"><i
+                    <a href="{{ ($questions->getCurrentPage() > 1) ? $questions->getUrl($questions->getCurrentPage()-1) : "#" }}" class="pull-left btn btn-primary btn-left {{ ($questions->getCurrentPage() == 1) ? "disabled" : "" }}"><i
                                 class="glyphicon glyphicon-arrow-left"></i> BACK</a>
-                    <a href="#" class="pull-right btn btn-primary btn-right">NEXT <i
-                                class="glyphicon glyphicon-arrow-right"></i></a>
+
+                    @if($questions->getCurrentPage() < $questions->getLastPage())
+                        <a href="{{ $questions->getUrl($questions->getCurrentPage()+1) }}" class="pull-right btn btn-primary btn-right">NEXT <i
+                                    class="glyphicon glyphicon-arrow-right"></i></a>
+                    @else
+                        <a href="/survey/finish/{{$child->id}}" class="pull-right btn btn-primary btn-right">FINISH</a>
+                    @endif
                 </div>
             </div>
         </div>
