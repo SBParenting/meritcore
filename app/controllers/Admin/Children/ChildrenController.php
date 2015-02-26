@@ -18,8 +18,14 @@ class ChildrenController extends \BaseController {
 	public function getIndex()
 	{
 		$children = \Child::where('user_id',\Auth::id())->get();
+        foreach ($children as $child) {
+            $campaign_survey = \CampaignStudent::where('student_id',$child->id)->first();
+            if (isset($campaign_survey)) {
+                $survey[$child->id] = $campaign_survey->status;
+            }
+        }
 
-        return \View::make('front.children.select_child')->with('children',$children);
+        return \View::make('front.children.select_child')->with('children',$children)->with('survey',$survey);
 	}
 
 	public function getAdd() {

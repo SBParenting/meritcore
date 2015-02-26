@@ -37,7 +37,7 @@
                                             @endif
                                         </a>
 
-                                        <span class="survey"><a href="/survey/{{ $child->id }}">Start Survey</a></span>
+                                        <span class="survey">@if(!isset($survey[$child->id]) || $survey[$child->id] != "Completed")<a href="/survey/{{ $child->id }}">Start Survey</a>@else <a class="disabled">Survey Completed</a>@endif</span>
                                     </li>
                                 @endforeach
                                     <li><a href="{{URL::to('children/add')}}"><img src="{{ url('public/front/img/add-child.png') }}" /></a></li>
