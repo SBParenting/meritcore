@@ -110,7 +110,7 @@
             border: "none",
             padding: "28px" ,
             "z-index": '4',
-            "background": "url('/public/front/img/default-circle.png') ",
+            "background": "url('/public/front/img/default-circle.png')",
             "background-position": "center"
         });
 
