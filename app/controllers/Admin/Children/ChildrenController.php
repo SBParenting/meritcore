@@ -18,6 +18,7 @@ class ChildrenController extends \BaseController {
 	public function getIndex()
 	{
 		$children = \Child::where('user_id',\Auth::id())->get();
+        $survey = array();
         foreach ($children as $child) {
             $campaign_survey = \CampaignStudent::where('student_id',$child->id)->first();
             if (isset($campaign_survey)) {
