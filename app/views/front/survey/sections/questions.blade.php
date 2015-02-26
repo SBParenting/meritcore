@@ -1,8 +1,8 @@
 
 @foreach ($questions as $question)
 
-	<div class="survey-row  ">
-		
+	<div class="survey-row"  data-child-id="{{$child->id}}">
+
 
 		<div class="container ">
 			<table>
@@ -42,6 +42,8 @@
 
 <script>
 
+
+
     $(".slider").slider({
         orientation: "horizontal",
         range: "min",
@@ -62,11 +64,8 @@
         	});
 
 			$('.question-strength , .answers').find('.list-item').css({'background-color': 'transparent'}).find('a').css({"color": '#777777'});
-
 			var color = $(this).parents('.survey-row').css('background-color');
-
             $(this).find('.ui-slider-handle').html(ui.value);
-
         	$.each($('.slider'),function(){
         		var position = $(this).slider("option", "value");
         		if ($(this).find('.ui-slider-handle').css('background-image') == "url(http://meritcore.local/public/front/img/white-circle.png)") {
@@ -88,14 +87,13 @@
 					if (position >= 80 && position <= 100) {
 	        			$('#strongly-disagree , #major-concern ').css({"background-color": color }).find('a').css({"color": '#ffffff'});
 	        		}
-        			
         		}
-
-
         	});
         },
 
-       change: function(){}
+       change: function(e,ui){
+//           $.post("/survey/save/"+cid+"/"+qid);
+       }
     });
 
 $('.ui-slider-horizontal').height(3);

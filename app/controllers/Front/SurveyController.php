@@ -3,19 +3,27 @@
 class SurveyController extends \BaseController
 {
 
-    public function getIndex($secret)
+    public function getIndex($sid)
     {
-        $student_survey = \CampaignStudent::where('secret',$secret)->get();
+        $student_survey = \CampaignStudent::where('student_id',$sid)->get();
+
+        $child = \Child::find($sid);
 
         if ($student_survey->isEmpty()) {
             $string = str_random(40);
-            //TODO: add child id on session so it will be possible to create a new campaign.
+            $student_survey = new \CampaignStudent();
+            $student_survey->student_id = $child->id;
+            $student_survey->campaign_id = $child->id;
+            $student_survey->secret = $string;
+            $student_survey->status = 'NotStarted';
         }
 
         //TODO: if there's a survey, check if it's completed or not to decide if you can go through the survey
         $questions = \SurveyQuestion::where('survey_id', 1)->paginate(5);
 
-        return \View::make('front.survey.base')->with('questions', $questions);
+        return \View::make('front.survey.base')
+                    ->with('questions', $questions)
+                    ->with('child', $child);
     }
 
     public function getIndexParentFocus()

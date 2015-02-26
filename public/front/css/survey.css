@@ -962,6 +962,17 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.child-male {
+    background-image: url(/public/front/img/male.png);
+    background-size: 90%;
+}
+
+.child-female {
+    background-image: url(/public/front/img/female.png);
+    background-size: 90%;
+}
+
 .child-name { padding: 8px;
 				position: relative;
 				left: 30px;
@@ -983,6 +994,9 @@
 .child-name {
     padding: 8px;
     color: black;
+    left: 10px;
+    text-align: center;
+    display:block;
 }
 
 /* Line thru for Login and Register forms */

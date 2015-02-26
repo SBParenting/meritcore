@@ -36,6 +36,8 @@
                                                 <img src="{{ url('/public/front/img/'.$child->sex.'.png') }}" style="background-color: white;" />
                                             @endif
                                         </a>
+
+                                        <span class="survey"><a href="/survey/{{ $child->id }}">Start Survey</a></span>
                                     </li>
                                 @endforeach
                                     <li><a href="{{URL::to('children/add')}}"><img src="{{ url('public/front/img/add-child.png') }}" /></a></li>
@@ -98,6 +100,17 @@
 
         .flipto-next {
             float:right;
+        }
+
+        .flip-item .survey {
+            display:none;
+        }
+
+        .flip-current .survey {
+            display:block;
+            border: 1px solid black;
+            padding: 20px inherit;
+            margin-top: 20px;
         }
     </style>
 
