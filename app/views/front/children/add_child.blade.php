@@ -123,7 +123,6 @@
 @section('script')
 
 	<script type="text/javascript">
-
 		$('#cal').datepicker({
 			format: 'yyyy-mm-dd'
 		}).on('change', function(e) {
@@ -141,21 +140,27 @@
         $('#cal').trigger('change');
 	</script>
 
-	{{ HTML::script("public/admin/libs/jquery-form/jquery.form.min.js") }}
+    {{ HTML::script("public/admin/libs/jquery-form/jquery.form.min.js") }}
 
-	{{ HTML::script("public/admin/js/api.js") }}
-	{{ HTML::script("public/admin/js/app.js") }}
-	{{ HTML::script("public/admin/js/form.js") }}
+    {{ HTML::script("public/front/js/api.js") }}
+    {{ HTML::script("public/front/js/app.js") }}
+    {{ HTML::script("public/front/js/form.js") }}
 
-    {{ HTML::script("/public/front/js/picedit.min.js") }}
+    {{ HTML::script("/public/front/js/picedit.js") }}
 
     <script type="text/javascript">
         $(function(){
             $('#image').picEdit({
-                'defaultImage': '/public/uploads/children/squared-'+$('#image').attr('data-image')
+                'defaultImage': '/public/uploads/children/squared-'+$('#image').attr('data-image'),
+                formSubmitted: function(response) {
+                    console.log(response);
+                    $.form.showFormResult(JSON.parse(response.response),$('.submit-on-enter'));
+                }
             });
             $('.picedit_box').addClass('dropzone');
         });
     </script>
+
+
 
 @stop
