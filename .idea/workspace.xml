@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d3d86b7-72eb-43b5-8dc5-565cf5fd4187" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Front/SurveyController.php" afterPath="$PROJECT_DIR$/app/controllers/Front/SurveyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/survey/base.blade.php" afterPath="$PROJECT_DIR$/app/views/front/survey/base.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/survey/parentFocus.blade.php" afterPath="$PROJECT_DIR$/app/views/front/survey/parentFocus.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/survey/sections/questions.blade.php" afterPath="$PROJECT_DIR$/app/views/front/survey/sections/questions.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="meritcore.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,10 +52,10 @@
       <file leaf-file-name="parentFocus.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/front/survey/parentFocus.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.256654" vertical-offset="15" max-vertical-offset="1395">
-              <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.32794678" vertical-offset="15" max-vertical-offset="1380">
+              <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
               <folding>
-                <element signature="e#1619#1688#0#HTML" expanded="true" />
+                <element signature="e#1544#1613#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -694,12 +689,12 @@
       <workItem from="1422997424858" duration="33454000" />
       <workItem from="1423517051440" duration="1080000" />
       <workItem from="1423518279030" duration="145658000" />
-      <workItem from="1425057037412" duration="22186000" />
+      <workItem from="1425057037412" duration="22602000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214608000" />
+    <option name="totallyTimeSpent" value="215024000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="1920" height="1173" extended-state="6" />
@@ -1142,10 +1137,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/front/survey/parentFocus.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.256654" vertical-offset="15" max-vertical-offset="1395">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.32794678" vertical-offset="15" max-vertical-offset="1380">
+          <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
           <folding>
-            <element signature="e#1619#1688#0#HTML" expanded="true" />
+            <element signature="e#1544#1613#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

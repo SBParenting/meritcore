@@ -23,7 +23,6 @@
 
                     <div class="bar-container">
                         <span class="progress-label-1">PARENT FOCUS</span>
-                        <span class="progress-label-2">CHILD SURVEY</span>
 
                         <div class="progress ng-isolate-scope progress-bar-container" max="max" value="dynamic">
 
