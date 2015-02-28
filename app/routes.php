@@ -10,11 +10,6 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('children/add','Controllers\Admin\Children\ChildrenController@getAdd');
-Route::post('children/add','Controllers\Admin\Children\ChildrenController@postAdd');
-Route::get('children/select','Controllers\Admin\Children\ChildrenController@getIndex');
-
-Route::post('file-upload','Controllers\Admin\Children\ChildrenController@uploadImage');
 
 Route::controller('password', 'Controllers\Auth\RemindersController');
 Route::get('remind', 'Controllers\Auth\RemindersController@getRemind');
@@ -51,10 +46,11 @@ Route::group(['before' => 'auth'],function(){
     Route::get('children/{id}','Controllers\Admin\Children\ChildrenController@view');
     Route::post('children/{id}','Controllers\Admin\Children\ChildrenController@postUpdate');
     Route::get('children/select','Controllers\Admin\Children\ChildrenController@getIndex');
-    Route::get('survey/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
+    Route::get('survey/{student_id?}', 'Controllers\Front\SurveyController@selectSurvey');
     Route::post('survey/save', 'Controllers\Front\SurveyController@saveQuestion');
-    Route::get('survey/finish/{student_id?}', 'Controllers\Front\SurveyController@finishSurvey');
-    Route::get('parent/survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndexParentFocus');
+    Route::get('survey/child/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
+    Route::get('survey/parent/{student_id?}', 'Controllers\Front\SurveyController@getIndexParentFocus');
+    Route::get('survey/finish/{student_id?}/{survey_id?}', 'Controllers\Front\SurveyController@finishSurvey');
 });
 
 Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');

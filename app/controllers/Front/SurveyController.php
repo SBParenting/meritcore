@@ -5,7 +5,7 @@ class SurveyController extends \BaseController
 
     public function getIndex($sid)
     {
-        $student_survey = \CampaignStudent::where('student_id',$sid)->first();
+        $student_survey = \CampaignStudent::where('student_id',$sid)->where('campaign_id',2)->first();
 
         $child = \Child::find($sid);
 
@@ -13,7 +13,7 @@ class SurveyController extends \BaseController
             $string = str_random(40);
             $student_survey = new \CampaignStudent();
             $student_survey->student_id = $child->id;
-            $student_survey->campaign_id = $child->id;
+            $student_survey->campaign_id = 2;
             $student_survey->secret = $string;
             $student_survey->status = 'NotStarted';
 
@@ -22,7 +22,7 @@ class SurveyController extends \BaseController
 
         $campaign_result = \CampaignResult::where('campaign_student_id',$student_survey->id)->get()->lists('result','question_id');
 
-        $questions = \SurveyQuestion::where('survey_id', 1)->paginate(5);
+        $questions = \SurveyQuestion::where('survey_id', 2)->paginate(5);
 
         if ($student_survey->status != "Completed") {
             return \View::make('front.survey.base')
@@ -36,10 +36,10 @@ class SurveyController extends \BaseController
 
     }
 
-    public function finishSurvey($sid) {
-        $student_survey = \CampaignStudent::where('student_id',$sid)->first();
+    public function finishSurvey($sid,$survey_id) {
+        $student_survey = \CampaignStudent::where('student_id',$sid)->where('campaign_id',$survey_id)->first();
 
-        $questions = \SurveyQuestion::where('survey_id', 1)->count();
+        $questions = \SurveyQuestion::where('survey_id', $survey_id)->count();
         $campaign_result = \CampaignResult::where('campaign_student_id',$student_survey->id)->count();
 
         if ($questions == $campaign_result) {
@@ -74,25 +74,64 @@ class SurveyController extends \BaseController
 
             $result->save();
         }
+
+        return \Response::json([
+            'totalAnswers'=>\CampaignResult::where('campaign_student_id',$input['campaign_student_id'])->count(),
+            'totalQuestions'=>\SurveyQuestion::where('survey_id',$input['survey_id'])->count(),
+            'slider'=> $input['survey_id'] == 1 ? 'progress-blue' : 'progress-green'
+        ]);
     }
 
-    public function getIndexParentFocus()
+    public function getIndexParentFocus($sid)
     {
-        $questions = [
-            (object)["id" => 1, "num" => 1, "question" => "<h3>Family relationships</h3> (i.e communication, caring, rules and boundries)"],
-            (object)["id" => 2, "num" => 2, "question" => "<h3>Learning</h3>  (i.e. school work, motivation, involvment at school)"],
-            (object)["id" => 3, "num" => 3, "question" => "<h3>Belonging at school</h3> (i.e. good relationships with teachers and classmates, clear and fair rules and expectations)"],
-            (object)["id" => 4, "num" => 4, "question" => "<h3>Sense of community</h3> (i.e. sense of belonging, supportive relationships with adults, clear rules and expectations)"],
-            (object)["id" => 5, "num" => 5, "question" => "<h3>Friendships / peers</h3> (i.e. positive friends who care)"],
-        ];
+        $student_survey = \CampaignStudent::where('student_id',$sid)->where('campaign_id',1)->first();
 
-        return \View::make('front.survey.parentFocus')->with('questions', $questions);
+        $child = \Child::find($sid);
+
+        if (!isset($student_survey)) {
+            $string = str_random(40);
+            $student_survey = new \CampaignStudent();
+            $student_survey->student_id = $child->id;
+            $student_survey->campaign_id = 1;
+            $student_survey->secret = $string;
+            $student_survey->status = 'NotStarted';
+
+            $student_survey->save();
+        }
+
+        $campaign_result = \CampaignResult::where('campaign_student_id',$student_survey->id)->get()->lists('result','question_id');
+
+        $questions = \SurveyQuestion::where('survey_id', 1)->paginate(5);
+
+        if ($student_survey->status != "Completed") {
+            return \View::make('front.survey.parentFocus')
+                ->with('questions', $questions)
+                ->with('child', $child)
+                ->with('campaign_student',$student_survey)
+                ->with('answers',$campaign_result);
+        } else {
+            return \Redirect::to('survey/child/'.$sid);
+        }
+
     }
 
 
     public function getSbp()
     {
         return \View::make('front.survey.sbp_base');
+    }
+
+    public function selectSurvey($child_id) {
+        $campaignStudent = \CampaignStudent::where('student_id',$child_id)
+                                           ->lists('status','campaign_id');
+
+
+        if (!isset($campaignStudent[1]) || $campaignStudent[1] != "Completed") {
+
+            return \Redirect::to('survey/parent/'.$child_id);
+        } else {
+            return \Redirect::to('survey/child/'.$child_id);
+        }
     }
 
 }

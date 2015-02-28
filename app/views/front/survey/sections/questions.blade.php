@@ -1,7 +1,7 @@
 
 @foreach ($questions as $question)
 
-	<div class="survey-row"  data-child-id="{{$child->id}}" data-question-id="{{$question->id}}" data-campaign-student-id="{{$campaign_student->id}}">
+	<div class="survey-row"  data-child-id="{{$child->id}}" data-question-id="{{$question->id}}" data-campaign-student-id="{{$campaign_student->id}}" data-survey-id="{{$campaign_student->campaign_id}}">
 		<div class="container ">
 			<table>
 				<tr>
@@ -89,12 +89,19 @@
            var cid  = $(this).parents('.survey-row').attr('data-child-id'),
                qid  = $(this).parents('.survey-row').attr('data-question-id'),
                csid = $(this).parents('.survey-row').attr('data-campaign-student-id');
+               survey_id = $(this).parents('.survey-row').attr('data-survey-id');
 
            $.post("/survey/save",{
                child_id: cid,
                question_id: qid,
                campaign_student_id: csid,
+               survey_id: survey_id,
                result: ui.value
+           },function(response){
+               var width = response.slider == 'progress-green' ? 90 * response.totalAnswers/response.totalQuestions : 100 * response.totalAnswers/response.totalQuestions
+               $('.'+response.slider).css('width',width+"%");
+               $('#answer-count').text(response.totalAnswers);
+               console.log(response);
            });
        }
     }).each(function(){
@@ -163,34 +170,22 @@
 
     });
 
-$('.ui-slider-horizontal').height(3);
+    $('.ui-slider-horizontal').height(3);
 
+    $('.slider .ui-slider-range').css({
+        'background': "#bfbfbf"
+    });
 
+    $('.ui-widget-content').css({
+        'background':  "#fdb535"
+    });
 
+    var sliderPosition = $('.slider') , initialValue = 50;
 
-
-$('.slider .ui-slider-range').css({
-
-	'background': "#bfbfbf"
-
-});
-$('.ui-widget-content').css({
-'background':  "#fdb535"
-
-});
-
-
-
-
-var sliderPosition = $('.slider') , initialValue = 50;
-
-var updateSliderValue = function (e , ui){
-
-	var slider = $(this).data().slider;
-slider.element.find(".ui-slider-handle").text(slider.value());
-};
-
-
+    var updateSliderValue = function (e , ui){
+	    var slider = $(this).data().slider;
+        slider.element.find(".ui-slider-handle").text(slider.value());
+    };
 
 </script>
 @stop

@@ -34,7 +34,7 @@
                             <div class="progress-bar progress-green" ng-class="type &amp;&amp; 'progress-bar-' + type"
                                  role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="200"
                                  ng-style="{width: percent + '%'}" aria-valuetext="46%" ng-transclude=""
-                                 style="width: 60%;"><span class="ng-binding ng-scope">30/62</span></div>
+                                 style="width:{{ 90 * (count($answers)/$questions->getTotal()) }}%;"><span class="ng-binding ng-scope"><span id="answer-count">{{ count($answers) }}</span>/{{ $questions->getTotal() }}</span></div>
 
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                         <a href="{{ $questions->getUrl($questions->getCurrentPage()+1) }}" class="pull-right btn btn-primary btn-right">NEXT <i
                                     class="glyphicon glyphicon-arrow-right"></i></a>
                     @else
-                        <a href="/survey/finish/{{$child->id}}" class="pull-right btn btn-primary btn-right">FINISH</a>
+                        <a href="/survey/finish/{{$child->id}}/2" class="pull-right btn btn-primary btn-right">FINISH</a>
                     @endif
                 </div>
             </div>
