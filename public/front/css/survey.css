@@ -275,7 +275,7 @@
 .survey-header 						{ height: 140px; top: 0; }
 .survey-header h1 					{ font-family: 'Calibri', sans-serif; font-weight: bold; color: #195d2e; font-size: 40pt; }
 .survey-header .logo 				{ float: left; margin-right: 30px; }
-.survey-header .logo img			{ width: 300px; margin-left: 89px; margin-top: 10px; }
+.survey-header .logo img			{ width: 300px; margin-left: 89px; margin-top: 10px; position: relative; z-index: 9999; }
 .survey-header .header-link 		{ float: right; color: #003196; font-size: 16px; text-shadow: 1px 1px 7px #fff; margin-left: 15px; margin-top: 20px; line-height: 36px; font-family: 'latolight', sans-serif;  }
 .survey-header .header-link:hover 	{ text-decoration: none; }
 .survey-header .header-link i 		{ font-size: 36px; float: left; margin-right: 5px; }

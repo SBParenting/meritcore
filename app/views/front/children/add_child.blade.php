@@ -6,7 +6,7 @@
 
 	<div class="wrapper">
 		<div class="survey-block survey-header">
-			<a href="{{URL::to('children/select')}}" class="logo"><img src="{{ url('public/front/img/sbp-logo.png') }}" /></a>
+			<a href="/" class="logo"><img src="{{ url('public/front/img/sbp-logo.png') }}" /></a>
 			<div class="container">
 				<a href="#" id="showPage" class="header-link"><i class="icon-help"></i> help</a>
 				<a href="#" id="showMenu" class="header-link"><i class="icon-menu"></i> menu</a>
