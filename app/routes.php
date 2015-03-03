@@ -55,7 +55,6 @@ Route::group(['before' => 'auth'],function(){
 
 Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');
 Route::get('/articles', 'Controllers\Front\HomeController@getPosts');
-Route::get('/{slug?}', 'Controllers\Front\HomeController@getIndex');
 
 require __DIR__ .'/functions.php';
 

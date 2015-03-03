@@ -9,8 +9,9 @@
 			<a href="/" class="logo"><img src="{{ url('public/front/img/sbp-logo.png') }}" /></a>
 			<div class="container">
 				<a href="#" id="showPage" class="header-link"><i class="icon-help"></i> help</a>
-				<a href="#" id="showMenu" class="header-link"><i class="icon-menu"></i> menu</a>
-				<a href="#" class="logo"><div class="logo child-thumbnail"></div><p class="child-name">{{ isset($model) ? $model->first_name : "" }}</p></a>
+                <a href="#" id="showMenu" class="header-link"><i class="icon-menu"></i> menu</a>
+
+                <a href="#" class="logo"><div class="logo child-thumbnail"></div><p class="child-name">{{ isset($model) ? $model->first_name : "" }}</p></a>
 				@if(isset($model))
                     <h1>UPDATE CHILD</h1>
                 @else
@@ -90,9 +91,9 @@
 							</div>
 							<p font-size="14pt;">* Required Fields</p>
 
-                            {{ Form::file('image',['id' => 'image', 'data-image' => isset($model) ? $model->avatar : 'false']) }}
+                                {{ Form::hidden('avatar',null,['id'=>'avatar']) }}
 
-                            {{ Form::hidden('avatar',null,['id'=>'avatar']) }}
+                                {{ Form::file('image',['id' => 'image', 'data-image' => isset($model) ? $model->avatar : 'false']) }}
 
 							<div class="form-group">
                                 @if(isset($model))
@@ -101,8 +102,6 @@
 								    <button type="submit" class="btn btn-lg btn-block btn-orange">Add Child</button>
                                 @endif
 							</div>
-
-
                                 {{ Form::close() }}
 						</section>
 					</div>

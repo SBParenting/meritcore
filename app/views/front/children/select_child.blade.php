@@ -9,8 +9,9 @@
 			    <a href="/" class="logo"><img src="{{ url('public/front/img/sbp-logo.png') }}" /></a>
 				<div class="container">
 				    <a href="#" id="showPage" class="header-link"><i class="icon-help"></i> help</a>
+                    @if(!$children->isEmpty())
 					<a href="#" id="showMenu" class="header-link"><i class="icon-menu"></i> menu</a>
-					 
+					 @endif
 					<div class="col-md-6" style="float: right;">
 					    <div class="logo child-selected"></div>
                         <h1 class="logo">Child Selection</h1>

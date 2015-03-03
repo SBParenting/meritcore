@@ -53,7 +53,7 @@ class ChildrenController extends \BaseController {
             $input['avatar'] = $filename;
         }
 
-		$val = $child->validator()->with(\Input::all())->action('create');
+		$val = $child->validator()->with($input)->action('create');
 
 		if (!$val->passes()) {
 			return $val->toJsonResponse();
