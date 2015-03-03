@@ -46,7 +46,7 @@
 									<span class="input-group-addon">
 										<span class=" glyphicon glyphicon-user"></span>
 									</span>
-									{{ Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'First Name*', 'autocomplete' => 'Off']) }}
+									{{ Form::text('first_name', null, ['class' => 'form-control', 'id'=>'first-name', 'placeholder' => 'First Name*', 'autocomplete' => 'Off']) }}
 								</div>
 							</div>
 
@@ -160,6 +160,10 @@
                 }
             });
             $('.picedit_box').addClass('dropzone');
+        });
+
+        $('#first-name').on('change',function(){
+            console.log($(this).val());
         });
     </script>
 
