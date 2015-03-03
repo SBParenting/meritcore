@@ -101,7 +101,6 @@
                var width = response.slider == 'progress-green' ? 90 * response.totalAnswers/response.totalQuestions : 100 * response.totalAnswers/response.totalQuestions
                $('.'+response.slider).css('width',width+"%");
                $('#answer-count').text(response.totalAnswers);
-               console.log(response);
            });
        }
     }).each(function(){
@@ -143,25 +142,20 @@
             if ($(this).find('.ui-slider-handle').css('background-image') == "url(http://meritcore.local/public/front/img/white-circle.png)") {
 
                 if (position >= 0 && position <= 20) {
-                    console.log('0 - 20');
                     $('#strongly-agree, #not-at-all').css({"background-color": color}).find('a').css({"color": '#ffffff'});
                 }
 
                 if (position >= 20 && position <= 40) {
-                    console.log('20 - 40');
                     $('#agree , #not-so-much').css({"background-color": color}).find('a').css({"color": '#ffffff'});
                 }
                 if (position >= 40 && position <= 60) {
-                    console.log('40 - 60');
                     $('#not-sure').css({"background-color": color }).find('a').css({"color": '#ffffff'});
                 }
 
                 if (position >= 60 && position <= 80) {
-                    console.log('60 - 80');
                     $('#disagree , #somewhat-concern').css({"background-color": color }).find('a').css({"color": '#ffffff'});
                 }
                 if (position >= 80 && position <= 100) {
-                    console.log('80 - 100');
                     $('#strongly-disagree , #major-concern ').css({"background-color": color }).find('a').css({"color": '#ffffff'});
                 }
             }

@@ -10,7 +10,7 @@
 			<div class="container">
 				<a href="#" id="showPage" class="header-link"><i class="icon-help"></i> help</a>
 				<a href="#" id="showMenu" class="header-link"><i class="icon-menu"></i> menu</a>
-				<a href="#" class="logo"><div class="logo child-thumbnail"></div><p class="child-name">Child name</p></a>
+				<a href="#" class="logo"><div class="logo child-thumbnail"></div><p class="child-name">{{ isset($model) ? $model->first_name : "" }}</p></a>
 				@if(isset($model))
                     <h1>UPDATE CHILD</h1>
                 @else
@@ -157,14 +157,21 @@
                 formSubmitted: function(response) {
                     console.log(response);
                     $.form.showFormResult(JSON.parse(response.response),$('.submit-on-enter'));
+                },
+                imageUpdated: function(img) {
+                    var image = new Image();
+                    image.src = img.src;
+                    $('.child-thumbnail').html(image);
                 }
             });
             $('.picedit_box').addClass('dropzone');
+
         });
 
-        $('#first-name').on('change',function(){
-            console.log($(this).val());
+        $('#first-name').on('keyup',function(){
+            $('.child-name').text($(this).val());
         });
+
     </script>
 
 

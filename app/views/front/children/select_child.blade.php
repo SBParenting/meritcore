@@ -58,7 +58,12 @@
 
 		$("#Carousel").flipster({
 			start: 0,
-			enableNavButtons: true
+			enableNavButtons: true,
+            onItemSwitch: function() {
+                var image = new Image();
+                image.src = $('#Carousel').find('.flip-current').find('img').attr('src');
+                $('.child-selected').html(image);
+            }
 		});
 
         $('.flipto-prev').addClass('fa fa-arrow-left');
