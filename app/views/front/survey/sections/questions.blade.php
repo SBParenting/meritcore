@@ -139,7 +139,7 @@
 
         $.each($('.slider'),function(){
             var position = $(this).slider("option", "value");
-            if ($(this).find('.ui-slider-handle').css('background-image') == "url(http://meritcore.local/public/front/img/white-circle.png)") {
+            if ($(this).find('.ui-slider-handle').css('background-image') == "url(/public/front/img/white-circle.png)") {
 
                 if (position >= 0 && position <= 20) {
                     $('#strongly-agree, #not-at-all').css({"background-color": color}).find('a').css({"color": '#ffffff'});

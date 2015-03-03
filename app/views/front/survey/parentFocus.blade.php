@@ -48,11 +48,11 @@
                                     following areas
                                     below:
                                 </td>
-                                <td class="list-item" id="major-concern"><a>major<br/> concern</a></td>
-                                <td class="list-item" id="somewhat-concern"><a>somewhat<br/> a concern</a></td>
+                                <td class="list-item" id="not-at-all"><a>major<br/> concern</a></td>
+                                <td class="list-item" id="not-so-much"><a>somewhat<br/> a concern</a></td>
                                 <td class="list-item" id="not-sure"><a>not sure</a></td>
-                                <td class="list-item" id="not-so-much"><a>not so much</a></td>
-                                <td class="list-item" id="not-at-all"><a>not at all</a></td>
+                                <td class="list-item" id="somewhat-concern"><a>not so much</a></td>
+                                <td class="list-item" id="major-concern"><a>not at all</a></td>
                             </tr>
                         </table>
                     </div>
