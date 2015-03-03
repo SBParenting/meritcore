@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d3d86b7-72eb-43b5-8dc5-565cf5fd4187" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/survey/parentFocus.blade.php" afterPath="$PROJECT_DIR$/app/views/front/survey/parentFocus.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/survey/sections/questions.blade.php" afterPath="$PROJECT_DIR$/app/views/front/survey/sections/questions.blade.php" />
     </list>
     <ignored path="meritcore.iws" />
@@ -106,8 +105,8 @@
       <file leaf-file-name="questions.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/front/survey/sections/questions.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28707224" vertical-offset="1798" max-vertical-offset="2940">
-              <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3013308" vertical-offset="1798" max-vertical-offset="2955">
+              <caret line="141" column="83" selection-start-line="141" selection-start-column="83" selection-end-line="141" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -895,12 +894,12 @@
       <workItem from="1422997424858" duration="33454000" />
       <workItem from="1423517051440" duration="1080000" />
       <workItem from="1423518279030" duration="145658000" />
-      <workItem from="1425057037412" duration="55919000" />
+      <workItem from="1425057037412" duration="55968000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248341000" />
+    <option name="totallyTimeSpent" value="248390000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="1920" height="1173" extended-state="6" />
@@ -1375,8 +1374,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/front/survey/sections/questions.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28707224" vertical-offset="1798" max-vertical-offset="2940">
-          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3013308" vertical-offset="1798" max-vertical-offset="2955">
+          <caret line="141" column="83" selection-start-line="141" selection-start-column="83" selection-end-line="141" selection-end-column="83" />
           <folding />
         </state>
       </provider>

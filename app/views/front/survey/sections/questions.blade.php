@@ -139,6 +139,7 @@
 
         $.each($('.slider'),function(){
             var position = $(this).slider("option", "value");
+            console.log($(this).find('.ui-slider-handle').css('background-image'));
             if ($(this).find('.ui-slider-handle').css('background-image') == "url(/public/front/img/white-circle.png)") {
 
                 if (position >= 0 && position <= 20) {
