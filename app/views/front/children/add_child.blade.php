@@ -19,10 +19,10 @@
             </div>
 		</div>
 
-		<div class="survey-block survey-content page-signup">
+		<div class="survey-block general-content page-signup">
 			<div class="form-inner add-child-form">
 				<div class="signup-body"></div>
-				<div class="container register-form">
+				<div class="container register-form child-form">
 					<div class="form-container show-post-success closed">
 
 					</div>
@@ -90,6 +90,8 @@
 							</div>
 							<p font-size="14pt;">* Required Fields</p>
 
+                            {{ Form::file('image',['id' => 'image', 'data-image' => isset($model) ? $model->avatar : 'false']) }}
+
                             {{ Form::hidden('avatar',null,['id'=>'avatar']) }}
 
 							<div class="form-group">
@@ -99,7 +101,7 @@
 								    <button type="submit" class="btn btn-lg btn-block btn-orange">Add Child</button>
                                 @endif
 							</div>
-                                {{ Form::file('image',['id' => 'image', 'data-image' => isset($model) ? $model->avatar : 'false']) }}
+
 
                                 {{ Form::close() }}
 						</section>
