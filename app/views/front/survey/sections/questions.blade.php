@@ -104,10 +104,14 @@
                $('.'+response.slider).css('width',width+"%");
                $('#answer-count').text(response.totalAnswers);
            });
+           
+           $(this).parents('tr').find('.circle-number').css({'color':'rgba(255,255,255,0.4)'});
        }
     }).each(function(){
         if ($(this).attr('data-answer') != "-1") {
             $(this).slider('value',$(this).attr('data-answer'));
+
+            $(this).parents('tr').find('.circle-number').css({'color':'rgba(255,255,255,0.4)'});
         }
 
         $(this).find('.ui-slider-handle').css({
@@ -141,7 +145,6 @@
 
         $.each($('.slider'),function(){
             var position = $(this).slider("option", "value");
-            console.log($(this).find('.ui-slider-handle').css('background-image'));
             if ($(this).find('.ui-slider-handle').css('background-image') == "url(/public/front/img/white-circle.png)") {
 
                 if (position >= 0 && position <= 20) {
