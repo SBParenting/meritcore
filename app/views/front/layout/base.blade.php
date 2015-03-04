@@ -19,7 +19,7 @@
 
 <body>
 
-    @include('front.partials.nav')
+  <!--@include('front.partials.nav') -->
 
     <div class="container">
 

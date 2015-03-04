@@ -24,6 +24,14 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+..icon-slider-handle:before {
+	content: "\e60c";
+}
+
+.icon-circle:before {
+	content: "\e60b";
+}
+
 .icon-help:before {
 	content: "\e600";
 }

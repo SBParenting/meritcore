@@ -23,7 +23,8 @@
 		<div class="survey-block general-content page-signup">
 			<div class="form-inner add-child-form">
 				<div class="signup-body"></div>
-				<div class="container register-form child-form">
+
+				<div class="container register-form center-form">
 					<div class="form-container show-post-success closed">
 
 					</div>

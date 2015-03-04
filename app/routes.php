@@ -11,6 +11,62 @@
 |
 */
 
+Route::get('children/add','Controllers\Admin\Children\ChildrenController@getAdd');
+Route::post('children/add','Controllers\Admin\Children\ChildrenController@postAdd');
+Route::get('children/select','Controllers\Admin\Children\ChildrenController@getIndex');
+Route::post('file-upload','Controllers\Admin\Children\ChildrenController@uploadImage');
+Route::get('parents/reflect', function(){
+
+	return View::make('front.parents.reflect');
+});
+
+Route::get ('parents/explore', function(){
+
+return View::make('front.parents.explore');
+
+});
+
+Route::get ('parents/explore_list', function(){
+
+	return View::make('front.parents.explore_list');
+
+});
+Route::get ('parents/build_list', function(){
+
+	return View::make('front.parents.build_list');
+
+});
+Route::get ('parents/empower', function(){
+
+	return View::make('front.parents.empower');
+
+});
+
+Route::get ('parents/base', function(){
+
+	return View::make('front.parents.base');
+
+});
+
+Route::get ('parents/reflect_tour', function(){
+
+	return View::make('front.parents.reflect_tour');
+
+});
+
+Route::get ('strengths/selection', function(){
+
+	return View::make('front.strengths.selection');
+
+});
+Route::get ('strengths/information', function(){
+
+	return View::make('front.strengths.information');
+
+});
+Route::get('survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
+Route::get('parent/survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndexParentFocus');
+
 Route::controller('password', 'Controllers\Auth\RemindersController');
 Route::get('remind', 'Controllers\Auth\RemindersController@getRemind');
 Route::post('remind', 'Controllers\Auth\RemindersController@postRemind');
@@ -57,5 +113,6 @@ Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');
 Route::get('/articles', 'Controllers\Front\HomeController@getPosts');
 
 require __DIR__ .'/functions.php';
+
 
 require __DIR__ .'/composers.php';
