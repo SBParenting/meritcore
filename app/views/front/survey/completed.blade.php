@@ -9,25 +9,28 @@
                 <div class="container">
                     <a href="#" class="logo"><img src="{{ url('public/front/img/sbp-logo.png') }}"/></a>
 
-                    <h1 style="text-align: center; color: #666;">SUCCESS</h1>
+                    <h1 style="text-align: center; color: #666;"></h1>
                 </div>
             </div>
 
-            <div class="survey-block survey-content page-signup">
+            <div class="survey-block survey-content">
                 <div class="form-inner form-bg">
-                    <div class="signup-body"></div>
-                    <div class="container register-form">
+                    <div class="container" style="text-shadow:0 1px 0 #FFF;color:#888;text-align: center;padding-top:20px;">
 
-                        <div class="form-container hide-post-success" id="register-form-width">
+                        <span><i class="fa fa-smile-o fa-5x"></i></span>
 
-                            <section style="color:black">
-                                <h2>Thank you!</h2>
+                        <h1>You completed the survey, thank you!</h1>
 
-                            </section>
+                        <p>Bacon ipsum dolor amet tail jerky filet mignon, chicken bresaola pastrami ball tip tenderloin
+                            drumstick pork loin shankle short loin ground round. Filet mignon shank cow rump short loin.
+                            Tail bacon short ribs kevin bresaola ribeye ground round ham porchetta meatball. Fatback
+                            pork loin tenderloin biltong boudin turkey. Alcatra pastrami rump turducken, ham hock tail
+                            sausage doner.</p>
 
+                        <br />
+                        <br />
 
-                        </div>
-
+                        <a href="/">< Back to the children list</a>
                     </div>
 
                 </div>
