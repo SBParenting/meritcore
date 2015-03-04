@@ -36,7 +36,7 @@
 
 <script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 
-
+{{ "<script>var whiteCircle = '".url('/public/front/img/white-circle.png')."';</script>"  }}
 
 <script>
 
@@ -64,7 +64,7 @@
             $(this).find('.ui-slider-handle').html(ui.value);
         	$.each($('.slider'),function(){
         		var position = $(this).slider("option", "value");
-        		if ($(this).find('.ui-slider-handle').css('background-image') == "url(/public/front/img/white-circle.png)") {
+        		if ($(this).find('.ui-slider-handle').css('background-image') == "url("+whiteCircle+")") {
         	
 	        		if (position >= 0 && position <= 20) {
 	        			$('#strongly-agree, #not-at-all').css({"background-color": color}).find('a').css({"color": '#ffffff'});
