@@ -54,18 +54,11 @@ Route::get ('parents/reflect_tour', function(){
 
 });
 
-Route::get ('strengths/selection', function(){
-
-	return View::make('front.strengths.selection');
-
-});
 Route::get ('strengths/information', function(){
 
 	return View::make('front.strengths.information');
 
 });
-Route::get('survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
-Route::get('parent/survey/{school?}/{class?}/{student_id?}', 'Controllers\Front\SurveyController@getIndexParentFocus');
 
 Route::controller('password', 'Controllers\Auth\RemindersController');
 Route::get('remind', 'Controllers\Auth\RemindersController@getRemind');
@@ -102,11 +95,13 @@ Route::group(['before' => 'auth'],function(){
     Route::post('children/add','Controllers\Admin\Children\ChildrenController@postAdd');
     Route::get('children/{id}','Controllers\Admin\Children\ChildrenController@view');
     Route::post('children/{id}','Controllers\Admin\Children\ChildrenController@postUpdate');
+    Route::get('survey/finish/{student_id?}/{survey_id?}', 'Controllers\Front\SurveyController@finishSurvey');
     Route::get('survey/{student_id?}', 'Controllers\Front\SurveyController@selectSurvey');
     Route::post('survey/save', 'Controllers\Front\SurveyController@saveQuestion');
     Route::get('survey/child/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
     Route::get('survey/parent/{student_id?}', 'Controllers\Front\SurveyController@getIndexParentFocus');
-    Route::get('survey/finish/{student_id?}/{survey_id?}', 'Controllers\Front\SurveyController@finishSurvey');
+    Route::get('strengths/selection/{student_id?}', 'Controllers\Front\StrengthsController@getSelection');
+    Route::get('strengths/calculate/{student_id?}','Controllers\Front\StrengthsController@doTheMagic');
 });
 
 Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');

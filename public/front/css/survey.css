@@ -1444,7 +1444,7 @@ a.disabled {
 
 }
 @media (max-width: 1550px) {
- .container  {position: relative; left: 100px;}
+ .container  {position: relative; }
 .parent-guide-header h1 { font-size: 30pt; }
 .track p{font-size: 20pt; left: 150px;}
 #parent-guide-nav  .border a{ border: none;}

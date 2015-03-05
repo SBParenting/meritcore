@@ -15,7 +15,7 @@
 
                     <div class="child-image">
                         <a href="#" class="logo">
-                            <div class="logo child-thumbnail child-{{$child->sex}}"></div>
+                            <div class="logo child-thumbnail child-{{$child->sex}}">{{!empty($child->avatar) ? "<img src='".url('/public/uploads/children/squared-'.$child->avatar)."' />" : ""}}</div>
                             <p class="child-name">{{ $child->first_name }}</p></a>
                     </div>
                     <h1 class="survey-name">CHILD SURVEY</h1>

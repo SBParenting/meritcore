@@ -7,7 +7,7 @@
         <div class="wrapper">
             <div class="survey-block survey-header">
                 <div class="container">
-                    <a href="#" class="logo"><img src="{{ url('public/front/img/sbp-logo.png') }}"/></a>
+                    <a href="/" class="logo"><img src="{{ url('public/front/img/sbp-logo.png') }}"/></a>
 
                     <h1 style="text-align: center; color: #666;"></h1>
                 </div>
