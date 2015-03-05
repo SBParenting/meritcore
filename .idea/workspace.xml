@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d3d86b7-72eb-43b5-8dc5-565cf5fd4187" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/Strength.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/StrengthGroup.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/StrengthScore.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/front/img/family-icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/front/img/peer-icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/front/img/school-icon.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Front/StrengthsController.php" afterPath="$PROJECT_DIR$/app/controllers/Front/StrengthsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Front/SurveyController.php" afterPath="$PROJECT_DIR$/app/controllers/Front/SurveyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/strengths/selection.blade.php" afterPath="$PROJECT_DIR$/app/views/front/strengths/selection.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/survey.css" afterPath="$PROJECT_DIR$/public/front/css/survey.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -41,8 +31,8 @@
       <file leaf-file-name="survey.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/front/css/survey.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="25289" max-vertical-offset="27450">
-              <caret line="1737" column="154" selection-start-line="1737" selection-start-column="154" selection-end-line="1737" selection-end-column="154" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="25304" max-vertical-offset="27555">
+              <caret line="1687" column="58" selection-start-line="1687" selection-start-column="58" selection-end-line="1687" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -70,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selection.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="selection.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/front/strengths/selection.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-36.25" vertical-offset="765" max-vertical-offset="2160">
-              <caret line="109" column="76" selection-start-line="109" selection-start-column="76" selection-end-line="109" selection-end-column="76" />
+            <state vertical-scroll-proportion="0.5988593" vertical-offset="315" max-vertical-offset="2160">
+              <caret line="63" column="104" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="104" />
               <folding />
             </state>
           </provider>
@@ -120,10 +110,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SurveyController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SurveyController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/Front/SurveyController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47053233" vertical-offset="0" max-vertical-offset="2130">
+            <state vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="2130">
               <caret line="33" column="61" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
               <folding />
             </state>
@@ -184,11 +174,11 @@
         <option value="$PROJECT_DIR$/app/models/StrengthGroup.php" />
         <option value="$PROJECT_DIR$/app/models/StrengthScore.php" />
         <option value="$PROJECT_DIR$/app/models/Strength.php" />
-        <option value="$PROJECT_DIR$/public/front/css/survey.css" />
-        <option value="$PROJECT_DIR$/app/views/front/strengths/selection.blade.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/app/controllers/Front/StrengthsController.php" />
         <option value="$PROJECT_DIR$/app/controllers/Front/SurveyController.php" />
+        <option value="$PROJECT_DIR$/public/front/css/survey.css" />
+        <option value="$PROJECT_DIR$/app/views/front/strengths/selection.blade.php" />
       </list>
     </option>
   </component>
@@ -845,12 +835,12 @@
       <workItem from="1423518279030" duration="145658000" />
       <workItem from="1425057037412" duration="60467000" />
       <workItem from="1425500561977" duration="966000" />
-      <workItem from="1425504940380" duration="18292000" />
+      <workItem from="1425504940380" duration="18633000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="272147000" />
+    <option name="totallyTimeSpent" value="272488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-5" y="27" width="1920" height="1173" extended-state="6" />
@@ -1218,50 +1208,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Strength.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="240">
-          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/StrengthGroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="180">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/StrengthScore.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="255">
           <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/front/css/survey.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="25289" max-vertical-offset="27450">
-          <caret line="1737" column="154" selection-start-line="1737" selection-start-column="154" selection-end-line="1737" selection-end-column="154" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/front/strengths/selection.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-36.25" vertical-offset="765" max-vertical-offset="2160">
-          <caret line="109" column="76" selection-start-line="109" selection-start-column="76" selection-end-line="109" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Front/StrengthsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.125" vertical-offset="0" max-vertical-offset="1050">
-          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -1284,10 +1234,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Strength.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="240">
+          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/StrengthGroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="180">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Front/StrengthsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.125" vertical-offset="0" max-vertical-offset="1050">
+          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Front/SurveyController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47053233" vertical-offset="0" max-vertical-offset="2130">
+        <state vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="2130">
           <caret line="33" column="61" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/front/css/survey.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="25304" max-vertical-offset="27555">
+          <caret line="1687" column="58" selection-start-line="1687" selection-start-column="58" selection-end-line="1687" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/front/strengths/selection.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5988593" vertical-offset="315" max-vertical-offset="2160">
+          <caret line="63" column="104" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="104" />
           <folding />
         </state>
       </provider>
