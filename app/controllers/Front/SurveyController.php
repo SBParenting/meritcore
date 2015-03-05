@@ -31,7 +31,7 @@ class SurveyController extends \BaseController
                 ->with('campaign_student',$student_survey)
                 ->with('answers',$campaign_result);
         } else {
-            return \View::make('front.survey.completed');
+            return \Redirect::to('/strengths/calculate/'.$sid);
         }
 
     }

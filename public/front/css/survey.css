@@ -1708,35 +1708,42 @@ a.disabled {
 .pic-container {display: inline; margin-top: 2%;}
 .selection-container {height: 75%; background-color: #a400c7;}
 .number-2 {  position: absolute; color: #6c0083; left: 27%; top: 17%; font-size: 30pt; font-weight: bold;}
-.family-communication{ height: 185px; background-color: #247fb9;  border: 2px solid white; border-radius: 5px;}
-.family-communication p { margin-left: 5%; margin-top: -2%; font-size: 12pt; }
-.family-communication h2 { margin-left: 5%;  font-weight: bold;}
-.family-icon{ width: 75px; height: 75px; background-color: #247fb9; position: absolute; left: -10%; top: 8%; border: 2px solid white; border-radius: 5px; box-shadow: 6px -1px 9px 00px #03609b;}
-.family-icon img { position: absolute; height: 70px; top: 5%;}
+.big-group-1{ height: 185px; background-color: #247fb9;  border: 2px solid white; border-radius: 5px;}
+.big-group-1 p { margin-left: 5%; margin-top: -2%; font-size: 12pt; text-transform: uppercase}
+.big-group-1 h2 { margin-left: 5%;  font-weight: bold;}
+.big-group-icon-1{ width: 75px; height: 75px; background-color: #247fb9; position: absolute; left: -10%; top: 8%; border: 2px solid white; border-radius: 5px; box-shadow: 6px -1px 9px 00px #03609b;}
+.big-group-icon-1 img { position: absolute; height: 70px; top: 5%;}
 .strength-percent-1{ width: 165px; height: 100px; border: 2px solid white; position: absolute; top: 56%; left: 9%; border-radius: 5px; background-color: #03609b;}
 .strength-percent-1 p { text-align: center; margin-top: 5%; font-size: 50pt; font-weight: bold;}
 .select-large {margin-top: 5%; width: 220px; height: 50px; }
 .select-large span { font-size: 18pt;}
-.school-culture {height: 185px; background-color: #1d5c2e; left: 5%; border: 2px solid white; border-radius: 5px;}
-.school-culture p { margin-left: 5%; margin-top: -2%; font-size: 12pt;}
-.school-culture h2 { margin-left: 5%;  font-weight: bold;}
-.school-icon { width: 75px; height: 75px; background-color: #1d5c2e; position: absolute; left: -10%; top: 8%; border: 2px solid white; border-radius: 5px; box-shadow: 6px -1px 9px 00px #004a14;}
-.school-icon img { position: absolute; height: 70px; top: 5%; left: 1%;}
+.left-5 {left: 5%;}
+.big-group-2 {height: 185px; background-color: #1d5c2e; border: 2px solid white; border-radius: 5px;}
+.big-group-2 p { margin-left: 5%; margin-top: -2%; font-size: 12pt; text-transform: uppercase}
+.big-group-2 h2 { margin-left: 5%;  font-weight: bold;}
+.big-group-icon-2 { width: 75px; height: 75px; background-color: #1d5c2e; position: absolute; left: -10%; top: 8%; border: 2px solid white; border-radius: 5px; box-shadow: 6px -1px 9px 00px #004a14;}
+.big-group-icon-2 img { position: absolute; height: 70px; top: 5%; left: 1%;}
 .strength-percent-2{ width: 165px; height: 100px; border: 2px solid white; position: absolute; top: 56%; left: 9%; border-radius: 5px; background-color: #004a14;}
 .strength-percent-2 p { text-align: center; margin-top: 5%; font-size: 50pt; font-weight: bold;}
 .strength-text { margin-top: 2%;  font-size: 13pt; white-space: nowrap; left: 4%;}
-.pick-strength { height: 155px; border: 2px solid white; margin-right: 5px; border-radius: 5px; width: 19.4%!important; left: 4%; background-color: #247fb9;}
-.pick-strength img { height: 55px;}
-.pick-strength p { margin-top: -3%;}
-.pick-strength h4 { font-weight: bold;}
+.pick-group-1 { height: 155px; border: 2px solid white; margin-right: 5px; border-radius: 5px; width: 19.4%!important; left: 4%; background-color: #247fb9;}
+.pick-group-1 img { height: 55px;}
+.pick-group-1 p { margin-top: -3%;}
+.pick-group-1 h4 { font-weight: bold;}
 .journey-text {margin-left: -25px; margin-top: 2%;}
 .journey-percent {height: 45%; border: 1px solid white; border-radius: 5px;}
 .journey-percent p { font-size: 40pt; font-weight: bold; margin-top: 2%;}
 .select-small { width: 175px; margin-top: 3%; margin-right: 1%;}
-.positive-peer { height: 155px; border: 2px solid white; margin-right: 5px; border-radius: 5px; width: 19.4%!important; left: 4%; background-color: #fdb535;}
-.positive-peer img { height: 65px; vertical-align: middle; margin-top: -3%;}
-.positive-peer p { margin-top: -3%; vertical-align: middle;}
-.positive-peer h4 { font-weight: bold; vertical-align: middle;}
+
+.pick-group-2 { height: 155px; border: 2px solid white; margin-right: 5px; border-radius: 5px; width: 19.4%!important; left: 4%; background-color: #1d5c2e;}
+.pick-group-2 img { height: 65px; vertical-align: middle; margin-top: -3%;}
+.pick-group-2 p { margin-top: -3%; vertical-align: middle;}
+.pick-group-2 h4 { font-weight: bold; vertical-align: middle;}
+
+.pick-group-3 { height: 155px; border: 2px solid white; margin-right: 5px; border-radius: 5px; width: 19.4%!important; left: 4%; background-color: #fdb535;}
+.pick-group-3 img { height: 65px; vertical-align: middle; margin-top: -3%;}
+.pick-group-3 p { margin-top: -3%; vertical-align: middle;}
+.pick-group-3 h4 { font-weight: bold; vertical-align: middle;}
 
 .info-header h1 { font-size: 22pt; margin-top: 3%; color: #003196;}
 

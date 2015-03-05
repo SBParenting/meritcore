@@ -101,7 +101,7 @@ Route::group(['before' => 'auth'],function(){
     Route::get('survey/child/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
     Route::get('survey/parent/{student_id?}', 'Controllers\Front\SurveyController@getIndexParentFocus');
     Route::get('strengths/selection/{student_id?}', 'Controllers\Front\StrengthsController@getSelection');
-    Route::get('strengths/calculate/{student_id?}','Controllers\Front\StrengthsController@doTheMagic');
+    Route::get('strengths/calculate/{student_id?}','Controllers\Front\StrengthsController@calculate');
 });
 
 Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');
