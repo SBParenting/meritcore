@@ -11,9 +11,12 @@
 				<a href="#" id="showPage" class="header-link"><i class="icon-help"></i> help</a>
 				<a href="#" id="showMenu" class="header-link"><i class="icon-menu"></i> menu</a>
 
+                <div class="child-image">
+                    <a href="#" class="logo">
+                        <div class="logo child-thumbnail child-{{$child->sex}}">{{!empty($child->avatar) ? "<img src='".url('/public/uploads/children/squared-'.$child->avatar)."' />" : ""}}</div>
+                        <p class="child-name">{{ $child->first_name }}</p></a>
+                </div>
 
-
-				<a href="#" class="logo"><div class=" parent-guide-thumbnail"></div><p class="child-name">Child name</p></a>
 				<h1 class="parent-guide header-content">PARENT GUIDE</h1>
 
 				<div id="header-content" >

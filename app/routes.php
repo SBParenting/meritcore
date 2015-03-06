@@ -11,15 +11,6 @@
 |
 */
 
-Route::get('children/add','Controllers\Admin\Children\ChildrenController@getAdd');
-Route::post('children/add','Controllers\Admin\Children\ChildrenController@postAdd');
-Route::get('children/select','Controllers\Admin\Children\ChildrenController@getIndex');
-Route::post('file-upload','Controllers\Admin\Children\ChildrenController@uploadImage');
-Route::get('parents/reflect', function(){
-
-	return View::make('front.parents.reflect');
-});
-
 Route::get ('parents/explore', function(){
 
 return View::make('front.parents.explore');
@@ -102,6 +93,7 @@ Route::group(['before' => 'auth'],function(){
     Route::get('survey/parent/{student_id?}', 'Controllers\Front\SurveyController@getIndexParentFocus');
     Route::get('strengths/selection/{student_id?}', 'Controllers\Front\StrengthsController@getSelection');
     Route::get('strengths/calculate/{student_id?}','Controllers\Front\StrengthsController@calculate');
+    Route::get('parents/reflect/{student_id?}', 'Controllers\Admin\Parents\ParentsController@getIndex');
 });
 
 Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');
