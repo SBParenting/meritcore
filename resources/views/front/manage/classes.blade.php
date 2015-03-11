@@ -18,6 +18,8 @@
 
 					<div class="col-md-12">
 
+						<a href="{{ url('m/schools') }}" class="btn btn-default pull-right"><i class="fa fa-arrow-left"></i> Back to Schools List</a>
+
 						@if ($is_admin)
 
 	                    	<h1><a href="{{ url('m/schools/'.$school->id) }}">{{ $school->name }}</a></h1>

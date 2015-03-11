@@ -22,7 +22,7 @@ Route::group(['prefix' => 'm', 'middleware' => 'auth'], function() {
 
 	Route::get('/', 'Manage\ManageController@getIndex');
 	Route::get('/schools', 'Manage\ManageController@getSchools');
-	Route::get('/schools/{id}', 'Manage\ManageController@getSchool');
+	Route::get('/schools/{id}', 'Manage\ManageController@getClasses');
 	Route::get('/classes', 'Manage\ManageController@getClasses');
 	Route::post('/classes/add', 'Manage\ClassController@postAdd');
 	Route::get('/classes/{id}', 'Manage\ManageController@getClass');
@@ -30,8 +30,13 @@ Route::group(['prefix' => 'm', 'middleware' => 'auth'], function() {
 	Route::post('/classes/{id}/info', 'Manage\ClassController@postUpdate');
 	Route::post('/classes/{id}/surveys/add', 'Manage\SurveyController@postAdd');
 	Route::post('/classes/{id}/surveys/{survey_id}/complete', 'Manage\SurveyController@postComplete');
-	Route::get('/students', 'Manage\ManageController@getStudents');
-	Route::get('/surveys', 'Manage\ManageController@getSurveys');
+	Route::get('/students/{id?}', 'Manage\ManageController@getStudents');
+	Route::post('/students/{id}/class/{class_id}', 'Manage\StudentsController@postAddToClass');
+	Route::get('/surveys/{id?}', 'Manage\ManageController@getSurveys');
+	Route::get('/surveys/{id}/report', 'Manage\SurveyController@getReport');
+	Route::post('/import', 'Manage\StudentsController@postImport');
+	Route::post('/import/process', 'Manage\StudentsController@postImportProcess');
+	Route::post('/import/complete', 'Manage\StudentsController@postImportComplete');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
@@ -47,3 +52,4 @@ Route::post('{key}/confirm', 'Front\SurveyController@postConfirm');
 
 require __DIR__ .'/functions.php';
 require __DIR__ .'/macros.php';
+

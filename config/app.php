@@ -142,6 +142,8 @@ return [
 		 */
 
 		'Zizaco\Entrust\EntrustServiceProvider',
+		'Maatwebsite\Excel\ExcelServiceProvider',
+		'Barryvdh\Snappy\ServiceProvider',
 		//'Barryvdh\Debugbar\ServiceProvider',
 
 		/*
@@ -154,7 +156,6 @@ return [
 		'App\Providers\RouteServiceProvider',
 
 		'App\Libraries\FormBuilder\FormBuilderServiceProvider',
-
 	],
 
 	/*
@@ -205,7 +206,9 @@ return [
 		'Form'      => 'App\Libraries\FormBuilder\FormBuilderFacade',
 		'HTML'      => 'Illuminate\Html\HtmlFacade',
 		'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
-		'Debug' 	=> 'Barryvdh\Debugbar\Facade',
+		'Debug'     => 'Barryvdh\Debugbar\Facade',
+		'Excel'     => 'Maatwebsite\Excel\Facades\Excel',
+		'PDF'       => 'Barryvdh\Snappy\Facades\SnappyPdf',
 	],
 
 ];

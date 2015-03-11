@@ -35,6 +35,10 @@
     <script src="{{ asset("public/admin/libs/jquery-form/jquery.form.min.js") }}"></script>
     <script src="{{ asset("public/front/libs/history/scripts/bundled/html4+html5/jquery.history.js")}}"></script>
     <script src="{{ asset("public/front/libs/datapicker/datepicker.js")}}"></script>
+    <script src="{{ asset("public/front/libs/uploader/jquery.ui.widget.js")}}"></script>
+    <script src="{{ asset("public/front/libs/uploader/jquery.iframe-transport.js")}}"></script>
+    <script src="{{ asset("public/front/libs/uploader/jquery.fileupload.js")}}"></script>
+    <script src="{{ asset("public/admin/libs/bootbox/bootbox.min.js")}}"></script>
 
     <script src="{{ asset("public/admin/js/api.js") }}"></script>
     <script src="{{ asset("public/admin/js/app.js") }}"></script>

@@ -16,11 +16,10 @@ class ClassController extends Controller {
 
 		if ($class)
 		{
-			$this->validate($request, [
+			$rules = [
 				'title'      => 'required',
-				'teacher_id' => 'required',
 				'grade'      => 'required',
-			]);
+			];
 
 			if ($request->input('teacher_first_name') || $request->input('teacher_last_name') || $request->input('teacher_email'))
 			{
@@ -29,9 +28,34 @@ class ClassController extends Controller {
 				$rules['teacher_email']      = 'required|email|unique:users,email';
 			}
 
+			$this->validate($request, $rules);
+
 			$class->fill($request->input());
 
 			$class->save();
+
+			if ($request->input('teacher_first_name') && $request->input('teacher_last_name') && $request->input('teacher_email'))
+			{
+				$user = new User;
+
+				$user->first_name = $request->input('teacher_first_name');
+				$user->last_name = $request->input('teacher_last_name');
+				$user->email = $request->input('teacher_email');
+				$user->username = $user->email;
+				$user->status = 'Invited';
+
+				$role = Role::where('name', '=', 'teacher')->first();
+
+				if ($role)
+				{
+					$user->role_id = $role->id;
+				}
+
+				$user->save();
+
+				$class->teacher_id = $user->id;
+				$class->save();
+			}
 
 			return \Response::json(['result' => true, 'msg' => trans('crud.success_updated')]);
 		}
@@ -84,6 +108,8 @@ class ClassController extends Controller {
 
 			$class->teacher_id = $user->id;
 			$class->save();
+
+			//$school = $class->school;
 		}
 
 		return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url('/m/classes/'.$class->id)]);

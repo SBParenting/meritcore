@@ -33,4 +33,14 @@ class School extends \App\Models\Model {
 			->orderBy('users.last_name', 'asc')
 			->get();
 	}
+
+	public function updateRecord()
+	{
+		$this->classes_count = Classroom::where('school_id', '=', $this->id)->count();
+		$this->students_count = Student::where('school_id', '=', $this->id)->count();
+		$this->surveys_total_count = Campaign::where('school_id', '=', $this->id)->count();
+		$this->surveys_active_count = Campaign::where('status', '=', 'Active')->where('school_id', '=', $this->id)->count();
+
+		return $this;
+	}
 }

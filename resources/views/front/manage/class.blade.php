@@ -96,7 +96,11 @@
 									</li>
 									<li>
 										<label>Teacher</label>
-										{{ $class->teacher->getName('F L') }}
+										@if ($class->teacher)
+											{{ $class->teacher->getName('F L') }}
+										@else
+											--
+										@endif
 									</li>
 									<li>
 										<label>Grade</label>
@@ -163,6 +167,56 @@
 						</div>
 
 					@endif
+
+					@foreach ($surveys as $survey)
+
+						<div id="surveyInfoPanel{{$survey->id}}" class="panel-group class-panel closable-panel closed">
+
+							<div class="panel panel-default">
+
+								<div class="panel-heading">
+									<i class="fa fa-th-large"></i>SURVEY
+								</div>
+								<div class="panel-body">
+
+									<a href="#" class="btn btn-block btn-line-info active hide-panel"><i class="fa fa-arrow-left"></i> Go Back</a>
+
+									<hr />
+
+									<ul class="list-unstyled list-info">
+										<li>
+											<label>Title</label>
+											{{ $survey->title }}
+										</li>
+										<li>
+											<label>Questionaire</label>
+											{{ $survey->survey->title }}
+										</li>
+										<li>
+											<label>Created</label>
+											{{ get_date($survey->created_at, "j F, Y") }}
+										</li>
+										<li>
+											<label>Survey Progress</label>
+											@if ($survey->status)
+												<div class="progress progress-striped" style="margin-left:0">
+													<div class="progress-bar progress-bar-info" style="width: {{ $survey->started_progress }}%;"></div>
+													<div class="progress-bar progress-bar-warning" style="width: {{ $survey->completed_progress }}%;"></div>
+												</div>
+
+												<p class="progress-subscript" style="margin-left:0">{{ $survey->started_progress }}% Started, {{ $survey->completed_progress }}% Completed ( {{ $survey->count_started }} Started, {{ $survey->count_completed }} Completed, {{ $survey->count_total }} Total)</p>
+											@else
+												<em>None</em>
+											@endif
+										</li>
+									</ul>
+
+								</div>
+							</div>
+						</div>
+
+					@endforeach
+
 
 				</div>
 
@@ -278,7 +332,7 @@
 														<em>{{ $survey->count_completed }} students completed survey.</em>
 													</li>
 												</ul>
-												<a href="{{ url('m/classes/'.$class->id) }}" class="btn btn-block btn-line-default">View Survey Results</a>
+												<a href="{{ url('m/classes/'.$class->id) }}" class="btn btn-block btn-line-default show-panel" data-target="#manageSurvey{{$survey->id}}" data-show="#surveyInfoPanel{{$survey->id}}">View Survey Results</a>
 											</div>
 										</div>
 									</div>
@@ -344,8 +398,7 @@
 										</table>
 									@endif
 									<hr />
-									<button class="btn btn-line-default show-panel dont-activate" id="btnAddStudent" data-target="#addStudent" data-show="#studentInfoPanel"><i class="fa fa-plus"></i> Add Student</button>
-									<button class="btn btn-line-default" style="width"><i class="fa fa-upload"></i> Import Students</button>
+									<button class="btn btn-line-default show-panel dont-activate" id="btnAddStudent" data-target="#addStudent" data-show="#studentInfoPanel"><i class="fa fa-plus"></i> Create Student</button>
 								</div>
 							</div>
 						</div>
@@ -442,7 +495,7 @@
 						<div class="panel-group class-panel">
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									Add Student
+									Create Student
 								</div>
 								<div class="panel-body">
 									{!! Form::open(['class'=>'form-horizontal', 'url' => "/m/classes/$class->id/students/add", 'data-return-url' => url("/m/classes/$class->id")."?s=1"   ]) !!}
@@ -666,6 +719,70 @@
 						</div>
 
 					@endif
+
+					@foreach ($surveys as $survey)
+
+						<div id="manageSurvey{{$survey->id}}" class="closed closable-panel">
+							<div class="panel-group class-panel">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										Survey Results
+									</div>
+									<div class="panel-body">
+
+										<a href="{{ url('/m/surveys/'.$survey->id.'/report') }}" class="btn btn-default btn-lg pull-right" target="_blank"><i class="fa fa-bar-chart"></i> Generate Survey Report</a>
+
+										<br />
+
+										<h4>Survey Summary</h4>
+
+										<hr />
+
+										<ul class="list-unstyled list-info">
+											<li>
+												<label>Participants</label>
+												{{ $survey->count_total }}
+											</li>
+											<li>
+												<label>Questions</label>
+												{{ $survey->survey->count_questions }}
+											</li>
+											<li>
+												<label>Date Started</label>
+												9 Jan 2015
+											</li>
+											<li>
+												<label>Date Ended</label>
+												15 Feb 2015
+											</li>
+										</ul>
+
+										<br /><br />
+
+										<h4>Survey Results</h4>
+
+										<hr />
+
+										<ul class="list-unstyled list-info">
+											@foreach ($survey->stats as $num => $row)
+												<li>
+													<span class="pull-left">{{$num+1}}. {{$row->grouping->title}}</span>
+													<div class="progress progress-striped" style="margin: 0 0 5px 200px;">
+														<div class="progress-bar progress-bar-danger" style="width: {{$row->strong_percentage}}%;">{{ $row->strong_count }}</div>
+														<div class="progress-bar progress-bar-info" style="width: {{$row->vulnerable_percentage}}%;">{{ $row->vulnerable_count }}</div>
+													</div>
+												</li>
+											@endforeach
+										</ul>
+
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+
+					@endforeach
 
 				</div>
 

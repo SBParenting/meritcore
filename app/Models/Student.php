@@ -4,7 +4,9 @@ class Student extends \App\Models\Model {
 
 	protected $table = 'students';
 
-	protected $fillable = ['sid', 'first_name', 'last_name', 'date_birth', 'school_id', 'grade', 'email', 'address_street', 'address_city', 'address_province', 'address_country', 'address_postal_code'];
+	protected $fillable = ['sid', 'first_name', 'last_name', 'date_birth', 'school_id', 'school', 'grade', 'classroom', 'email', 'address_street', 'address_city', 'address_province', 'address_country', 'address_postal_code', 'created_by'];
+
+	public static $importable = ['student_id', 'first_name', 'last_name', 'date_birth', 'school', 'grade', 'classroom', 'email', 'street', 'city', 'province', 'country', 'postal_code'];
 
 	protected $related = [];
 
@@ -15,7 +17,7 @@ class Student extends \App\Models\Model {
 		return strtolower(preg_replace("/[^A-Za-z0-9]/", "", $name)) == strtolower(preg_replace("/[^A-Za-z0-9]/", "", $this->first_name.$this->last_name));
 	}
 
-	 public function getName($format="L, F")
+	public function getName($format="L, F")
     {
     	$string = str_replace("L", "{last}", $format);
     	$string = str_replace("F", "{first}", $string);
@@ -24,5 +26,37 @@ class Student extends \App\Models\Model {
     	$string = str_replace("{first}", $this->first_name, $string);
 
     	return $string;
+    }
+
+    public function clasr()
+    {
+    	return $this->belongsTo('App\Models\Classroom', 'classroom_id');
+    }
+
+    public static function createFromImport($data)
+    {
+    	$student = new self;
+
+    	$student->fill([
+			'sid'                 => $data['student_id'], 
+			'first_name'          => $data['first_name'], 
+			'last_name'           => $data['last_name'], 
+			'date_birth'          => $data['date_birth'], 
+			'school_id'           => $data['school_id'], 
+			'school'              => $data['school'], 
+			'grade'               => $data['grade'],
+			'classroom'           => $data['classroom'],
+			'email'               => $data['email'], 
+			'address_street'      => $data['street'], 
+			'address_city'        => $data['city'], 
+			'address_province'    => $data['province'], 
+			'address_country'     => $data['country'], 
+			'address_postal_code' => $data['postal_code'],
+			'created_by'          => $data['created_by'],
+    	]);
+
+    	$student->save();
+
+    	return $student;
     }
 }

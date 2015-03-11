@@ -25,7 +25,7 @@ class AuthController extends Controller {
 			return \Response::json(['result' => true, 'msg' => 'Successfully logged in!', 'url' => \Session::get('url.intended', url('/m'))]);
 		}
 
-		return \Response::json(['result' => false, 'msg' => 'Invalid login information, please try again.', 'fields' => ['username', 'password']]);
+		return \Response::json(['result' => false, 'msg' => 'Invalid login information, please try again.', 'fields' => ['email', 'password']]);
 	}
 
 	public function getLogout()

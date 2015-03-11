@@ -14,6 +14,8 @@ class SurveyController extends \App\Http\Controllers\Controller {
 
 		if ($survey)
 		{
+			//\\\Session::forget('student.survey.confirmed');
+
 			if (\Session::has('student.survey.confirmed'))
 			{
 				$student = CampaignStudent::where('campaign_id', '=', $survey->id)->where('secret', '=', \Session::get('student.survey.confirmed'))->first();
@@ -166,7 +168,16 @@ class SurveyController extends \App\Http\Controllers\Controller {
 		    	CampaignResult::create($data);
 		    }
 
+		    $survey->updateRecord();
+
 		    $student->updateRecord();
+
+		    $classroom = $survey->classroom;
+
+		    if ($classroom)
+		    {
+			    $classroom->updateSurveyStatus();
+			}
 
 			return \Response::json(['result' => true, 'msg' => 'Successfully saved survey result.']);
 		}
@@ -189,7 +200,16 @@ class SurveyController extends \App\Http\Controllers\Controller {
 
 			$student->save();
 
+			$student->updateRecord();
+
 			$survey->updateRecord();
+
+			$classroom = $survey->classroom;
+
+		    if ($classroom)
+		    {
+			    $classroom->updateSurveyStatus();
+			}
 
 			\Session::forget('student.survey.confirmed');
 

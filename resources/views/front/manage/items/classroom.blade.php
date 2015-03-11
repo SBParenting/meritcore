@@ -12,11 +12,19 @@
 				<ul class="list-unstyled list-info">
 					<li>
 						<label>Teacher</label>
-						{{ $class->teacher->getName('F L') }}
+						@if ($class->teacher)
+							{{ $class->teacher->getName('F L') }}
+						@else
+							--
+						@endif
 					</li>
 					<li>
 						<label>Grade</label>
-						{{ $class->grade }}
+						@if ($class->grade)
+							{{ $class->grade }}
+						@else
+							--
+						@endif
 					</li>
 					<li>
 						<label>No. of students</label>

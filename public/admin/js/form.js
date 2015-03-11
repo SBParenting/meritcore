@@ -17,6 +17,12 @@ jQuery(function() {
 			$('form').not('.no-ajax').off('submit').on('submit', function(e) {
 				e.preventDefault();
 
+				var callback = $(this).data('callback');
+				
+				if (typeof callback != 'undefined') {
+					$.app.executeFunction(callback, window);
+				}
+
 				$.api.postForm($(this), $.form.showFormResult, $(this));
 
 			});
@@ -84,7 +90,7 @@ jQuery(function() {
 					var search = $.form.searchDropdown(dropdown, elem.val());
 				});
 
-				if (elem.attr('data-value') != 'undefined')
+				if (elem.attr('data-value') != 'undefined' && elem.attr('data-value') != 'null')
 				{
 					var container = elem.parent().parent().parent();
 
@@ -96,8 +102,9 @@ jQuery(function() {
 
 					active.addClass('active');
 
-					container.find('.display-value').html(active.html());
+					container.find('.dropdown-toggle').removeClass('placeholding');
 
+					container.find('.display-value').html(active.html());
 				}
 			});
 
@@ -257,6 +264,11 @@ jQuery(function() {
 					else if (typeof response.errors != 'undefined')
 					{
 						$.form.showFormErrors(form, response.errors);
+					}
+
+					if (typeof form.data('callback-error') != 'undefined')
+					{
+						$.app.executeFunction(form.data('callback-error'), window);
 					}
 				}
 			}

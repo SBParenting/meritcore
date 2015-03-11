@@ -138,23 +138,39 @@ jQuery(function() {
 
 				var elem = $(this);
 
-				bootbox.confirm("<h1>Are you sure?</h1><p>If you are not sure what you are doing, please stop.", function(result) {
+				if (elem.hasClass('confirm'))
+				{
 
-					if(result) {
+					bootbox.confirm("<h1>Are you sure?</h1><p>If you are not sure what you are doing, please stop.", function(result) {
 
-						var items = $('.checked .js-select');
+						if(result) {
 
-						var ids = [];
+							var items = $('.checked .js-select');
 
-						items.each(function() {
-							ids.push( $(this).data('record-id') );
-						});
+							var ids = [];
 
-						$.api.post( elem.attr('href'), {ids:ids}, $.app.showPostResponse, $(this) );
+							items.each(function() {
+								ids.push( $(this).data('record-id') );
+							});
 
-					}
+							$.api.post( elem.attr('href'), {ids:ids}, $.app.showPostResponse, $(this) );
 
-				});
+						}
+
+					});
+				}
+				else
+				{
+					var items = $('.checked .js-select');
+
+					var ids = [];
+
+					items.each(function() {
+						ids.push( $(this).data('record-id') );
+					});
+
+					$.api.post( elem.attr('href'), {ids:ids}, $.app.showPostResponse, $(this) );
+				}
 			});
 
 			$('.post-bulk').off('click').on('click', function(e) {
@@ -162,27 +178,47 @@ jQuery(function() {
 
 				var elem = $(this);
 
-				bootbox.confirm("<h1>Are you sure?</h1><p>If you are not sure what you are doing, please stop.", function(result) {
+				if (elem.hasClass('confirm'))
+				{
 
-					if(result) {
+					bootbox.confirm("<h1>Are you sure?</h1><p>If you are not sure what you are doing, please stop.", function(result) {
 
-						var items = $('.checked .js-select');
+						if(result) {
 
-						var ids = [];
+							var items = $('.checked .js-select');
 
-						items.each(function() {
-							ids.push( $(this).data('record-id') );
-						});
+							var ids = [];
 
-						var form = $(elem.data('target'));
+							items.each(function() {
+								ids.push( $(this).data('record-id') );
+							});
 
-						form.find("input[name='ids']").val(ids);
+							var form = $(elem.data('target'));
 
-						form.submit();
+							form.find("input[name='ids']").val(ids);
 
-					}
+							form.submit();
 
-				});
+						}
+
+					});
+				}
+				else
+				{
+					var items = $('.checked .js-select');
+
+					var ids = [];
+
+					items.each(function() {
+						ids.push( $(this).data('record-id') );
+					});
+
+					var form = $(elem.data('target'));
+
+					form.find("input[name='ids']").val(ids);
+
+					form.submit();
+				}
 			});
 
 			$('.js-post-checkbox').off('ifChanged').on('ifChanged', function(event) {

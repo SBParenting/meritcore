@@ -3,6 +3,8 @@
 use App\Http\Controllers\Controller;
 use App\Models\User as Record;
 use App\Models\Classroom;
+use App\Models\Student;
+use App\Models\StudentAssoc;
 use App\Models\School;
 use App\Models\Survey;
 use App\Models\Campaign;
@@ -34,52 +36,43 @@ class ManageController extends Controller {
 	{
 		$this->access('manage:schools');
 
+		$school_board = $this->user->school_board->first();
+
 		$schools = $this->user->schools;
 
 		$school_ids = array_fetch($schools->toArray(), 'id');
 
-		$classes = Classroom::with('teacher')->whereIn('school_id', $school_ids)->orderBy('updated_at', 'desc')->get();
-
 		$data = [
-			'page'    => 'schools',
-			'schools' => $schools,
-			'classes' => $classes,
+			'page'         => 'schools',
+			'school_board' => $school_board,
+			'schools'      => $schools,
+			'fields'	   => Student::$importable,
 		];
 
 		return \View::make('front.manage.schools', $data);
 	}
 
-	public function getSchool($id)
-	{
-		$this->access('manage:schools');
-
-		$school = School::find($id);
-
-		$classes = Classroom::with('teacher')->where('school_id', '=', $id)->orderBy('updated_at', 'desc')->get();
-
-		$data = [
-			'page'    => 'classes',
-			'school'  => $school,
-			'classes' => $classes,
-			'grades'   => Classroom::$grades,
-			'teachers' => $school->getTeachers(),
-		];
-
-		return \View::make('front.manage.classes', $data);
-	}
-
-	public function getClasses()
+	public function getClasses($id=false)
 	{
 		$this->access('manage:classes');
 
-		$school = $this->user->schools->first();
+		if ($id===false)
+		{
+			$school = $this->user->schools->first();
+			$page = 'classes';	
+		}
+		else
+		{
+			$school = School::find($id);
+			$page = 'school';
+		}		
 
 		if ($school)
 		{
-			$classes = Classroom::with('teacher')->where('school_id', '=', $school->id)->orderBy('updated_at', 'desc')->get();
+			$classes = Classroom::with('teacher')->where('school_id', '=', $school->id)->orderBy('title', 'asc')->get();
 
 			$data = [
-				'page'     => 'classes',
+				'page'     => $page,
 				'school'   => $school,
 				'classes'  => $classes,
 				'grades'   => Classroom::$grades,
@@ -108,7 +101,7 @@ class ManageController extends Controller {
 
 			$active_survey = Campaign::with('survey', 'students', 'students.student')->where('class_id', '=', $id)->where('status', '=', 'Active')->first();
 
-			$surveys = Campaign::with('survey')->where('class_id', '=', $id)->where('status', '=', 'Completed')->orderBy('created_at', 'desc')->get();
+			$surveys = Campaign::with('survey', 'stats', 'stats.grouping')->where('class_id', '=', $id)->where('status', '=', 'Completed')->orderBy('created_at', 'desc')->get();
 
 			$data = [
 				'page'          => 'classes',
@@ -128,25 +121,52 @@ class ManageController extends Controller {
 		abort(404);
 	}
 
-	public function getStudents()
+	public function getStudents($id=false)
 	{
 		$this->access('manage:classes');
 
+		if ($id===false)
+		{
+			$school = $this->user->schools->first();	
+		}
+		else
+		{
+			$school = School::find($id);
+		}	
+
+		$students = Student::with('clasr')->where('school_id', '=', $id)->orderBy('last_name', 'asc')->orderBy('first_name', 'asc')->get();
+
+		$classes = Classroom::with('teacher')->where('school_id', '=', $school->id)->orderBy('updated_at', 'desc')->get();
+
 		$data = [
-			'page' => 'students',
+			'page'     => 'students',
+			'school'   => $school,
+			'classes'  => $classes,
+			'students' => $students,
 		];
 
 		return \View::make('front.manage.students', $data);
 	}
 
-	public function getSurveys()
+	public function getSurveys($id=false)
 	{
 		$this->access('manage:classes');
+		
+		if ($id===false)
+		{
+			$school = $this->user->schools->first();	
+		}
+		else
+		{
+			$school = School::find($id);
+		}	
 
 		$data = [
-			'page' => 'surveys',
+			'page'   => 'surveys',
+			'school' => $school,
 		];
 
 		return \View::make('front.manage.surveys', $data);
 	}
+
 }

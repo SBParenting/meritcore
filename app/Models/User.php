@@ -39,6 +39,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsToMany('App\Models\School', 'user_associations', 'user_id', 'school_id');
     }
 
+    public function school_board()
+    {
+        return $this->belongsToMany('App\Models\SchoolBoard', 'user_associations', 'user_id', 'school_board_id');
+    }
+
     public function getName($format="L, F")
     {
     	$string = str_replace("L", "{last}", $format);

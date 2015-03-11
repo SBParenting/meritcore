@@ -1,0 +1,14 @@
+
+@page {
+    margin: 2cm;
+}
+
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 12pt;
+    line-height: 1.3;
+    color: #000;
+}
+
+.grey-box { background: #e7e7e7; padding: 10px; }
+.blue-box { background: #1a4386; padding: 10px; }

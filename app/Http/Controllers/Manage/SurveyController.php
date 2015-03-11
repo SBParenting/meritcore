@@ -28,6 +28,7 @@ class SurveyController extends Controller {
 			$survey->fill($request->input());
 			$survey->secret = str_random(6);
 			$survey->status = 'Active';
+			$survey->start_date = new \DateTime;
 			$survey->count_total = count($class->students);
 			$survey->save();
 
@@ -58,7 +59,10 @@ class SurveyController extends Controller {
 		{
 			$survey = Campaign::find($survey_id);
 			$survey->status = 'Completed';
+			$survey->end_date = new \DateTime;
 			$survey->save();
+
+			$survey->generateResults();
 
 			$class->updateSurveyStatus();
 
@@ -66,5 +70,27 @@ class SurveyController extends Controller {
 		}
 
 		abort(404);
+	}
+
+	public function getReport($id)
+	{
+		$survey = Campaign::with('stats', 'stats.grouping')->find($id);
+
+		if ($survey)
+		{
+			$school = $survey->school;
+
+			$data = [
+				'school' => $school,
+				'survey' => $survey,
+			];
+		}
+
+		//return \View::make('front.manage.reports.impact', $data)->render();
+
+		$pdf = \App::make('snappy.pdf.wrapper');
+		$pdf->loadView('front.manage.reports.impact', $data);
+		
+		return $pdf->stream();
 	}
 }

@@ -16,7 +16,7 @@
 
 				<div class="col-md-12">
 
-                    <h1>St. Francis Xavier CHS</h1>
+                    <h1>{{ $school->name }}</h1>
 
 					<hr />
 
