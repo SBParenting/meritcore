@@ -41,14 +41,14 @@
 
 	<p>Prior to reviewing this information, please read the Limitations and Confidentiality statements in Appendix A.</p>
 
-	<div id="bar-chart"></div>
+	<img src="{{ url('/m/surveys/'.$survey->id.'/chart') }}.png" />
 
 	<p><b>The graph above shows the number of HEROES® students who demonstrated strength (as indicated by the green section of the bar) and vulnerability (as indicated by the red part of the bar) in each of the Core Character Traits.</b></p>
 	
 	<p>The Core Character Traits questionnaire provides a balanced, evidence based assessment of the foundational attitudes, skills and knowledge that are directly related to resiliency, well-being and success:</p>
 
 	<ol>
-		<li><b>Strengths-Based Aptitude</b> (self-esteem) – A positive view of the future with a clear understanding of strengths and how to use them in purposeful ways.</li>
+		<li><b>Strengths-Based Aptitude</b> (self-esteem) - A positive view of the future with a clear understanding of strengths and how to use them in purposeful ways.</li>
 		<li><b>Emotional Competence</b> (emotional awareness) - Ability to identify, understand & express emotions in constructive ways.</li>
 		<li><b>Social Connectedness</b> (social skills and relationships) - Capacity to develop and maintain supportive & healthy relationships.</li>
 		<li><b>Moral Directedness</b> (values) – Understanding of “right” and “wrong” that guides decision making and coping behaviour.</li>
@@ -62,6 +62,7 @@
 
 	<script>
 
+	/*
 		Morris.Bar({
 			element: 'bar-chart',
 			data: [
@@ -79,6 +80,8 @@
       		padding: 0,
 
 		});
+
+	*/
 
 	</script>
 

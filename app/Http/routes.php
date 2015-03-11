@@ -34,6 +34,7 @@ Route::group(['prefix' => 'm', 'middleware' => 'auth'], function() {
 	Route::post('/students/{id}/class/{class_id}', 'Manage\StudentsController@postAddToClass');
 	Route::get('/surveys/{id?}', 'Manage\ManageController@getSurveys');
 	Route::get('/surveys/{id}/report', 'Manage\SurveyController@getReport');
+	Route::get('/surveys/{id}/chart.png', 'Manage\SurveyController@getChart');
 	Route::post('/import', 'Manage\StudentsController@postImport');
 	Route::post('/import/process', 'Manage\StudentsController@postImportProcess');
 	Route::post('/import/complete', 'Manage\StudentsController@postImportComplete');
@@ -52,4 +53,5 @@ Route::post('{key}/confirm', 'Front\SurveyController@postConfirm');
 
 require __DIR__ .'/functions.php';
 require __DIR__ .'/macros.php';
+require __DIR__ .'/../Libraries/Graph/Graph.php';
 

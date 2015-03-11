@@ -10,5 +10,7 @@ body {
     color: #000;
 }
 
-.grey-box { background: #e7e7e7; padding: 10px; }
-.blue-box { background: #1a4386; padding: 10px; }
+.grey-box 			{ background: #e7e7e7; padding: 10px; }
+.blue-box 			{ background: #1a4386; padding: 10px; float: left; width: 50%; }
+.blue-box h1 		{ color: #fff; }
+.blue-box h2 		{ color: #fff; }

@@ -87,10 +87,43 @@ class SurveyController extends Controller {
 		}
 
 		//return \View::make('front.manage.reports.impact', $data)->render();
-
-		$pdf = \App::make('snappy.pdf.wrapper');
-		$pdf->loadView('front.manage.reports.impact', $data);
+		
+		$pdf = \PDF::loadView('front.manage.reports.impact', $data);
 		
 		return $pdf->stream();
+	}
+
+	public function getChart($id)
+	{
+		header("Content-type: image/png");
+
+		$survey = Campaign::with('stats', 'stats.grouping')->find($id);
+
+		if ($survey)
+		{
+			$school = $survey->school;
+
+			$data = [
+				'school' => $school,
+				'survey' => $survey,
+			];
+		}
+
+		//Set config directives
+	    $cfg['title'] = 'Example graph';
+	    $cfg['width'] = 500;
+	    $cfg['height'] = 400;
+
+	    $gdata = [];
+
+	    foreach ($survey->stats as $stat)
+	    {
+	    	$gdata[$stat->grouping->title] = $stat->strong_count;
+	    }
+	       
+	    //Create phpMyGraph instance
+	    $graph = new \phpMyGraph();
+
+	    $graph->parseVerticalColumnGraph($gdata, $cfg);  
 	}
 }
