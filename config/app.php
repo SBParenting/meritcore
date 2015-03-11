@@ -143,7 +143,7 @@ return [
 
 		'Zizaco\Entrust\EntrustServiceProvider',
 		'Maatwebsite\Excel\ExcelServiceProvider',
-		'Barryvdh\Snappy\ServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 		'Barryvdh\DomPDF\ServiceProvider',
 		//'Barryvdh\Debugbar\ServiceProvider',
 
@@ -209,8 +209,8 @@ return [
 		'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
 		'Debug'     => 'Barryvdh\Debugbar\Facade',
 		'Excel'     => 'Maatwebsite\Excel\Facades\Excel',
-		//'PDF'       => 'Barryvdh\Snappy\Facades\SnappyPdf',
-		'PDF' => 'Barryvdh\DomPDF\Facade',
+		'PDF'       => 'Barryvdh\DomPDF\Facade',
+		'Image'     => 'Intervention\Image\Facades\Image',
 	],
 
 ];

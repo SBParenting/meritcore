@@ -8,30 +8,36 @@
 
 @section('content')
 
-	<div class="blue-box">
-		<h1>Youth Core Competency of Character</h1>
-
-		<hr />
-
-		<h2>Summary Report</h2>
-
-	</div>
-
-	<img src="{{ url("/public/front/img/report-image-1.jpg") }}" />
+	<img src="{{ url('public/front/img/report/header.jpg') }}" class="width-100" />
 
 	<p>
 		<em>Our students won't value what we have to offer if they don't value themselves. If we show that we value them, they'll value what we have to offer.<br />
-		<span>~ Dr. Wayne Hammond</span></em>
 	</p>
 
-	<hr />
+	<p class="text-right"><em>~ Dr. Wayne Hammond</em></p>
 
-	<div class="grey">
-		<b>School Name:</b> {{ $school->name }}<br />
-		<b>Date of Report:</b>  {{ date("F j, Y") }}<br />
-		<b>Questionnaires Start Date:</b>  {{ get_date($survey->start_date) }}<br />
-		<b>Questionnaires End Date:</b> {{ get_date($survey->end_date) }}<br />
-	</div>
+	<img src="{{ url('public/front/img/report/line.jpg') }}" class="width-100" />
+
+	<br />
+
+	<table class="grey">
+		<tr>
+			<td><b>School Name:</b></td>
+			<td>{{ $school->name }}</td>
+		</tr>
+		<tr>
+			<td><b>Date of Report:</b></td>
+			<td>{{ date("F j, Y") }}</td>
+		</tr>
+		<tr>
+			<td><b>Questionnaires Start Date:</b></td>
+			<td>{{ get_date($survey->start_date) }}</td>
+		</tr>
+		<tr>
+			<td><b>Questionnaires End Date:</b></td>
+			<td>{{ get_date($survey->end_date) }}</td>
+		</tr>
+	</table>
 
 	<br />
 
@@ -41,13 +47,24 @@
 
 	<p>Prior to reviewing this information, please read the Limitations and Confidentiality statements in Appendix A.</p>
 
-	<img src="{{ url('/m/surveys/'.$survey->id.'/chart') }}.png" />
+	<img src="{{ url('public/front/img/report/footer.jpg') }}" class="width-100 footer" />
+
+	<div class="page-break"></div>
+
+	<img src="{{ url('public/front/img/report/header2.jpg') }}" class="width-100" />
+
+	<br /><br />
+
+	<img src="{{ url('/public/front/img/report/charts/'.$chart) }}" class="width-100" />	
+
+	<br /><br /><br />
 
 	<p><b>The graph above shows the number of HEROES® students who demonstrated strength (as indicated by the green section of the bar) and vulnerability (as indicated by the red part of the bar) in each of the Core Character Traits.</b></p>
 	
 	<p>The Core Character Traits questionnaire provides a balanced, evidence based assessment of the foundational attitudes, skills and knowledge that are directly related to resiliency, well-being and success:</p>
 
-	<ol>
+
+	<ol class="small">
 		<li><b>Strengths-Based Aptitude</b> (self-esteem) - A positive view of the future with a clear understanding of strengths and how to use them in purposeful ways.</li>
 		<li><b>Emotional Competence</b> (emotional awareness) - Ability to identify, understand & express emotions in constructive ways.</li>
 		<li><b>Social Connectedness</b> (social skills and relationships) - Capacity to develop and maintain supportive & healthy relationships.</li>
@@ -60,29 +77,6 @@
 		<li><b>Spiritual Eagerness</b> (positive spiritual awareness) - Is engaged in a curious exploration of their spiritual sense of self and its implications for ones purpose and meaning in life.</li>
 	</ol>
 
-	<script>
 
-	/*
-		Morris.Bar({
-			element: 'bar-chart',
-			data: [
-				@foreach ($survey->stats as $stat)
-					{ y: '{{ shorten($stat->grouping->title, 30) }}', a: {{ $stat->vulnerable_count }}, b: {{ $stat->strong_count }} },
-				@endforeach
-			],
-			barColors: ['#953525', '#5d9b21'],
-			stacked: true,
-			xkey: 'y',
-			ykeys: ['a', 'b'],
-			labels: ['Series A', 'Series B'],
-			resize: true,
-			xLabelAngle: -65,
-      		padding: 0,
-
-		});
-
-	*/
-
-	</script>
 
 @stop

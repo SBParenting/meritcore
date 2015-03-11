@@ -76,6 +76,8 @@ class SurveyController extends Controller {
 	{
 		$survey = Campaign::with('stats', 'stats.grouping')->find($id);
 
+		$data = [];
+
 		if ($survey)
 		{
 			$school = $survey->school;
@@ -85,45 +87,57 @@ class SurveyController extends Controller {
 				'survey' => $survey,
 			];
 		}
+
+		$filename = str_random(10).'.png';
+
+	    $gdata = [];
+
+	    foreach ($survey->stats as $stat)
+	    {
+	    	$gdata[] = [$stat->grouping->title, $stat->strong_count, $stat->vulnerable_count];
+	    }
+
+		$plot = new \PHPlot(600, 400, $filename);
+
+		$plot->SetImageBorderType('plain');
+
+		$plot->SetTTFPath('/usr/share/fonts/truetype/droid/');
+		$plot->SetFontTTF('x_label', 'DroidSans.ttf', 8);
+
+		$plot->SetPlotType('stackedbars');
+		$plot->SetDataType('text-data');
+		$plot->SetDataValues($gdata);
+
+		//$plot->SetTitle('Candy Sales by Month and Product');
+		//$plot->SetYTitle('Millions of Units');
+
+		# No shading:
+		//$plot->SetShading(0);
+
+		$plot->SetLegend(array('Strong', 'Vulnerable'));
+		# Make legend lines go bottom to top, like the bar segments (PHPlot > 5.4.0)
+		$plot->SetLegendReverse(True);
+
+		$plot->SetXDataLabelAngle(-70);
+
+		$plot->SetXTickLabelPos('none');
+		$plot->SetXTickPos('none');
+
+		$plot->SetDataColors([[149, 54, 34],[90, 156, 19],]);
+
+		$plot->SetYDataLabelPos('plotstack');
+		$plot->SetXDataLabelPos('plotdown');
+		$plot->SetLegendPosition(1, 0, 'plot', 1, 0, -5, 5);
+		$plot->SetIsInline(true);
+		$plot->SetOutputFile( app_path() . '/../public/front/img/report/charts/' . $filename );
+		$plot->DrawGraph();
+
+	    $data['chart'] = $filename;
 
 		//return \View::make('front.manage.reports.impact', $data)->render();
 		
 		$pdf = \PDF::loadView('front.manage.reports.impact', $data);
 		
 		return $pdf->stream();
-	}
-
-	public function getChart($id)
-	{
-		header("Content-type: image/png");
-
-		$survey = Campaign::with('stats', 'stats.grouping')->find($id);
-
-		if ($survey)
-		{
-			$school = $survey->school;
-
-			$data = [
-				'school' => $school,
-				'survey' => $survey,
-			];
-		}
-
-		//Set config directives
-	    $cfg['title'] = 'Example graph';
-	    $cfg['width'] = 500;
-	    $cfg['height'] = 400;
-
-	    $gdata = [];
-
-	    foreach ($survey->stats as $stat)
-	    {
-	    	$gdata[$stat->grouping->title] = $stat->strong_count;
-	    }
-	       
-	    //Create phpMyGraph instance
-	    $graph = new \phpMyGraph();
-
-	    $graph->parseVerticalColumnGraph($gdata, $cfg);  
 	}
 }
