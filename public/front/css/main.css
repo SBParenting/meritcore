@@ -4660,8 +4660,9 @@ tbody.collapse.in {
   margin-bottom: 8px;
   background-color: transparent;
   background-image: none;
-  border: 1px solid transparent;
-  border-radius: 2px;
+  border: 1px solid white;
+  border-radius: 5px;
+  left: 25px;
 }
 .navbar-toggle:focus {
   outline: 0;
