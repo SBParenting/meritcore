@@ -63,4 +63,11 @@ class ParentsController extends \BaseController {
             return \Redirect::route('parents.reflect',[$strength_score_id,$question_id]);
         }
     }
+
+    public function getExplore($strength_score_id) {
+        $strengthScore = \StrengthScore::find($strength_score_id);
+        $child = $strengthScore->child;
+
+        return \View::make('front.parents.explore')->with(compact('strengthScore','child'));
+    }
 }

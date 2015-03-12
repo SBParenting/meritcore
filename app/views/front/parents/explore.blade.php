@@ -10,19 +10,26 @@
 			<div class="container">
 				<a href="#" id="showPage" class="header-link"><i class="icon-help"></i> help</a>
 				<a href="#" id="showMenu" class="header-link"><i class="icon-menu"></i> menu</a>
-				<a href="#" class="logo"><div class=" parent-guide-thumbnail"></div><p class="child-name">Child name</p></a>
+
+                <div class="child-image">
+                    <a href="#" class="logo">
+                        <div class="logo child-thumbnail child-{{$child->sex}}">{{!empty($child->avatar) ? "<img src='".url('/public/uploads/children/squared-'.$child->avatar)."' />" : ""}}</div>
+                        <p class="child-name">{{ $child->first_name }}</p></a>
+                </div>
+
 				<h1 class="parent-guide">PARENT GUIDE</h1>
 
 				<div id="header-content" >
 
-				<div class="track">
-				<p class="col-md-8 pull-right">Family Communication <span>FAMILY SUPPORT &amp; EXPECTATIONS</span></p>
-				</div>
+                    <div class="track">
+                        <p class="col-md-8 pull-right">{{$strengthScore->strength->name}}
+                            <span>{{$strengthScore->strength->strengthGroup->name}}</span>
+                        </p>
+                    </div>
 
-				<div class="col-md-2">
-				<div class="track-percent"><span class="percent"><p>50%</p></span></div>
-				
-				</div>
+                    <div class="col-md-2">
+                        <div class="track-percent"><span class="percent"><p>{{$strengthScore->score}}%</p></span></div>
+                    </div>
 				</div>
 			</div>
 		</div>

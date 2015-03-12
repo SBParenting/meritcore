@@ -30,7 +30,6 @@
 
                         <div class="col-md-2">
                             <div class="track-percent"><span class="percent"><p>{{$strengthScore->score}}%</p></span></div>
-
                         </div>
                     </div>
                 </div>
@@ -44,12 +43,12 @@
                             <li class="nav-item"><a><img src="{{ url('public/front/img/empower-icon.png')}}"
                                                          height="32px" width="32px"/>EMPOWER</a></li>
                             <li class="nav-item border">
-                                <a href="{{URL::to('parents/explore')}}">
+                                <a href="{{URL::to('parents/explore/'.$strengthScore->id)}}">
                                     <img
                                             src="{{ url('public/front/img/build-icon.png')}}" height="32px"
                                             width="32px"/>BUILD</a></li>
                             <li class="nav-item">
-                                <a href="{{URL::to('parents/explore')}}">
+                                <a href="{{URL::to('parents/explore/'.$strengthScore->id)}}">
                                     <img src="{{ url('public/front/img/explore-icon.png')}}" height="32px" width="32px"/>
                                     EXPLORE
                                 </a>

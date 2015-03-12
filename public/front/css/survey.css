@@ -1387,7 +1387,7 @@ a.disabled {
 
 .track-percent { width: 138px; height: 67px; border: 1px solid #d8d8d8; position: relative; right: 12px; background-color: white ; margin-right: 10px;} 
 .percent p{ color: #247fb9; position: absolute; text-align: center; font-weight: bold; font-size: 39pt; left: 21px; }
-.track  { position: relative; left: -117px; top: -5px; }
+.track  { position: relative; left: -90px; top: -5px; }
 .track p{font-size: 24pt; font-weight: bold; color: #247fb9;}
 .track span {font-size: 11pt; padding: 0; margin: 0; font-weight: normal; display: block;}
 .parent-guide-thumbnail { width: 90px; position: relative; left: 25px; margin-top: 8px; border-radius: 8px; height: 85px; background-image: url(/public/front/img/girl-avatar.png); background-repeat: no-repeat; background-position: center;}
