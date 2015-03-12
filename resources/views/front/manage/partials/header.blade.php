@@ -7,7 +7,8 @@
                 {{ \Auth::user()->getName("F L") }} <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu with-arrow pull-right">
-            	<li class="info">
+            	<!--
+                <li class="info">
             		<em>School Info</em>
             	</li>
             	<li class="info">
@@ -15,6 +16,7 @@
             		Teacher
             	</li>
             	<li class="divider"></li>
+                -->
                 <li>
                     <a href="{{ url('/logout') }}"><i class="fa fa-sign-out"></i> Log Out</a>
                 </li>
