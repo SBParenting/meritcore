@@ -45,6 +45,14 @@ Route::get ('strengths/information', function(){
 
 });
 
+Route::get ('parents/parent_feedback', function(){
+
+	return View::make('front.parents.parent_feedback');
+
+});
+
+
+
 Route::controller('password', 'Controllers\Auth\RemindersController');
 Route::get('remind', 'Controllers\Auth\RemindersController@getRemind');
 Route::post('remind', 'Controllers\Auth\RemindersController@postRemind');

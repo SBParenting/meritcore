@@ -36,28 +36,40 @@
 			<div class="parent-guide-block parent-guide-content ">
 			<div class="form-inner parent-reflect-inner">
 
-				<div id="parent-guide-nav" class="col-md-10 container-fluid">
-					<ul class="nav"> 
+				<nav id="parent-guide-nav" class=" container-fluid" role="navigation">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target=".parent-nav"> 	
+								<span class="sr-only">Toggle navigation</span>
+         						<span class=" toggle-nav fa fa-bars"></span>
+        					
+
+							</button>
+
+
+						 </div>
+  						<div class="collapse navbar-collapse parent-nav">
+						<ul class="nav"> 
 						<li class="nav-item"><a><img src="{{ url('public/front/img/empower-icon.png')}}" height="32px" width="32px" />EMPOWER</a></li>
-						<li class="nav-item border"><a href="{{URL::to('parents/explore')}}"class="selected-item-3"><img src="{{ url('public/front/img/build-icon.png')}}" height="32px" width="32px" />BUILD</a></li>
-						<li class="nav-item"><a href="{{URL::to('parents/explore')}}" class="selected-item-2"><img  src="{{ url('public/front/img/explore-icon.png')}}" height="32px" width="32px" />EXPLORE</a></li>
-						<li class="nav-item border "><a class="" href="{{URL::to('parents/reflect')}}"><img src="{{ url('public/front/img/reflect-icon.png')}}" height="32px" width="32px" />REFLECT</a></li>
+						<li class="nav-item border"><a class="selected-item" href="{{URL::to('parents/explore')}}"><img src="{{ url('public/front/img/build-icon.png')}}" height="32px" width="32px" />BUILD</a></li>
+						<li class="nav-item"><a class="selected-item" href="{{URL::to('parents/explore')}}"><img src="{{ url('public/front/img/explore-icon.png')}}" height="32px" width="32px" />EXPLORE</a></li>
+						<li class="nav-item border "><a  href="{{URL::to('parents/reflect')}}"><img src="{{ url('public/front/img/reflect-icon.png')}}" height="32px" width="32px" />REFLECT</a></li>
 					</ul>
-				</div>
+					</div>
+				</nav>
 					<div class="explore-build-content container-fluid">
 					
 					<div class="explore-container container-fluid" class="col-md-11">
-						<div class="explore-inner col-md-9 col-md-offset-2"> 
+						<div class="explore-inner col-md-9 col-xs-9 col-md-offset-2 col-xs-offset-2"> 
 						<span class="title-text-exp ">EXPLORE </span>
-						`<div class="col-md-5 pick-question-exp">
-						<div class="exp-text">
+						`<div class="col-md-5 col-xs-5 pick-question-exp">
+						<div class="exp-text ">
 							<p class="text-center">?</p>
 							<p class="text-center">CLICK</p>
 							<p class="text-center">to pick a question to explore</p>
 							</div>
 						 </div>
 
-							<div class="col-md-5 remind-question-exp"> 
+							<div class="col-md-5 col-xs-5 remind-question-exp"> 
 							<div class="remind-text">
 							<p class="text-center">What do you like most about the way we talk to each other?</p>
 							<p class="text-center">REMIND ME TO EXPLORE </p>
@@ -68,21 +80,30 @@
 
 				 </div>
 				 	<div class="build-container container-fluid" class="col-md-11">
-						<div class="build-inner col-md-9 col-md-offset-2"> 
+						<div class="build-inner col-md-9 col-xs-9 col-xs-offset-2 col-md-offset-2"> 
 						<span class="title-text-build ">BUILD</span>
-						`<div class="col-md-5 pick-strategy">
+						`<div class="col-md-5 col-xs-5 pick-strategy">
 								<div class="pick-text">
-							<p class="text-center">Make It a Ritual:</p>
+							<p class="text-center ritual">Make It a Ritual:</p>
 							<br>
-							<div class="rate-container">
+							<center>
+									<div class="rate-container col-md-12">
 							<p class="text-center">rate how it worked for you </p>
-							<input class="rating "> 
+						
+								
+								<input class="rating "> 
+					
 							<p class="text-center">PICK NEXT STRATEGY </p>
-							</div>
+							</div>	
+
+
+							</center>
+						
+
 							</div>
 						 </div>
 
-						 	<div class="col-md-5 view-strategy"> 
+						 	<div class="col-md-5  col-xs-5 view-strategy"> 
 									<div class="build-text">
 							<p class="text-center">?</p>
 							<p class="text-center">CLICK</p>
