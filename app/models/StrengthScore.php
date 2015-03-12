@@ -9,4 +9,8 @@ class StrengthScore extends BaseModel {
     public function strength() {
         return $this->belongsTo('Strength');
     }
+
+    public function child() {
+        return $this->belongsTo('Child');
+    }
 }
