@@ -97,7 +97,9 @@ class SurveyController extends Controller {
 	    	$gdata[] = [$stat->grouping->title, $stat->strong_count, $stat->vulnerable_count];
 	    }
 
-		$plot = new \PHPlot(600, 400, $filename);
+		$plot = new \PHPlot(600, 450, $filename);
+
+		$plot->SetPlotAreaPixels(NULL, 70, 575);
 
 		$plot->SetImageBorderType('plain');
 
@@ -125,9 +127,11 @@ class SurveyController extends Controller {
 
 		$plot->SetDataColors([[149, 54, 34],[90, 156, 19],]);
 
+		$plot->SetImageBorderType('none');
+
 		$plot->SetYDataLabelPos('plotstack');
 		$plot->SetXDataLabelPos('plotdown');
-		$plot->SetLegendPosition(1, 0, 'plot', 1, 0, -5, 5);
+		$plot->SetLegendPosition(1, 0, 'plot', 1, 0, -250, -70);
 		$plot->SetIsInline(true);
 		$plot->SetOutputFile( app_path() . '/../public/front/img/report/charts/' . $filename );
 		$plot->DrawGraph();

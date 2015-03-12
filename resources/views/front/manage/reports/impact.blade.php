@@ -31,11 +31,11 @@
 		</tr>
 		<tr>
 			<td><b>Questionnaires Start Date:</b></td>
-			<td>{{ get_date($survey->start_date) }}</td>
+			<td>{{ get_date($survey->start_date, "F j, Y") }}</td>
 		</tr>
 		<tr>
 			<td><b>Questionnaires End Date:</b></td>
-			<td>{{ get_date($survey->end_date) }}</td>
+			<td>{{ get_date($survey->end_date, "F j, Y") }}</td>
 		</tr>
 	</table>
 
@@ -47,7 +47,19 @@
 
 	<p>Prior to reviewing this information, please read the Limitations and Confidentiality statements in Appendix A.</p>
 
-	<img src="{{ url('public/front/img/report/footer.jpg') }}" class="width-100 footer" />
+	<div class="footer">
+		<img src="{{ url('public/front/img/report/footer.jpg') }}" class="width-100" />
+		<div class="content">
+			<a href="https://twitter.com/StrongAtSchool" class="twitter">@StrongAtSchool</a>
+			<a href="http://strengthsbasededucation.com/" class="web">StrengthsBasedEducation.com</a>
+			<div class="contact">
+				PHONE:<br />
+				866-948-7706<br /><br />
+				EMAIL:<br />
+				<a href="mailto:info@resil.ca">info@resil.ca</a><br />
+			</div>
+		</div>
+	</div>
 
 	<div class="page-break"></div>
 

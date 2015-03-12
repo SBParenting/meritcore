@@ -14,7 +14,12 @@ body {
 .width-100 { width: 100%; }
 .width-70 { width: 70%;  }
 
-.footer { position: absolute; bottom: 250px; }
+.footer 					{ position: absolute; bottom: 0px; }
+.footer .content 			{ position: absolute; top: 0; left: 0; }
+.footer .content .twitter 	{ position: absolute; top: 180px; right: 65px; color: #888; font-size: 8pt; text-decoration: none; }
+.footer .content .web 		{ font-size: 12pt; color: #222; position: absolute; top: 120px; right: 60px; text-decoration: none;  }
+.footer .content .contact 	{ color: #888; font-size: 12pt; position: absolute; left: 220px; top: 120px; }
+.footer .content .contact a { color: #888; text-decoration: none; }
 
 .page-break {page-break-after: always;}
 

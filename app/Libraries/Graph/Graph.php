@@ -5271,7 +5271,7 @@ class PHPlot
         // Labels below the plot area
         if ($this->x_data_label_pos == 'plotdown' || $this->x_data_label_pos == 'both')
             $this->DrawText('x_label', $this->x_data_label_angle,
-                            $xpos, $this->plot_area[3] + $this->x_label_bot_offset,
+                            $xpos+20, $this->plot_area[3] + $this->x_label_bot_offset,
                             $this->ndx_datalabel_color, $xlab, 'center', 'top');
 
         // Labels above the plot area
