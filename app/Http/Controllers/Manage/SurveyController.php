@@ -88,7 +88,7 @@ class SurveyController extends Controller {
 			];
 		}
 
-		$filename = str_random(10).'.png';
+		$filename = 'report-'.$survey->id.'.png';
 
 	    $gdata = [];
 
