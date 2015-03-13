@@ -57,6 +57,24 @@ Route::get ('parents/parent_feedback', function(){
 
 });
 
+Route::get ('parents/child_feedback', function(){
+
+	return View::make('front.parents.child_feedback');
+
+});
+
+Route::get ('parents/step_back', function(){
+
+	return View::make('front.parents.step_back');
+
+});
+
+Route::get ('parents/pg_tour', function(){
+
+	return View::make('front.parents.pg_tour');
+
+});
+
 
 
 Route::controller('password', 'Controllers\Auth\RemindersController');
