@@ -55,7 +55,7 @@ class ParentsController extends \BaseController {
             $answer->save();
 
             if ($input['total'] == $question_id) {
-                return \Redirect::route('parents.explore',[$strength_score_id,1]);
+                return \Redirect::route('parents.explore',[$strength_score_id]);
             }
 
             return \Redirect::route('parents.reflect',[$strength_score_id,$question_id+1]);

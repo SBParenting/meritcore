@@ -64,8 +64,8 @@
                                 <div class="big-group-icon-{{$scores[0]->strength->strengthGroup->id}}"><img src="{{ url('public/front/img/strength-icon-'.$scores[0]->strength->strengthGroup->id.'.png') }}"/>
                                 </div>
                                 <div class="strength-percent-{{$scores[0]->strength->strengthGroup->id}}"><p class="text-center">{{$scores[0]->score}}%</p></div>
-                                <button class=" btn btn-lg btn-warning pull-right select-large"><span>SELECT</span>
-                                </button>
+                                <a href="{{URL::route('parents.reflect',[$scores[0]->id,1])}}" class=" btn btn-lg btn-warning pull-right select-large"><span>SELECT</span>
+                                </a>
                             </div>
 
 
@@ -77,8 +77,8 @@
                                 <div class="big-group-icon-{{$scores[0]->strength->strengthGroup->id}}"><img src="{{ url('public/front/img/strength-icon-'.$scores[1]->strength->strengthGroup->id.'.png') }}"/>
                                 </div>
                                 <div class="strength-percent-{{$scores[0]->strength->strengthGroup->id}}"><p class="text-center">{{$scores[1]->score}}%</p></div>
-                                <button class=" btn btn-lg btn-warning pull-right select-large"><span>SELECT</span>
-                                </button>
+                                <a href="{{URL::route('parents.reflect',[$scores[1]->id,1])}}" class=" btn btn-lg btn-warning pull-right select-large"><span>SELECT</span>
+                                </a>
                             </div>
 
                         </div>
