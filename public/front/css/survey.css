@@ -938,9 +938,9 @@
  .cycling-logos {
  	/*position: relative;*/
 	/*left: 60.13em;*/
-	float:right;
+	float:left;
 	border-radius: 3px;
-	margin-right: 5.75em;
+	margin-left: 500px;
 	margin-top: -19.25em;
 	background-color: white;
 	width: 15.38em;
