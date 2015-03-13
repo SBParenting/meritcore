@@ -491,7 +491,7 @@
 
 .progress-blue {background-color: #247fb9; border-bottom-left-radius: 2em; border-top-left-radius: 2em;}
 .progress-green {background-color: #1d5c2e;}
-.progress-bar-container {border: 1px solid white; position: absolute; left: 33.5%; border-radius: 2em; width: 69%; background-color: #96b09d; box-shadow: 1px 1px 10px 1px  #666;}
+.progress-bar-container {border: 1px solid white; position: absolute; left: 15.5%; border-radius: 2em; width: 80%; background-color: #96b09d; box-shadow: 1px 1px 10px 1px  #666;}
 
 
 	/* Child survey answers */
@@ -1319,7 +1319,7 @@
 				margin: 0;}
 
 .bar-container {position: relative;
-				top: 30px;}
+				top: -18px;}
 .progress-label-1 {color: #247fb9; font-size: 12px; position: relative; left: 3px;}
 .progress-label-2 {color: #1d5c2e; font-size: 12px; position: relative; left: 230px;}
 
