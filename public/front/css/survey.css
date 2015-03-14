@@ -1598,6 +1598,7 @@ a.disabled {
 /*.pick-question-exp p {font-family: "Myriad Pro Regular";} */
 
 
+.exp-text a:hover {text-decoration: none;}
 .exp-text p { color: #247fb9;}
 .exp-text p:nth-child(1) {font-size: 10.037500100375999em; padding: 0; }
 .exp-text p:nth-child(2) {font-size: 1.3383333467168em; padding: 0; margin: 0; margin-top: -65px; }
@@ -1606,8 +1607,6 @@ a.disabled {
 .remind-text { width: 66%; margin: 0 auto; margin-top: 30px;}
 .remind-text p:nth-child(1){font-size: 2.22em;}
 
-
-
 .build-container {background-color: #e0e0e0; height: 28%; margin-top: 30px; padding: 10px; }
 .build-inner {background-color: white;  vertical-align: inherit; position: absolute; right: 4%; height: 100%; padding: 10px; margin: 0 auto; border-radius: 8px; box-shadow: 0px 0px 7px 5px #d0d0d0;}
 .pick-strategy {position: absolute; left: 8.5%; height: 100%; padding-right: 3px ;background-color: #39c1cb;}
@@ -1615,11 +1614,6 @@ a.disabled {
 .build-text p { color: #39c1cb;}
 .build-text p:nth-child(1) {font-size: 10.037500100375999em; padding: 0; }
 .build-text p:nth-child(2) {font-size: 1.3383333467168em; padding: 0; margin: 0; margin-top: -65px; }
-
-
-
-
-
 
 
 .pick-text { width: 100%; height: 100%; margin: 0 auto; margin-top: 30px; }
@@ -1653,10 +1647,22 @@ a.disabled {
 .question-content-right {height: 100%; background-color: #0068aa; margin-left: 0; padding: 0; width: 713px!important;}
 
 
-.select-button {width: 5%; height: 100%; background-color: #ff7f00; position: relative; right: 1%; border-radius: 3px; padding: 0; margin: 0;}
- .select-button p{/* Safari */-webkit-transform: rotate(-90deg);/* Firefox */-moz-transform: rotate(-90deg);/* IE */-ms-transform: rotate(-90deg);/* Opera */-o-transform: rotate(-90deg);/* Internet Explorer */filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
- 					vertical-align: middle; position: relative; right: 3%; margin-top: -50%; color: white; font-size: 15pt; letter-spacing: 2px; 
+.select-button {width: 5%; height: 100%; background-color: #ff7f00; position: relative; right: 1%; border-radius: 3px; padding: 0; margin: 0; -webkit-transform: translateZ(0)}
+ .select-button p {
+     -webkit-transform: rotate(-90deg);
+     -moz-transform: rotate(-90deg);
+     -ms-transform: rotate(-90deg);
+     -o-transform: rotate(-90deg);
+     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+     vertical-align: middle;
+     position: relative;
+     right: 3%;
+     margin-top: -50%;
+     color: white;
+     font-size: 15pt;
+     letter-spacing: 2px;
   }
+ .select-button a:hover {text-decoration: none}
 .select-button img { height: 35px; position: absolute; right:120%;
 /* Safari */-webkit-transform: rotate(-270deg);/* Firefox */-moz-transform: rotate(-90deg);/* IE */-ms-transform: rotate(-90deg);/* Opera */-o-transform: rotate(-90deg);/* Internet Explorer */filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);}
 .table-container p { margin-bottom: -10px; color: white; font-weight: lighter; letter-spacing: 1px; font-size: 11pt; width: 100%;}

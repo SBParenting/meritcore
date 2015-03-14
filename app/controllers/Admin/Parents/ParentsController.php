@@ -70,4 +70,10 @@ class ParentsController extends \BaseController {
 
         return \View::make('front.parents.explore')->with(compact('strengthScore','child'));
     }
+
+    public function pick() {
+        $questions = \ExploreQuestion::all();
+
+        return \View::make('front.parents.explore_list')->with(compact('questions'));
+    }
 }

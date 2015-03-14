@@ -69,22 +69,12 @@
                             <div class="explore-inner col-md-9 col-xs-9 col-md-offset-2 col-xs-offset-2">
                                 <span class="title-text-exp ">EXPLORE </span>
                                 `
-                                <div class="col-md-5 col-xs-5 pick-question-exp">
-                                    <div class="exp-text ">
-                                        <p class="text-center">?</p>
-
-                                        <p class="text-center">CLICK</p>
-
-                                        <p class="text-center">to pick a question to explore</p>
-                                    </div>
+                                <div class="col-md-5 col-xs-5 remind-question-exp">
+                                    @include('front.parents.sections.question')
                                 </div>
 
-                                <div class="col-md-5 col-xs-5 remind-question-exp">
-                                    <div class="remind-text">
-                                        <p class="text-center">What do you like most about the way we talk to each
-                                            other?</p>
-                                        <p class="text-center">REMIND ME TO EXPLORE </p>
-                                    </div>
+                                <div class="col-md-5 col-xs-5 pick-question-exp exp-text">
+                                    @include('front.parents.sections.click')
                                 </div>
                             </div>
                         </div>
@@ -93,27 +83,11 @@
                                 <span class="title-text-build ">BUILD</span>
                                 `
                                 <div class="col-md-5 col-xs-5 pick-strategy">
-                                    <div class="pick-text">
-                                        <p class="text-center ritual">Make It a Ritual:</p>
-                                        <br>
-                                        <center>
-                                            <div class="rate-container col-md-12">
-                                                <p class="text-center">rate how it worked for you </p>
-                                                <input class="rating ">
-                                                <p class="text-center">PICK NEXT STRATEGY </p>
-                                            </div>
-                                        </center>
-                                    </div>
+                                    @include('front.parents.sections.pick')
                                 </div>
 
-                                <div class="col-md-5  col-xs-5 view-strategy">
-                                    <div class="build-text">
-                                        <p class="text-center">?</p>
-
-                                        <p class="text-center">CLICK</p>
-
-                                        <p class="text-center">to pick a strategy to build</p>
-                                    </div>
+                                <div class="col-md-5  col-xs-5 view-strategy build-text">
+                                    @include('front.parents.sections.click')
                                 </div>
                             </div>
                         </div>

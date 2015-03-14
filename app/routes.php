@@ -98,6 +98,7 @@ Route::group(['before' => 'auth'],function(){
     Route::get('parents/reflect/{student_id?}/{question_id?}', ['as' => 'parents.reflect' , 'uses' => 'Controllers\Admin\Parents\ParentsController@getIndex']);
     Route::post('parents/reflect/{strength_score_id?}/{question_id?}', 'Controllers\Admin\Parents\ParentsController@postIndex');
 
+    Route::get ('parents/explore/pick', 'Controllers\Admin\Parents\ParentsController@pick');
     Route::get ('parents/explore/{strength_score_id?}', ['as' => 'parents.explore', 'uses' => 'Controllers\Admin\Parents\ParentsController@getExplore']);
 });
 
