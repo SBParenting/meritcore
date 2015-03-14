@@ -74,7 +74,9 @@
                                 </div>
 
                                 <div class="col-md-5 col-xs-5 pick-question-exp exp-text">
-                                    @include('front.parents.sections.click')
+                                    <a href="{{URL::to('parents/explore/pick/'.$strengthScore->id)}}">
+                                        @include('front.parents.sections.click')
+                                    </a>
                                 </div>
                             </div>
                         </div>

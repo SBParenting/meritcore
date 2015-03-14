@@ -22,7 +22,7 @@
                         <table class="col-md-12  ">
                             <tr>
                                 <td class="select-button">
-                                    <a href="/"><p><img src="/public/front/img/select-icon.png">Select</p></a>
+                                    <a href="{{URL::to('parents/explore/picked/'.$strengthScore->id.'/'.$question->id)}}"><p><img src="/public/front/img/select-icon.png">Select</p></a>
                                 </td>
 
                                 <td class="question-content-mid col-md-4">
