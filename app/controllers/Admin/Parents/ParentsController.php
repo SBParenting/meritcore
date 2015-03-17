@@ -73,17 +73,99 @@ class ParentsController extends \BaseController {
         $this->strengthScore = $this->strengthScore->find($strength_score_id);
         $child = $this->strengthScore->child;
 
-        return \View::make('front.parents.explore')->with('strengthScore',$this->strengthScore)->with(compact('child'));
+        $enableEmpower = \ExploreAnswer::where('status','Completed')->count();
+
+        $explore = \ExploreAnswer::where('strength_score_id',$strength_score_id)->where('status','InProgress')->take(2)->get();
+
+        return \View::make('front.parents.explore')->with('strengthScore',$this->strengthScore)->with(compact('child','explore','enableEmpower'));
     }
 
     public function pick($strength_score_id) {
         $questions = \ExploreQuestion::all();
+        $answers = \ExploreAnswer::where('strength_score_id',$strength_score_id)
+                                 ->distinct()
+                                 ->lists('status','explore_question_id');
+
         $this->strengthScore = $this->strengthScore->find($strength_score_id);
 
-        return \View::make('front.parents.explore_list')->with('strengthScore',$this->strengthScore)->with(compact('questions'));
+        return \View::make('front.parents.explore_list')->with('strengthScore',$this->strengthScore)->with(compact('questions','answers'));
+    }
+
+    public function build($strength_score_id,$explore_question_id) {
+        $options = \BuildOption::all();
+        $answers = \ExploreAnswer::where('strength_score_id',$strength_score_id)
+                                 ->where('explore_question_id',$explore_question_id)
+                                 ->lists('id','build_option_id');
+
+        foreach ($answers as $key => $value) {
+            $answers[$key] = \ExploreAnswer::select('status','score')->find($value)->toArray();
+        }
+
+        $this->strengthScore = $this->strengthScore->find($strength_score_id);
+
+        return \View::make('front.parents.build_list')->with('strengthScore',$this->strengthScore)->with(compact('options','answers','explore_question_id'));
     }
 
     public function picked($strength_score_id,$explore_question_id) {
-        $this->strengthScore = $this->strengthScore->find($strength_score_id);
+        $answer = \ExploreAnswer::where('explore_question_id',$explore_question_id)->where('strength_score_id',$strength_score_id)->first();
+
+        if (!isset($answer)) {
+            $answer = new \ExploreAnswer();
+        }
+
+        $answer->strength_score_id = $strength_score_id;
+        $answer->explore_question_id = $explore_question_id;
+        $answer->status = 'InProgress';
+
+        $answer->save();
+
+        return \Redirect::to('parents/explore/'.$strength_score_id);
+    }
+
+    public function buildPick($strength_score_id, $explore_question_id, $build_option_id) {
+        $answer = \ExploreAnswer::where('explore_question_id',$explore_question_id)->where('status','InProgress')->first();
+
+        if ($answer->build_option_id) {
+            $answer->status = "Completed";
+
+            $answer->save();
+
+            $answer = new \ExploreAnswer();
+
+            $answer->strength_score_id = $strength_score_id;
+            $answer->explore_question_id = $explore_question_id;
+            $answer->status = 'InProgress';
+        }
+
+        $answer->build_option_id = $build_option_id;
+        $answer->save();
+
+        return \Redirect::to('parents/explore/'.$strength_score_id);
+
+    }
+
+    public function setRating() {
+        $input = \Input::all();
+
+        $answer = \ExploreAnswer::find($input['answer_id']);
+        $answer->score = $input['score'];
+
+        $answer->save();
+
+        return true;
+    }
+
+    public function completeExplore($qid){
+        $answer = \ExploreAnswer::find($qid);
+
+        $answer->status = 'Completed';
+
+        $answer->save();
+
+        return \Redirect::back();
+    }
+
+    public function getEmpower($strength_score_id) {
+        return \View::make('front.parents.empower');
     }
 }

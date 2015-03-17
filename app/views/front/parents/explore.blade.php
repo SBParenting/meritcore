@@ -49,7 +49,7 @@
                         </div>
                         <div class="collapse navbar-collapse parent-nav">
                             <ul class="nav">
-                                <li class="nav-item"><a><img src="{{ url('public/front/img/empower-icon.png')}}"
+                                <li class="nav-item"><a href="{{URL::to('parents/empower/'.$strengthScore->id)}}"><img src="{{ url('public/front/img/empower-icon.png')}}"
                                                              height="32px" width="32px"/>EMPOWER</a></li>
                                 <li class="nav-item border"><a class="selected-item"><img
                                                 src="{{ url('public/front/img/build-icon.png')}}" height="32px"
@@ -69,33 +69,47 @@
                             <div class="explore-inner col-md-9 col-xs-9 col-md-offset-2 col-xs-offset-2">
                                 <span class="title-text-exp ">EXPLORE </span>
                                 `
-                                <div class="col-md-5 col-xs-5 remind-question-exp">
-                                    @include('front.parents.sections.question')
-                                </div>
-
-                                <div class="col-md-5 col-xs-5 pick-question-exp exp-text">
+                                @if (isset($explore[0]))
+                                    @include('front.parents.sections.question', ['question' => $explore[0]])
+                                @else
                                     <a href="{{URL::to('parents/explore/pick/'.$strengthScore->id)}}">
-                                        @include('front.parents.sections.click')
+                                        @include('front.parents.sections.click', ['line' => 'explore'])
                                     </a>
-                                </div>
+                                @endif
+
+                                @if (isset($explore[1]))
+                                    @include('front.parents.sections.question', ['question' => $explore[1]])
+                                @else
+                                    <a href="{{URL::to('parents/explore/pick/'.$strengthScore->id)}}">
+                                        @include('front.parents.sections.click', ['line' => 'explore'])
+                                    </a>
+                                @endif
                             </div>
                         </div>
                         <div class="build-container container-fluid" class="col-md-11">
                             <div class="build-inner col-md-9 col-xs-9 col-xs-offset-2 col-md-offset-2">
                                 <span class="title-text-build ">BUILD</span>
                                 `
-                                <div class="col-md-5 col-xs-5 pick-strategy">
-                                    @include('front.parents.sections.pick')
-                                </div>
+                                @if (isset($explore[0]) && count($explore[0]->buildOption))
+                                    @include('front.parents.sections.pick',['question' => $explore[0], 'sid' => $strengthScore->id])
+                                @else
+                                    <a href="{{URL::to('parents/explore/pick/'.$strengthScore->id)}}">
+                                        @include('front.parents.sections.click',['line'=>'build'])
+                                    </a>
+                                @endif
 
-                                <div class="col-md-5  col-xs-5 view-strategy build-text">
-                                    @include('front.parents.sections.click')
-                                </div>
+                                @if (isset($explore[1]) && count($explore[1]->buildOption))
+                                    @include('front.parents.sections.pick',['question' => $explore[1], 'sid' => $strengthScore->id])
+                                @else
+                                    <a href="{{URL::to('parents/explore/pick/'.$strengthScore->id)}}">
+                                        @include('front.parents.sections.click',['line'=>'build'])
+                                    </a>
+                                @endif
                             </div>
                         </div>
 
                         <div class="container-fluid btns-container">
-                            <a href="#" class="pull-right btn btn-lg btn-warning next-btn"><i
+                            <a href="{{URL::to('parents/empower/'.$strengthScore->id)}}" class="{{$enableEmpower ? "" : "disabled"}} pull-right btn btn-lg btn-warning next-btn"><i
                                         class="glyphicon glyphicon-arrow-right"></i> Next </a>
                             <a href="#" class="pull-left btn btn-lg btn-primary back-btn"><i
                                         class="glyphicon glyphicon-arrow-left"></i> Back</a>
@@ -115,8 +129,13 @@
             step: 1,
             size: 'lg',
             showCaption: false
+        }).on('rating.change',function(e,val){
+            $.post("/parents/explore/setRating",{
+                score:val,
+                answer_id:$(this).attr('data-answer-id')
+            },function() {
+            });
         });
-
     </script>
 @stop
 

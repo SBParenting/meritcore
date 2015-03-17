@@ -21,8 +21,15 @@
                     <div class="question-inner col-md-12">
                         <table class="col-md-12  ">
                             <tr>
-                                <td class="select-button">
-                                    <a href="{{URL::to('parents/explore/picked/'.$strengthScore->id.'/'.$question->id)}}"><p><img src="/public/front/img/select-icon.png">Select</p></a>
+                                <td class="{{!isset($answers[$question->id])?'select-button':($answers[$question->id] == 'InProgress'?'question-in-progress':'completed-question')}}">
+                                    @if(!isset($answers[$question->id]))
+                                        <a href="{{URL::to('parents/explore/picked/'.$strengthScore->id.'/'.$question->id)}}"><p><img src="/public/front/img/select-icon.png">Select</p></a>
+                                    @elseif($answers[$question->id] == 'InProgress')
+                                        <p>Working On</p>
+                                    @else
+                                        <p>Completed</p>
+                                    @endif
+
                                 </td>
 
                                 <td class="question-content-mid col-md-4">
