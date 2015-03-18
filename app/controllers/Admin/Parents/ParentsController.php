@@ -169,6 +169,57 @@ class ParentsController extends \BaseController {
         $this->strengthScore = $this->strengthScore->find($strength_score_id);
         $child = $this->strengthScore->child;
 
-        return \View::make('front.parents.empower')->with('strengthScore',$this->strengthScore)->with(compact('child'));
+        $empowerChild = \EmpowerChild::where('child_id',$child->id)->where('strength_score_id',$strength_score_id)->get()->last();
+
+        if (!isset($empowerChild)) {
+            $empowerChild = new \EmpowerChild();
+
+            $empowerChild->strength_score_id = $strength_score_id;
+            $empowerChild->child_id = $child->id;
+            $empowerChild->status = 'InProgress';
+
+            $empowerChild->save();
+        }
+
+        $questions = \EmpowerQuestion::paginate(5);
+
+        $answers = \EmpowerAnswer::all()->lists('answer','empower_question_id');
+
+        if ($empowerChild->status == 'Feedback') {
+            return \View::make('front.parents.parent_feedback')->with('strengthScore',$this->strengthScore)->with(compact('child','questions','empowerChild','answers'));
+        }
+
+        return \View::make('front.parents.empower')->with('strengthScore',$this->strengthScore)->with(compact('child','questions','empowerChild','answers'));
+    }
+
+    public function saveEmpower() {
+        $input = \Input::all();
+
+        $answer = \EmpowerAnswer::where('empower_child_id',$input['empower_child_id'])
+                                ->where('empower_question_id',$input['empower_question_id'])
+                                ->get()->last();
+
+        if (empty($answer)){
+            $answer = new \EmpowerAnswer();
+        }
+
+        $answer->fill($input);
+        $answer->save();
+    }
+
+    public function empowerFeedback($empower_child_id) {
+        $empowerChild = \EmpowerChild::find($empower_child_id);
+
+        $countQuestions = \EmpowerQuestion::where('strength_id',$empowerChild->strengthScore->strength->id)->count();
+
+        $countAnswers = \EmpowerAnswer::where('empower_child_id',$empower_child_id)->count();
+
+        if ($countQuestions == $countAnswers) {
+            $empowerChild->status = "Feedback";
+
+            $empowerChild->save();
+        }
+
+        return \Redirect::back();
     }
 }

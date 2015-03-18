@@ -29,7 +29,8 @@
                         </div>
 
                         <div class="col-md-2">
-                            <div class="track-percent"><span class="percent"><p>{{$strengthScore->score}}%</p></span></div>
+                            <div class="track-percent"><span class="percent"><p>{{$strengthScore->score}}%</p></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -40,7 +41,7 @@
                     <div id="parent-guide-nav" class="col-md-12 collapse navbar-collapse">
 
                         <ul class="nav">
-                            <li class="nav-item"><a><img src="{{ url('public/front/img/empower-icon.png')}}"
+                            <li class="nav-item"><a href="{{URL::to('parents/empower/'.$strengthScore->id)}}"><img src="{{ url('public/front/img/empower-icon.png')}}"
                                                          height="32px" width="32px"/>EMPOWER</a></li>
                             <li class="nav-item border">
                                 <a href="{{URL::to('parents/explore/'.$strengthScore->id)}}">
@@ -49,13 +50,15 @@
                                             width="32px"/>BUILD</a></li>
                             <li class="nav-item">
                                 <a href="{{URL::to('parents/explore/'.$strengthScore->id)}}">
-                                    <img src="{{ url('public/front/img/explore-icon.png')}}" height="32px" width="32px"/>
+                                    <img src="{{ url('public/front/img/explore-icon.png')}}" height="32px"
+                                         width="32px"/>
                                     EXPLORE
                                 </a>
                             </li>
                             <li class="nav-item border ">
                                 <a class="selected-item" href="{{URL::to('parents/reflect')}}">
-                                    <img src="{{ url('public/front/img/reflect-icon.png')}}" height="32px" width="32px"/>
+                                    <img src="{{ url('public/front/img/reflect-icon.png')}}" height="32px"
+                                         width="32px"/>
                                     REFLECT
                                 </a>
                             </li>
@@ -75,6 +78,7 @@
                     <div class="container-fluid questions-container">
                         <div class="col-md-12 col-md-offset-1 question-display">
                             <div class=" circle pull-left"><span class="question-number">{{$question->id}}</span>
+
                                 <p class="question-amount">{{$question->id}} out of {{$total}} </p>
                             </div>
                             <p class="col-md-6 col-md-offset-1 question text-center">{{$question->question}}</p>
@@ -97,7 +101,8 @@
 
                                 <ul class=" col-md-12 answer-list">
                                     @foreach($question->reflectStatements as $statement)
-                                        <li class="{{($statement->id - $statement->reflect_question_id) % 2 ? 'even' : 'odd'}}" data-id="{{ $statement->id }}">
+                                        <li class="{{($statement->id - $statement->reflect_question_id) % 2 ? 'even' : 'odd'}}"
+                                            data-id="{{ $statement->id }}">
                                             <a>{{$statement->statement}}</a>
                                         </li>
                                     @endforeach
@@ -117,8 +122,10 @@
                     {{ Form::hidden('total',$total) }}
                     <div class="container-fluid btns-container">
                         <button type="submit" class="pull-right btn btn-lg btn-warning btn-next"><i
-                                    class="glyphicon glyphicon-arrow-right"></i> {{$question->id == $total ? "Next" : "Next Reflection"}} </button>
-                        <a href="{{URL::to('parents/reflect/'.$strengthScore->id.'/'.($question->id-1))}}" class="{{$question->id == 1 ? "disabled" : ""}} pull-left btn btn-lg btn-primary btn-back "><i
+                                    class="glyphicon glyphicon-arrow-right"></i> {{$question->id == $total ? "Next" : "Next Reflection"}}
+                        </button>
+                        <a href="{{URL::to('parents/reflect/'.$strengthScore->id.'/'.($question->id-1))}}"
+                           class="{{$question->id == 1 ? "disabled" : ""}} pull-left btn btn-lg btn-primary btn-back "><i
                                     class="glyphicon glyphicon-arrow-left"></i> Back</a>
                     </div>
 
@@ -143,10 +150,10 @@
 
 @section('script')
     <script>
-        $(function(){
-            $('.answer-list').find('li[data-id='+$('input[name=reflect_statement_id]').val()+']').addClass('active');
+        $(function () {
+            $('.answer-list').find('li[data-id=' + $('input[name=reflect_statement_id]').val() + ']').addClass('active');
         });
-        $('.answer-list').find('li').on('click',function(){
+        $('.answer-list').find('li').on('click', function () {
             $(this).parent().find('.active').removeClass('active');
             $(this).addClass('active');
 

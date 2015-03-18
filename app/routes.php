@@ -82,17 +82,19 @@ Route::group(['before' => 'auth'],function(){
     Route::get('parents/reflect/{student_id?}/{question_id?}', ['as' => 'parents.reflect' , 'uses' => 'Controllers\Admin\Parents\ParentsController@getIndex']);
     Route::post('parents/reflect/{strength_score_id?}/{question_id?}', 'Controllers\Admin\Parents\ParentsController@postIndex');
 
-    Route::get ('parents/build/picked/{strength_score_id?}/{explore_question_id}/{build_option_id}', 'Controllers\Admin\Parents\ParentsController@buildPick');
-    Route::get ('parents/build/pick/{strength_score_id?}/{explore_question_id}', 'Controllers\Admin\Parents\ParentsController@build');
+    Route::get('parents/build/picked/{strength_score_id?}/{explore_question_id}/{build_option_id}', 'Controllers\Admin\Parents\ParentsController@buildPick');
+    Route::get('parents/build/pick/{strength_score_id?}/{explore_question_id}', 'Controllers\Admin\Parents\ParentsController@build');
 
-    Route::get ('parents/explore/picked/{strength_score_id?}/{explore_question_id}', 'Controllers\Admin\Parents\ParentsController@picked');
-    Route::get ('parents/explore/pick/{strength_score_id?}', 'Controllers\Admin\Parents\ParentsController@pick');
+    Route::get('parents/explore/picked/{strength_score_id?}/{explore_question_id}', 'Controllers\Admin\Parents\ParentsController@picked');
+    Route::get('parents/explore/pick/{strength_score_id?}', 'Controllers\Admin\Parents\ParentsController@pick');
 
-    Route::get ('parents/explore/{strength_score_id?}', ['as' => 'parents.explore', 'uses' => 'Controllers\Admin\Parents\ParentsController@getExplore']);
-    Route::post ('parents/explore/setRating', 'Controllers\Admin\Parents\ParentsController@setRating');
-    Route::get ('parents/explore/completeExplore/{strength_score_id?}', 'Controllers\Admin\Parents\ParentsController@completeExplore');
+    Route::get('parents/explore/{strength_score_id?}', ['as' => 'parents.explore', 'uses' => 'Controllers\Admin\Parents\ParentsController@getExplore']);
+    Route::post('parents/explore/setRating', 'Controllers\Admin\Parents\ParentsController@setRating');
+    Route::get('parents/explore/completeExplore/{strength_score_id?}', 'Controllers\Admin\Parents\ParentsController@completeExplore');
 
     Route::get('parents/empower/{strength_score_id?}', 'Controllers\Admin\Parents\ParentsController@getEmpower');
+    Route::get('parents/empower/feedback/{strength_score_id?}', 'Controllers\Admin\Parents\ParentsController@empowerFeedback');
+    Route::post('parents/empower/save', 'Controllers\Admin\Parents\ParentsController@saveEmpower');
 });
 
 Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');

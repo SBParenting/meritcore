@@ -30,8 +30,7 @@
                         </div>
 
                         <div class="col-md-2">
-                            <div class="track-percent"><span class="percent"><p>{{$strengthScore->score}}%</p></span>
-                            </div>
+                            <div class="track-percent"><span class="percent"><p>{{$strengthScore->score}}%</p></span></div>
                         </div>
                     </div>
                 </div>
