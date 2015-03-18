@@ -105,7 +105,7 @@
 
 				<div class="col-lg-12 text-right">
 
-					{{ $records->render() }}
+					{!! $records->render() !!}
 
 				</div>
 
