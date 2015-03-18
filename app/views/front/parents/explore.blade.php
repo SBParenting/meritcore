@@ -93,7 +93,7 @@
                                 @if (isset($explore[0]) && count($explore[0]->buildOption))
                                     @include('front.parents.sections.pick',['question' => $explore[0], 'sid' => $strengthScore->id])
                                 @else
-                                    <a href="{{URL::to('parents/explore/pick/'.$strengthScore->id)}}">
+                                    <a href="{{isset($explore[0]) ? URL::to('parents/build/pick/'.$strengthScore->id.'/'.$explore[0]->exploreQuestion->id) : '#' }}">
                                         @include('front.parents.sections.click',['line'=>'build'])
                                     </a>
                                 @endif
@@ -101,7 +101,7 @@
                                 @if (isset($explore[1]) && count($explore[1]->buildOption))
                                     @include('front.parents.sections.pick',['question' => $explore[1], 'sid' => $strengthScore->id])
                                 @else
-                                    <a href="{{URL::to('parents/explore/pick/'.$strengthScore->id)}}">
+                                    <a href="{{isset($explore[1]) ? URL::to('parents/build/pick/'.$strengthScore->id.'/'.$explore[1]->exploreQuestion->id) : '#' }}" class="{{!isset($explore[1]) ? "disabled" : ""}}">
                                         @include('front.parents.sections.click',['line'=>'build'])
                                     </a>
                                 @endif
