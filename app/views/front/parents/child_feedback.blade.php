@@ -46,17 +46,18 @@
 					<div class="container-fluid feedback-section-top">
 						<div class=" col-md-12 parent-dark-green ">
 						<div class="center-icons">
-						<img src="{{ url('public/front/img/parent-icon.png')}}" />
-						<h2 class="text-center"> PARENT FEEDBACK</h2>
-						<p class="text-center">(have the PARENT do this slider) </p>
+						<img src="{{ url('public/front/img/child-icon.png')}}" />
+						<h2 class="text-center"> CHILD FEEDBACK</h2>
+						<p class="text-center">(have the CHILD do this slider) </p>
 						</div>
 						 </div>
 					 </div>
 					 <div class="container-fluid parent-light-green"> 
 					 <div class=" light-green-content  ">
-					 <p class="text-center">Use the slider to rate how strong<br> you believe your child currently is in</p>
+					 <p class="text-center">Use the slider to rate how strong<br> you now are in</p>
 					 <h3 class=" text-center">Family Communication </h3>
 					 <img class=" answer-false"src="{{ url('public/front/img/not-strong.png')}}" /> <img class=" answer-true" src="{{ url('public/front/img/very-strong.png')}}" />
+					  <img class=" sad-icon"src="{{ url('public/front/img/sad-icon.png')}}" /> <img class=" happy-icon" src="{{ url('public/front/img/happy-icon.png')}}" />
 					 </div>
 
 					 </div>
@@ -73,16 +74,13 @@
 					 </div>
 					 <div class="container-fluid alert-container"> 
 
-					 <div class="alert-text"> 
-					 <p class="text-center"> <i class="glyphicon glyphicon-warning-sign"> </i>after completing the slider and clicking on <br>the NEXT button have your child complete<br> their feedback</p>
-					 </div>
-
+				
 					 </div>
 
 
 						 	 	  		<div class="container-fluid btns-container">
-				<a href="{{URL::to('parents/child_feedback')}}"class="pull-right btn btn-lg btn-warning empower-next"><i class="glyphicon glyphicon-arrow-right"></i> Next  </a>	
-				<a href="#" class="pull-left btn btn-lg btn-primary empower-back" ><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
+				<a href="#" class="pull-right btn btn-lg btn-warning empower-next"><i class="glyphicon glyphicon-arrow-right"></i> Next  </a>	
+				<a href="{{URL::to('parents/parent_feedback')}}" class="pull-left btn btn-lg btn-primary empower-back" ><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
 				</div>	
 
 
