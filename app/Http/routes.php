@@ -22,11 +22,15 @@ Route::group(['prefix' => 'm', 'middleware' => 'auth'], function() {
 
 	Route::get('/', 'Manage\ManageController@getIndex');
 	Route::get('/schools', 'Manage\ManageController@getSchools');
+	Route::post('/schools/add', 'Manage\SchoolsController@postAdd');
+	Route::post('/schools/{id}/remove', 'Manage\SchoolsController@postRemove');
+	Route::post('/schools/{id}/update', 'Manage\SchoolsController@postUpdate');
 	Route::get('/schools/{id}', 'Manage\ManageController@getClasses');
 	Route::get('/classes', 'Manage\ManageController@getClasses');
 	Route::post('/classes/add', 'Manage\ClassController@postAdd');
 	Route::get('/classes/{id}', 'Manage\ManageController@getClass');
 	Route::post('/classes/{id}/students/add', 'Manage\StudentsController@postStudentAdd');
+	Route::post('/classes/{id}/students/{student_id}/update', 'Manage\StudentsController@postStudentUpdate');
 	Route::post('/classes/{id}/info', 'Manage\ClassController@postUpdate');
 	Route::post('/classes/{id}/surveys/add', 'Manage\SurveyController@postAdd');
 	Route::post('/classes/{id}/surveys/{survey_id}/complete', 'Manage\SurveyController@postComplete');

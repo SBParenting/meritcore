@@ -18,4 +18,6 @@ return array(
 
 	'failed_validation' => 'Please correct the indicated errors.',
 	'failed_unknown' 	=> 'There was an error processing your request.',
+
+	'not_found' => 'Record count not be found!',
 );

@@ -367,6 +367,8 @@
 									Students
 								</div>
 								<div class="panel-body">
+									<button class="btn btn-line-default show-panel dont-activate" id="btnAddStudent" data-target="#addStudent" data-show="#studentInfoPanel"><i class="fa fa-plus"></i> Create Student</button>
+									<hr />
 									@if (count($students) == 0)
 										<h1>No Students Yet..</h1>
 									@else
@@ -376,8 +378,7 @@
 													<th>#</th>
 													<th>Student Name</th>
 													<th>ID</th>
-													<th>Date of Birth</th>
-													<th>City</th>
+													<th>Grade</th>
 													<th>Action</th>
 												</tr>
 											</thead>
@@ -387,18 +388,15 @@
 														<td class="text-info">{{ $num+1 }}</td>
 														<td>{{ $student->getName("F L") }}</td>
 														<td>{{ $student->sid }}</td>
-														<td>{{ get_date($student->date_birth, "j M, Y") }}</td>
-														<td>{{ $student->address_city }}</td>
+														<td>{{ $student->grade }}</td>
 														<td>
-															<a href="#" class="btn btn-xs btn-default"><i class="fa fa-pencil"></i></a>
+															<a href="#" class="btn btn-xs btn-default show-panel" data-target="#updateStudent{{$student->id}}" data-show="#studentInfoPanel"><i class="fa fa-pencil"></i></a>
 														</td>
 													</tr>
 												@endforeach
 											</tbody>
 										</table>
 									@endif
-									<hr />
-									<button class="btn btn-line-default show-panel dont-activate" id="btnAddStudent" data-target="#addStudent" data-show="#studentInfoPanel"><i class="fa fa-plus"></i> Create Student</button>
 								</div>
 							</div>
 						</div>
@@ -528,6 +526,8 @@
 												{!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => 'Last Name']) !!}
 											</div>
 										</div>
+
+										<!--
 										<div class="form-group">
 											<label class="col-sm-2">Date of Birth</label>
 											<div class="col-sm-8">
@@ -537,6 +537,7 @@
 												</div>
 											</div>
 										</div>
+										-->
 
 										<div class="form-group">
 											<label class="col-sm-2">Grade</label>
@@ -547,6 +548,7 @@
 											</div>
 										</div>
 
+										<!--
 										<div class="form-group">
 											<label class="col-sm-2">Email</label>
 											<div class="col-sm-8">
@@ -597,6 +599,8 @@
 											</div>
 										</div>
 
+										-->
+
 										<hr />
 
 										<a href="#" class="btn btn-default btn-lg show-panel dont-activate" data-target="#students" data-show="#studentInfoPanel" >Cancel</a>
@@ -609,6 +613,68 @@
 
 						</div>
 					</div>
+
+
+					@foreach ($students as $student)
+
+						<div id="updateStudent{{$student->id}}" class="closed closable-panel">
+							<div class="panel-group class-panel">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										Update Student
+									</div>
+									<div class="panel-body">
+										{!! Form::open(['class'=>'form-horizontal', 'url' => "/m/classes/$class->id/students/$student->id/update", 'data-return-url' => url("/m/classes/$class->id")."?s=1"   ]) !!}
+
+										<br />
+
+										<h4>Student Information</h4>
+
+										<hr />
+
+										<div class="form-group">
+											<label class="col-sm-2">Student ID</label>
+											<div class="col-sm-8">
+												{!! Form::text('sid', $student->sid, ['class' => 'form-control', 'placeholder' => 'Student ID']) !!}
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2">First Name</label>
+											<div class="col-sm-8">
+												{!! Form::text('first_name', $student->first_name, ['class' => 'form-control', 'placeholder' => 'First Name']) !!}
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-2">Last Name</label>
+											<div class="col-sm-8">
+												{!! Form::text('last_name', $student->last_name, ['class' => 'form-control', 'placeholder' => 'Last Name']) !!}
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2">Grade</label>
+											<div class="col-sm-8">
+												<div class="js-dropdown-select padded">
+													{!! Form::dropdown('grade', $grades, $student->grade, ['class' => 'form-control', 'placeholder' => 'Grade'], 'btn btn-default') !!}
+												</div>
+											</div>
+										</div>
+
+										<hr />
+
+										<a href="#" class="btn btn-default btn-lg show-panel dont-activate" data-target="#students" data-show="#studentInfoPanel" >Cancel</a>
+
+										<button type="submit" class="btn btn-warning btn-lg pull-right"><i class="fa fa-check"></i> Save Changes</button>
+
+										{!! Form::close() !!}
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					@endforeach
 
 
 					<div id="addSurvey" class="closed closable-panel">

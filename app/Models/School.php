@@ -4,7 +4,7 @@ class School extends \App\Models\Model {
 
 	protected $table = 'schools';
 
-	protected $fillable = ['name', 'email', 'address_city', 'address_province', 'school_board_id'];
+	protected $fillable = ['name', 'email', 'address_city', 'address_province', 'address_country', 'address_postal_code', 'school_board_id'];
 
 	public function board()
 	{

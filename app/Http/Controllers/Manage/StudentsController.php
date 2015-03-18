@@ -21,14 +21,14 @@ class StudentsController extends Controller {
 			'sid'				  => 'required|unique:students,sid',
 			'first_name'          => 'required',
 			'last_name'           => 'required',
-			'date_birth'          => 'required|date',
+			//'date_birth'          => 'required|date',
 			'grade'               => 'required',
-			'email'               => 'required|email',
-			'address_street'      => 'required',
-			'address_city'        => 'required',
-			'address_province'    => 'required',
-			'address_country'     => 'required',
-			'address_postal_code' => 'required',
+			//'email'               => 'required|email',
+			//'address_street'      => 'required',
+			//'address_city'        => 'required',
+			//'address_province'    => 'required',
+			//'address_country'     => 'required',
+			//'address_postal_code' => 'required',
 		]);
 
 		$record = new Record;
@@ -66,6 +66,31 @@ class StudentsController extends Controller {
 		}
 
 		return \Response::json(['result' => true, 'msg' => trans('crud.success_added')]);
+	}
+
+	public function postStudentUpdate(Request $request, $class_id, $id)
+	{
+		$record = Record::find($id);
+
+		if ($record)
+		{
+			$this->validate($request, [
+				'sid'				  => 'required|unique:students,sid,'.$id,
+				'first_name'          => 'required',
+				'last_name'           => 'required',
+				'grade'               => 'required',
+			]);
+
+			$record->fill($request->input());
+
+			$record->save();
+
+			\Session::flash('success', trans('crud.success_updated'));
+
+			return \Response::json(['result' => true, 'msg' => trans('crud.success_updated'), 'url' => url('/m/classes/'.$class_id.'?s=1')]);
+		}
+
+		return \Response::json(['result' => false, 'msg' => trans('crud.not_found')]);
 	}
 
 	public function postImport(Request $request)

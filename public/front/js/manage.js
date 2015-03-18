@@ -27,14 +27,14 @@ jQuery(function() {
 				}
 				else
 				{
-					$.manage.hidePanel();
+					$.manage.hidePanel($(this));
 				}
 			});
 
 			$('.hide-panel').off('click').on('click', function (e) {
 				e.preventDefault();
 
-				$.manage.hidePanel();
+				$.manage.hidePanel($(this));
 			});
 		},
 
@@ -88,13 +88,21 @@ jQuery(function() {
 
 		showPanel: function(button) {
 
+			$('.btn.holding').each(function() {
+				$(this).removeClass('active').html($(this).data('html')).blur();
+			});
+
 			var target = $(button.data('target'));
 
 			var show = $(button.data('show'));
 
+			var hide = $(button.data('hide'));
+
 			$('.closable-panel').hide();
 
 			show.show();
+
+			hide.hide();
 
 			target.fadeIn('fast');
 
@@ -106,7 +114,14 @@ jQuery(function() {
 			}
 		},
 
-		hidePanel: function() {
+		hidePanel: function(button) {
+
+			if (typeof button.attr('data-hide') != 'undefined')
+			{
+				var hide = $(button.data('hide'));
+
+				hide.show();
+			}
 
 			$('.closable-panel').not('.open').hide();
 

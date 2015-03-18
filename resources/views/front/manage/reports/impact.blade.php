@@ -30,12 +30,8 @@
 			<td>{{ date("F j, Y") }}</td>
 		</tr>
 		<tr>
-			<td><b>Questionnaires Start Date:</b></td>
-			<td>{{ get_date($survey->start_date, "F j, Y") }}</td>
-		</tr>
-		<tr>
-			<td><b>Questionnaires End Date:</b></td>
-			<td>{{ get_date($survey->end_date, "F j, Y") }}</td>
+			<td><b>Questionnaires Date Range:</b></td>
+			<td>{{ get_date($survey->start_date, "M j/y") }} - {{ get_date($survey->end_date, "M j/y") }}</td>
 		</tr>
 	</table>
 
@@ -43,9 +39,17 @@
 
 	<p>The following report summarizes the aggregated (non-individual) results of HEROES® student's who completed the widely used self-assessment questionnaire.</p>
 
-	<p>The second section of the report are some general comments intended to assist in the interpretation of the HEROES® Core Character Trait Questionnaire results and graphs.</p>
+	<p>The following link provides a document with general comments intended to assist the interpretation and exploration of the Core 
+Character Trait Questionnaire results and graphs.</p>
 
 	<p>Prior to reviewing this information, please read the Limitations and Confidentiality statements in Appendix A.</p>
+
+	<p class="small">Limitations and Confidentiality: </p>
+	<ul class="small">
+		<li>As with all self-assessment questionnaires, the results are limited by insight and honesty and require further exploration of the respondent's context. </li>
+		<li>The questionnaire administered was designed to assess developmentally important character traits research has identified as essential for success in life and is not intended to be used for a more formal diagnosis (i.e. mental illness, health and/or wellness). </li>
+		<li>All contents of this report are CONFIDENTIAL and only reported in an aggregated/non-identifiable format to be used for the purposes agreed upon by the respondent and/or their parents/guardians and/or caregivers. </li>
+	</ul>
 
 	<div class="footer">
 		<img src="{{ url('public/front/img/report/footer.jpg') }}" class="width-100" />
@@ -69,9 +73,20 @@
 
 	<img src="{{ url('/public/front/img/report/charts/'.$chart) }}" class="width-100" />	
 
-	<br /><br /><br />
+	<table class="legend">
+		<tr>
+			<td class="heading green">Optimal Strength<br />51 - 100</td>
+			<td class="description green">
+				Scores of 76 or greater suggest that your child understands the strength and is able to actively draw upon it in multiple situations and settings.
+			</td>
+			<td class="heading red">Potential Strength<br />0 - 50</td>
+			<td class="description red">
+				Scores of 25 or lower suggest tgat this is an area that needs purposeful, strategic exploration and is an opportunity to build this strength within your child.
+			</td>
+		</tr>
+	</table>
 
-	<p><b>The graph above shows the number of HEROES® students who demonstrated strength (as indicated by the green section of the bar) and vulnerability (as indicated by the red part of the bar) in each of the Core Character Traits.</b></p>
+	<p><b>The graph above shows the number of HEROES® students who demonstrated strength (as indicated by the green section of the bar) and potential strength (as indicated by the red part of the bar) in each of the Core Character Traits.</b></p>
 	
 	<p>The Core Character Traits questionnaire provides a balanced, evidence based assessment of the foundational attitudes, skills and knowledge that are directly related to resiliency, well-being and success:</p>
 
