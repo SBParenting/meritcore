@@ -11,12 +11,6 @@
 |
 */
 
-Route::get ('parents/empower', function(){
-
-	return View::make('front.parents.empower');
-
-});
-
 Route::get ('parents/base', function(){
 
 	return View::make('front.parents.base');
@@ -98,7 +92,7 @@ Route::group(['before' => 'auth'],function(){
     Route::post ('parents/explore/setRating', 'Controllers\Admin\Parents\ParentsController@setRating');
     Route::get ('parents/explore/completeExplore/{strength_score_id?}', 'Controllers\Admin\Parents\ParentsController@completeExplore');
 
-    Route::get('parents/empower/{strength_score_id', 'Controllers\Admin\Parents\ParentsController@getEmpower');
+    Route::get('parents/empower/{strength_score_id?}', 'Controllers\Admin\Parents\ParentsController@getEmpower');
 });
 
 Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');

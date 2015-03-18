@@ -166,6 +166,9 @@ class ParentsController extends \BaseController {
     }
 
     public function getEmpower($strength_score_id) {
-        return \View::make('front.parents.empower');
+        $this->strengthScore = $this->strengthScore->find($strength_score_id);
+        $child = $this->strengthScore->child;
+
+        return \View::make('front.parents.empower')->with('strengthScore',$this->strengthScore)->with(compact('child'));
     }
 }
