@@ -243,4 +243,25 @@ class ParentsController extends \BaseController {
 
         return \Redirect::to('/parents/empower/'.$empowerChild->strength_score_id.'/parent');
     }
+
+    public function calculateFeedback($empower_child_id) {
+        $empowerChild = \EmpowerChild::find($empower_child_id);
+
+        $feedback = \EmpowerFeedback::where('empower_child_id',$empowerChild->id)->first();
+
+        if (($feedback->child_score+$feedback->parent_score)/2 < 70) {
+//            dd('step back');
+            return \Redirect::to('/parents/empower/stepback/'.$empowerChild->strengthScore->id);
+        } else {
+            dd('our journey');
+        }
+    }
+
+    public function empowerStepback($strength_score_id) {
+        $this->strengthScore = $this->strengthScore->find($strength_score_id);
+
+        $child = $this->strengthScore->child;
+
+        return \View::make('front.parents.step_back')->with('strengthScore',$this->strengthScore)->with(compact('child'));
+    }
 }

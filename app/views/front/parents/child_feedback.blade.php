@@ -105,7 +105,7 @@
                         <a href="/parents/empower/verify/{{$empowerChild->id}}"
                            class="pull-right btn btn-lg btn-warning empower-next"><i
                                     class="glyphicon glyphicon-arrow-right"></i> Next </a>
-                        <a href="{{URL::to('parents/parent_feedback')}}"
+                        <a href="{{URL::to('parents/empower/'.$strengthScore->id.'/parent')}}"
                            class="pull-left btn btn-lg btn-primary empower-back"><i
                                     class="glyphicon glyphicon-arrow-left"></i> Back</a>
                     </div>

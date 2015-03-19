@@ -11,21 +11,25 @@
 				<a href="#" id="showPage" class="header-link"><i class="icon-help"></i> help</a>
 				<a href="#" id="showMenu" class="header-link"><i class="icon-menu"></i> menu</a>
 
+                <div class="child-image">
+                    <a href="#" class="logo">
+                        <div class="logo child-thumbnail child-{{$child->sex}}">{{!empty($child->avatar) ? "<img src='".url('/public/uploads/children/squared-'.$child->avatar)."' />" : ""}}</div>
+                        <p class="child-name">{{ $child->first_name }}</p></a>
+                </div>
 
-
-				<a href="#" class="logo"><div class=" parent-guide-thumbnail"></div><p class="child-name">Child name</p></a>
 				<h1 class="parent-guide header-content">PARENT GUIDE</h1>
 
 				<div id="header-content" >
 
-				<div class="track">
-				<p class="col-md-8 pull-right">Family Communication <span>FAMILY SUPPORT &amp; EXPECTATIONS</span></p>
-				</div>
+                    <div class="track">
+                        <p class="col-md-8 pull-right">{{$strengthScore->strength->name}}
+                            <span>{{$strengthScore->strength->strengthGroup->name}}</span>
+                        </p>
+                    </div>
 
-				<div class="col-md-2">
-				<div class="track-percent"><span class="percent"><p>50%</p></span></div>
-				
-				</div>
+                    <div class="col-md-2">
+                        <div class="track-percent"><span class="percent"><p>{{$strengthScore->score}}%</p></span></div>
+                    </div>
 				</div>
 			</div>
 		</div>
@@ -53,7 +57,7 @@
 					 </div>
 					 <div class="container-fluid step-back-light-green"> 
 						 <div class=" light-green-content  ">
-							 <h3 class="text-center">Family Communication </h3>
+							 <h3 class="text-center">{{$strengthScore->strength->name}}</h3>
 						 </div>
 					 </div>
 				
@@ -70,8 +74,8 @@
 
 
 						 	 	  		<div class="container-fluid btns-container">
-				<a href="#" class="pull-right btn btn-lg btn-warning empower-next"><i class="glyphicon glyphicon-arrow-right"></i> Next  </a>	
-				<a href="{{URL::to('parents/parent_feedback')}}" class="pull-left btn btn-lg btn-primary empower-back" ><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
+				<a href="{{URL::to('journey/'.$strengthScore->child_id)}}" class="pull-right btn btn-lg btn-warning empower-next"><i class="glyphicon glyphicon-arrow-right"></i> Next  </a>
+				<a href="{{URL::to('parents/explore/'.$strengthScore->id)}}" class="pull-left btn btn-lg btn-primary empower-back" ><i class="glyphicon glyphicon-arrow-left"></i> Back</a>
 				</div>	
 
 

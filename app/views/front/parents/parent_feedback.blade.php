@@ -107,10 +107,10 @@
 
 
                     <div class="container-fluid btns-container">
-                        <a href="{{URL::to('parents/child_feedback')}}"
+                        <a href="{{URL::to('parents/empower/'.$strengthScore->id.'/child')}}"
                            class="pull-right btn btn-lg btn-warning empower-next"><i
                                     class="glyphicon glyphicon-arrow-right"></i> Next </a>
-                        <a href="#" class="pull-left btn btn-lg btn-primary empower-back"><i
+                        <a href="{{URL::to('parents/empower/'.$strengthScore->id)}}" class="pull-left btn btn-lg btn-primary empower-back"><i
                                     class="glyphicon glyphicon-arrow-left"></i> Back</a>
                     </div>
 

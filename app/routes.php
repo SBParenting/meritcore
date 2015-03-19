@@ -112,9 +112,13 @@ Route::group(['before' => 'auth'],function(){
 
     Route::get('parents/empower/{strength_score_id?}', 'Controllers\Admin\Parents\ParentsController@getEmpower');
     Route::get('parents/empower/feedback/{strength_score_id?}', 'Controllers\Admin\Parents\ParentsController@empowerFeedback');
+    Route::get('parents/empower/stepback/{strength_score_id?}', 'Controllers\Admin\Parents\ParentsController@empowerStepback');
+    Route::get('parents/empower/verify/{empower_child_id?}', 'Controllers\Admin\Parents\ParentsController@calculateFeedback');
     Route::get('parents/empower/{strength_score_id?}/{feedback_person?}', 'Controllers\Admin\Parents\ParentsController@getEmpower');
     Route::post('parents/empower/save', 'Controllers\Admin\Parents\ParentsController@saveEmpower');
     Route::post('parents/empower/saveFeedback', 'Controllers\Admin\Parents\ParentsController@saveFeedback');
+
+    
 });
 
 Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');
