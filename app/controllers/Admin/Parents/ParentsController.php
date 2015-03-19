@@ -165,7 +165,7 @@ class ParentsController extends \BaseController {
         return \Redirect::back();
     }
 
-    public function getEmpower($strength_score_id) {
+    public function getEmpower($strength_score_id,$feedback_person = null) {
         $this->strengthScore = $this->strengthScore->find($strength_score_id);
         $child = $this->strengthScore->child;
 
@@ -185,8 +185,15 @@ class ParentsController extends \BaseController {
 
         $answers = \EmpowerAnswer::all()->lists('answer','empower_question_id');
 
-        if ($empowerChild->status == 'Feedback') {
-            return \View::make('front.parents.parent_feedback')->with('strengthScore',$this->strengthScore)->with(compact('child','questions','empowerChild','answers'));
+        if ($empowerChild->status == 'Feedback' && !empty($feedback_person)) {
+            $feedback = \EmpowerFeedback::where('empower_child_id',$empowerChild->id)->get()->last();
+            if ($feedback_person == 'parent') {
+                return \View::make('front.parents.parent_feedback')->with('strengthScore',$this->strengthScore)->with(compact('child','feedback','empowerChild','answers'));
+            }
+
+            if ($feedback_person == 'child') {
+                return \View::make('front.parents.child_feedback')->with('strengthScore',$this->strengthScore)->with(compact('child','feedback','empowerChild','answers'));
+            }
         }
 
         return \View::make('front.parents.empower')->with('strengthScore',$this->strengthScore)->with(compact('child','questions','empowerChild','answers'));
@@ -207,6 +214,20 @@ class ParentsController extends \BaseController {
         $answer->save();
     }
 
+    public function saveFeedback() {
+        $input = \Input::all();
+
+        $answer = \EmpowerFeedback::where('empower_child_id',$input['empower_child_id'])
+                                  ->get()->last();
+
+        if (empty($answer)){
+            $answer = new \EmpowerFeedback();
+        }
+
+        $answer->fill($input);
+        $answer->save();
+    }
+
     public function empowerFeedback($empower_child_id) {
         $empowerChild = \EmpowerChild::find($empower_child_id);
 
@@ -220,6 +241,6 @@ class ParentsController extends \BaseController {
             $empowerChild->save();
         }
 
-        return \Redirect::back();
+        return \Redirect::to('/parents/empower/'.$empowerChild->strength_score_id.'/parent');
     }
 }
