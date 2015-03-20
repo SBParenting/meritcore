@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d3d86b7-72eb-43b5-8dc5-565cf5fd4187" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/parents/journey.blade.php" afterPath="$PROJECT_DIR$/app/views/front/parents/journey.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/css/our-journey.css" afterPath="$PROJECT_DIR$/public/front/css/our-journey.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/front/js/our-journey.js" afterPath="$PROJECT_DIR$/public/front/js/our-journey.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Admin/Parents/ParentsController.php" afterPath="$PROJECT_DIR$/app/controllers/Admin/Parents/ParentsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/StrengthGroup.php" afterPath="$PROJECT_DIR$/app/models/StrengthGroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/front/strengths/selection.blade.php" afterPath="$PROJECT_DIR$/app/views/front/strengths/selection.blade.php" />
     </list>
     <ignored path="meritcore.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,18 +44,50 @@
       <file leaf-file-name="our-journey.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/front/js/our-journey.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="1905">
+            <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1905">
               <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="our-journey.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="our-journey.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/front/css/our-journey.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.52" vertical-offset="0" max-vertical-offset="1125">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
               <caret line="39" column="48" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParentsController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/Admin/Parents/ParentsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.67302454" vertical-offset="3384" max-vertical-offset="4515">
+              <caret line="275" column="9" selection-start-line="275" selection-start-column="9" selection-end-line="292" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="selection.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/front/strengths/selection.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-20.625" vertical-offset="30" max-vertical-offset="2190">
+              <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
+              <folding>
+                <element signature="e#2163#2182#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StrengthGroup.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/StrengthGroup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="240">
+              <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -74,7 +105,6 @@
         <option value="$PROJECT_DIR$/app/database/migrations/2015_03_04_233531_create_strengths_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_03_05_000657_create_strengths_score.php" />
         <option value="$PROJECT_DIR$/app/views/front/survey/base.blade.php" />
-        <option value="$PROJECT_DIR$/app/models/StrengthGroup.php" />
         <option value="$PROJECT_DIR$/app/models/Strength.php" />
         <option value="$PROJECT_DIR$/app/controllers/Front/StrengthsController.php" />
         <option value="$PROJECT_DIR$/app/controllers/Front/SurveyController.php" />
@@ -109,18 +139,19 @@
         <option value="$PROJECT_DIR$/app/views/front/parents/parent_feedback.blade.php" />
         <option value="$PROJECT_DIR$/app/views/front/parents/step_back.blade.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
-        <option value="$PROJECT_DIR$/app/views/front/strengths/selection.blade.php" />
         <option value="$PROJECT_DIR$/public/front/css/survey.css" />
         <option value="$PROJECT_DIR$/app/views/front/parents/explore_list.blade.php" />
         <option value="$PROJECT_DIR$/app/views/front/parents/build_list.blade.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2015_03_19_233146_drop_strength_score_id_from_reflect_answers_table.php" />
         <option value="$PROJECT_DIR$/app/views/front/parents/reflect.blade.php" />
-        <option value="$PROJECT_DIR$/app/controllers/Admin/Parents/ParentsController.php" />
         <option value="$PROJECT_DIR$/app/views/front/parents/empower.blade.php" />
         <option value="$PROJECT_DIR$/public/front/js/our-journey.js" />
         <option value="$PROJECT_DIR$/public/front/img/svg/our-journey.svg" />
         <option value="$PROJECT_DIR$/app/views/front/parents/journey.blade.php" />
         <option value="$PROJECT_DIR$/public/front/css/our-journey.css" />
+        <option value="$PROJECT_DIR$/app/models/StrengthGroup.php" />
+        <option value="$PROJECT_DIR$/app/views/front/strengths/selection.blade.php" />
+        <option value="$PROJECT_DIR$/app/controllers/Admin/Parents/ParentsController.php" />
       </list>
     </option>
   </component>
@@ -1080,12 +1111,12 @@
       <workItem from="1423518279030" duration="145658000" />
       <workItem from="1425057037412" duration="60467000" />
       <workItem from="1425500561977" duration="966000" />
-      <workItem from="1425504940380" duration="185136000" />
+      <workItem from="1425504940380" duration="186684000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="438991000" />
+    <option name="totallyTimeSpent" value="440539000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1200" extended-state="6" />
@@ -1174,14 +1205,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/front/css/font.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44237918" vertical-offset="424" max-vertical-offset="1500">
-          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/front/css/font.v01.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1515">
@@ -1400,14 +1423,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/Strength.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13623978" vertical-offset="0" max-vertical-offset="1101">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/front/parents/child_feedback.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.5" vertical-offset="1209" max-vertical-offset="3450">
@@ -1482,23 +1497,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/front/strengths/selection.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64940965" vertical-offset="950" max-vertical-offset="2190">
-          <caret line="100" column="64" selection-start-line="100" selection-start-column="64" selection-end-line="100" selection-end-column="64" />
-          <caret line="111" column="64" selection-start-line="111" selection-start-column="64" selection-end-line="111" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/Admin/Parents/ParentsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.626703" vertical-offset="45" max-vertical-offset="4260">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/services/validators/ReflectAnswerValidator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14986376" vertical-offset="0" max-vertical-offset="1101">
@@ -1566,14 +1564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/front/js/our-journey.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="735" max-vertical-offset="1905">
-          <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/front/parents/journey.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-32.5" vertical-offset="0" max-vertical-offset="1260">
@@ -1584,10 +1574,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/front/js/our-journey.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="1905">
+          <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/front/css/our-journey.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.52" vertical-offset="0" max-vertical-offset="1125">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
           <caret line="39" column="48" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Strength.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13623978" vertical-offset="0" max-vertical-offset="1101">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/StrengthGroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="240">
+          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/front/strengths/selection.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.625" vertical-offset="30" max-vertical-offset="2190">
+          <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
+          <folding>
+            <element signature="e#2163#2182#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/Admin/Parents/ParentsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67302454" vertical-offset="3384" max-vertical-offset="4515">
+          <caret line="275" column="9" selection-start-line="275" selection-start-column="9" selection-end-line="292" selection-end-column="0" />
           <folding />
         </state>
       </provider>

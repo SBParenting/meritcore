@@ -33,7 +33,7 @@
                                         class="number-1">1</span> </i> have a look at OUR JOURNEY map of your child's
                             strengths</p>
 
-                        <div class="col-md-7 col-md-offset-2 journey-map">
+                        <a href="{{URL::to('journey/'.$child->id)}}" class="col-md-7 col-md-offset-2 journey-map">
 
                             <h1 class="col-md-6 col-md-offset-0">VISIT OUR JOURNEY MAP </h1>
 
@@ -41,11 +41,11 @@
                                                                                      src="{{ url('public/front/img/map-icon.png') }}"/>
                             </div>
 
-                            <p class="col-md-8 col-md-offset-0"> Check out Our Journey Map to see the two recomended
+                            <p class="col-md-8 col-md-offset-0" style="color:white"> Check out Our Journey Map to see the two recomended
                                 focus areas to work on with your child. Click on <br>the strengths sections to reveal
                                 the scroes and information.</p>
 
-                        </div>
+                        </a>
 
 
                     </div>
