@@ -273,24 +273,34 @@ class ParentsController extends \BaseController {
     public function journey($child_id) {
 
         $child = \Child::find($child_id);
-//        $strengthGroups = \StrengthGroup::all();
-//
-//        $status = [];
-//
-//        foreach($strengthGroups as $strengthGroup) {
-//            $group = str_replace(" ","-",str_replace("&","and",strtolower($strengthGroup->name)));
-//            foreach ($strengthGroup->strength as $strength) {
-//                $str = str_replace(" ","-",str_replace("&","and",strtolower($strength->name)));
-//                $status[$group][$str] = 0;
-//                $strScore = \StrengthScore::where('child_id',$child_id)->where('strength_id',$strength->id)->get();
-//                var_dump("<br/><br/>");
-//            }
-//        }
-//
-//        dd($status);
-//
-//        $empower = \EmpowerChild::where('child_id',$child_id)->get();
 
-        return \View::make('front.parents.journey')->with(compact('child'));
+        $strengthGroups = \StrengthGroup::all();
+
+        $status = [];
+
+        $recommended = \StrengthScore::where('child_id',$child_id)->orderBy('score','ASC')->take(2)->get();
+
+        foreach($strengthGroups as $strengthGroup) {
+            $group = str_replace(" ","-",str_replace("&","and",strtolower($strengthGroup->name)));
+            foreach ($strengthGroup->strength as $strength) {
+                $str = str_replace(" ","-",str_replace("&","and",strtolower($strength->name)));
+                $status[$group][$str] = 0;
+                $strScore = \StrengthScore::where('child_id',$child_id)->where('strength_id',$strength->id)->get()->last();
+                if ($strScore->id == $recommended[0]->id || $strScore->id == $recommended[1]->id) {
+                    $status[$group][$str] = 3;
+                }
+                $empower = \EmpowerChild::where('child_id',$child_id)->where('strength_score_id',$strScore->id)->get()->last();
+                if(isset($empower) && $empower->status == "Completed"){
+                    $status[$group][$str] = 2;
+                } else {
+                    $reflect = \ExploreAnswer::where('strength_score_id',$strScore->id)->count();
+                    if ($reflect) {
+                        $status[$group][$str] = 1;
+                    }
+                }
+            }
+        }
+
+        return \View::make('front.parents.journey')->with(compact('child'))->with('status',json_encode($status));
     }
 }

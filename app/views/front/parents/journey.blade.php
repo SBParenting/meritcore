@@ -66,6 +66,7 @@ function svg($file)
         </div>
     </div>
 
+    {{ "<script> var status = '".$status."';</script>" }}
 
 
 @endsection
@@ -76,4 +77,26 @@ function svg($file)
 
 @section('script')
     {{ HTML::script('public/front/js/our-journey.js') }}
+
+    <script type="text/javascript">
+
+        var s = JSON.parse(status);
+
+        $.each(s,function(i,item){
+            $.each(item,function(x,strength){
+                if (strength != 0) {
+                    OurJourneyMap.activateArea(i,x);
+                }
+                if (strength == 1) {
+                    OurJourneyMap.setIcon(i,x,'in-progress');
+                }
+                if (strength == 2) {
+                    OurJourneyMap.setIcon(i,x,'experienced');
+                }
+                if (strength == 3) {
+                    OurJourneyMap.setIcon(i,x,'suggested');
+                }
+            });
+        });
+    </script>
 @endsection

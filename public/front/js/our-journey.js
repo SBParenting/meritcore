@@ -74,18 +74,18 @@ OurJourneyMap = {
 		});
 	},
 
-	activateArea: function(area)
+	activateArea: function(group,area)
 	{
-		var element = $('#'+area);
+		var element = $('.'+group).find('#'+area);
 
 		element
 			.data('active', 1)
 			.attr('fill', element.data('color'));
 	},
 
-	deactivateArea: function(area)
+	deactivateArea: function(group,area)
 	{
-		var element = $('#'+area);
+		var element = $('.'+group).find('#'+area);
 
 		element
 			.data('active', '')
@@ -105,11 +105,11 @@ OurJourneyMap = {
 		});
 	},
 
-	setIcon: function(area, icon)
+	setIcon: function(group, area, icon)
 	{
 		if ($.inArray(icon, ['experienced', 'in-progress', 'suggested']) >= 0)
 		{
-			var element = $('#'+area+'-icon');
+			var element = $('.'+group).find('#'+area+'-icon');
 
 			element.attr('xlink:href', '/public/front/img/icons/'+icon+'.png').show();
 
