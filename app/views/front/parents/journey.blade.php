@@ -2,7 +2,7 @@
 
 function svg($file)
 {
-    $path = 'front/img/svg/'.$file.'.svg';
+    $path = 'front/img/svg/' . $file . '.svg';
     if (is_file($path))
         return file_get_contents($path);
 
@@ -18,8 +18,7 @@ function svg($file)
 
         <div class="wrapper">
             <div class="parent-guide-block parent-guide-header row">
-                <a href="{{URL::to('children/select')}}" class="logo col-md-1"><img
-                            src="{{ url('public/front/img/sbp-logo.png') }}"/></a>
+                <a href="{{URL::to('children/select')}}" class="logo col-md-1"><img src="{{ url('public/front/img/sbp-logo.png') }}"/></a>
 
                 <div class="container">
                     <a href="#" id="showPage" class="header-link"><i class="icon-help"></i> help</a>
@@ -28,26 +27,42 @@ function svg($file)
                     <div class="child-image">
                         <a href="#" class="logo">
                             <div class="logo child-thumbnail child-{{$child->sex}}">{{!empty($child->avatar) ? "<img src='".url('/public/uploads/children/squared-'.$child->avatar)."' />" : ""}}</div>
-                            <p class="child-name">{{ $child->first_name }}</p></a>
+                            <p class="child-name">{{ $child->first_name }}</p>
+                        </a>
                     </div>
 
-                    <h1 class="parent-guide header-content">PARENT GUIDE</h1>
-
-                    <div id="header-content">
-                    </div>
+                    <h1 class="parent-guide header-content purple">OUR JOURNEY</h1>
                 </div>
             </div>
 
-            <div class="parent-guide-block parent-guide-content ">
-                <div id="our-journey-map">
+            <div class="parent-guide-block parent-guide-content">
+                <div class="form-inner parent-journey-inner">
+                    <nav class="container-fluid" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target=".parent-nav">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class=" toggle-nav fa fa-bars"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse parent-nav">
+                                <div class="active">standard view</div>
+                                <div>|</div>
+                                <div>zone view</div>
+                                <div class="col-md-offset-1 journey-icon"><img src="/public/front/img/icons/suggested.png"/> suggested</div>
+                                <div class="journey-icon"><img src="/public/front/img/icons/in-progress.png"/> in progress</div>
+                                <div class="journey-icon"><img src="/public/front/img/icons/experienced.png"/> experienced</div>
+                        </div>
+                    </nav>
+                    <div id="our-journey-map">
 
-                    <img src="/public/front/img/our-journey-bg.png" alt="BG" title="" class="bg" />
+                        <img src="/public/front/img/our-journey-bg.png" alt="BG" title="" class="bg"/>
 
-                    <?=svg('our-journey')?>
+                        <?=svg('our-journey')?>
 
-                </div><!-- /#our-journey-map -->
+                    </div>
+                    <!-- /#our-journey-map -->
+                </div>
             </div>
-
         </div>
     </div>
 

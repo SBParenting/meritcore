@@ -117,6 +117,6 @@ OurJourneyMap = {
 		}
 
 		return false;
-	},
+	}
 
 };
