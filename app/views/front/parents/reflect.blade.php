@@ -77,11 +77,11 @@
                     </div>
                     <div class="container-fluid questions-container">
                         <div class="col-md-12 col-md-offset-1 question-display">
-                            <div class=" circle pull-left"><span class="question-number">{{$question->id}}</span>
+                            <div class=" circle pull-left"><span class="question-number">{{$question->num}}</span>
 
-                                <p class="question-amount">{{$question->id}} out of {{$total}} </p>
+                                <p class="question-amount">{{$question->num}} out of {{$total}} </p>
                             </div>
-                            <p class="col-md-6 col-md-offset-1 question text-center">{{$question->question}}</p>
+                            <p class="col-md-10 col-md-offset-1 question text-center">{{$question->question}}</p>
                         </div>
                     </div>
 
@@ -122,10 +122,10 @@
                     {{ Form::hidden('total',$total) }}
                     <div class="container-fluid btns-container">
                         <button type="submit" class="pull-right btn btn-lg btn-warning btn-next"><i
-                                    class="glyphicon glyphicon-arrow-right"></i> {{$question->id == $total ? "Next" : "Next Reflection"}}
+                                    class="glyphicon glyphicon-arrow-right"></i> {{$question->num == $total ? "Next" : "Next Reflection"}}
                         </button>
-                        <a href="{{URL::to('parents/reflect/'.$strengthScore->id.'/'.($question->id-1))}}"
-                           class="{{$question->id == 1 ? "disabled" : ""}} pull-left btn btn-lg btn-primary btn-back "><i
+                        <a href="{{URL::to('parents/reflect/'.$strengthScore->id.'/'.($question->num-1))}}"
+                           class="{{$question->num == 1 ? "disabled" : ""}} pull-left btn btn-lg btn-primary btn-back "><i
                                     class="glyphicon glyphicon-arrow-left"></i> Back</a>
                     </div>
 

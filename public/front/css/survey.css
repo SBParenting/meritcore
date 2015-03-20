@@ -1399,19 +1399,19 @@ a.disabled {
 .first-step { background-color: #606060;}
 .first-step p{ margin-left: 9.4%; margin-top: 0.5%; font-size: 12pt; color: #f1f1f1;}
 .first-step span { font-weight: lighter;}
-.circle {width: 120px; height: 120px; border-radius: 50%; border: 3px solid #9317ab; display: inline-block; position: relative; top: -20px;}
+.circle {width: 120px; height: 120px; border-radius: 50%; border: 3px solid #9317ab; display: inline-block; position: relative; margin-bottom:25px; }
 .question-number {position: absolute; width: 100%;  height: 97.63%; right: 38px; top: 5px; font-size: 60pt; text-align: center; color: #9317ab; left:0}
 .question-amount { position: absolute; top: 100%; left: 20%; padding-top: 10px; color: #e0bfff; width: 95%; height: 22.83%;}
 .questions-container {background-color: #a400c7; height: 20%;}
-.question-display { margin-top: 2%;}
-.question { font-size: 24pt;  font-weight: lighter; letter-spacing: 1px;}
+.question-display { margin-top: 40px; margin-bottom: 40px; display:table; overflow: hidden; }
+.question { font-size: 24pt;  font-weight: lighter; margin-bottom: 0; float:none!important; display: table-cell; vertical-align: middle; padding-right: 25%!important; }
 .answers-container {margin-top: 5%;}
 .user-input {margin-top: 2%; }
 
 .answer-selection {height: 385px;}
-.answer-selection ul { height: 100%; background-color: grey;  list-style-type: none; margin: 0; padding: 0;}
+.answer-selection ul { height: 100%; background-color: grey;  list-style-type: none; margin: 0; padding: 0; display:table;}
 .answer-selection ul:nth-child(2) {margin-top: 15%;}
-.answer-selection  li { width: 100%; height: 33.33333%; text-align: center; padding: 10%; color: #606060;  font-size: 14pt; cursor: pointer; }
+.answer-selection  li { width: 100%; height: 33.33333%; text-align: center; padding: 10%; color: #606060;  font-size: 14pt; cursor: pointer; display:table-row }
 
 .answer-selection li:hover { color: white!important; background-color:  #a400c7;;}
 .answer-selection li.active { color: white!important; background-color:  #a400c7;;}
@@ -1434,7 +1434,7 @@ a.disabled {
 .odd { background-color: #f1f1f1;}
 .even { background-color:#e5e5e5; }
 
-.answer-list a  { color: #606060; text-decoration: none!important; position: relative; top: -55%;}
+.answer-list a  { color: #606060; text-decoration: none!important; display: table-cell; padding:15px; vertical-align: middle;}
 
 .answer-list li:hover a { color: white;}
 .answer-list li.active a { color: white;}
@@ -1735,49 +1735,70 @@ a.disabled {
 .pic-container {display: inline; margin-top: 2%;}
 .selection-container {height: 75%; background-color: #a400c7;}
 .number-2 {  position: absolute; color: #6c0083; left: 27%; top: 17%; font-size: 30pt; font-weight: bold;}
-.big-group-1{ height: 185px; background-color: #247fb9;  border: 2px solid white; border-radius: 5px;}
-.big-group-1 p { margin-left: 5%; margin-top: -2%; font-size: 12pt; text-transform: uppercase}
-.big-group-1 h2 { margin-left: 5%;  font-weight: bold;}
-.big-group-icon-1{ width: 75px; height: 75px; background-color: #247fb9; position: absolute; left: -10%; top: 8%; border: 2px solid white; border-radius: 5px; box-shadow: 6px -1px 9px 00px #03609b;}
-.big-group-icon-1 img { position: absolute; height: 70px; top: 5%;}
-.strength-percent-1{ width: 165px; height: 100px; border: 2px solid white; position: absolute; top: 56%; left: 9%; border-radius: 5px; background-color: #03609b;}
-.strength-percent-1 p { text-align: center; margin-top: 5%; font-size: 50pt; font-weight: bold;}
+
+.big-group { height: 185px; border: 2px solid white; border-radius: 5px; }
+.big-group p { margin-left: 5%; margin-top: -2%; font-size: 12pt; text-transform: uppercase }
+.big-group h2 { margin-left: 5%;  font-weight: bold; }
+.big-group-icon { width: 75px; height: 75px; background-color: #247fb9; position: absolute; left: -10%; top: 8%; border: 2px solid white; border-radius: 5px; }
+.big-group-icon img { position: absolute; height: 70px; top: 5%; }
+.strength-percent { width: 165px; height: 100px; border: 2px solid white; position: absolute; top: 56%; left: 9%; border-radius: 5px; }
+.strength-percent p { text-align: center; margin-top: 5%; font-size: 50pt; font-weight: bold; }
+
+.strength-percent-1, .big-group-1, .big-group-icon-1 { background-color: #247fb9; }
+.big-group-icon-1 { box-shadow: 6px -1px 9px 00px #70acd1; }
+
+.strength-percent-2, .big-group-2, .big-group-icon-2 { background-color: #1d5c2e; }
+.big-group-icon-2 { box-shadow: 6px -1px 9px 00px #96b09d; }
+
+.strength-percent-3, .big-group-3, .big-group-icon-3 { background-color: #fdb535; }
+.big-group-icon-3 { box-shadow: 6px -1px 9px 00px #fecf7b; }
+
+.strength-percent-4, .big-group-4, .big-group-icon-4 { background-color: #2dad8a; }
+.big-group-icon-4 { box-shadow: 6px -1px 9px 00px #76cab3; }
+
+.strength-percent-5, .big-group-5, .big-group-icon-5 { background-color: #e74c41; }
+.big-group-icon-5 { box-shadow: 6px -1px 9px 00px #ef8a83; }
+
+.strength-percent-6, .big-group-6, .big-group-icon-6 { background-color: #003196; }
+.big-group-icon-6 { box-shadow: 6px -1px 9px 00px #a6b5d3; }
+
+.strength-percent-7, .big-group-7, .big-group-icon-7 { background-color: #a400c7; }
+.big-group-icon-7 { box-shadow: 6px -1px 9px 00px #e0bfff; }
+
+.strength-percent-8, .big-group-8, .big-group-icon-8 { background-color: #ff7f00; }
+.big-group-icon-8 { box-shadow: 6px -1px 9px 00px #eac5a1; }
+
+.strength-percent-9, .big-group-9, .big-group-icon-9 { background-color: #ff39a9; }
+.big-group-icon-9 { box-shadow: 6px -1px 9px 00px #f6cde4; }
+
+.strength-percent-10, .big-group-10, .big-group-icon-10 { background-color: #39c1cb; }
+.big-group-icon-10 { box-shadow: 6px -1px 9px 00px #7ed7dd; }
+
 .select-large {margin-top: 5%; width: 220px; height: 50px; }
 .select-large span { font-size: 18pt;}
 .left-5 {left: 5%;}
-.big-group-2 {height: 185px; background-color: #1d5c2e; border: 2px solid white; border-radius: 5px;}
-.big-group-2 p { margin-left: 5%; margin-top: -2%; font-size: 12pt; text-transform: uppercase}
-.big-group-2 h2 { margin-left: 5%;  font-weight: bold;}
-.big-group-icon-2 { width: 75px; height: 75px; background-color: #1d5c2e; position: absolute; left: -10%; top: 8%; border: 2px solid white; border-radius: 5px; box-shadow: 6px -1px 9px 00px #004a14;}
-.big-group-icon-2 img { position: absolute; height: 70px; top: 5%; left: 1%;}
-.strength-percent-2{ width: 165px; height: 100px; border: 2px solid white; position: absolute; top: 56%; left: 9%; border-radius: 5px; background-color: #004a14;}
-.strength-percent-2 p { text-align: center; margin-top: 5%; font-size: 50pt; font-weight: bold;}
-.big-group-3 {height: 185px; background-color: #fdb535; border: 2px solid white; border-radius: 5px;}
-.big-group-3 p { margin-left: 5%; margin-top: -2%; font-size: 12pt; text-transform: uppercase}
-.big-group-3 h2 { margin-left: 5%;  font-weight: bold;}
-.big-group-icon-3 { width: 75px; height: 75px; background-color: #fdb535; position: absolute; left: -10%; top: 8%; border: 2px solid white; border-radius: 5px; box-shadow: 6px -1px 9px 00px #faa000;}
-.big-group-icon-3 img { position: absolute; height: 70px; top: 5%; left: 1%;}
-.strength-percent-3{ width: 165px; height: 100px; border: 2px solid white; position: absolute; top: 56%; left: 9%; border-radius: 5px; background-color: #faa000;}
-.strength-percent-3 p { text-align: center; margin-top: 5%; font-size: 50pt; font-weight: bold;}
 .strength-text { margin-top: 2%;  font-size: 13pt; white-space: nowrap; left: 4%;}
-.pick-group-1 { height: 155px; border: 2px solid white; margin-right: 5px; border-radius: 5px; width: 19.4%!important; left: 4%; background-color: #247fb9;}
-.pick-group-1 img { height: 55px;}
-.pick-group-1 p { margin-top: -3%;}
-.pick-group-1 h4 { font-weight: bold;}
+
+.pick-group { height: 155px; border: 2px solid white; margin-right: 5px; border-radius: 5px; width: 19.4%!important; left: 4%; }
+.pick-group img { height: 55px; }
+.pick-group p { margin-top: -3%; }
+.pick-group h4 { font-weight: bold; }
+
+.pick-group-1  {background-color: #247fb9;}
+.pick-group-2  {background-color: #1d5c2e;}
+.pick-group-3  {background-color: #fdb535;}
+.pick-group-4  {background-color: #2dad8a;}
+.pick-group-5  {background-color: #e74c41;}
+.pick-group-6  {background-color: #003196;}
+.pick-group-7  {background-color: #a400c7;}
+.pick-group-8  {background-color: #ff7f00;}
+.pick-group-9  {background-color: #ff39a9;}
+.pick-group-10 {background-color: #39c1cb;}
+
 .journey-text {margin-left: -25px; margin-top: 2%;}
 .journey-percent {height: 45%; border: 1px solid white; border-radius: 5px;}
 .journey-percent p { font-size: 40pt; font-weight: bold; margin-top: 2%;}
 .select-small { width: 175px; margin-top: 3%; margin-right: 1%;}
-
-.pick-group-2 { height: 155px; border: 2px solid white; margin-right: 5px; border-radius: 5px; width: 19.4%!important; left: 4%; background-color: #1d5c2e;}
-.pick-group-2 img { height: 65px; vertical-align: middle; margin-top: -3%;}
-.pick-group-2 p { margin-top: -3%; vertical-align: middle;}
-.pick-group-2 h4 { font-weight: bold; vertical-align: middle;}
-
-.pick-group-3 { height: 155px; border: 2px solid white; margin-right: 5px; border-radius: 5px; width: 19.4%!important; left: 4%; background-color: #fdb535;}
-.pick-group-3 img { height: 65px; vertical-align: middle; margin-top: -3%;}
-.pick-group-3 p { margin-top: -3%; vertical-align: middle;}
-.pick-group-3 h4 { font-weight: bold; vertical-align: middle;}
 
 .info-header h1 { font-size: 22pt; margin-top: 3%; color: #003196;}
 

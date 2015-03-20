@@ -41,16 +41,7 @@
                                     </div>
                                 </td>
                                 <td class="build-question-content-right  col-md-5">
-                                    <p>Creating an enviroment where your child and other family members feel safe to
-                                        talk and share their feelings is essential to healthy communication. As a
-                                        parent, thism eans listening and trying to clearly understand what is being
-                                        communicated before responding.</p>
-                                    <br><br>
-
-                                    <p><em>For more information, go to the site:</em><br>
-                                        <a> http://school.familyeducation.com/listening/school-readiness/38350.html </a>
-                                    </p>
-
+                                    <p>{{ $option->description }}</p>
                                 </td>
                             </tr>
                         </table>

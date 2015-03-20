@@ -90,7 +90,7 @@
             </div>
             @endforeach
 
-            <div class="container-fluid"><a href="{{URL::to('parents/explore')}}"
+            <div class="container-fluid"><a href="{{URL::to('parents/explore/'.$strengthScore->id)}}"
                                             class="pull-left btn btn-lg btn-primary list-back-btn"><i
                             class="glyphicon glyphicon-arrow-left"></i> Back</a></div>
         </div>
@@ -111,6 +111,4 @@
 
 @section('css' )
     {{HTML::style("public/front/libs/scrollbar/css/jquery.scrollbar.css")}}
-
-
 @stop

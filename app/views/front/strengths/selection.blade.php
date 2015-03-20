@@ -56,27 +56,27 @@
                             work on with your child</p>
 
                         <div class="row col-md-12">
-                            <div class="col-md-3 col-md-offset-3 big-group-{{$scores[0]->strength->strengthGroup->id}}">
+                            <div class="col-md-3 col-md-offset-3 big-group big-group-{{$scores[0]->strength->strengthGroup->id}}">
                                 <h2>{{$scores[0]->strength->name}} </h2>
 
                                 <p>{{$scores[0]->strength->strengthGroup->name}}</p>
 
-                                <div class="big-group-icon-{{$scores[0]->strength->strengthGroup->id}}"><img src="{{ url('public/front/img/strength-icon-'.$scores[0]->strength->strengthGroup->id.'.png') }}"/>
+                                <div class="big-group-icon big-group-icon-{{$scores[0]->strength->strengthGroup->id}}"><img src="{{ url('public/front/img/strength-icon-'.$scores[0]->strength->strengthGroup->id.'.png') }}"/>
                                 </div>
-                                <div class="strength-percent-{{$scores[0]->strength->strengthGroup->id}}"><p class="text-center">{{$scores[0]->score}}%</p></div>
+                                <div class="strength-percent strength-percent-{{$scores[0]->strength->strengthGroup->id}}"><p class="text-center">{{$scores[0]->score}}%</p></div>
                                 <a href="{{URL::route('parents.reflect',[$scores[0]->id,1])}}" class=" btn btn-lg btn-warning pull-right select-large"><span>SELECT</span>
                                 </a>
                             </div>
 
 
-                            <div class="col-md-3 left-5 big-group-{{$scores[0]->strength->strengthGroup->id}}">
+                            <div class="col-md-3 left-5 big-group big-group-{{$scores[1]->strength->strengthGroup->id}}">
                                 <h2>{{$scores[1]->strength->name}} </h2>
 
                                 <p>{{$scores[1]->strength->strengthGroup->name}}</p>
 
-                                <div class="big-group-icon-{{$scores[0]->strength->strengthGroup->id}}"><img src="{{ url('public/front/img/strength-icon-'.$scores[1]->strength->strengthGroup->id.'.png') }}"/>
+                                <div class="big-group-icon big-group-icon-{{$scores[1]->strength->strengthGroup->id}}"><img src="{{ url('public/front/img/strength-icon-'.$scores[1]->strength->strengthGroup->id.'.png') }}"/>
                                 </div>
-                                <div class="strength-percent-{{$scores[0]->strength->strengthGroup->id}}"><p class="text-center">{{$scores[1]->score}}%</p></div>
+                                <div class="strength-percent strength-percent-{{$scores[1]->strength->strengthGroup->id}}"><p class="text-center">{{$scores[1]->score}}%</p></div>
                                 <a href="{{URL::route('parents.reflect',[$scores[1]->id,1])}}" class=" btn btn-lg btn-warning pull-right select-large"><span>SELECT</span>
                                 </a>
                             </div>
@@ -87,7 +87,7 @@
                                 areas to work with your child</p>
 
                             <div class="col-md-12">
-                                <div class=" col-md-2 col-md-offset-2 pick-group-{{$scores[2]->strength->strengthGroup->id}}">
+                                <div class=" col-md-2 col-md-offset-2 pick-group pick-group-{{$scores[2]->strength->strengthGroup->id}}">
                                     <div class="col-md-12 journey-text">
                                         <img class=" pull-left" src="{{ url('public/front/img/strength-icon-'.$scores[2]->strength->strengthGroup->id.'.png') }}"/>
                                         <h4>{{$scores[2]->strength->name}} </h4>
@@ -98,7 +98,7 @@
                                     <div class=" col-md-5 journey-percent"><p class="text-center">?</p></div>
                                     <button class="btn btn-lg btn-warning select-small pull-right">SELECT</button>
                                 </div>
-                                <div class=" col-md-2 pick-group-{{$scores[3]->strength->strengthGroup->id}}">
+                                <div class=" col-md-2 pick-group pick-group-{{$scores[3]->strength->strengthGroup->id}}">
                                     <div class="col-md-12 journey-text">
                                         <img class=" pull-left" src="{{ url('public/front/img/strength-icon-'.$scores[3]->strength->strengthGroup->id.'.png') }}"/>
                                         <h4>{{$scores[3]->strength->name}} </h4>
@@ -109,7 +109,7 @@
                                     <div class=" col-md-5 journey-percent"><p class="text-center">?</p></div>
                                     <button class="btn btn-lg btn-warning select-small pull-right">SELECT</button>
                                 </div>
-                                <div class=" col-md-2 pick-group-{{$scores[4]->strength->strengthGroup->id}}">
+                                <div class=" col-md-2 pick-group pick-group-{{$scores[4]->strength->strengthGroup->id}}">
                                     <div class="col-md-12 journey-text">
                                         <img class=" pull-left" src="{{ url('public/front/img/strength-icon-'.$scores[4]->strength->strengthGroup->id.'.png') }}"/>
                                         <h4>{{$scores[4]->strength->name}} </h4>

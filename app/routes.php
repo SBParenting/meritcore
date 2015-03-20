@@ -85,18 +85,22 @@ Route::group(['prefix' => 'admin', 'before' => 'auth'], function() {
 
 Route::group(['before' => 'auth'],function(){
     Route::get('/','Controllers\Admin\Children\ChildrenController@getIndex');
+
     Route::get('children/select','Controllers\Admin\Children\ChildrenController@getIndex');
     Route::get('children/add','Controllers\Admin\Children\ChildrenController@getAdd');
     Route::post('children/add','Controllers\Admin\Children\ChildrenController@postAdd');
     Route::get('children/{id}','Controllers\Admin\Children\ChildrenController@view');
     Route::post('children/{id}','Controllers\Admin\Children\ChildrenController@postUpdate');
+
     Route::get('survey/finish/{student_id?}/{survey_id?}', 'Controllers\Front\SurveyController@finishSurvey');
     Route::get('survey/{student_id?}', 'Controllers\Front\SurveyController@selectSurvey');
     Route::post('survey/save', 'Controllers\Front\SurveyController@saveQuestion');
     Route::get('survey/child/{student_id?}', 'Controllers\Front\SurveyController@getIndex');
     Route::get('survey/parent/{student_id?}', 'Controllers\Front\SurveyController@getIndexParentFocus');
+
     Route::get('strengths/selection/{student_id?}', 'Controllers\Front\StrengthsController@getSelection');
     Route::get('strengths/calculate/{student_id?}','Controllers\Front\StrengthsController@calculate');
+
     Route::get('parents/reflect/{student_id?}/{question_id?}', ['as' => 'parents.reflect' , 'uses' => 'Controllers\Admin\Parents\ParentsController@getIndex']);
     Route::post('parents/reflect/{strength_score_id?}/{question_id?}', 'Controllers\Admin\Parents\ParentsController@postIndex');
 
@@ -118,7 +122,7 @@ Route::group(['before' => 'auth'],function(){
     Route::post('parents/empower/save', 'Controllers\Admin\Parents\ParentsController@saveEmpower');
     Route::post('parents/empower/saveFeedback', 'Controllers\Admin\Parents\ParentsController@saveFeedback');
 
-    
+    Route::get('journey/{child_id}','Controllers\Admin\Parents\ParentsController@journey');
 });
 
 Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');

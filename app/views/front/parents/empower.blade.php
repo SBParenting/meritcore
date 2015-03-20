@@ -107,7 +107,7 @@
                                             class="glyphicon glyphicon-arrow-right"></i> Next </a>
                             @endif
 
-                            <a href="#" class="pull-left btn btn-lg btn-primary empower-back"><i
+                            <a href="{{ URL::to('parents/explore/'.$strengthScore->id) }}" class="pull-left btn btn-lg btn-primary empower-back"><i
                                         class="glyphicon glyphicon-arrow-left"></i> Back</a>
                         </div>
 
@@ -122,8 +122,6 @@
 
     </div>
 
-    </div>
-    </div>
 @stop
 @section('script')
 

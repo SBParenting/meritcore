@@ -11,17 +11,17 @@ class ParentsController extends \BaseController {
         $this->strengthScore = $this->strengthScore->find($strength_score_id);
         $child = $this->strengthScore->child;
 
+        $question = \ReflectQuestion::where('strength_id',$this->strengthScore->strength->id)->where('num',$question_id)->first();
+
         $answer = $this->reflectAnswer->where('parent_id',$child->user_id)
-                                      ->where('strength_score_id',$strength_score_id)
-                                      ->where('reflect_question_id',$question_id)->first();
+                                      ->where('reflect_question_id',$question->id)->first();
 
         if (!isset($answer)) {
             $hasPrevious = $this->reflectAnswer->where('parent_id',$child->user_id)
-                                               ->where('strength_score_id',$strength_score_id)
                                                ->where('reflect_question_id',$question_id-1)->first();
 
             if (!isset($hasPrevious) && $question_id != 1) {
-                $answer = $this->reflectAnswer->where('parent_id',$child->user_id)->where('strength_score_id',$strength_score_id)->orderBy('reflect_question_id','DESC')->first();
+                $answer = $this->reflectAnswer->where('parent_id',$child->user_id)->orderBy('reflect_question_id','DESC')->first();
                 if ($answer) {
                     return \Redirect::route('parents.reflect',[$strength_score_id,$answer->reflect_question_id]);
                 } else {
@@ -30,9 +30,7 @@ class ParentsController extends \BaseController {
             }
         }
 
-        $question = \ReflectQuestion::find($question_id);
-
-        $total = \ReflectQuestion::count();
+        $total = \ReflectQuestion::where('strength_id',$this->strengthScore->strength->id)->count();
 
         return \View::make('front.parents.reflect')->with('strengthScore',$this->strengthScore)->with(compact('child','question','answer','total'));
     }
@@ -43,11 +41,12 @@ class ParentsController extends \BaseController {
         $this->strengthScore = $this->strengthScore->find($strength_score_id);
         $child = $this->strengthScore->child;
 
-        $input['reflect_question_id'] = $question_id;
-        $input['strength_score_id'] = $strength_score_id;
+        $question = \ReflectQuestion::where('strength_id',$this->strengthScore->strength->id)->where('num',$question_id)->first();
+
+        $input['reflect_question_id'] = $question->id;
         $input['parent_id'] = $child->user_id;
 
-        $answer = $this->reflectAnswer->where('parent_id',$input['parent_id'])->where('reflect_question_id',$question_id)->first();
+        $answer = $this->reflectAnswer->where('parent_id',$input['parent_id'])->where('reflect_question_id',$question->id)->first();
 
         if(!isset($answer)) {
             $answer = $this->reflectAnswer;
@@ -81,18 +80,21 @@ class ParentsController extends \BaseController {
     }
 
     public function pick($strength_score_id) {
-        $questions = \ExploreQuestion::all();
+        $this->strengthScore = $this->strengthScore->find($strength_score_id);
+
+        $questions = \ExploreQuestion::where('strength_id',$this->strengthScore->strength->id)->get();
+
         $answers = \ExploreAnswer::where('strength_score_id',$strength_score_id)
                                  ->distinct()
                                  ->lists('status','explore_question_id');
-
-        $this->strengthScore = $this->strengthScore->find($strength_score_id);
 
         return \View::make('front.parents.explore_list')->with('strengthScore',$this->strengthScore)->with(compact('questions','answers'));
     }
 
     public function build($strength_score_id,$explore_question_id) {
-        $options = \BuildOption::all();
+        $this->strengthScore = $this->strengthScore->find($strength_score_id);
+
+        $options = \BuildOption::where('strength_id',$this->strengthScore->strength->id)->get();
         $answers = \ExploreAnswer::where('strength_score_id',$strength_score_id)
                                  ->where('explore_question_id',$explore_question_id)
                                  ->lists('id','build_option_id');
@@ -100,8 +102,6 @@ class ParentsController extends \BaseController {
         foreach ($answers as $key => $value) {
             $answers[$key] = \ExploreAnswer::select('status','score')->find($value)->toArray();
         }
-
-        $this->strengthScore = $this->strengthScore->find($strength_score_id);
 
         return \View::make('front.parents.build_list')->with('strengthScore',$this->strengthScore)->with(compact('options','answers','explore_question_id'));
     }
@@ -181,9 +181,9 @@ class ParentsController extends \BaseController {
             $empowerChild->save();
         }
 
-        $questions = \EmpowerQuestion::paginate(5);
+        $questions = \EmpowerQuestion::where('strength_id',$this->strengthScore->strength->id)->paginate(5);
 
-        $answers = \EmpowerAnswer::all()->lists('answer','empower_question_id');
+        $answers = \EmpowerAnswer::where('empower_child_id',$empowerChild->id)->lists('answer','empower_question_id');
 
         if ($empowerChild->status == 'Feedback' && !empty($feedback_person)) {
             $feedback = \EmpowerFeedback::where('empower_child_id',$empowerChild->id)->get()->last();
@@ -222,6 +222,9 @@ class ParentsController extends \BaseController {
 
         if (empty($answer)){
             $answer = new \EmpowerFeedback();
+
+            $answer->parent_score = -1;
+            $answer->child_score = -1;
         }
 
         $answer->fill($input);
@@ -250,10 +253,12 @@ class ParentsController extends \BaseController {
         $feedback = \EmpowerFeedback::where('empower_child_id',$empowerChild->id)->first();
 
         if (($feedback->child_score+$feedback->parent_score)/2 < 70) {
-//            dd('step back');
             return \Redirect::to('/parents/empower/stepback/'.$empowerChild->strengthScore->id);
         } else {
-            dd('our journey');
+            $empowerChild->status = "Completed";
+            $empowerChild->save();
+
+            return \Redirect::to('/journey/'.$empowerChild->child_id);
         }
     }
 
@@ -263,5 +268,12 @@ class ParentsController extends \BaseController {
         $child = $this->strengthScore->child;
 
         return \View::make('front.parents.step_back')->with('strengthScore',$this->strengthScore)->with(compact('child'));
+    }
+
+    public function journey($child_id) {
+
+        $child = \Child::find($child_id);
+
+        return \View::make('front.parents.journey')->with(compact('child'));
     }
 }

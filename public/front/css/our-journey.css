@@ -1,0 +1,27 @@
+html { background-color: #e7e7e7; }
+
+#our-journey-map { display: none; position: relative; margin: 0 auto; }
+
+svg { width: auto; height: auto; }
+
+@media (min-width: 1072px) {
+	#our-journey-map { display: block; width: 992px; }
+}
+
+@media (min-width: 1280px) {
+	#our-journey-map { width: 1200px; }
+}
+
+@media (min-width: 1680px) {
+	#our-journey-map { width: 1600px; }
+}
+
+@media (min-width: 2000px) {
+	#our-journey-map { width: 1920px; }
+}
+
+#our-journey-map img.bg { position: absolute; top: 0; left: 0; width: 100%; }
+
+#our-journey-map svg { position: relative; z-index: 100; }
+#our-journey-map svg rect, #our-journey-map svg polygon, #our-journey-map svg path { cursor: pointer; outline: none; }
+#our-journey-map svg text { position: relative; z-index: 1000; pointer-events: none; }
