@@ -286,10 +286,10 @@ class ParentsController extends \BaseController {
                 $str = str_replace(" ","-",str_replace("&","and",strtolower($strength->name)));
                 $status[$group][$str] = 0;
                 $strScore = \StrengthScore::where('child_id',$child_id)->where('strength_id',$strength->id)->get()->last();
-                if (isset($strScore)){
-                if ($strScore->id == $recommended[0]->id || $strScore->id == $recommended[1]->id) {
+                if ($strength->id == $recommended[0]->id || $strength->id == $recommended[1]->id) {
                     $status[$group][$str] = 3;
                 }
+                if (isset($strScore)){
                 $empower = \EmpowerChild::where('child_id',$child_id)->where('strength_score_id',$strScore->id)->get()->last();
                     if(isset($empower) && $empower->status == "Completed"){
                         $status[$group][$str] = 2;
