@@ -98,10 +98,21 @@ OurJourneyMap = {
 		{
 			$(this).attr('fill', $(this).data('color'));
 
+            if ($(this).attr('id').indexOf('heading') == -1) {
+                $(this).siblings('.'+$(this).attr('id')+'-text').hide();
+                $(this).siblings('.'+$(this).attr('id')+'-percent').show();
+            }
+
 		}).off('mouseleave').on('mouseleave', function()
 		{
-			if (!$(this).data('active') && !$(this).data('heading'))
-				$(this).attr('fill', 'transparent');
+			if (!$(this).data('active') && !$(this).data('heading')) {
+                $(this).attr('fill', 'transparent');
+            }
+
+            if ($(this).attr('id').indexOf('heading') == -1) {
+                $(this).siblings('.'+$(this).attr('id')+'-text').show();
+                $(this).siblings('.'+$(this).attr('id')+'-percent').hide();
+            }
 		});
 	},
 
@@ -117,6 +128,23 @@ OurJourneyMap = {
 		}
 
 		return false;
-	}
+	},
+
+    setLink: function(group, area, link)
+    {
+        $('.'+group).find('#'+area).on('click',function(){
+            location.href = link;
+        });
+    },
+
+    hoverPercentage: function(group,area,value)
+    {
+        $('.'+group).find('.'+area+'-percent').text(value+'%');
+    },
+
+    incrementPercentageX: function(group,area,x)
+    {
+        $('.'+group).find('.'+area+'-percent').attr('x',parseInt($('.'+group).find('.'+area+'-percent').attr('x'))+x);
+    }
 
 };

@@ -5,24 +5,24 @@ html { background-color: #e7e7e7; }
 svg { width: auto; height: auto; }
 
 @media (min-width: 1072px) {
-	#our-journey-map { display: block; width: 992px; }
+	#our-journey-map {  margin-top: -100px;  display: block; width: 992px; }
 }
 
 @media (min-width: 1280px) {
-	#our-journey-map { width: 1200px; }
+	#our-journey-map { margin-top: -100px; width: 1200px; }
 }
 
 @media (min-width: 1680px) {
-	#our-journey-map { width: 1600px; }
+	#our-journey-map {  margin-top: -160px; width: 1600px; }
 }
 
 @media (min-width: 2000px) {
-	#our-journey-map { width: 1920px; }
+	#our-journey-map {  margin-top: -160px; width: 1920px; }
 }
 
 .purple { color: #a400c7!important; }
 
-#our-journey-map { margin-top: -160px; position: relative; z-index: 0; }
+#our-journey-map { position: relative; z-index: 0; }
 #our-journey-map img.bg { position: absolute; top: 0; left: 0; width: 100%; }
 
 #our-journey-map svg { position: relative; z-index: 100; }
@@ -39,3 +39,5 @@ svg { width: auto; height: auto; }
 .parent-nav div.active { font-weight: bold; }
 .parent-nav div.journey-icon { font-weight: 400}
 .parent-nav div img { width: 32px; }
+
+text.percent { font-size: 40px; display: none; }

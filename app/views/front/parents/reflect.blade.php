@@ -136,10 +136,6 @@
 
     </div>
 
-    </div>
-
-    </div>
-    </div>
 @stop
 
 @section('css')
@@ -151,7 +147,9 @@
 @section('script')
     <script>
         $(function () {
-            $('.answer-list').find('li[data-id=' + $('input[name=reflect_statement_id]').val() + ']').addClass('active');
+            if ($('input[name=reflect_statement_id]').val() != "") {
+                $('.answer-list').find('li[data-id=' + $('input[name=reflect_statement_id]').val() + ']').addClass('active');
+            }
         });
         $('.answer-list').find('li').on('click', function () {
             $(this).parent().find('.active').removeClass('active');

@@ -1,9 +1,7 @@
 @extends('front.survey.layout')
 
 @section('content')
-
 	<div class="container-page">
-		
 		<div class="wrapper">
 			<div class="survey-block survey-header">
 			    <a href="/" class="logo"><img src="{{ url('public/front/img/sbp-logo.png') }}" /></a>
@@ -25,7 +23,6 @@
 		                <button class="btn btn-orange btn-lg">Purchase App </button>
                     </div>
 					<div class="row col-md-11 select-child">
-					 
                         <div id="Carousel">
 		                    <ul class="flip-items">
                                 @foreach($children as $child)
@@ -37,7 +34,6 @@
                                                 <img src="{{ url('/public/front/img/'.$child->sex.'.png') }}" style="background-color: white;" />
                                             @endif
                                         </a>
-
                                         <span class="survey"><a href="/survey/{{ $child->id }}">@if(!isset($survey[$child->id]) || $survey[$child->id] != "Completed") Start Survey @else Continue @endif</a></span>
                                     </li>
                                 @endforeach
@@ -47,7 +43,6 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 @stop
@@ -114,9 +109,19 @@
 
         .flip-current .survey {
             display:block;
-            border: 1px solid black;
+        }
+
+        .flip-current .survey a {
+            display:block;
+            background-color: #ffffff;
+            border: 2px solid black;
+            border-radius: 10px;
             padding: 20px inherit;
             margin-top: 20px;
+        }
+
+        .flip-current .survey a:hover {
+            background-color: rgba(255,255,255,0.9);
         }
     </style>
 

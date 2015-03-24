@@ -84,16 +84,23 @@ function svg($file)
 
         $.each(s,function(i,item){
             $.each(item,function(x,strength){
-                if (strength != 0) {
+                OurJourneyMap.setLink(i,x,strength['link']);
+                OurJourneyMap.hoverPercentage(i,x,strength['percent']);
+
+                if (strength['percent'] < 100) {
+                    OurJourneyMap.incrementPercentageX(i,x,15);
+                }
+
+                if (strength['status'] != 0) {
                     OurJourneyMap.activateArea(i,x);
                 }
-                if (strength == 1) {
+                if (strength['status'] == 1) {
                     OurJourneyMap.setIcon(i,x,'in-progress');
                 }
-                if (strength == 2) {
+                if (strength['status'] == 2) {
                     OurJourneyMap.setIcon(i,x,'experienced');
                 }
-                if (strength == 3) {
+                if (strength['status'] == 3) {
                     OurJourneyMap.setIcon(i,x,'suggested');
                 }
             });

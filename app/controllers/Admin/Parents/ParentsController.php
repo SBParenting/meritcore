@@ -284,19 +284,21 @@ class ParentsController extends \BaseController {
             $group = str_replace(" ","-",str_replace("&","and",strtolower($strengthGroup->name)));
             foreach ($strengthGroup->strength as $strength) {
                 $str = str_replace(" ","-",str_replace("&","and",strtolower($strength->name)));
-                $status[$group][$str] = 0;
+                $status[$group][$str]['status'] = 0;
                 $strScore = \StrengthScore::where('child_id',$child_id)->where('strength_id',$strength->id)->get()->last();
                 if ($strength->id == $recommended[0]->id || $strength->id == $recommended[1]->id) {
-                    $status[$group][$str] = 3;
+                    $status[$group][$str]['status'] = 3;
                 }
                 if (isset($strScore)){
-                $empower = \EmpowerChild::where('child_id',$child_id)->where('strength_score_id',$strScore->id)->get()->last();
+                    $status[$group][$str]['link'] = \URL::route('parents.reflect',[$strScore->id,1]);
+                    $status[$group][$str]['percent'] = $strScore->score;
+                    $empower = \EmpowerChild::where('child_id',$child_id)->where('strength_score_id',$strScore->id)->get()->last();
                     if(isset($empower) && $empower->status == "Completed"){
-                        $status[$group][$str] = 2;
+                        $status[$group][$str]['status'] = 2;
                     } else {
                         $reflect = \ExploreAnswer::where('strength_score_id',$strScore->id)->count();
                         if ($reflect) {
-                            $status[$group][$str] = 1;
+                            $status[$group][$str]['status'] = 1;
                         }
                     }
                 }

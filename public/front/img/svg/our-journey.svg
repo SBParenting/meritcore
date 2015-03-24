@@ -14,6 +14,7 @@
 
 		<text class="caring-school-climate-text" x="450" y="400">Caring School</text>
 		<text class="caring-school-climate-text" x="480" y="426">Climate</text>
+		<text class="caring-school-climate-percent percent" x="465" y="410">100%</text>
 
 		<image id="caring-school-climate-icon" x="410" y="324" width="52" height="52" xlink:href="" />
 
@@ -21,6 +22,7 @@
 
 		<text class="bonding-to-school-text" x="655" y="400">Bonding</text>
 		<text class="bonding-to-school-text" x="645" y="426">To School</text>
+		<text class="bonding-to-school-percent percent" x="650" y="410">100%</text>
 
 		<image id="bonding-to-school-icon" x="618" y="308" width="52" height="52" xlink:href="" />
 
@@ -28,6 +30,7 @@
 
 		<text class="high-expectations-text" x="840" y="400">High</text>
 		<text class="high-expectations-text" x="805" y="426">Expectations</text>
+		<text class="high-expectations-percent percent" x="810" y="410">100%</text>
 
 		<image id="high-expectations-icon" x="786" y="308" width="52" height="52" xlink:href="" />
 
@@ -35,6 +38,7 @@
 
 		<text class="school-boundaries-text" x="1000" y="400">School</text>
 		<text class="school-boundaries-text" x="980" y="426">Boundaries</text>
+		<text class="school-boundaries-percent percent" x="980" y="410">100%</text>
 
 		<image id="school-boundaries-icon" x="955" y="308" width="52" height="52" xlink:href="" />
 
@@ -44,12 +48,13 @@
 
 		<path id="family-support-and-expectation-heading" data-heading="1" d="M1674,832c-0.5,1.9-1.2,3.8-1.3,5.7c-3.8,61.2-24.8,115.5-64.5,162.3c-47.1,55.5-107.3,86.9-179.2,96.2c-4.9,0.6-9.9,1.1-14.9,1.1c-1.2,0-3.4-2.1-3.5-3.4c-0.8-10.3-1.2-20.6-1.7-31.1c7.9-0.9,15.5-1.4,23-2.6c46.9-7.3,88.6-25.9,124.2-57.5c47-41.6,73.2-94.1,80.7-156.1c0.9-7.4,1.2-15,1.2-22.4c0.1-93.3,0.5-186.6-0.1-280c-0.3-58.2-19.5-110.1-57.4-154.5c-42-49.2-95.7-76.3-159.7-83.8c-6.1-0.7-12.3-1.1-18.4-1.1c-93-0.1-186,0-279,0c-1.5,0-3,0.1-4.5,0.1c0-12,0-24,0-36c95.3,0,190.7,0,286,0c2.1,0.4,4.1,1.2,6.2,1.3c18.8,0.3,37.1,3.7,55.2,8.4c59.9,15.5,109.1,47.7,147.6,96.2c36.1,45.5,55.2,97.5,58.7,155.4c0.1,1.9,0.9,3.8,1.3,5.7C1674,634.7,1674,733.3,1674,832z" />
 
-		<text class="school-culture-heading-text" x="1650" y="526" transform="rotate(90 1650, 526)">Family Support And Expectation</text>
+		<text class="family-support-and-expectation-heading-text" x="1650" y="526" transform="rotate(90 1650, 526)">Family Support And Expectation</text>
 
 		<rect id="caring-family" x="1119.5" y="314.5" width="161" height="178" />
 
 		<text class="caring-family-text" x="1170" y="400">Caring</text>
 		<text class="caring-family-text" x="1170" y="426">Family</text>
+		<text class="caring-family-percent percent" x="1150" y="410">100%</text>
 
 		<image id="caring-family-icon" x="1124" y="308" width="52" height="52" xlink:href="" />
 
@@ -57,6 +62,7 @@
 
 		<text class="family-support-text" x="1330" y="400">Family</text>
 		<text class="family-support-text" x="1326" y="426">Support</text>
+		<text class="family-support-percent percent" x="1320" y="410">100%</text>
 
 		<image id="family-support-icon" x="1291" y="308" width="52" height="52" xlink:href="" />
 
@@ -64,6 +70,7 @@
 
 		<text class="family-communications-text" x="1484" y="464">Family</text>
 		<text class="family-communications-text" x="1444" y="490">Communications</text>
+		<text class="family-communications-percent percent" x="1464" y="480">100%</text>
 
 		<image id="family-communications-icon" x="1456" y="380" width="52" height="52" xlink:href="" />
 
@@ -71,6 +78,7 @@
 
 		<text class="adult-family-role-models-text" x="1476" y="624">Adult Family</text>
 		<text class="adult-family-role-models-text" x="1476" y="650">Role Models</text>
+		<text class="adult-family-role-models-percent percent" x="1476" y="650">100%</text>
 
 		<image id="adult-family-role-models-icon" x="1456" y="548" width="52" height="52" xlink:href="" />
 
@@ -78,6 +86,7 @@
 
 		<text class="family-school-involvement-text" x="1470" y="780">Family School</text>
 		<text class="family-school-involvement-text" x="1476" y="806">Involvement</text>
+		<text class="family-school-involvement-percent percent" x="1476" y="800">100%</text>
 
 		<image id="family-school-involvement-icon" x="1456" y="708" width="52" height="52" xlink:href="" />
 
@@ -85,6 +94,7 @@
 
 		<text class="high-expectations-text" x="1460" y="930">High</text>
 		<text class="high-expectations-text" x="1430" y="956">Expectations</text>
+		<text class="high-expectations-percent percent" x="1430" y="950">100%</text>
 
 		<image id="high-expectations-icon" x="1398" y="865" width="52" height="52" xlink:href="" />
 
@@ -100,6 +110,7 @@
 
 		<text class="positive-peer-influence-text" x="1086" y="956">Positive Peer</text>
 		<text class="positive-peer-influence-text" x="1096" y="982">Influence</text>
+		<text class="positive-peer-influence-percent percent" x="1096" y="975">100%</text>
 
 		<image id="positive-peer-influence-icon" x="1068" y="870" width="52" height="52" xlink:href="" />
 
@@ -107,6 +118,7 @@
 
 		<text class="positive-peer-relationships-text" x="1252" y="956">Positive Peer</text>
 		<text class="positive-peer-relationships-text" x="1252" y="982">Relationships</text>
+		<text class="positive-peer-relationships-percent percent" x="1260" y="975">100%</text>
 
 		<image id="positive-peer-relationships-icon" x="1234" y="870" width="52" height="52" xlink:href="" />
 
@@ -122,6 +134,7 @@
 
 		<text class="school-work-text" x="604" y="956">School</text>
 		<text class="school-work-text" x="612" y="982">Work</text>
+		<text class="school-work-percent percent" x="585" y="975">100%</text>
 
 		<image id="school-work-icon" x="562" y="870" width="52" height="52" xlink:href="" />
 
@@ -129,12 +142,14 @@
 
 		<text class="school-engagement-text" x="774" y="956">School</text>
 		<text class="school-engagement-text" x="750" y="982">Engagement</text>
+		<text class="school-engagement-percent percent" x="755" y="975">100%</text>
 
 		<image id="school-engagement-icon" x="728" y="870" width="52" height="52" xlink:href="" />
 
 		<rect id="achievement" x="895" y="873.5" width="161" height="178" />
 
 		<text class="achievement-text" x="916" y="970">Achievement</text>
+		<text class="achievement-percent percent" x="925" y="975">100%</text>
 
 		<image id="achievement-icon" x="900" y="870" width="52" height="52" xlink:href="" />
 
@@ -150,6 +165,7 @@
 
 		<text class="community-boundaries-text" x="340" y="488">Community</text>
 		<text class="community-boundaries-text" x="340" y="514">Boundaries</text>
+		<text class="community-boundaries-percent percent" x="340" y="510">100%</text>
 
 		<image id="community-boundaries-icon" x="330" y="402" width="52" height="52" xlink:href="" />
 
@@ -157,6 +173,7 @@
 
 		<text class="adult-relationships-text" x="360" y="654">Adult</text>
 		<text class="adult-relationships-text" x="330" y="680">Relationships</text>
+		<text class="adult-relationships-percent percent" x="340" y="670">100%</text>
 
 		<image id="adult-relationships-icon" x="302" y="576" width="52" height="52" xlink:href="" />
 
@@ -164,6 +181,7 @@
 
 		<text class="community-values-youth-text" x="334" y="806">Community</text>
 		<text class="community-values-youth-text" x="330" y="832">Values Youth</text>
+		<text class="community-values-youth-percent percent" x="340" y="825">100%</text>
 
 		<image id="community-values-youth-icon" x="302" y="736" width="52" height="52" xlink:href="" />
 
@@ -171,6 +189,7 @@
 
 		<text class="caring-community-text" x="434" y="950">Caring</text>
 		<text class="caring-community-text" x="410" y="976">Community</text>
+		<text class="caring-community-percent percent" x="420" y="975">100%</text>
 
 		<image id="caring-community-icon" x="352" y="918" width="52" height="52" xlink:href="" />
 
@@ -186,18 +205,21 @@
 
 		<text class="cultural-awareness-text" x="574" y="616">Cultural</text>
 		<text class="cultural-awareness-text" x="560" y="644">Awareness</text>
+		<text class="cultural-awareness-percent percent" x="560" y="635">100%</text>
 
 		<image id="cultural-awareness-icon" x="496" y="574" width="52" height="52" xlink:href="" />
 
 		<rect id="acceptance" x="491" y="674.5" width="230" height="91" />
 
 		<text class="acceptance-text" x="556" y="726">Acceptance</text>
+		<text class="acceptance-percent percent" x="560" y="730">100%</text>
 
 		<image id="acceptance-icon" x="496" y="672" width="52" height="52" xlink:href="" />
 
 		<path id="spirituality" d="M491,831c0-20,0-39.9,0-60c77,0,154,0,231,0c0,29.9,0,59.9,0,90.2c-2.5,0.1-4.3,0.3-6.1,0.3c-9.7,0-19.3,0-29,0c-52.3,0-104.6,0-157,0c-13.4,0-24.6-4.5-32.3-15.7C494.7,841.5,493.2,836,491,831z" />
 
 		<text class="spirituality-text" x="564" y="822">Spirituality</text>
+		<text class="spirituality-percent percent" x="560" y="830">100%</text>
 
 		<image id="spirituality-icon" x="496" y="768" width="52" height="52" xlink:href="" />
 
@@ -213,18 +235,21 @@
 
 		<text class="planning-and-decision-making-text" x="792" y="616">Planning &amp;</text>
 		<text class="planning-and-decision-making-text" x="768" y="644">Decision Making</text>
+		<text class="planning-and-decision-making-percent percent" x="790" y="635">100%</text>
 
 		<image id="planning-and-decision-making-icon" x="734" y="574" width="52" height="52" xlink:href="" />
 
 		<rect id="self-efficacy" x="729.2" y="674.5" width="226" height="91" />
 
 		<text class="self-efficacy-text" x="790" y="726">Self Efficacy</text>
+		<text class="self-efficacy-percent percent" x="790" y="730">100%</text>
 
 		<image id="self-efficacy-icon" x="734" y="672" width="52" height="52" xlink:href="" />
 
 		<rect id="self-esteem" x="729.8" y="771" width="226" height="91" />
 
 		<text class="self-esteem-text" x="792" y="822">Self Esteem</text>
+		<text class="self-esteem-percent percent" x="790" y="830">100%</text>
 
 		<image id="self-esteem-icon" x="734" y="768" width="52" height="52" xlink:href="" />
 
@@ -240,18 +265,21 @@
 
 		<text class="equity-and-social-justice-text" x="1036" y="616">Equity &amp;</text>
 		<text class="equity-and-social-justice-text" x="1016" y="644">Social Justice</text>
+		<text class="equity-and-social-justice-percent percent" x="1025" y="635">100%</text>
 
 		<image id="equity-and-social-justice-icon" x="970" y="574" width="52" height="52" xlink:href="" />
 
 		<rect id="caring" x="964.8" y="674.5" width="226" height="91" />
 
 		<text class="caring-text" x="1046" y="726">Caring</text>
+		<text class="caring-percent percent" x="1025" y="730">100%</text>
 
 		<image id="caring-icon" x="970" y="672" width="52" height="52" xlink:href="" />
 
 		<rect id="empathy" x="965.2" y="771" width="226" height="91" />
 
 		<text class="empathy-text" x="1038" y="822">Empathy</text>
+		<text class="empathy-percent percent" x="1025" y="830">100%</text>
 
 		<image id="empathy-icon" x="970" y="768" width="52" height="52" xlink:href="" />
 
@@ -266,6 +294,7 @@
 		<path id="safety" d="M1200,643c0-21,0-41.9,0-63c77,0,154,0,231,0c-0.1,2-0.4,4-0.4,6c0,16.5,0,33,0,49.5c0,7.3,0,7.3-7.3,7.3c-71.8,0-143.5,0-215.3,0C1205.3,642.8,1202.7,642.9,1200,643z" />
 
 		<text class="safety-text" x="1286" y="618">Safety</text>
+		<text class="safety-percent percent" x="1265" y="625">100%</text>
 
 		<image id="safety-icon" x="1204" y="574" width="52" height="52" xlink:href="" />
 
@@ -280,6 +309,7 @@
 		<path id="restraint" d="M1200,764c0-22.3,0-44.6,0-67c77,0,154,0,231,0c-0.1,19.5-0.1,39-0.2,58.4c-0.1,9.3,1.6,8.7-8.9,8.7c-51.1,0-102.3,0-153.4,0C1245.6,764.1,1222.8,764,1200,764z" />
 
 		<text class="restraint-text" x="1274" y="736">Restraint</text>
+		<text class="restraint-percent percent" x="1265" y="743">100%</text>
 
 		<image id="restraint-icon" x="1204" y="692" width="52" height="52" xlink:href="" />
 
@@ -287,6 +317,7 @@
 
 		<text class="resistance-skills-text" x="1267" y="809">Resistance</text>
 		<text class="resistance-skills-text" x="1292" y="835">Skills</text>
+		<text class="resistance-skills-percent percent" x="1265" y="830">100%</text>
 
 		<image id="resistance-skills-icon" x="1204" y="768" width="52" height="52" xlink:href="" />
 

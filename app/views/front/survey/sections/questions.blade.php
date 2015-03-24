@@ -62,29 +62,26 @@
 			$('.question-strength , .answers').find('.list-item').css({'background-color': 'transparent'}).find('a').css({"color": '#777777'});
 			var color = $(this).parents('.survey-row').css('background-color');
             $(this).find('.ui-slider-handle').html(ui.value);
-        	$.each($('.slider'),function(){
+
         		var position = $(this).slider("option", "value");
-        		if ($(this).find('.ui-slider-handle').css('background-image') == "url("+whiteCircle+")") {
-        	
-	        		if (position >= 0 && position <= 20) {
+	        		if (position >= 0 && position < 20) {
 	        			$('#strongly-agree, #not-at-all').css({"background-color": color}).find('a').css({"color": '#ffffff'});
 	        		}
 
-	        		if (position >= 20 && position <= 40) {
+	        		if (position >= 20 && position < 40) {
 	        			$('#agree , #not-so-much').css({"background-color": color}).find('a').css({"color": '#ffffff'});
 	        		}
-        			if (position >= 40 && position <= 60) {
+        			if (position >= 40 && position < 60) {
 	        			$('#not-sure').css({"background-color": color }).find('a').css({"color": '#ffffff'});
 	        		}
 	        	
-    				if (position >= 60 && position <= 80) {
+    				if (position >= 60 && position < 80) {
 	        			$('#disagree , #somewhat-concern').css({"background-color": color }).find('a').css({"color": '#ffffff'});
 	        		}
 					if (position >= 80 && position <= 100) {
 	        			$('#strongly-disagree , #major-concern ').css({"background-color": color }).find('a').css({"color": '#ffffff'});
 	        		}
-        		}
-        	});
+
         },
 
        change: function(e,ui){
@@ -108,12 +105,6 @@
            $(this).parents('tr').find('.circle-number').css({'color':'rgba(255,255,255,0.4)'});
        }
     }).each(function(){
-        if ($(this).attr('data-answer') != "-1") {
-            $(this).slider('value',$(this).attr('data-answer'));
-
-            $(this).parents('tr').find('.circle-number').css({'color':'rgba(255,255,255,0.4)'});
-        }
-
         $(this).find('.ui-slider-handle').css({
             borderRadius: "80px" ,
             top: "-28px",
@@ -126,6 +117,10 @@
         });
 
         if ($(this).attr('data-answer') != "-1") {
+            $(this).slider('value',$(this).attr('data-answer'));
+
+            $(this).parents('tr').find('.circle-number').css({'color':'rgba(255,255,255,0.4)'});
+
             $(this).find('.ui-slider-handle').css({
                 "background": "url('/public/front/img/white-circle.png')",
                 "text-align": "center",
@@ -141,33 +136,6 @@
         }
 
         $('.question-strength , .answers').find('.list-item').css({'background-color': 'transparent'}).find('a').css({"color": '#777777'});
-        var color = $(this).parents('.survey-row').css('background-color');
-
-        $.each($('.slider'),function(){
-            var position = $(this).slider("option", "value");
-            if ($(this).find('.ui-slider-handle').css('background-image') == "url(/public/front/img/white-circle.png)") {
-
-                if (position >= 0 && position <= 20) {
-                    $('#strongly-agree, #not-at-all').css({"background-color": color}).find('a').css({"color": '#ffffff'});
-                }
-
-                if (position >= 20 && position <= 40) {
-                    $('#agree , #not-so-much').css({"background-color": color}).find('a').css({"color": '#ffffff'});
-                }
-                if (position >= 40 && position <= 60) {
-                    $('#not-sure').css({"background-color": color }).find('a').css({"color": '#ffffff'});
-                }
-
-                if (position >= 60 && position <= 80) {
-                    $('#disagree , #somewhat-concern').css({"background-color": color }).find('a').css({"color": '#ffffff'});
-                }
-                if (position >= 80 && position <= 100) {
-                    $('#strongly-disagree , #major-concern ').css({"background-color": color }).find('a').css({"color": '#ffffff'});
-                }
-            }
-        });
-
-
     });
 
     $('.ui-slider-horizontal').height(3);
