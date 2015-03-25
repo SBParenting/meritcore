@@ -123,6 +123,7 @@ Route::group(['before' => 'auth'],function(){
     Route::post('parents/empower/saveFeedback', 'Controllers\Admin\Parents\ParentsController@saveFeedback');
 
     Route::get('journey/{child_id}','Controllers\Admin\Parents\ParentsController@journey');
+    Route::get('journey/{child_id}/{strength_id?}','Controllers\Admin\Parents\ParentsController@getJourneyStrength');
 });
 
 Route::get('/article/{slug?}', 'Controllers\Front\HomeController@getPost');

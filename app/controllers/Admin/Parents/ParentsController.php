@@ -117,7 +117,14 @@ class ParentsController extends \BaseController {
         $answer->explore_question_id = $explore_question_id;
         $answer->status = 'InProgress';
 
-        $answer->save();
+//        $answer->save();
+
+        $user = \Auth::user();
+
+        \Mail::send('emails.admin.reminder', ['user' => $user, 'explore' => \ExploreQuestion::find($explore_question_id)], function($message) use ($user)
+        {
+            $message->to($user->email, $user->getName())->subject( \Config::get('site.title') . " Reminder" );
+        });
 
         return \Redirect::to('parents/explore/'.$strength_score_id);
     }
@@ -286,17 +293,21 @@ class ParentsController extends \BaseController {
                 $str = str_replace(" ","-",str_replace("&","and",strtolower($strength->name)));
                 $status[$group][$str]['status'] = 0;
                 $strScore = \StrengthScore::where('child_id',$child_id)->where('strength_id',$strength->id)->get()->last();
+
                 if ($strength->id == $recommended[0]->id || $strength->id == $recommended[1]->id) {
                     $status[$group][$str]['status'] = 3;
                 }
+
                 if (isset($strScore)){
                     $status[$group][$str]['link'] = \URL::route('parents.reflect',[$strScore->id,1]);
                     $status[$group][$str]['percent'] = $strScore->score;
                     $empower = \EmpowerChild::where('child_id',$child_id)->where('strength_score_id',$strScore->id)->get()->last();
+
                     if(isset($empower) && $empower->status == "Completed"){
                         $status[$group][$str]['status'] = 2;
                     } else {
-                        $reflect = \ExploreAnswer::where('strength_score_id',$strScore->id)->count();
+                        $reflectQuestions = \ReflectQuestion::where('strength_id',$strength->id)->lists('id');
+                        $reflect = \ReflectAnswer::where('parent_id',$child->user_id)->whereIn('reflect_question_id',$reflectQuestions)->count();
                         if ($reflect) {
                             $status[$group][$str]['status'] = 1;
                         }
@@ -306,5 +317,10 @@ class ParentsController extends \BaseController {
         }
 
         return \View::make('front.parents.journey')->with(compact('child'))->with('status',json_encode($status));
+    }
+
+    public function getJourneyStrength($child_id,$strength_id) {
+        $child = \Child::find($child_id);
+        return \View::make('front.parents.journey-details')->with(compact('child'));
     }
 }

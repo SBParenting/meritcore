@@ -1,6 +1,6 @@
 <?php
 return array(
 	
-	'title' 	=> 'Merit Core',
+	'title' 	=> 'Springboard',
 	'per_page'	=> 20,
 );

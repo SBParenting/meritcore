@@ -123,7 +123,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Libraries\FormBuilder\FormBuilderServiceProvider',
 		'Libraries\Access\AccessServiceProvider',
-		'Intervention\Image\ImageServiceProvider'
+		'Intervention\Image\ImageServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
 	),
 
 	/*
@@ -192,7 +193,8 @@ return array(
 		'View'              => 'Illuminate\Support\Facades\View',
 		
 		'Access'            => 'Libraries\Access\AccessFacade',
-		'ImageTool'         => 'Intervention\Image\Facades\Image'
+		'ImageTool'         => 'Intervention\Image\Facades\Image',
+        'Debugbar'          => 'Barryvdh\Debugbar\Facade',
 	),
 
 );
