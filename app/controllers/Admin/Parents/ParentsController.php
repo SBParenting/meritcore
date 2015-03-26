@@ -117,7 +117,7 @@ class ParentsController extends \BaseController {
         $answer->explore_question_id = $explore_question_id;
         $answer->status = 'InProgress';
 
-//        $answer->save();
+        $answer->save();
 
         $user = \Auth::user();
 

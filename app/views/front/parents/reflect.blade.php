@@ -87,7 +87,7 @@
 
                     <div class="container-fluid">
                         <label class="pull-left second-label">
-                            <span>Second: </span>Click on what statement reflects you the best
+                            <span>Second: </span>Click on the statement reflects you the best
                         </label>
                         <label class="pull-right third-label">
                             <span>Third:</span> Input your thoughts and reflections

@@ -347,8 +347,8 @@
 
 .circle-number {
     text-align: center;
-    width: 60pt;
-    height: auto;
+    width: 60pt!important;
+    height: auto!important;
 }
 
 .survey-row .done .circle-number {
@@ -525,12 +525,13 @@
 
 
 
-.slider > .ui-slider-handle { text-decoration: none;
-    						width: 35px;
-                            margin-left:-22px;
-                            text-align: center; }
-
-
+.slider > .ui-slider-handle {
+    text-decoration: none;
+    width: 35px;
+    margin-left:-22px;
+    text-align: center;
+    outline: none;
+}
 
 
 /* End parent Focus styles */
@@ -1374,7 +1375,7 @@ a.disabled {
 #parent-guide-nav {  width: 100%; padding: 0; margin: 0;  height: 9.63%; }
 #parent-guide-nav .nav ul { float: left;  width: 100%;  list-style-type: none; }
 .nav  { z-index: 9999; width: 100%; text-align: center; background-color: #e0e0e0; border-bottom: 1px solid white; display: block;}
-#parent-guide-nav .nav .nav-item a { float: right; width: 19.55%; text-decoration: none; color: white; cursor: pointer; height: 55px; }
+#parent-guide-nav .nav .nav-item a { float: right; width: 19.55%; text-decoration: none; color: white; cursor: pointer; height: 45px;padding: 3px 15px!important; }
 #parent-guide-nav .nav li { display: inline; font-size: 23pt; font-weight: bold; text-align: center ; right: 11%; }
 #parent-guide-nav .nav li img {margin-right: 10px;}
 #parent-guide-nav  .border a{ border-right: 1px solid white; position: relative;}
@@ -1948,7 +1949,7 @@ a.disabled {
 .parent-dark-green img { float: left; position: relative; left: 37%; height: 60px;}
 .parent-light-green {background-color:#29793e ; height: 15%;}
 .light-green-content p { font-size: 18pt; margin-top: 23px;}
-.light-green-content h3 { font-size: 20pt; font-weight: bold; margin-top: -3px;}
+.light-green-content h3 { font-size: 2.5vh; font-weight: bold; margin-top: -3px;}
 .slider-container { margin-top: 4%;}
 .slider-section { height: 18%; background-color: #f2f2f2;}
 .alert-container { height: 30%;}
@@ -1962,14 +1963,14 @@ a.disabled {
 /* end parent feed back styles */
 
 /*step back styles */
-.step-back h2 { font-weight: bold; font-size: 40pt;}
-.step-back-light-green {background-color:#29793e ; height: 8%;}
+.step-back h2 { font-weight: bold; font-size: 5vh; margin-top:0px; }
+.step-back-light-green {background-color:#29793e ; height: 5%;}
 .step-back-light-green h3 { margin-top: 1.5%;}
-.step-back-dark-green p {font-size: 12pt; }
-.step-back-section-top {background-color: #1d5c2e;  height: 20%;}
+.step-back-dark-green p {font-size: 1.5vh; margin-bottom: 0px; }
+.step-back-section-top {background-color: #1d5c2e;  height: 15%;}
 .step-back-list-container { height: 50%;}
-.step-back-list-container ul {font-size: 15pt; margin-top: 3%; list-style-type: none;}
-.step-back-list-container li {padding: 20px; color: #1d5c2e; letter-spacing: .5px;}
+.step-back-list-container ul {font-size: 15pt; margin-top: 1.5%; list-style-type: none;}
+.step-back-list-container li {padding: 15px; color: #1d5c2e; }
 .step-back-list-container li:nth-child(1) {background-image: url(/public/front/img/list-number-1.png);background-size: 50px; background-position: 0% 15%; background-repeat: no-repeat; padding-left: 12%; }
 .step-back-list-container li:nth-child(2) {background-image: url(/public/front/img/list-number-2.png); background-size: 50px; background-position: 0% 15%; background-repeat: no-repeat; padding-left: 12%;}
 .step-back-list-container li:nth-child(3) {background-image: url(/public/front/img/list-number-3.png); background-size: 50px; background-position: 0% 15%; background-repeat: no-repeat; padding-left: 12%;}

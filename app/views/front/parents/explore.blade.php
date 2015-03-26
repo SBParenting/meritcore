@@ -110,7 +110,7 @@
                         <div class="container-fluid btns-container">
                             <a href="{{URL::to('parents/empower/'.$strengthScore->id)}}" class="{{$enableEmpower ? "" : "disabled"}} pull-right btn btn-lg btn-warning next-btn"><i
                                         class="glyphicon glyphicon-arrow-right"></i> Next </a>
-                            <a href="#" class="pull-left btn btn-lg btn-primary back-btn"><i
+                            <a href="{{URL::route('parents.reflect',[$strengthScore->id,1])}}" class="pull-left btn btn-lg btn-primary back-btn"><i
                                         class="glyphicon glyphicon-arrow-left"></i> Back</a>
                         </div>
                     </div>

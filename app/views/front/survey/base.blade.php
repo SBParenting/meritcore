@@ -74,10 +74,10 @@
                                 class="glyphicon glyphicon-arrow-left"></i> BACK</a>
 
                     @if($questions->getCurrentPage() < $questions->getLastPage())
-                        <a href="{{ $questions->getUrl($questions->getCurrentPage()+1) }}" class="pull-right btn btn-primary btn-right">NEXT <i
+                        <a href="{{ $questions->getUrl($questions->getCurrentPage()+1) }}" class="pull-right btn btn-primary btn-right next disabled">NEXT <i
                                     class="glyphicon glyphicon-arrow-right"></i></a>
                     @else
-                        <a href="/survey/finish/{{$child->id}}/2" class="pull-right btn btn-primary btn-right">FINISH</a>
+                        <a href="/survey/finish/{{$child->id}}/2" class="pull-right btn btn-primary btn-right next disabled">FINISH</a>
                     @endif
                 </div>
             </div>

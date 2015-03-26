@@ -40,6 +40,16 @@
 
 <script>
 
+    function canNext() {
+        var next = true;
+        $('.slider').each(function(i,item){
+            if($(this).find('.ui-slider-handle').text() == "") {
+                next = false;
+            }
+        });
+        return next;
+    }
+
     $(".slider").slider({
         orientation: "horizontal",
         range: "min",
@@ -100,6 +110,9 @@
                var width = response.slider == 'progress-green' ? 90 * response.totalAnswers/response.totalQuestions : 100 * response.totalAnswers/response.totalQuestions
                $('.'+response.slider).css('width',width+"%");
                $('#answer-count').text(response.totalAnswers);
+               if (canNext()) {
+                   $('.next').removeClass('disabled');
+               }
            });
            
            $(this).parents('tr').find('.circle-number').css({'color':'rgba(255,255,255,0.4)'});
@@ -161,5 +174,4 @@
 
 @section('css')
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" href="/public/front/css/survey.css">
 @stop
