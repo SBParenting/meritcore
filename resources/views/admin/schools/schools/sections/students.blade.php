@@ -13,7 +13,7 @@
 			<th>
 				<input type="checkbox" class="i-checks js-select-all">
 			</th>
-			<th class="sortable" data-field="title">Student ID</th>
+			<th class="sortable" data-field="sid">Student ID</th>
 			<th class="sortable" data-field="name">Name</th>
 			<th class="sortable" data-field="grade">Grade</th>
 			<th class="sortable text-center" data-field="created_at">Created</th>

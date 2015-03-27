@@ -24,7 +24,7 @@
 				<span class="size-h2">Classes Management</span>
 			</div>
 			<div class="col-md-6 text-right">
-                <a href="{{ url('/admin/s/classes/add') }}" class="btn btn-primary btn-lg"><i class="fa fa-plus"></i> Add Class</a>
+                <!--<a href="{{ url('/admin/s/classes/add') }}" class="btn btn-primary btn-lg"><i class="fa fa-plus"></i> Add Class</a>-->
 			</div>
 		</div>
 

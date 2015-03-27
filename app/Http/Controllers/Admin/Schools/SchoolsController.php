@@ -11,6 +11,7 @@ use App\Models\Classroom;
 use App\Models\Campaign;
 use App\Models\Role;
 use App\Models\Student;
+use App\Models\StudentAssoc;
 use App\Models\SchoolBoard;
 
 class SchoolsController extends AdminController {
@@ -166,6 +167,7 @@ class SchoolsController extends AdminController {
 
 		$data = [
 			'record'  => $record,
+			'grades'  => Classroom::$grades,
 			'section' => 'addstudent',
 		];
 
@@ -262,6 +264,32 @@ class SchoolsController extends AdminController {
 
 		return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url($this->base_url.'/info-classes/'.$id) ]);
 
+	}
+
+	public function postAddStudent(Request $request, $id)
+	{
+		$this->validate($request, [
+			'sid'				  => 'required|unique:students,sid',
+			'first_name'          => 'required',
+			'last_name'           => 'required',
+			'date_birth'          => 'date',
+			'grade'               => 'required',
+		]);
+
+		$record = new Student;
+
+		$input = $request->input();
+
+		$input['school_id'] = $id;
+
+		$record->fill($input)->save();
+
+		StudentAssoc::create([
+			'student_id' => $record->id,
+			'school_id'  => $id,
+		]);
+
+		return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url($this->base_url.'/info-students/'.$id)]);
 	}
 
 	public function postAddUser(Request $request, $id)

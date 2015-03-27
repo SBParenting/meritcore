@@ -70,7 +70,7 @@ return [
 		"string"  => "The :attribute must be :size characters.",
 		"array"   => "The :attribute must contain :size items.",
 	],
-	"unique"               => "This email address is already in use by a different user.",
+	"unique"               => "This :attribute is already in use by a different user.",
 	"url"                  => "The :attribute format is invalid.",
 	"timezone"             => "The :attribute must be a valid zone.",
 

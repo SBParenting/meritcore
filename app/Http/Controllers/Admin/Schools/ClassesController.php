@@ -81,7 +81,11 @@ class ClassesController extends AdminController {
 
 	public function getAdd()
 	{
-		return \View::make("admin.$this->view_path.form");
+		$data = [
+			'grades' => Record::$grades,
+		];
+
+		return \View::make("admin.$this->view_path.form", $data);
 	}
 
 	public function getUpdate($id)
