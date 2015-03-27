@@ -36,8 +36,8 @@
       <file leaf-file-name="survey.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/front/css/survey.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81333333" vertical-offset="28980" max-vertical-offset="30120">
-              <caret line="1993" column="11" selection-start-line="1993" selection-start-column="11" selection-end-line="1993" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.8666667" vertical-offset="28980" max-vertical-offset="30120">
+              <caret line="1997" column="2" selection-start-line="1997" selection-start-column="2" selection-end-line="1997" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -1304,12 +1304,12 @@
       <workItem from="1425057037412" duration="60467000" />
       <workItem from="1425500561977" duration="966000" />
       <workItem from="1425504940380" duration="211774000" />
-      <workItem from="1427225699767" duration="29829000" />
+      <workItem from="1427225699767" duration="30432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="495458000" />
+    <option name="totallyTimeSpent" value="496061000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1200" extended-state="0" />
@@ -1779,8 +1779,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/front/css/survey.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81333333" vertical-offset="28980" max-vertical-offset="30120">
-          <caret line="1993" column="11" selection-start-line="1993" selection-start-column="11" selection-end-line="1993" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.8666667" vertical-offset="28980" max-vertical-offset="30120">
+          <caret line="1997" column="2" selection-start-line="1997" selection-start-column="2" selection-end-line="1997" selection-end-column="2" />
           <folding />
         </state>
       </provider>
