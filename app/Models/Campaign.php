@@ -11,6 +11,10 @@ class Campaign extends \App\Models\Model {
 
 	protected $fillable = ['school_id', 'class_id', 'title', 'survey_id', 'count_total', 'count_started', 'count_completed', 'started_progress', 'completed_progress', 'status'];
 
+	public static $sortable = ['title', 'status', 'start_date', 'end_date', 'count_total', 'count_start', 'count_completed'];
+
+	public static $defaultSort = ['name', 'asc'];
+
 	public function survey()
 	{
 		return $this->belongsTo('App\Models\Survey');
@@ -35,6 +39,26 @@ class Campaign extends \App\Models\Model {
 	{
 		return $this->hasMany('App\Models\CampaignStat', 'campaign_id');
 	}
+
+	public static function getListable($var=false)
+    {
+        $query   = static::initListable($var);
+       
+        $filters = static::initStatic($var);
+
+        $sort = self::getSort();
+
+        if (!empty($sort->sort) && in_array($sort->sort, self::$sortable))
+        {
+	        switch($sort->sort)
+	        {
+	            default:
+	                $query->orderBy($sort->sort, $sort->order);
+	        }
+        }
+
+        return $query;
+    }
 
 	public function updateRecord()
 	{
@@ -85,9 +109,19 @@ class Campaign extends \App\Models\Model {
 
 				$total = $strong_count + $vulnerable_count;
 
-				$strong_percentage = $strong_count / $total * 100;
+				if ($total > 0)
+				{
 
-				$vulnerable_percentage = $vulnerable_count / $total * 100;
+					$strong_percentage = $strong_count / $total * 100;
+
+					$vulnerable_percentage = $vulnerable_count / $total * 100;
+				}
+				else
+				{
+					$strong_percentage = 0;
+
+					$vulnerable_percentage = 0;	
+				}
 
 				CampaignStat::create([
 					'campaign_id'           => $this->id,

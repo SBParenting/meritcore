@@ -28,6 +28,10 @@
                 </a>
                 <ul class="dropdown-menu with-arrow pull-right">
                     <li>
+                        <a href="{{ url('m/schools') }}"><i class="fa fa-cog"></i>Management</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
                         <a href="{{ url('lock') }}" class="js-post-lock"><i class="fa fa-lock"></i>Lock</a>
                     </li>
                     <li>

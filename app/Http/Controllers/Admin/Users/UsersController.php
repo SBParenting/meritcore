@@ -19,14 +19,14 @@ class UsersController extends AdminController {
 	{
 		$this->access('system:manage_users');
 
-		\View::share(['nav_level1' => 'users', 'nav_level2' => 'users.list']);
+		\View::share(['nav_level1' => 'users.list', 'nav_level2' => 'users.list']);
 	}
 
 	public function getIndex()
 	{
+		$this->sorting( Record::$defaultSort );
+		
 		$list = Record::getListable()->paginate(20);
-
-		$this->sorting( Record::$sorting );
 
 		return \View::make("admin.$this->view_path.list")->with('records', $list);
 	}

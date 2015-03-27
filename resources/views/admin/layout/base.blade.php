@@ -89,6 +89,13 @@
 
     </section>
 
+    <script>
+        var request = "{{ Request::url() }}";
+        @if (isset($state))
+            var state = {!! json_encode($state) !!};
+        @endif
+    </script>
+
 
     <!-- Library scripts -->
     {!! HTML::script("public/admin/libs/jquery/jquery-1.10.2.js") !!}

@@ -34,9 +34,9 @@ body {
 .legend 	 						{ border-spacing: 10px; }
 .legend td 							{ text-align: center; padding: 10px 5px; }
 .legend .heading 					{ width: 22%; color: #fff; }
-.legend .heading.green  			{ background: #82b54e; border: 5px solid #82b54e; }
-.legend .heading.red  				{ background: #b1483a; border: 5px solid #b1483a; }
+.legend .heading.green  			{ background: #1ab394; border: 5px solid #1ab394; }
+.legend .heading.red  				{ background: #dcdcdc; border: 5px solid #dcdcdc; color: #333; }
 .legend .description 				{ font-size: 6pt; }
 .legend .description:first-child 	{ margin-right: 2%; }
-.legend .description.green 			{ border: 5px solid #5d9b21; }
-.legend .description.red 			{ border: 5px solid #b1483a; }
+.legend .description.green 			{ border: 5px solid #1ab394; }
+.legend .description.red 			{ border: 5px solid #dcdcdc; }

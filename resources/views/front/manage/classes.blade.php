@@ -34,7 +34,7 @@
 
 					</div>
 
-					@include('front.manage.sections.classroom_filters')
+					<!-- @include('front.manage.sections.classroom_filters') -->
 
 					<?php $count = 0; ?>
 

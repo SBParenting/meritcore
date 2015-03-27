@@ -7,30 +7,69 @@ return array(
 	'navigation' => [
 
 		[
-			'id'    => 'dashboard',
-			'title' => 'Dashboard',
-			'url'   => 'admin/dashboard',
-			'icon'  => 'fa-th-large',
-			'color' => 'red',
+			'id'     => 'dashboard',
+			'title'  => 'Dashboard',
+			'url'    => 'admin/dashboard',
+			'icon'   => 'fa-th-large',
+			'color'  => 'red',
+			'access' => '*',
 		],
 
 		[
-			'id'       => 'users',
-			'title'    => 'Users',
-			'url'      => 'admin/users',
-			'icon'     => 'fa-user',
+			'id'     => 'schools.boards',
+			'title'  => 'Schools Boards',
+			'url'    => 'admin/s/boards',
+			'icon'   => 'fa-sitemap',
+			'access' => '*',
+		],
+
+		[
+			'id'     => 'schools.schools',
+			'title'  => 'Schools',
+			'url'    => 'admin/s/schools',
+			'icon'   => 'fa-building',
+			'access' => '*',
+		],
+		
+		[
+			'id'     => 'schools.classes',
+			'title'  => 'Classes',
+			'url'    => 'admin/s/classes',
+			'icon'   => 'fa-child',
+			'access' => '*',
+		],
+
+		[
+			'id'     => 'users.list',
+			'title'  => 'Manage Users',
+			'url'    => 'admin/users',
+			'icon'   => 'fa-user',
+			'access' => 'admin:manage_users',
+		],
+
+		[
+			'id'     => 'schools.surveys',
+			'title'  => 'Surveys & Reports',
+			'url'    => 'admin/s/surveys',
+			'icon'   => 'fa-bar-chart',
+			'access' => '*',
+		],
+
+
+		[
+			'id'     => 'users',
+			'title'  => 'Administrative Tasks',
+			'url'    => 'admin/users',
+			'icon'   => 'fa-lock',
+			'access' => '*',
 
 			'children' => [
-				[
-					'id'    => 'users.list',
-					'title' => 'Mangage Users',
-					'url'   => 'admin/users',
-				],
 
 				[
-					'id'    => 'users.roles',
-					'title' => 'Roles & Permissions',
-					'url'   => 'admin/users/roles',
+					'id'     => 'users.roles',
+					'title'  => 'Roles & Permissions',
+					'url'    => 'admin/users/roles',
+					'access' => 'admin:manage_roles',
 				],
 			],
 		],

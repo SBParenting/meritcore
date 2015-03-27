@@ -23,24 +23,20 @@ class Model extends Eloquent {
     	return array_only($input, $this->fields());
     }
 
-    protected static function getSort($sort, $order)
+     public static function getSearch()
     {
-        if (\Input::has('sort') && \Input::has('order'))
-        {
-            self::$sorting = (object)[
-                'sort'  => \Input::get('sort'),
-                'order' => \Input::get('order'),
-            ];
-        }
-        else 
-        {           
-            self::$sorting = (object)[
-                'sort'  => $sort,
-                'order' => $order,
-            ];
-        }
+        return \State::get('search');
+    }
 
-        return self::$sorting;
+    public static function getSort($sort=false)
+    {
+        if ($sort===false)
+        {
+            return (object)['sort' => \State::get('sort'), 'order' => \State::get('order')];
+        }
+        else {
+            return (object)['sort' => $sort[0], 'order' => $sort[1]];
+        }
     }
 
     public static function initListable($var=false)

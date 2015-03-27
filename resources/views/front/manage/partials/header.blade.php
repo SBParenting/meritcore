@@ -7,16 +7,12 @@
                 {{ \Auth::user()->getName("F L") }} <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu with-arrow pull-right">
-            	<!--
-                <li class="info">
-            		<em>School Info</em>
-            	</li>
-            	<li class="info">
-            		<b>St. Francis Xavier CHS</b><br />
-            		Teacher
-            	</li>
-            	<li class="divider"></li>
-                -->
+                @if (\Auth::user()->hasRole('admin'))
+                	<li>
+                        <a href="{{ url('/admin/dashboard') }}"><i class="fa fa-lock"></i> Administration</a>
+                    </li>
+                	<li class="divider"></li>
+                @endif
                 <li>
                     <a href="{{ url('/logout') }}"><i class="fa fa-sign-out"></i> Log Out</a>
                 </li>

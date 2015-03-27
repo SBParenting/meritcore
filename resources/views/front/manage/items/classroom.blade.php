@@ -1,12 +1,9 @@
 <div class="col-md-4 class-panel closable-panel open">
 
 	<div class="panel-group class-panel">
-		<div class="panel panel-default">
+		<div class="panel panel-primary">
 			<div class="panel-heading">
-				Class <i class="fa fa-caret-right"></i>
-				<strong>
-					{{ $class->title }}
-				</strong>
+				<i class="fa fa-bars"></i> {{ $class->title }}
 			</div>
 			<div class="panel-body">
 				<ul class="list-unstyled list-info">

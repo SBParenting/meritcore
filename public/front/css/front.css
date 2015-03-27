@@ -18,7 +18,9 @@
 
 .class-panel .panel					{  }
 .class-panel .progress-field 		{ height: 50px; }
-.class-panel .panel-heading > i	 	{ margin: 0 5px; color: #bbb; }
+.class-panel .panel-heading > i	 	{ margin: 0 5px; }
+
+.panel-primary > .panel-heading { color: #fff; background-color: #4babc2; border-color: #0b7f9b; }
 
 .signin-header .header-link 		{ float: right; color: #003196; font-size: 16px; text-shadow: 1px 1px 7px #fff; margin-left: 15px; margin-top: 20px; line-height: 36px; font-family: 'latolight', sans-serif;  }
 .signin-header .header-link:hover 	{ text-decoration: none; }
@@ -37,6 +39,7 @@
 .page-manage .logo img				{ width: 150px; margin: 8px 0; }
 .page-manage h1 a					{ color: #777; }
 .page-manage h1 a:hover 			{ color: #222; }
+.page-manage hr 					{ border-color: #dae6e9; }
 
 .top-nav	 						{ list-style: none; margin: 0 0 20px 0; padding: 0; border-bottom: 1px solid #e4e4e4; overflow: hidden; }
 .top-nav li 						{ float: left;  text-align: center; color: #444; }
@@ -75,3 +78,4 @@ h3.divider							{ margin: 20px 20px 10px 20px; }
 .dropdown-lg .dropdown-menu 		{ width: 100%; }
 .dropdown-lg i 						{ color: #ccc; }
 .dropdown-lg i:first-child 			{ margin-right: 10px; }
+

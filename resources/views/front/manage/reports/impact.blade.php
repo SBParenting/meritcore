@@ -25,6 +25,12 @@
 			<td><b>School Name:</b></td>
 			<td>{{ $school->name }}</td>
 		</tr>
+		@if ($survey->classroom)
+			<tr>
+				<td><b>Classroom:</b></td>
+				<td>{{ $survey->classroom->title }}</td>
+			</tr>
+		@endif
 		<tr>
 			<td><b>Date of Report:</b></td>
 			<td>{{ date("F j, Y") }}</td>
@@ -71,17 +77,17 @@ Character Trait Questionnaire results and graphs.</p>
 
 	<br /><br />
 
-	<img src="{{ url('/public/front/img/report/charts/'.$chart) }}" class="width-100" />	
+	<img src="{{ url('/public/front/img/report/charts/'.$chart) }}?t={{time()}}" class="width-100" />	
 
 	<table class="legend">
 		<tr>
 			<td class="heading green">Optimal Strength<br />51 - 100</td>
 			<td class="description green">
-				Scores of 76 or greater suggest that your child understands the strength and is able to actively draw upon it in multiple situations and settings.
+				Scores of 51% or greater suggest that your child understands the strength and is able to actively draw upon it in multiple situations and settings.
 			</td>
 			<td class="heading red">Potential Strength<br />0 - 50</td>
 			<td class="description red">
-				Scores of 25 or lower suggest tgat this is an area that needs purposeful, strategic exploration and is an opportunity to build this strength within your child.
+				Scores of 50% or lower suggest that this is an area that needs purposeful, strategic exploration and is an opportunity to build this strength within your child.
 			</td>
 		</tr>
 	</table>

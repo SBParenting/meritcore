@@ -38,9 +38,9 @@ class ManageController extends Controller {
 
 		$school_board = $this->user->school_board->first();
 
-		$schools = $this->user->schools;
+		$schools = $school_board->schools;
 
-		$school_ids = array_fetch($schools->toArray(), 'id');
+		//$school_ids = array_fetch($schools->toArray(), 'id');
 
 		$data = [
 			'page'         => 'schools',
@@ -99,20 +99,20 @@ class ManageController extends Controller {
 
 			$surveys = $class->surveys;
 
-			$active_survey = Campaign::with('survey', 'students', 'students.student')->where('class_id', '=', $id)->where('status', '=', 'Active')->first();
+			$active_surveys = Campaign::with('survey', 'students', 'students.student')->where('class_id', '=', $id)->where('status', '=', 'Active')->get();
 
 			$surveys = Campaign::with('survey', 'stats', 'stats.grouping')->where('class_id', '=', $id)->where('status', '=', 'Completed')->orderBy('created_at', 'desc')->get();
 
 			$data = [
-				'page'          => 'classes',
-				'school'        => $school,
-				'class'         => $class,
-				'students'      => $students,
-				'grades'        => Classroom::$grades,
-				'teachers'      => $school->getTeachers(),
-				'surveys'       => $surveys,
-				'active_survey' => $active_survey,
-				'survey_types'  => Survey::all(),
+				'page'           => 'classes',
+				'school'         => $school,
+				'class'          => $class,
+				'students'       => $students,
+				'grades'         => Classroom::$grades,
+				'teachers'       => $school->getTeachers(),
+				'surveys'        => $surveys,
+				'active_surveys' => $active_surveys,
+				'survey_types'   => Survey::all(),
 			];
 
 			return \View::make('front.manage.class', $data);

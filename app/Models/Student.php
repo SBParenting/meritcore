@@ -8,6 +8,8 @@ class Student extends \App\Models\Model {
 
 	public static $importable = ['student_id', 'first_name', 'last_name', 'date_birth', 'school', 'grade', 'classroom', 'email', 'street', 'city', 'province', 'country', 'postal_code'];
 
+	public static $sortable = ['sid', 'name', 'first_name', 'last_name', 'date_birth', 'school_id', 'school', 'grade', 'classroom', 'email', 'address_street', 'address_city', 'address_province', 'address_country', 'address_postal_code', 'created_by'];
+
 	protected $related = [];
 
 	protected $relation_key = 'student_id';
@@ -58,5 +60,28 @@ class Student extends \App\Models\Model {
     	$student->save();
 
     	return $student;
+    }
+
+    public static function getListable($var=false)
+    {
+        $query   = static::initListable($var);
+       
+        $filters = static::initStatic($var);
+
+        $sort = self::getSort();
+
+        if (!empty($sort->sort) && in_array($sort->sort, self::$sortable))
+        {
+	        switch($sort->sort)
+	        {
+	        	case 'name':
+	        		$query->orderBy('first_name', $sort->order)->orderBy('last_name', $sort->order); break;
+
+	            default:
+	                $query->orderBy($sort->sort, $sort->order);
+	        }
+	    }
+
+        return $query;
     }
 }

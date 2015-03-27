@@ -74,7 +74,7 @@ class SurveyController extends Controller {
 
 	public function getReport($id)
 	{
-		$survey = Campaign::with('stats', 'stats.grouping')->find($id);
+		$survey = Campaign::with('classroom', 'stats', 'stats.grouping')->find($id);
 
 		$data = [];
 
@@ -88,54 +88,45 @@ class SurveyController extends Controller {
 			];
 		}
 
-		$filename = 'report-'.$survey->id.'.png';
+		if (!\Input::has('chart'))
+		{
+			$gdata = [];
 
-	    $gdata = [];
+			$categories = [];
+			$strong = [];
+			$vulnerable = [];
 
-	    foreach ($survey->stats as $stat)
-	    {
-	    	$gdata[] = [$stat->grouping->title, $stat->strong_count, $stat->vulnerable_count];
-	    }
+		    foreach ($survey->stats as $stat)
+		    {
+				$strong[]     = (int)$stat->strong_count;
+				$vulnerable[] = (int)$stat->vulnerable_count;
+				$categories[] = $stat->grouping->title;
+		    }
 
-		$plot = new \PHPlot(600, 380, $filename);
+		    $data['gdata'] = [
+		    	['label' => 'Strong', 	  'data' => $strong, 	 'fillColor' => "rgba(26,179,148,0.5)",  'strokeColor' => "rgba(26,179,148,0.7)", 'pointColor' => "rgba(26,179,148,1)", 	'pointStrokeColor' => "#fff", 'pointHighlightFill' => "#fff", 'pointHighlightStroke' => "rgba(26,179,148,1)",],
+		    	['label' => 'Vulnerable', 'data' => $vulnerable, 'fillColor' => "rgba(220,220,220,0.8)", 'strokeColor' => "rgba(220,220,220,1)",  'pointColor' => "rgba(220,220,220,1)", 	'pointStrokeColor' => "#fff", 'pointHighlightFill' => "#fff", 'pointHighlightStroke' => "rgba(220,220,220,1)",],
+		    ];
 
+		    $data['categories'] = $categories;
 
-		$plot->SetImageBorderType('plain');
+			return \View::make('front.manage.reports.chart', $data)->render();
+		}
+		else
+		{
+			$chart = \Input::get('chart');
 
-		$plot->SetTTFPath('/usr/share/fonts/truetype/droid/');
-		$plot->SetFontTTF('x_label', 'DroidSans.ttf', 8);
-
-		$plot->SetPlotType('stackedbars');
-		$plot->SetDataType('text-data');
-		$plot->SetDataValues($gdata);
-
-		//$plot->SetTitle('Candy Sales by Month and Product');
-		//$plot->SetYTitle('Millions of Units');
-
-		# No shading:
-		//$plot->SetShading(0);
-
-		$plot->SetXDataLabelAngle(-70);
-
-		$plot->SetXTickLabelPos('none');
-		$plot->SetXTickPos('none');
-
-		$plot->SetDataColors([[177, 72, 58],[130, 181, 78],]);
-
-		$plot->SetImageBorderType('none');
-
-		$plot->SetYDataLabelPos('plotstack');
-		$plot->SetXDataLabelPos('plotdown');
-		$plot->SetIsInline(true);
-		$plot->SetOutputFile( app_path() . '/../public/front/img/report/charts/' . $filename );
-		$plot->DrawGraph();
-
-	    $data['chart'] = $filename;
-
-		//return \View::make('front.manage.reports.impact', $data)->render();
+			$filename = 'report-chart-'.$survey->id.'.png';
+			$image = \Image::make($chart);
+			$image->save(app_path() . '/../public/front/img/report/charts/' . $filename);
 		
-		$pdf = \PDF::loadView('front.manage.reports.impact', $data);
-		
-		return $pdf->stream();
+		    $data['chart'] = $filename;
+
+			//return \View::make('front.manage.reports.impact', $data)->render();
+			
+			$pdf = \PDF::loadView('front.manage.reports.impact', $data);
+			
+			return $pdf->stream();
+		}
 	}
 }

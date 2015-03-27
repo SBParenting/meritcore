@@ -6,14 +6,28 @@ class School extends \App\Models\Model {
 
 	protected $fillable = ['name', 'email', 'address_city', 'address_province', 'address_country', 'address_postal_code', 'school_board_id'];
 
+	public static $sortable = ['schoolboard', 'name', 'email', 'address_city', 'classes_count', 'students_count', 'surveys_total_count', 'surveys_active_count'];
+
+	public static $defaultSort = ['sort' => 'name', 'order' => 'asc'];
+
 	public function board()
 	{
-		return $this->belongsTo('App\Models\SchoolBoard');
+		return $this->belongsTo('App\Models\SchoolBoard', 'school_board_id');
+	}
+
+	public function classes()
+	{
+		return $this->hasMany('App\Models\Classroom');
 	}
 
 	public function students()
 	{
 		return $this->belongsToMany('App\Models\Student', 'student_associations', 'student_id', 'school_id');
+	}
+
+	public function surveys()
+	{
+		return $this->hasMany('App\Models\Campaign');
 	}
 
 	public function users()
@@ -43,4 +57,64 @@ class School extends \App\Models\Model {
 
 		return $this;
 	}
+
+	public function getAddress()
+	{
+		$address = [];
+
+		if (trim($this->address_street) != "") 
+		{
+			$address[] = $this->address_street;
+		}
+
+		if (trim($this->address_city) != "") 
+		{
+			$address[] = $this->address_city;
+		}
+
+		if (trim($this->address_province) != "") 
+		{
+			$address[] = $this->address_province;
+		}
+
+		if (trim($this->address_country) != "") 
+		{
+			$address[] = $this->address_country;
+		}
+
+		if (trim($this->address_postal_code) != "") 
+		{
+			$address[] = $this->address_postal_code;
+		}
+
+		return implode(', ', $address);
+	}
+
+	public static function getListable($var=false)
+    {
+        $query   = static::initListable($var);
+
+        $query->leftJoin('school_boards', 'school_boards.id', '=', 'schools.school_board_id');
+
+        $query->select('schools.*', 'school_boards.name as school_board');
+       
+        $filters = static::initStatic($var);
+
+        $sort = self::getSort();
+
+        if (!empty($sort->sort) && in_array($sort->sort, self::$sortable))
+        {
+	        switch($sort->sort)
+	        {
+	        	case 'schoolboard':
+	        		$query->orderBy('school_boards.name', $sort->order); break;
+
+	            default:
+	                $query->orderBy($sort->sort, $sort->order);
+
+	        }
+        }
+
+        return $query;
+    }
 }

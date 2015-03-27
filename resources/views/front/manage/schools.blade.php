@@ -16,7 +16,7 @@
 
 				<div class="col-md-12">
 
-					<a href="#" id="btnImportStudents" class="btn btn-info btn-lg pull-right show-panel inline" data-target="#import" data-hide="#btnCreateSchool"><i class="fa fa-upload"></i> Import Students</a>
+					<a href="#" id="btnImportStudents" class="btn btn-default btn-lg pull-right show-panel inline" data-target="#import" data-hide="#btnCreateSchool"><i class="fa fa-upload"></i> Import Students</a>
 
 					<a href="#" id="btnCreateSchool" class="btn btn-default btn-lg pull-right show-panel" data-target="#addSchool" data-hide="#btnImportStudents"><i class="fa fa-plus"></i> Create School</a>
 
@@ -33,7 +33,7 @@
 				@include('front.manage.sections.school_filters')
 
 				<div id="schools" class="col-md-12 closable-panel open">
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 						<div class="panel-heading"><strong><span class="glyphicon glyphicon-th"></span> Schools</strong></div>
 						<div class="panel-body">
 							<table class="table table-striped">
@@ -128,7 +128,7 @@
 				<div id="addSchool" class="col-md-12 closable-panel closed">
 
 					<div class="panel-group class-panel">
-						<div class="panel panel-default">
+						<div class="panel panel-primary">
 							<div class="panel-heading">
 								Create School
 							</div>
@@ -214,7 +214,7 @@
 					<div id="updateSchool{{$school->id}}" class="col-md-12 closable-panel closed">
 
 						<div class="panel-group class-panel">
-							<div class="panel panel-default">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									Update School
 								</div>

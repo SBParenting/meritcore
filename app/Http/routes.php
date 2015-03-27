@@ -37,7 +37,7 @@ Route::group(['prefix' => 'm', 'middleware' => 'auth'], function() {
 	Route::get('/students/{id?}', 'Manage\ManageController@getStudents');
 	Route::post('/students/{id}/class/{class_id}', 'Manage\StudentsController@postAddToClass');
 	Route::get('/surveys/{id?}', 'Manage\ManageController@getSurveys');
-	Route::get('/surveys/{id}/report', 'Manage\SurveyController@getReport');
+	Route::any('/surveys/{id}/report', 'Manage\SurveyController@getReport');
 	Route::get('/surveys/{id}/chart.png', 'Manage\SurveyController@getChart');
 	Route::post('/import', 'Manage\StudentsController@postImport');
 	Route::post('/import/process', 'Manage\StudentsController@postImportProcess');
@@ -50,6 +50,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::get('users/roles/{id?}', 'Admin\Users\RolesController@getIndex');
 	Route::post('users/roles/update/{id}', 'Admin\Users\RolesController@postUpdate');
 	Route::controller('users', 'Admin\Users\UsersController');
+
+	Route::group(['prefix' => 's'], function() {
+		Route::controller('boards', 'Admin\Schools\BoardsController');
+		Route::controller('schools', 'Admin\Schools\SchoolsController');
+		Route::controller('classes', 'Admin\Schools\ClassesController');
+		Route::controller('surveys', 'Admin\Schools\SurveysController');
+	});
 });
 
 Route::get('{key}', 'Front\SurveyController@getIndex');

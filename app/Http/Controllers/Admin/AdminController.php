@@ -16,9 +16,14 @@ class AdminController extends Controller {
 		\View::share(['locked' => false]);
 	}
 
-	protected function sorting($sorting)
+	protected function sorting($sorting, $base_url=false)
 	{
-		\View::share(['sorting' => $sorting]);
+		if ($base_url === false)
+		{
+			$base_url = $this->base_url;
+		}
+
+		\State::page($base_url)->set($sorting)->view();
 	}
 
 }

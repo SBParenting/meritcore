@@ -20,6 +20,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
 	protected $fillable = ['first_name', 'last_name', 'username', 'email', 'password', 'role_id', 'status', 'coupon_code', 'verification_code', 'locked', 'updatable', 'deletable'];
 
+    public static $sortable = ['first_name', 'last_name', 'username', 'email', 'password'];
+
+    public static $defaultSort = ['sort' => 'name', 'order' => 'asc'];
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
@@ -80,17 +84,26 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return "http://www.gravatar.com/avatar/". md5( strtolower( trim( $email ) ) ) . "?s=" . $size;
     }
 
-    public static function getListable()
+    public static function getListable($var=false)
     {
-        $query = self::select('users.*', 'roles.name as role')->leftJoin('roles', 'users.role_id', '=', 'roles.id');
+        $query = static::initListable($var);
 
-        switch($sort = self::getSort('name', 'asc'))
+        $query->select('users.*', 'roles.name as role', 'roles.display_name as role_name')->leftJoin('roles', 'users.role_id', '=', 'roles.id');
+        
+        $filters = static::initStatic($var);
+
+        $sort = self::getSort();
+
+        if (!empty($sort->sort) && in_array($sort->sort, self::$sortable))
         {
-            case 'name':
-                $query->orderBy('last_name', $sort->order)->orderBy('first_name', $sort->order);
+            switch($sort->sort)
+            {
+                case 'name':
+                    $query->orderBy('last_name', $sort->order)->orderBy('first_name', $sort->order);
 
-            default:
-                $query->orderBy($sort->sort, $sort->order);
+                default:
+                    $query->orderBy($sort->sort, $sort->order);
+            }
         }
 
         return $query;

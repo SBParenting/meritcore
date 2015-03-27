@@ -9,7 +9,11 @@ class Classroom extends \App\Models\Model {
 
 	protected $fillable = ['title', 'teacher_id', 'grade', 'school_id'];
 
+	protected static $sortable = ['title', 'teacher', 'grade', 'school', 'students_count', 'surveys_total_count', 'surveys_active_count'];
+
 	public static $grades = ['EC' => 'Grade EC', '1' => 'Grade 1','2' => 'Grade 2','3' => 'Grade 3','4' => 'Grade 4','5' => 'Grade 5','6' => 'Grade 6','7' => 'Grade 7','8' => 'Grade 8','9' => 'Grade 9','10' => 'Grade 10','11' => 'Grade 11','12' => 'Grade 12',];
+
+	public static $defaultSort = ['sort' => 'school', 'order' => 'asc'];
 
 	public function teacher()
 	{
@@ -51,9 +55,47 @@ class Classroom extends \App\Models\Model {
 
 	public function updateRecord()
 	{
-		$this->count_students = StudentAssoc::where('class_id', '=', $this->id)->count();
+		$this->students_count = Student::where('classroom_id', '=', $this->id)->count();
+		$this->surveys_total_count = Campaign::where('class_id', '=', $this->id)->count();
+		$this->surveys_active_count = Campaign::where('status', '=', 'Active')->where('class_id', '=', $this->id)->count();
 
 		return $this;
 	}
+
+	public static function getListable($var=false)
+    {
+        $query   = static::initListable($var);
+
+        $query->leftJoin('schools', 'schools.id', '=', 'school_classes.school_id');
+
+        $query->leftJoin('users', 'users.id', '=', 'school_classes.teacher_id');
+
+        $query->select('school_classes.*', 'schools.name as school_name', \DB::raw("CONCAT(users.first_name, ' ', users.last_name) as teacher_name"));
+        
+        $filters = static::initStatic($var);
+
+        $sort = self::getSort();
+
+        if (!empty($sort->sort) && in_array($sort->sort, self::$sortable))
+        {
+	        switch($sort->sort)
+	        {
+	        	case 'school':
+	        		$query->orderBy('schools.name', $sort->order);
+	        		$query->orderBy('title', $sort->order);
+	        		break;
+
+	        	case 'teacher':
+	        		$query->orderBy('teacher_name', $sort->order);
+	        		$query->orderBy('title', $sort->order);
+	        		break;
+
+	            default:
+	                $query->orderBy($sort->sort, $sort->order);
+	        }
+	    }
+
+        return $query;
+    }
 
 }

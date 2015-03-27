@@ -157,6 +157,7 @@ return [
 		'App\Providers\RouteServiceProvider',
 
 		'App\Libraries\FormBuilder\FormBuilderServiceProvider',
+		'App\Libraries\State\StateServiceProvider',
 	],
 
 	/*
@@ -205,6 +206,7 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form'      => 'App\Libraries\FormBuilder\FormBuilderFacade',
+		'State'     => 'App\Libraries\State\StateFacade',
 		'HTML'      => 'Illuminate\Html\HtmlFacade',
 		'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
 		'Debug'     => 'Barryvdh\Debugbar\Facade',

@@ -99,15 +99,7 @@
 					</tbody>
 				</table>
 
-			</div>
-
-			<div class="row">
-
-				<div class="col-lg-12 text-right">
-
-					{!! $records->render() !!}
-
-				</div>
+				{!! $records->render() !!}
 
 			</div>
 

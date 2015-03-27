@@ -32,7 +32,7 @@
 
 					<br />
 
-					<a href="{{ url('/m/classes') }}" class="btn btn-default pull-right"><i class="fa fa-arrow-left"></i> Back to Classes</a>
+					<a href="{{ url('/m/classes') }}" class="btn btn-default pull-right closable-panel open"><i class="fa fa-arrow-left"></i> Back to Classes</a>
 
 				</div>
 
@@ -44,7 +44,7 @@
 				<div class="col-md-4">
 
 					<div id="studentInfoPanel" class="panel-group class-panel closable-panel open">
-						<div class="panel panel-default">
+						<div class="panel panel-primary">
 							<div class="panel-heading">
 								<i class="fa fa-th-large"></i>STUDENTS
 							</div>
@@ -54,7 +54,7 @@
 									<span class="num">{{ count($students) }}</span> {{ str_plural('Student', count($students)) }}
 								</div>
 
-								<a href="#" id="btnManageStudents" class="btn btn-block btn-line-info show-panel" data-target="#students" data-show="#studentInfoPanel">Manage Students</a>
+								<a href="#" id="btnManageStudents" class="btn btn-block btn-line-default show-panel" data-target="#students" data-show="#studentInfoPanel">Manage Students</a>
 								<br />
 							</div>
 
@@ -64,21 +64,21 @@
 
 					<div id="surveyInfoPanel" class="panel-group class-panel closable-panel closed">
 
-						<div class="panel panel-default">
+						<div class="panel panel-primary">
 
 							<div class="panel-heading">
 								<i class="fa fa-th-large"></i>SURVEYS
 							</div>
 							<div class="panel-body">
 
-								<a href="#" id="btnManageSurveys" class="btn btn-block btn-line-info active hide-panel"><i class="fa fa-arrow-left"></i> Go Back</a>
+								<a href="#" id="btnManageSurveys" class="btn btn-block btn-line-default active hide-panel"><i class="fa fa-arrow-left"></i> Go Back</a>
 							</div>
 						</div>
 					</div>
 
 					<div id="classInfoPanel" class="panel-group class-panel closable-panel open">
 
-						<div class="panel panel-default">
+						<div class="panel panel-primary">
 
 							<div class="panel-heading">
 								<i class="fa fa-th-large"></i>Class Information
@@ -108,23 +108,23 @@
 									</li>
 								</ul>
 
-								<a href="{{ url('m/classes/'.$class->id) }}" id="btnUpdateClassInfo" class="btn btn-block btn-line-info show-panel" data-target="#class" data-show="#classInfoPanel">Update Class Information</a>
+								<a href="{{ url('m/classes/'.$class->id) }}" id="btnUpdateClassInfo" class="btn btn-block btn-line-default show-panel" data-target="#class" data-show="#classInfoPanel">Update Class Information</a>
 								<br />
 							</div>
 						</div>
 					</div>
 
-					@if ($active_survey)
+					@foreach ($active_surveys as $active_survey)
 						<div id="surveyInfoPanel{{$active_survey->id}}" class="panel-group class-panel closable-panel closed">
 
-							<div class="panel panel-default">
+							<div class="panel panel-primary">
 
 								<div class="panel-heading">
-									<i class="fa fa-th-large"></i>SURVEY
+									<i class="fa fa-th-large"></i> SURVEY
 								</div>
 								<div class="panel-body">
 
-									<a href="#" class="btn btn-block btn-line-info active hide-panel"><i class="fa fa-arrow-left"></i> Go Back</a>
+									<a href="#" class="btn btn-block btn-line-default active hide-panel"><i class="fa fa-arrow-left"></i> Go Back</a>
 
 									<hr />
 
@@ -166,20 +166,19 @@
 							</div>
 						</div>
 
-					@endif
+					@endforeach
 
 					@foreach ($surveys as $survey)
 
 						<div id="surveyInfoPanel{{$survey->id}}" class="panel-group class-panel closable-panel closed">
 
-							<div class="panel panel-default">
-
+							<div class="panel panel-primary">
 								<div class="panel-heading">
-									<i class="fa fa-th-large"></i>SURVEY
+									<i class="fa fa-th-large"></i> SURVEY
 								</div>
 								<div class="panel-body">
 
-									<a href="#" class="btn btn-block btn-line-info active hide-panel"><i class="fa fa-arrow-left"></i> Go Back</a>
+									<a href="#" class="btn btn-block btn-line-default active hide-panel"><i class="fa fa-arrow-left"></i> Go Back</a>
 
 									<hr />
 
@@ -224,12 +223,12 @@
 
 					<div id="surveys" class="closable-panel open">
 
-						@if (count($surveys) > 0 || $active_survey)
+						@if (count($surveys) > 0 || count($active_surveys) > 0)
 
-							@if ($active_survey)
+							@foreach ($active_surveys as $active_survey)
 
 								<div class="panel-group class-panel">
-									<div class="panel panel-default">
+									<div class="panel panel-primary">
 										<div class="panel-heading">
 											<h4>ACTIVE SURVEY</h4>
 										</div>
@@ -276,29 +275,17 @@
 									</div>
 								</div>
 
-								<hr />
+							@endforeach
 
-								<div class="panel-group class-panel">
-									<div class="panel panel-default">
-										<div class="panel-body">
-											<em>Note: You can only have one Active survey in a class. To start another survey, please mark the Active survey as Complete, by clicking 'View / Manage Survey'.</em>
-										</div>
+							<div class="panel-group class-panel">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<button class="btn btn-block btn-line-default giant show-panel" data-target="#addSurvey" data-show="#surveyInfoPanel"><i class="glyphicon glyphicon-plus"></i> Start New Survey</button>
 									</div>
 								</div>
+							</div>
 
-							@else
-
-								<div class="panel-group class-panel">
-									<div class="panel panel-default">
-										<div class="panel-heading">
-											<button class="btn btn-block btn-line-info giant show-panel" data-target="#addSurvey" data-show="#surveyInfoPanel"><i class="glyphicon glyphicon-plus"></i> Start New Survey</button>
-										</div>
-									</div>
-								</div>
-
-								<hr />
-
-							@endif
+							<hr />
 
 							@if (count($surveys) > 0)
 
@@ -309,7 +296,7 @@
 								@foreach ($surveys as $survey)
 
 									<div class="panel-group class-panel">
-										<div class="panel panel-default">
+										<div class="panel panel-primary">
 											<div class="panel-heading">
 												{{ $survey->status }} Survey
 											</div>
@@ -346,7 +333,7 @@
 							<div class="panel-group class-panel">
 								<div class="panel panel-default">
 									<div class="panel-heading">
-										<button class="btn btn-block btn-line-info giant show-panel" data-target="#addSurvey" data-show="#surveyInfoPanel"><i class="glyphicon glyphicon-plus"></i> Start New Survey</button>
+										<button class="btn btn-block btn-line-default giant show-panel" data-target="#addSurvey" data-show="#surveyInfoPanel"><i class="glyphicon glyphicon-plus"></i> Start New Survey</button>
 									</div>
 								</div>
 							</div>
@@ -362,7 +349,7 @@
 					<div id="students" class="closed closable-panel">
 
 						<div class="panel-group class-panel">
-							<div class="panel panel-default">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									Students
 								</div>
@@ -405,7 +392,7 @@
 
 					<div id="class" class="closed closable-panel">
 						<div class="panel-group class-panel">
-							<div class="panel panel-default">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									Class Information
 								</div>
@@ -491,7 +478,7 @@
 
 					<div id="addStudent" class="closed closable-panel">
 						<div class="panel-group class-panel">
-							<div class="panel panel-default">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									Create Student
 								</div>
@@ -619,7 +606,7 @@
 
 						<div id="updateStudent{{$student->id}}" class="closed closable-panel">
 							<div class="panel-group class-panel">
-								<div class="panel panel-default">
+								<div class="panel panel-primary">
 									<div class="panel-heading">
 										Update Student
 									</div>
@@ -679,7 +666,7 @@
 
 					<div id="addSurvey" class="closed closable-panel">
 						<div class="panel-group class-panel">
-							<div class="panel panel-default">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									Add Survey
 								</div>
@@ -724,11 +711,11 @@
 						</div>
 					</div>
 
-					@if ($active_survey)
+					@foreach ($active_surveys as $active_survey)
 
 						<div id="manageSurvey{{$active_survey->id}}" class="closed closable-panel">
 							<div class="panel-group class-panel">
-								<div class="panel panel-default">
+								<div class="panel panel-primary">
 									<div class="panel-heading">
 										Manage Survey
 									</div>
@@ -784,13 +771,13 @@
 							</div>
 						</div>
 
-					@endif
+					@endforeach
 
 					@foreach ($surveys as $survey)
 
 						<div id="manageSurvey{{$survey->id}}" class="closed closable-panel">
 							<div class="panel-group class-panel">
-								<div class="panel panel-default">
+								<div class="panel panel-primary">
 									<div class="panel-heading">
 										Survey Results
 									</div>
