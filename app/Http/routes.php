@@ -46,6 +46,7 @@ Route::group(['prefix' => 'm', 'middleware' => 'auth'], function() {
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
+	Route::get('/', 'Admin\Dashboard\DashboardController@getIndex');
 	Route::controller('dashboard', 'Admin\Dashboard\DashboardController');
 	Route::get('users/roles/{id?}', 'Admin\Users\RolesController@getIndex');
 	Route::post('users/roles/update/{id}', 'Admin\Users\RolesController@postUpdate');
