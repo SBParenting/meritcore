@@ -76,7 +76,7 @@
 
                     <div class="container-fluid step-back-list-container">
                         <div class=" col-md-6 col-md-offset-3">
-                            <ul>
+                            <ol>
                                 <li>Take a few minutes to talk with your child about how strong he or she feels in this
                                     area and why.
                                 </li>
@@ -88,7 +88,7 @@
                                     strategies.
                                 </li>
 
-                            </ul>
+                            </ol>
                         </div>
                     </div>
 

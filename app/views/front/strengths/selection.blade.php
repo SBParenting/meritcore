@@ -95,7 +95,7 @@
                                         <p>{{$scores[2]->strength->strengthGroup->name}}</p>
 
                                     </div>
-                                    <div class=" col-md-5 journey-percent"><p class="text-center">?</p></div>
+                                    <div class=" col-md-5 journey-percent"><p class="text-center">BECOME A MEMBER FOR ALL SCORES</p></div>
                                     <button class="btn btn-lg btn-warning select-small pull-right">SELECT</button>
                                 </div>
                                 <div class=" col-md-2 pick-group pick-group-{{$scores[3]->strength->strengthGroup->id}}">
@@ -106,7 +106,7 @@
                                         <p>{{$scores[3]->strength->strengthGroup->name}}</p>
 
                                     </div>
-                                    <div class=" col-md-5 journey-percent"><p class="text-center">?</p></div>
+                                    <div class=" col-md-5 journey-percent"><p class="text-center">BECOME A MEMBER FOR ALL SCORES</p></div>
                                     <button class="btn btn-lg btn-warning select-small pull-right">SELECT</button>
                                 </div>
                                 <div class=" col-md-2 pick-group pick-group-{{$scores[4]->strength->strengthGroup->id}}">
@@ -117,7 +117,7 @@
                                         <p>{{$scores[4]->strength->strengthGroup->name}}</p>
 
                                     </div>
-                                    <div class=" col-md-5 journey-percent"><p class="text-center">?</p></div>
+                                    <div class=" col-md-5 journey-percent"><p class="text-center">BECOME A MEMBER FOR ALL SCORES</p></div>
                                     <button class="btn btn-lg btn-warning select-small pull-right">SELECT</button>
                                 </div>
                             </div>

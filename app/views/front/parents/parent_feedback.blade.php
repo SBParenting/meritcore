@@ -70,14 +70,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="container-fluid parent-light-green">
-                        <div class=" light-green-content  ">
-                            <p class="text-center">Use the slider to rate how strong<br> you believe your child
-                                currently is in</p>
+                    <div class="container-fluid parent-light-green table-display">
+                        <div class="light-green-content table-row">
+                            <div class="table-cell">
+                                <p class="text-center">Use the slider to rate how strong<br> you believe your child
+                                    currently is in</p>
 
-                            <h3 class=" text-center">{{$strengthScore->strength->name}}</h3>
-                            <img class=" answer-false" src="{{ url('public/front/img/not-strong.png')}}"/> <img
-                                    class=" answer-true" src="{{ url('public/front/img/very-strong.png')}}"/>
+                                <h3 class=" text-center">{{$strengthScore->strength->name}}</h3>
+                                <img class=" answer-false" src="{{ url('public/front/img/not-strong.png')}}"/> <img
+                                        class=" answer-true" src="{{ url('public/front/img/very-strong.png')}}"/>
+                            </div>
                         </div>
 
                     </div>
@@ -98,7 +100,7 @@
                     <div class="container-fluid alert-container">
 
                         <div class="alert-text">
-                            <p class="text-center"><i class="glyphicon glyphicon-warning-sign"> </i>after completing the
+                            <p class="text-center"><i class="fa fa-exclamation-triangle"> </i>after completing the
                                 slider and clicking on <br>the NEXT button have your child complete<br> their feedback
                             </p>
                         </div>

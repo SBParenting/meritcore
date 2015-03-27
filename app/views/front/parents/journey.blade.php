@@ -46,9 +46,9 @@ function svg($file)
                         </div>
                         <div class="collapse navbar-collapse parent-nav">
                                 <div class="active">standard view</div>
-                                <div>|</div>
-                                <div>zone view</div>
-                                <div class="col-md-offset-1 journey-icon"><img src="/public/front/img/icons/suggested.png"/> suggested</div>
+                                {{--<div>|</div>--}}
+                                {{--<div>zone view</div>--}}
+                                <div class="col-md-offset-3 journey-icon"><img src="/public/front/img/icons/suggested.png"/> suggested</div>
                                 <div class="journey-icon"><img src="/public/front/img/icons/in-progress.png"/> in progress</div>
                                 <div class="journey-icon"><img src="/public/front/img/icons/experienced.png"/> experienced</div>
                         </div>
