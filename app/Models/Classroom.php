@@ -7,7 +7,7 @@ class Classroom extends \App\Models\Model {
 
 	protected $table = 'school_classes';
 
-	protected $fillable = ['title', 'teacher_id', 'grade', 'school_id'];
+	protected $fillable = ['title', 'teacher_id', 'grade', 'school_id', 'status'];
 
 	protected static $sortable = ['title', 'teacher', 'grade', 'school', 'students_count', 'surveys_total_count', 'surveys_active_count'];
 

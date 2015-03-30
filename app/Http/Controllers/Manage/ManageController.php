@@ -69,7 +69,14 @@ class ManageController extends Controller {
 
 		if ($school)
 		{
-			$classes = Classroom::with('teacher')->where('school_id', '=', $school->id)->orderBy('title', 'asc')->get();
+			$status = 'Active';
+
+			if (\Input::has('status') && in_array(\Input::get('status'), ['Active', 'Archived']))
+			{
+				$status = \Input::get('status');
+			}
+
+			$classes = Classroom::with('teacher')->where('school_id', '=', $school->id)->where('status', '=', $status)->orderBy('title', 'asc')->get();
 
 			$data = [
 				'page'     => $page,
@@ -77,6 +84,7 @@ class ManageController extends Controller {
 				'classes'  => $classes,
 				'grades'   => Classroom::$grades,
 				'teachers' => $school->getTeachers(),
+				'status'   => $status,
 			];
 
 			return \View::make('front.manage.classes', $data);

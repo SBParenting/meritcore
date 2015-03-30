@@ -25,7 +25,15 @@
 					</li>
 					<li>
 						<label>No. of students</label>
-						{{ $class->count_students }}
+						{{ $class->students_count }}
+					</li>
+					<li>
+						<label>Status</label>
+						@if ($class->status == 'Active')
+							<span class="label label-info">{{ $class->status }}</span>
+						@else
+							<span class="label label-default">{{ $class->status }}</span>
+						@endif
 					</li>
 					<li class="progress-field">
 						<label class="pull-left">Active survey</label>

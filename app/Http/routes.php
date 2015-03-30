@@ -28,6 +28,8 @@ Route::group(['prefix' => 'm', 'middleware' => 'auth'], function() {
 	Route::get('/schools/{id}', 'Manage\ManageController@getClasses');
 	Route::get('/classes', 'Manage\ManageController@getClasses');
 	Route::post('/classes/add', 'Manage\ClassController@postAdd');
+	Route::post('/classes/{id}/archive', 'Manage\ClassController@postArchive');
+	Route::post('/classes/{id}/activate', 'Manage\ClassController@postActivate');
 	Route::get('/classes/{id}', 'Manage\ManageController@getClass');
 	Route::post('/classes/{id}/students/add', 'Manage\StudentsController@postStudentAdd');
 	Route::post('/classes/{id}/students/{student_id}/update', 'Manage\StudentsController@postStudentUpdate');

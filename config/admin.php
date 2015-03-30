@@ -47,6 +47,7 @@ return array(
 			'access' => 'admin:manage_users',
 		],
 
+		/*
 		[
 			'id'     => 'schools.surveys',
 			'title'  => 'Surveys & Reports',
@@ -54,7 +55,7 @@ return array(
 			'icon'   => 'fa-bar-chart',
 			'access' => '*',
 		],
-
+		*/
 
 		[
 			'id'     => 'users',

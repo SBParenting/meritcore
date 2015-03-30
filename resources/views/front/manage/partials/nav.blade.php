@@ -5,7 +5,7 @@
 			<li><a href="{{ url('/m/schools/') }}" class="{{ $page == 'schools' ? 'active' : '' }}"><i class="fa fa-caret-left"></i> &nbsp;&nbsp;&nbsp;Schools</a></li>
 		@endif
 
-		@if ($page == 'classes')
+		@if (empty($school))
 			<li><a href="{{ url('/m/classes') }}" class="{{ $page == 'classes' ? 'active' : '' }}">Classes</a></li>
 		@else
 			<li><a href="{{ url('/m/schools/'.$school->id) }}" class="{{ $page == 'school' ? 'active' : '' }}">Classes</a></li>

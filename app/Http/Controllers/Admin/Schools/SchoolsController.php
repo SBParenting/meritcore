@@ -259,6 +259,7 @@ class SchoolsController extends AdminController {
 	    $input = \Input::all();
 
 	    $input['school_id'] = $id;
+	    $input['status'] = 'Active';
 
 		$record->fill($input)->save();
 

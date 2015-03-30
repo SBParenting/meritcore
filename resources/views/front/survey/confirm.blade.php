@@ -18,7 +18,7 @@
 		        <div class="container">
 		            <div class="form-container">
 
-		               	<h3>Welcome to {!! \Config::get('site.title') !!} Student Survey</h3>
+		               	<h3>Welcome to Heroes Student Survey</h3>
 		        		<p>To start the survey, please confirm your Name and Student ID.</p>
 		        		<hr />
 

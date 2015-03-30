@@ -106,9 +106,26 @@
 										<label>Grade</label>
 										{{ $class->grade }}
 									</li>
+									<li>
+										<label>Status</label>
+										@if ($class->status == 'Active')
+											<span class="label label-info">{{ $class->status }}</span>
+										@else
+											<span class="label label-default">{{ $class->status }}</span>
+										@endif
+									</li>
 								</ul>
 
-								<a href="{{ url('m/classes/'.$class->id) }}" id="btnUpdateClassInfo" class="btn btn-block btn-line-default show-panel" data-target="#class" data-show="#classInfoPanel">Update Class Information</a>
+								<div class="text-right">
+
+									<a href="{{ url('m/classes/'.$class->id) }}" id="btnUpdateClassInfo" class="btn btn-line-info show-panel" data-target="#class" data-show="#classInfoPanel">Update Class</a>
+
+									@if ($class->status == 'Active')
+										<a href="{{ url('m/classes/'.$class->id.'/archive') }}" class="btn btn-line-danger js-post">Archive Class</a>
+									@else
+										<a href="{{ url('m/classes/'.$class->id.'/activate') }}" class="btn btn-line-danger js-post">Unarchive Class</a>
+									@endif
+								</div>
 								<br />
 							</div>
 						</div>

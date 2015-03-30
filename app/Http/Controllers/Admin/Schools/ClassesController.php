@@ -113,7 +113,11 @@ class ClassesController extends AdminController {
 			'teacher_id' => 'required',
 	    ]);
 
-		$record->fill(\Input::all())->save();
+	    $input = \Input::all();
+
+	    $input['status'] = 'Active';
+
+		$record->fill($input)->save();
 
 		return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url($this->base_url.'/info/'.$id) ]);
 

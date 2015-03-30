@@ -83,9 +83,11 @@ class ClassController extends Controller {
 
 		$class = new Classroom;
 
-		$class->fill($request->input());
+		$input = $request->input();
 
-		$class->save();
+		$input['status'] = 'Active';
+
+		$class->fill($input)->save();
 
 		if ($request->input('teacher_first_name') && $request->input('teacher_last_name') && $request->input('teacher_email'))
 		{
@@ -113,5 +115,37 @@ class ClassController extends Controller {
 		}
 
 		return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url('/m/classes/'.$class->id)]);
+	}
+
+	public function postArchive(Request $request, $id)
+	{
+		$class = Classroom::find($id);
+
+		if ($class)
+		{
+			$class->fill(['status' => 'Archived'])->save();
+
+			\Session::flash('success', 'Class was archived successfully!');
+
+			return \Response::json(['result' => true, 'msg' => 'Class was archived successfully!', 'url' => url('/m/classes/'.$class->id)]);
+		}
+
+		return \Response::json(['result' => false, 'msg' => trans('crud.not_found')]);
+	}
+
+	public function postActivate(Request $request, $id)
+	{
+		$class = Classroom::find($id);
+
+		if ($class)
+		{
+			$class->fill(['status' => 'Active'])->save();
+
+			\Session::flash('success', 'Class was activated successfully!');
+			
+			return \Response::json(['result' => true, 'msg' => 'Class was activated successfully!', 'url' => url('/m/classes/'.$class->id)]);
+		}
+
+		return \Response::json(['result' => false, 'msg' => trans('crud.not_found')]);
 	}
 }

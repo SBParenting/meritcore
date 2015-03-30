@@ -32,6 +32,13 @@
 
 						<hr />
 
+						<div class="btn-group">
+							<a href="?status=Active" class="btn btn-default {{ $status=='Active' ? 'active' : '' }}">Active Classes</a>
+							<a href="?status=Archived" class="btn btn-default {{ $status=='Archived' ? 'active' : '' }}">Archived Classes</a>
+						</div>
+
+						<hr />
+
 					</div>
 
 					<!-- @include('front.manage.sections.classroom_filters') -->
