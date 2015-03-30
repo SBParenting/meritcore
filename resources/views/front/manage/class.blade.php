@@ -16,7 +16,7 @@
 
 				<div class="col-md-12 contain">
 
-					@if ($is_admin)
+					@if (!empty($school))
 
 						<h3 class="pull-left"><a href="{{ url('m/schools/'.$school->id) }}">{{ $school->name }}</a></h3>
 
@@ -32,7 +32,16 @@
 
 					<br />
 
-					<a href="{{ url('/m/classes') }}" class="btn btn-default pull-right closable-panel open"><i class="fa fa-arrow-left"></i> Back to Classes</a>
+					@if (!empty($school))
+
+						<a href="{{ url('m/schools/'.$school->id) }}" class="btn btn-default pull-right closable-panel open"><i class="fa fa-arrow-left"></i> Back to Classes</a>
+
+					@else
+
+						<a href="{{ url('/m/classes') }}" class="btn btn-default pull-right closable-panel open"><i class="fa fa-arrow-left"></i> Back to Classes</a>
+
+					@endif
+					
 
 				</div>
 
