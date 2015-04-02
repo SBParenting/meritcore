@@ -1,6 +1,6 @@
 
 @page {
-    margin: 2cm;
+    size: "A4 portrait";
 }
 
 body {
@@ -8,35 +8,34 @@ body {
     font-size: 10pt;
     line-height: 1.3;
     color: #000;
+    margin: -1.2cm;
+    background:#f0f0ef;
 }
 
 
 .width-100 { width: 100%; }
 .width-70 { width: 70%;  }
-
+.full {width:100%;height:100%;}
 .footer 					{ position: absolute; bottom: 0px; }
-.footer .content 			{ position: absolute; top: 0; left: 0; }
-.footer .content .twitter 	{ position: absolute; top: 180px; right: 65px; color: #888; font-size: 8pt; text-decoration: none; }
-.footer .content .web 		{ font-size: 12pt; color: #222; position: absolute; top: 120px; right: 60px; text-decoration: none;  }
-.footer .content .contact 	{ color: #888; font-size: 12pt; position: absolute; left: 220px; top: 120px; }
-.footer .content .contact a { color: #888; text-decoration: none; }
 
 .page-break {page-break-after: always;}
 
-.grey 		{ background: #e6e6e6; width: 100%; padding: 20px; }
-
-.grey tr td:first-child { width: 40%; }
 
 .text-right { text-align: right; }
 
 .small { font-size: 8pt; }
 
-.legend 	 						{ border-spacing: 10px; }
-.legend td 							{ text-align: center; padding: 10px 5px; }
-.legend .heading 					{ width: 22%; color: #fff; }
-.legend .heading.green  			{ background: #1ab394; border: 5px solid #1ab394; }
-.legend .heading.red  				{ background: #dcdcdc; border: 5px solid #dcdcdc; color: #333; }
-.legend .description 				{ font-size: 6pt; }
-.legend .description:first-child 	{ margin-right: 2%; }
-.legend .description.green 			{ border: 5px solid #1ab394; }
-.legend .description.red 			{ border: 5px solid #dcdcdc; }
+.legend tr td 						{ padding-left: 2px;}
+.legend .legend1 					{ width:5px; background-color: #9fc24d; }
+.legend .legend2 					{ width:5px; background-color: #e0b049; }
+.legend .headings 					{ color:#6f706e; font-weight: bold; text-align: justify; }
+.legend .description				{ color:#888886; text-align: justify;}
+
+/*.no-margin							{ margin:-2cm;}*/
+.heading							{ background-color: #74b7bb; min-height: 1cm; color:white; padding:1cm; font-size: 18pt;}
+
+.competencies {	font-size: 12pt;}
+.competencies li { margin-top:15px;font-size: 10pt;}
+
+.content { padding:30px;}
+.white {background: white;}

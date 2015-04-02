@@ -104,8 +104,8 @@ class SurveyController extends Controller {
 		    }
 
 		    $data['gdata'] = [
-		    	['label' => 'Strong', 	  'data' => $strong, 	 'fillColor' => "rgba(26,179,148,0.5)",  'strokeColor' => "rgba(26,179,148,0.7)", 'pointColor' => "rgba(26,179,148,1)", 	'pointStrokeColor' => "#fff", 'pointHighlightFill' => "#fff", 'pointHighlightStroke' => "rgba(26,179,148,1)",],
-		    	['label' => 'Vulnerable', 'data' => $vulnerable, 'fillColor' => "rgba(220,220,220,0.8)", 'strokeColor' => "rgba(220,220,220,1)",  'pointColor' => "rgba(220,220,220,1)", 	'pointStrokeColor' => "#fff", 'pointHighlightFill' => "#fff", 'pointHighlightStroke' => "rgba(220,220,220,1)",],
+		    	['label' => 'Strong', 	  'data' => $strong, 	 'fillColor' => "rgba(159,194,148,0.5)",  'strokeColor' => "rgba(159,194,77,0.7)", 'pointColor' => "rgba(159,194,77,1)", 	'pointStrokeColor' => "#fff", 'pointHighlightFill' => "#fff", 'pointHighlightStroke' => "rgba(159,194,77,1)",],
+		    	['label' => 'Vulnerable', 'data' => $vulnerable, 'fillColor' => "rgba(224,176,73,0.8)", 'strokeColor' => "rgba(224,176,73,1)",  'pointColor' => "rgba(224,176,73,1)", 	'pointStrokeColor' => "#fff", 'pointHighlightFill' => "#fff", 'pointHighlightStroke' => "rgba(224,176,73,1)",],
 		    ];
 
 		    $data['categories'] = $categories;
@@ -115,7 +115,6 @@ class SurveyController extends Controller {
 		else
 		{
 			$chart = \Input::get('chart');
-
 			$filename = 'report-chart-'.$survey->id.'.png';
 			$image = \Image::make($chart);
 			$image->save(app_path() . '/../public/front/img/report/charts/' . $filename);
@@ -125,7 +124,7 @@ class SurveyController extends Controller {
 			//return \View::make('front.manage.reports.impact', $data)->render();
 			
 			$pdf = \PDF::loadView('front.manage.reports.impact', $data);
-			
+			$pdf->setPaper('letter');
 			return $pdf->stream();
 		}
 	}

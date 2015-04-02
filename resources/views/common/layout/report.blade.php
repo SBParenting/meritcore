@@ -12,9 +12,15 @@
 </head>
 
 <body>
-
-	@yield('content')
-
+	<div class="no-margin">
+		@yield('page1')
+	</div>
+	<div>
+		@yield('content')
+	</div>
+	<div class="no-margin">
+		@yield('page4')
+	</div>
 </body>
 
 </html>
