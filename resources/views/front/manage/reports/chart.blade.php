@@ -19,8 +19,17 @@
     <script type="text/javascript" src="{{ asset("/public/front/libs/highcharts/highcharts.js") }}"></script>
 
 	<style>
-		#myChart { position: absolute; z-index: 10; border: 1px solid red; }
+		#myChart { position: absolute; z-index: 50; border: 1px solid red; }
 		#loader  { position: absolute; z-index: 20; width: 800px; height: 400px; top: 0; left: 0; padding: 100px 0 0 150px; font-family: 'Arial', sans-serif; background: #fff; }
+        .count{
+          position:absolute;
+          width:10px;
+          height:20px;
+          line-height:20px;
+          color:white;
+          font-weight:bold;
+          z-index: 55;
+          }
 	</style>
 
 </head>
@@ -29,7 +38,8 @@
 
 	<div id="loader">Generating report, please wait....</div>
 
-	<canvas id="myChart" height="400px" width="800px"></canvas>
+    <div id="myChart" style="height:300px; width:600px"></div>
+	<canvas id="canvasChart" height="300" width="600"></canvas>
 
 	{!! Form::open(['id' => 'form']) !!}
 
@@ -38,11 +48,22 @@
 	{!! Form::close() !!}
 
 	<script>
+
+    function parseSVG(s) {
+        var div= document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
+        div.innerHTML= '<svg xmlns="http://www.w3.org/2000/svg">'+s+'</svg>';
+        var frag= document.createDocumentFragment();
+        while (div.firstChild.firstChild)
+            frag.appendChild(div.firstChild.firstChild);
+        return frag;
+    }
+
         $(document).ready(function() {
-               /*Morris.Bar({
+            var graphData = {!! json_encode($gdata) !!};
+               var bar = Morris.Bar({
                 element: 'myChart',
-                data: {!! json_encode($gdata) !!},
-                xkey: "categories",
+                data: graphData,
+                xkey: 'categories',
                 parseTime: false,
                 xLabels: "competencies",
                 ykeys: ['strong','vulnerable'],
@@ -51,11 +72,69 @@
                 xLabelMargin: 10,
                 hideHover: 'auto',
                 goals: [0,0],
+                stacked: true,
                 goalLineColors:["#9da3a9"],
                 barColors: ["#a6e182", "#30a1ec", "#76bdee", "#c4dafe"]
-            });*/
+            });
 
-               /* $('#myChart').highcharts({
+        var barWidth=(($('#myChart').width()/10)*(0.8))/2;
+
+        //now each thru each bar (rect)
+
+        jQuery('rect').each(function (i) {
+            var rect = i%2,
+                i = Math.floor(i/2),
+                pos=$(this).offset(),
+                top=pos.top;
+              
+            top-=10; //originate at the top of the bar
+
+          //get the height of the bar
+          var barHeight=bar.bars[i];
+            
+            if (barHeight[0] == 0 && barHeight[1] == 0) {
+                top = -999999;
+            } else if (barHeight[0] == barHeight[1]) {
+                if (rect == 0) {
+                top+=barHeight[rect]/2; //so we can now stick the number in the vertical-center of the bar as desired
+                } else {
+                    top = -9999999;
+                }
+            } else if (barHeight[0] == 0) {
+                if (rect == 0) {
+                    top=-999999999; //so we can now stick the number in the vertical-center of the bar as desired
+                } else {
+                    top+= barHeight[rect]/2;
+                }
+            } else {
+                if (rect == 0) {
+                    top+=barHeight[rect]/2; //so we can now stick the number in the vertical-center of the bar as desired
+                } else {
+                    top+= (barHeight[rect]-barHeight[0])/2;
+                }
+            }
+            
+
+            var left=pos.left;
+          //move it over a bit
+          left+=barWidth/2; 
+          //-size of element...
+          // left-=5;//should approximately be horizontal center
+
+          var val = "";
+
+            if (rect) {
+                val = graphData[i].vulnerable; //get the count
+            } else {
+                val = graphData[i].strong; //get the count
+            }
+
+            var div = '<text x="'+left+'" y="'+top+'" text-anchor="middle" font="20px &quot;Arial&quot; bold" stroke="none" fill="#FFFFFF" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal; font-size: 20px; line-height: normal; font-family: sans-serif;" font-size="20px" font-family="sans-serif" font-weight="bold" transform="matrix(1,0,0,1,0,6)">'+val+'</text>'; 
+          document.getElementsByTagName('svg')[0].appendChild(parseSVG(div)); //stick it into the dom
+
+        });           
+
+              /* $('#myChart').highcharts({
                     chart: {
                         type: 'bar'
                     },
@@ -69,23 +148,8 @@
                     },
                     series: {!! json_encode($gdata) !!},
                     credits: { enabled:false }
-                });
-                 Highcharts.setOptions({
-                    chart: {
-                        backgroundColor: {
-                            linearGradient: [0, 0, 500, 500],
-                            stops: [
-                                [0, 'rgb(224, 176, 73)'],
-                                [1, 'rgb(159, 194, 77)']
-                                ]
-                        },
-                        borderWidth: 2,
-                        plotBackgroundColor: 'rgba(255, 255, 255, .9)',
-                        plotShadow: true,
-                        plotBorderWidth: 1
-                    }
                 });*/
-	        var barData = {
+	        /*var barData = {
                 labels: {!! json_encode($categories) !!},
                 datasets: {!! json_encode($gdata) !!}
             };
@@ -106,17 +170,22 @@
 
 
             var ctx = document.getElementById("myChart").getContext("2d");
-            var myNewChart = new Chart(ctx).Bar(barData, barOptions);
+            var myNewChart = new Chart(ctx).Bar(barData, barOptions);*/
 
             setTimeout(function()
             {
-                var canvas = $('#myChart').get(0);
+                var oSerializer = new XMLSerializer(),
+                    sXML = oSerializer.serializeToString($('#myChart').find('svg').get(0));
+
+                canvg($('#canvasChart').get(0), sXML,{ ignoreMouse: true, ignoreAnimation: true })
+
+                var canvas = $('#canvasChart').get(0);
 
                 var dataURL = canvas.toDataURL();
 
     			$('#data').val(dataURL);
     			$('#form').submit();
-            }, 1000);
+            }, 500);
         });
     </script>
 	

@@ -96,17 +96,15 @@ class SurveyController extends Controller {
 			$strong = [];
 			$vulnerable = [];
 
-		    foreach ($survey->stats as $stat)
-		    {
-				$strong[]     = (int)$stat->strong_count;
-				$vulnerable[] = (int)$stat->vulnerable_count;
-				$categories[] = $stat->grouping->title;
-		    }
+		      foreach ($survey->stats as $stat)
+			   {
+				$gdata[]=[
+				'categories'=>$stat->grouping->title,
+				'strong' => (int)$stat->strong_count,
+				'vulnerable' => (int)$stat->vulnerable_count];
+			   }
 
-		    $data['gdata'] = [
-		    	['label' => 'Strong', 	  'data' => $strong, 	 'fillColor' => "rgba(159,194,148,0.5)",  'strokeColor' => "rgba(159,194,77,0.7)", 'pointColor' => "rgba(159,194,77,1)", 	'pointStrokeColor' => "#fff", 'pointHighlightFill' => "#fff", 'pointHighlightStroke' => "rgba(159,194,77,1)",],
-		    	['label' => 'Vulnerable', 'data' => $vulnerable, 'fillColor' => "rgba(224,176,73,0.8)", 'strokeColor' => "rgba(224,176,73,1)",  'pointColor' => "rgba(224,176,73,1)", 	'pointStrokeColor' => "#fff", 'pointHighlightFill' => "#fff", 'pointHighlightStroke' => "rgba(224,176,73,1)",],
-		    ];
+ 			 $data['gdata'] = $gdata;
 
 		    $data['categories'] = $categories;
 
@@ -121,10 +119,11 @@ class SurveyController extends Controller {
 		
 		    $data['chart'] = $filename;
 
-			//return \View::make('front.manage.reports.impact', $data)->render();
+			// return \View::make('front.manage.reports.impact', $data)->render();
 			
 			$pdf = \PDF::loadView('front.manage.reports.impact', $data);
 			$pdf->setPaper('letter');
+
 			return $pdf->stream();
 		}
 	}
