@@ -19,7 +19,7 @@
     <script type="text/javascript" src="{{ asset("/public/front/libs/highcharts/highcharts.js") }}"></script>
 
 	<style>
-		#myChart { position: absolute; z-index: 50; border: 1px solid red; }
+		#myChart { position: absolute; z-index: 10; border: 1px solid red; }
 		#loader  { position: absolute; z-index: 20; width: 800px; height: 400px; top: 0; left: 0; padding: 100px 0 0 150px; font-family: 'Arial', sans-serif; background: #fff; }
         .count{
           position:absolute;
@@ -66,6 +66,7 @@
                 xkey: 'categories',
                 parseTime: false,
                 xLabels: "competencies",
+                xLabelAngle: 90,
                 ykeys: ['strong','vulnerable'],
                 labels: ['strong','vulnerable'],
                 barRatio: 0.2,

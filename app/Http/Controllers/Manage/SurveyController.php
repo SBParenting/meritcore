@@ -125,6 +125,7 @@ class SurveyController extends Controller {
 			$pdf->setPaper('letter');
 
 			return $pdf->stream();
+			//dd($pdf->stream());
 		}
 	}
 }

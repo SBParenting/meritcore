@@ -91,10 +91,12 @@ Character Trait Questionnaire results and graphs.</p>
 			</tr>
 		</table>
 
+
 		
 		<img src="{{ url('/public/front/img/report/charts/'.$chart) }}?t={{time()}}" class="width-100" style="margin-top:4cm;margin-left:-1cm;"/>
 	</div>
 
+	
 	
 
 	<div class="footer no-margin">
@@ -160,6 +162,6 @@ Character Trait Questionnaire results and graphs.</p>
 </div>
 
 	<div class="footer no-margin">
-		<img src="{{ url('public/front/img/report/footer3.png') }}" class="width-100" />
+		<img src="{{ url('public/front/img/report/footer3.jpg') }}" class="width-100" />
 	</div>
 @stop
