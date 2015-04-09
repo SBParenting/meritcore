@@ -44,4 +44,6 @@
 	</tbody>
 </table>
 
-{!! $records->render() !!}
+@if (count($records) > 0)
+	{!! $records->render() !!}
+@endif
