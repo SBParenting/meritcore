@@ -107,6 +107,7 @@ class SchoolsController extends AdminController {
 		$this->sorting( Record::$defaultSort, $this->base_url.'/info-users' );
 
 		$ids = [];
+		$records = [];
 
 		foreach (UserAssoc::where('school_id', '=', $id)->get() as $row)
 		{
