@@ -7,7 +7,7 @@
 	</li>
 	<li>
 		<span class="icon light fa fa-caret-right"></span>
-		<label>School Board</label>
+		<label>School District</label>
 		@if ($record->board)
 			<a href="{{ url("/admin/s/boards/info/$record->school_board_id") }}">{{ $record->board->name }}</a>
 		@endif
@@ -22,11 +22,11 @@
 		<label>Address</label>
 		{{ $record->getAddress() }}
 	</li>
-	<li>
+	<!--<li>
 		<span class="icon light fa fa-caret-right"></span>
 		<label>Classes</label>
 		<a href="{{ url("/admin/s/schools/info-classes/$record->id") }}" class="label label-{{ $record->classes_count > 0 ? 'info' : 'default' }} label-fixed-width">{{ $record->classes_count }}</a>
-	</li>
+	</li>-->
 
 	<li>
 		<span class="icon light fa fa-caret-right"></span>

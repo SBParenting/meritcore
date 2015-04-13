@@ -13,6 +13,7 @@ use App\Models\Role;
 use App\Models\Student;
 use App\Models\StudentAssoc;
 use App\Models\SchoolBoard;
+use App\Models\UserRole as UserRole;
 
 class SchoolsController extends AdminController {
 
@@ -295,33 +296,56 @@ class SchoolsController extends AdminController {
 
 	public function postAddUser(Request $request, $id)
 	{
-		$record = new User;
+		$record = Record::findOrFail($id);
+		
+		if ($record)
+		{
+			$this->validate($request, [
+				'user_id' => 'required',
+				'role_id' => 'required'
+		    ]);
 
-		$this->validate($request, [
-			'first_name' => 'required',
-			'last_name'  => 'required',
-			'role_id'	 => 'required',
-			'username'   => 'required|min:4|unique:users,username',
-			'email'      => 'required|email|unique:users,email',
-			'password'   => 'required|min:6|confirmed',
-	    ]);
+		    $input['user_id'] = \Input::get('user_id');
 
-	    $input = \Input::all();
+		    $input['role_id'] = \Input::get('role_id');
 
-	    $input['status']  = 'Active';
+		    //$role = UserRole::where('user_id',$input['user_id'])->first();
+		    
+		    
+		    $user = User::findOrFail($input['user_id']);
 
-		$record->fill($input)->save();
+		    $user->roles()->detach();
+		    $user->roles()->attach($input['role_id']);
 
-		$record->updateProfile(\Input::all());
+		    // $user->roles()->updateExistingPivot($input['role_id'],['user_id' => $input['user_id'], 'role_id' => $input['role_id']],true);
 
-		//$record->sendMail();
+		    $user->save();
 
-		UserAssoc::create([
-			'user_id'   => $record->id,
-			'school_id' => $id,
-		]);
+			// if(isset($role)){ $role->delete();}
+			
+			// $role = new UserRole; 
+			// $role->fill($input)->save();
 
-		return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url($this->base_url.'/info-users/'.$id) ]);
+		    $input['status']  = 'Active';
+		    
+		    $user = User::findOrFail($input['user_id']);
+		    $user->fill($input)->save();
+
+		    $userAssoc = UserAssoc::where('user_id',$input['user_id'])->first();
+		    
+		    if(isset($userAssoc)){ $userAssoc->delete();}
+
+			UserAssoc::create([
+				'user_id'         => $input['user_id'],
+				'school_id' => $id,
+			]);
+
+			$record->sendMail();
+
+			
+			return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url($this->base_url.'/info-users/'.$id) ]);
+		}
+		return \Response::json(['result' => false, 'msg' => trans('crud.failed_updated')]);
 
 	}
 
@@ -370,5 +394,26 @@ class SchoolsController extends AdminController {
 
 		return \Response::json(['result' => false, 'msg' => trans('crud.failed_removed')]);
 	}
+	
+	public function postRemoveUser($id)
+	{
+		$user = User::find($id);
+		 if($user){
+		 	
+		 	//Updating Entery to User table
+			$user->update(array('role_id' => null));
+			$user->save();
 
+			//Removing Entery from UserRole table
+			$user->roles()->detach();
+
+			//Deleting Entery from User Associations table
+			$userAssoc = UserAssoc::where('user_id',$id);
+			$userAssoc->delete();
+
+			return \Response::json(['result' => true, 'msg' => trans('crud.success_removed')]);
+		}
+		return \Response::json(['result' => false, 'msg' => trans('crud.failed_removed')]);
+
+	}
 }

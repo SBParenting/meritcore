@@ -13,7 +13,7 @@
 						<a href="{{ url('admin/dashboard') }}">Home</a>
 					</li>
 					<li class="active">
-						<strong>Manage School Boards</strong>
+						<strong>Manage School District</strong>
 					</li>
 				</ol>
 			</div>
@@ -21,10 +21,10 @@
 
 		<div class="row">
 			<div class="col-md-6">
-				<span class="size-h2">School Boards Management</span>
+				<span class="size-h2">School District Management</span>
 			</div>
 			<div class="col-md-6 text-right">
-                <a href="{{ url('/admin/s/boards/add') }}" class="btn btn-primary btn-lg"><i class="fa fa-plus"></i> Add School Board</a>
+                <a href="{{ url('/admin/s/boards/add') }}" class="btn btn-primary btn-lg"><i class="fa fa-plus"></i> Add School District</a>
 			</div>
 		</div>
 
@@ -66,7 +66,7 @@
 								<td>{{ str($record->country) }}</td>
 								<td>{{ str(get_date($record->created_at)) }}</td>
 								<td>
-									<a href="{{ url("/admin/s/boards/info/$record->id") }}" class="btn btn-xs btn-default do-tooltip" title="View school board information."><i class="fa fa-info"></i> &nbsp;View</a>
+									<a href="{{ url("/admin/s/boards/info/$record->id") }}" class="btn btn-xs btn-default do-tooltip" title="View school District information."><i class="fa fa-info"></i> &nbsp;View</a>
 								</td>
 							</tr>
 

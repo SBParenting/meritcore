@@ -25,6 +25,6 @@
 
 <div class="hr-line-dashed"></div>
 
-<a href="{{ url("/admin/s/boards/remove/$record->id") }}" class="btn btn-danger pull-right inline js-post-remove confirm"><i class="fa fa-trash"></i> Remove School Board</a>
+<a href="{{ url("/admin/s/boards/remove/$record->id") }}" class="btn btn-danger pull-right inline js-post-remove confirm"><i class="fa fa-trash"></i> Remove School District</a>
 
-<a href="{{ url("/admin/s/boards/update/$record->id") }}" class="btn btn-default pull-right"><i class="fa fa-edit"></i> Update School Board Information</a>
+<a href="{{ url("/admin/s/boards/update/$record->id") }}" class="btn btn-default pull-right"><i class="fa fa-edit"></i> Update School District Information</a>

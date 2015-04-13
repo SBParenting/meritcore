@@ -26,7 +26,8 @@ class UsersController extends AdminController {
 	{
 		$this->sorting( Record::$defaultSort );
 		
-		$list = Record::getListable()->paginate(20);
+		$list = Record::getListable()->paginate(1000);
+		//$list = Record::getListable()->paginate(20);
 
 		return \View::make("admin.$this->view_path.list")->with('records', $list);
 	}

@@ -124,4 +124,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         }
     }
 
+    public static function getUsers(){
+        $users = self::select('id','first_name','last_name')->get();
+        $array = [];
+        foreach ($users as $user)
+        {
+            $array[$user->id] = $user->first_name.' '.$user->last_name;
+        }
+        return $array;
+    }
 }

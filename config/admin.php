@@ -17,7 +17,7 @@ return array(
 
 		[
 			'id'     => 'schools.boards',
-			'title'  => 'Schools Boards',
+			'title'  => 'Schools District',
 			'url'    => 'admin/s/boards',
 			'icon'   => 'fa-sitemap',
 			'access' => '*',

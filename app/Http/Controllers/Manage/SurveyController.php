@@ -119,7 +119,7 @@ class SurveyController extends Controller {
 		
 		    $data['chart'] = $filename;
 
-			// return \View::make('front.manage.reports.impact', $data)->render();
+			//return \View::make('front.manage.reports.impact', $data)->render();
 			
 			$pdf = \PDF::loadView('front.manage.reports.impact', $data);
 			$pdf->setPaper('letter');

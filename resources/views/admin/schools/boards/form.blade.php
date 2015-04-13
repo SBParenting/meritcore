@@ -17,7 +17,7 @@
 						<a href="{{ url('admin/dashboard') }}">Home</a>
 					</li>
 					<li>
-						<a href="{{ url('admin/s/boards') }}">Manage School Boards</a>
+						<a href="{{ url('admin/s/boards') }}">Manage School District</a>
 					</li>
 
 					<li class="active">
@@ -37,7 +37,7 @@
 
 			</div>
 			<div class="col-md-6 text-right">
-				<a href="{{ url('/admin/s/boards') }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Back to School Boards</a>
+				<a href="{{ url('/admin/s/boards') }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> Back to School District</a>
 			</div>
 		</div>
 

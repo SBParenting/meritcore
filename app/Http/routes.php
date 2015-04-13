@@ -1,6 +1,6 @@
 <?php
-
 Route::controller('password', 'Auth\RemindersController');
+Route::get('/', 'Auth\AuthController@getLogin');
 Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('login', 'Auth\AuthController@postLogin');
 Route::get('logout', 'Auth\AuthController@getLogout');
@@ -68,4 +68,3 @@ Route::post('{key}/confirm', 'Front\SurveyController@postConfirm');
 require __DIR__ .'/functions.php';
 require __DIR__ .'/macros.php';
 require __DIR__ .'/../Libraries/Graph/Graph.php';
-

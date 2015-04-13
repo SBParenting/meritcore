@@ -3,7 +3,6 @@
 use App\Http\Controllers\Controller;
 
 class AuthController extends Controller {
-
 	public function getLogin()
 	{
 		if (\Auth::check()) return redirect('/m');

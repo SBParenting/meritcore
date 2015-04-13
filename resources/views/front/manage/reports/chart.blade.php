@@ -38,8 +38,8 @@
 
 	<div id="loader">Generating report, please wait....</div>
 
-    <div id="myChart" style="height:300px; width:600px"></div>
-	<canvas id="canvasChart" height="300" width="600"></canvas>
+    <div id="myChart" style="height:400px;width:500px;"></div>
+	<canvas id="canvasChart" style="height:400px;width:500px;"></canvas>
 
 	{!! Form::open(['id' => 'form']) !!}
 
@@ -67,15 +67,16 @@
                 parseTime: false,
                 xLabels: "competencies",
                 xLabelAngle: 90,
-                ykeys: ['strong','vulnerable'],
-                labels: ['strong','vulnerable'],
-                barRatio: 0.2,
-                xLabelMargin: 10,
+                ykeys: ['vulnerable', 'strong'],
+                labels: ['vulnerable', 'strong'],
+                barSizeRatio: 0.5,
+                barGap: 1,
+                xLabelMargin: 5,
                 hideHover: 'auto',
                 goals: [0,0],
                 stacked: true,
                 goalLineColors:["#9da3a9"],
-                barColors: ["#a6e182", "#30a1ec", "#76bdee", "#c4dafe"]
+                barColors: ["#9fc24d", "#e0b049"]
             });
 
         var barWidth=(($('#myChart').width()/10)*(0.8))/2;
@@ -120,17 +121,17 @@
           //move it over a bit
           left+=barWidth/2; 
           //-size of element...
-          // left-=5;//should approximately be horizontal center
+          left-=8;//should approximately be horizontal center
 
           var val = "";
 
             if (rect) {
-                val = graphData[i].vulnerable; //get the count
-            } else {
                 val = graphData[i].strong; //get the count
+            } else {
+                val = graphData[i].vulnerable; //get the count
             }
 
-            var div = '<text x="'+left+'" y="'+top+'" text-anchor="middle" font="20px &quot;Arial&quot; bold" stroke="none" fill="#FFFFFF" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: bold; font-stretch: normal; font-size: 20px; line-height: normal; font-family: sans-serif;" font-size="20px" font-family="sans-serif" font-weight="bold" transform="matrix(1,0,0,1,0,6)">'+val+'</text>'; 
+            var div = '<text x="'+left+'" y="'+top+'" text-anchor="middle" font="10px &quot;Arial&quot; thinner" stroke="none" fill="#FFFFFF" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: lighter; font-stretch: normal; font-size: 10px; line-height: normal; font-family: sans-serif;" font-size="10px" font-family="sans-serif" font-weight="lighter" transform="matrix(1,0,0,1,0,6)">'+val+'</text>'; 
           document.getElementsByTagName('svg')[0].appendChild(parseSVG(div)); //stick it into the dom
 
         });           

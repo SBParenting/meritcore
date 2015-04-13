@@ -29,13 +29,15 @@ body {
 .legend .legend1 					{ width:5px; background-color: #9fc24d; }
 .legend .legend2 					{ width:5px; background-color: #e0b049; }
 .legend .headings 					{ color:#6f706e; font-weight: bold; text-align: justify; }
-.legend .description				{ color:#888886; text-align: justify;}
+.legend .description				{ color:#888886; text-align: justify;font-size: 8pt; width: 250px; margin-right: 10px;}
 
 /*.no-margin							{ margin:-2cm;}*/
 .heading							{ background-color: #74b7bb; min-height: 1cm; color:white; padding:1cm; font-size: 18pt;}
 
 .competencies {	font-size: 12pt;}
+.competencies .first { margin-top: 0px;}
 .competencies li { margin-top:15px;font-size: 10pt;}
 
-.content { padding:30px;}
+.content { padding:30px;padding-left: 50px;}
+.lable{ width:200px;}
 .white {background: white;}

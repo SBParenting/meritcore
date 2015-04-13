@@ -1,7 +1,7 @@
 @extends('admin.layout.page')
 
 	@section('title')
-	    Manage School Boards
+	    Manage School District
 	@stop
 
 	@section('page-content')
@@ -13,7 +13,7 @@
 						<a href="{{ url('admin/dashboard') }}">Home</a>
 					</li>
 					<li class="active">
-						<strong>Manage School Boards</strong>
+						<strong>Manage School District</strong>
 					</li>
 				</ol>
 			</div>
@@ -24,7 +24,7 @@
 				<span class="size-h2"><span class="size-h2">{{ $record->name }}</span></span>
 			</div>
 			<div class="col-md-6 text-right">
-				<a href="{{ url('/admin/s/boards') }}" class="btn btn-default btn-lg"><i class="fa fa-arrow-left"></i> Back to School Boards</a>
+				<a href="{{ url('/admin/s/boards') }}" class="btn btn-default btn-lg"><i class="fa fa-arrow-left"></i> Back to School District</a>
 			</div>
 		</div>
 
