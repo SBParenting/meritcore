@@ -59,7 +59,7 @@ Character Trait Questionnaire results and graphs.</p>
 		<li>All contents of this report are CONFIDENTIAL and only reported in an aggregated/non-identifiable format to be used for the purposes agreed upon by the respondent and/or their parents/guardians and/or caregivers. </li>
 	</ul>
 </div>
-	<center><img src="{{ url('public/front/img/report/heros_logo.png') }}" style="margin-top:2cm;"/></center>
+	<center><img src="{{ url('public/front/img/report/impact_soc.jpg') }}" style="margin-top:2cm;" width="100px" height="150px"/><img src="{{ url('public/front/img/report/heros_logo.png') }}" style="margin-top:2cm;" height="150px"/></center>
 	<div class="footer no-margin">
 		<img src="{{ url('public/front/img/report/footer1.png') }}" class="width-100" />
 	</div>
@@ -79,7 +79,7 @@ Character Trait Questionnaire results and graphs.</p>
 			<tr>
 				<td rowspan="2" class="legend1"></td>
 				<td class="headings">Optimal Strengths</td>
-				<td style="min-width:10px;"></td>
+				<td></td>
 				<td rowspan="2" class="legend2"></td>
 				<td class="headings">Potential Strengths</td>
 			</tr>
@@ -87,7 +87,7 @@ Character Trait Questionnaire results and graphs.</p>
 				<td class="description">
 					Scores of 51 or greater suggest that your child understands the strength and are able to actively draw upon it in multiple situations and settings.
 				</td>
-				<td style="min-width:10px;"></td>
+				<td></td>
 				<td class="description">
 					Scores of 50 or lower suggest that this is an area that needs purposeful, strategic exploration and is an opportunity to build this strength within your students.
 				</td>

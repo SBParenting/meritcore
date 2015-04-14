@@ -31,13 +31,13 @@ return array(
 			'access' => '*',
 		],
 		
-		[
+		/*[
 			'id'     => 'schools.classes',
 			'title'  => 'Classes',
 			'url'    => 'admin/s/classes',
 			'icon'   => 'fa-child',
 			'access' => '*',
-		],
+		],*/
 
 		[
 			'id'     => 'users.list',
@@ -47,7 +47,6 @@ return array(
 			'access' => 'admin:manage_users',
 		],
 
-		/*
 		[
 			'id'     => 'schools.surveys',
 			'title'  => 'Surveys & Reports',
@@ -55,7 +54,6 @@ return array(
 			'icon'   => 'fa-bar-chart',
 			'access' => '*',
 		],
-		*/
 
 		[
 			'id'     => 'users',

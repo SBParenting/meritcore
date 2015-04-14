@@ -4,7 +4,7 @@ class SurveyQuestion extends \App\Models\Model {
 
 	protected $table = 'survey_questions';
 
-	protected $fillable = ['num', 'title'];
+	protected $fillable = ['num', 'question','survey_id'];
 
 	protected $hidden = ['deleted_at'];
 

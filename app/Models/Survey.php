@@ -19,4 +19,25 @@ class Survey extends \App\Models\Model {
 	{
 		return $this->getRelated('question')->select('id', 'num', 'question')->orderBy('num', 'asc')->get();
 	}
+
+	public static function getListable($var=false)
+    {
+        $query   = static::initListable($var);
+       
+        $filters = static::initStatic($var);
+
+        $sort = self::getSort();
+
+        if (!empty($sort->sort) && in_array($sort->sort, self::$sortable))
+        {
+	        switch($sort->sort)
+	        {
+	            default:
+	                $query->orderBy($sort->sort, $sort->order);
+
+	        }
+        }
+
+        return $query;
+    }
 }

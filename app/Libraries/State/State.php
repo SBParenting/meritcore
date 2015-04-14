@@ -89,6 +89,7 @@ class State {
 
     public function set($default)
     {
+        
         foreach ($default as $key => $row)
         {
             array_set($this->defaults, "$this->page.$key", $row);

@@ -341,7 +341,7 @@ class SchoolsController extends AdminController {
 				'school_id' => $id,
 			]);
 
-			$record->sendMail();
+			//$record->sendMail();
 
 			
 			return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url($this->base_url.'/info-users/'.$id) ]);
