@@ -38,7 +38,7 @@
 
 				<ul class="nav nav-tabs">
 				  <li class="{{ $section == 'overview' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/info/$record->id") }}">Overview</a></li>
-				  <li class="{{ $section == 'classes' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/info-classes/$record->id") }}">Classes</a></li>
+				 <!-- <li class="{{ $section == 'classes' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/info-classes/$record->id") }}">Classes</a></li> -->
 				  <li class="{{ $section == 'students' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/info-students/$record->id") }}">Students</a></li>
 				  <li class="{{ $section == 'surveys' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/info-surveys/$record->id") }}">Surveys</a></li>
 				  <li class="{{ $section == 'users' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/info-users/$record->id") }}">Teachers &amp; Personnel</a></li>

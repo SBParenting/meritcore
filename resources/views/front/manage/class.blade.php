@@ -843,6 +843,7 @@
 										<hr />
 
 										<ul class="list-unstyled list-info">
+											<?php dd(json_encode($survey->stats)); ?>
 											@foreach ($survey->stats as $num => $row)
 												<li>
 													<span class="pull-left">{{$num+1}}. {{$row->grouping->title}}</span>

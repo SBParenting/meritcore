@@ -41,7 +41,7 @@
 									<tr>
 										<th>School Name</th>
 										<th>City</th>
-										<th>Classes</th>
+										<!--<th>Classes</th>-->
 										<th>Students</th>
 										<th>Surveys</th>
 										<th>Actions</th>
@@ -52,9 +52,9 @@
 										<tr>
 											<td><a href="{{ url('m/schools/'.$school->id) }}">{{ $school->name }}</a></td>
 											<td><a href="{{ url('m/schools/'.$school->id) }}">{{ $school->address_city }}</a></td>
-											<td>
+											<!--<td>
 												<a href="{{ url('m/schools/'.$school->id) }}" class="btn btn-sm btn-default">{{ $school->classes_count }} Classes</a>
-											</td>
+											</td>-->
 											<td>
 												<a href="{{ url('m/students/'.$school->id) }}" class="btn btn-sm btn-default">{{ $school->students_count }} Students</a>
 											</td>
