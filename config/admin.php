@@ -55,7 +55,7 @@ return array(
 			'access' => '*',
 		],
 
-		[
+		/*[
 			'id'     => 'users',
 			'title'  => 'Administrative Tasks',
 			'url'    => 'admin/users',
@@ -71,7 +71,7 @@ return array(
 					'access' => 'admin:manage_roles',
 				],
 			],
-		],
+		],*/
 
 	],
 

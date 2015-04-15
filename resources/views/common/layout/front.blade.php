@@ -47,6 +47,8 @@
     <script src="{{ asset("public/front/js/front.js") }}"></script>
     <script src="{{ asset("public/front/js/manage.js") }}"></script>
 
+    @yield('script')
+
 </body>
 
 </html>
