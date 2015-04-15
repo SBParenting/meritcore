@@ -845,7 +845,7 @@
 
 										{!! "<script type='text/javascript'> var data_". $survey->id." = ". json_encode($survey->stats) . "</script>" !!}
 
-										<ul class="list-unstyled list-info">
+										<!--<ul class="list-unstyled list-info">
 
 											@foreach ($survey->stats as $num => $row)
 												<li>
@@ -856,8 +856,8 @@
 													</div>
 												</li>
 											@endforeach
-										</ul>
-										<!--<div id="myChart_{{$survey->id}}" class="myChart" data-id="{{$survey->id}}" style="height:700px;width:700px;"></div>-->
+										</ul>-->
+										<div id="myChart_{{$survey->id}}" class="myChart" data-id="{{$survey->id}}" style="height:700px;width:700px;"></div>
 									</div>
 
 								</div>
@@ -882,7 +882,6 @@
 		<style type="text/css">
 			svg{
 				width:100% !important;
-				height: 100% !important;
 			}
 			.myChart{
 				width: 700px !important;
@@ -891,22 +890,23 @@
 		</style>
 		<script language="JavaScript" type="text/javascript">
 			var activeSection = "{{ \Input::get('s') }}";
-
+			var bar;
 		
 			$(document).ready(function() {
+
             	var graphData = {!! json_encode($survey->stats) !!};
 
             	$('.myChart').each(function(){
+            		$(this).hide();
             		window['data_'+$(this).attr('data-id')].forEach(function(v){
             			v['title'] = v['grouping']['title'];
             		});
 
-        			var bar = Morris.Bar({
+        			bar = Morris.Bar({
 		                element: 'myChart_'+$(this).attr('data-id'),
 		                data: window['data_'+$(this).attr('data-id')],
 		                xkey: 'title',
 		                parseTime: false,
-		                xLabels: ['Strengths-Based Aptitude','Emotional Competence','Social Connectedness','Moral Directedness','Adaptability','Managing Ambiguity','Agency and Resposibility','Persistence','Passion','Spiritual Eagerness'],
 		                xLabelAngle: 90,
 		                ykeys: ['vulnerable_count', 'strong_count'],
 		                labels: ['vulnerable', 'strong'],
@@ -922,6 +922,11 @@
 		                smooth: false,
 		            });
 				});
+            	setTimeout(function() {
+		            $(window).resize();
+		            $('.myChart').show();
+				}, 3500);
+
         	});
     	</script>
 	@stop
