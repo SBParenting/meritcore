@@ -59,7 +59,7 @@ Character Trait Questionnaire results and graphs.</p>
 		<li>All contents of this report are CONFIDENTIAL and only reported in an aggregated/non-identifiable format to be used for the purposes agreed upon by the respondent and/or their parents/guardians and/or caregivers. </li>
 	</ul>
 </div>
-	<center><img src="{{ url('public/front/img/report/impact_soc.jpg') }}" style="margin-top:2cm;" width="100px" height="150px"/><img src="{{ url('public/front/img/report/heros_logo.png') }}" style="margin-top:2cm;" height="150px"/></center>
+	<center><img src="{{ url('public/front/img/report/impact_soc.jpg') }}" style="margin-top:2cm;" width="80px" height="105px"/><img src="{{ url('public/front/img/report/heros_logo.png') }}" style="margin-top:2cm;margin-left:20px;margin-bottom:15px;" width="180px" height="50px"/></center>
 	<div class="footer no-margin">
 		<img src="{{ url('public/front/img/report/footer1.png') }}" class="width-100" />
 	</div>

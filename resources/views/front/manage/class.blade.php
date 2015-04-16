@@ -844,20 +844,18 @@
 										<hr />
 
 										{!! "<script type='text/javascript'> var data_". $survey->id." = ". json_encode($survey->stats) . "</script>" !!}
-
-										<ul class="list-unstyled list-info">
-
-											@foreach ($survey->stats as $num => $row)
-												<li>
-													<span class="pull-left">{{$num+1}}. {{$row->grouping->title}}</span>
-													<div class="progress progress-striped" style="margin: 0 0 5px 200px;">
-														<div class="progress-bar progress-bar-danger" style="width: {{$row->strong_percentage}}%;">{{ $row->strong_count }}</div>
-														<div class="progress-bar progress-bar-info" style="width: {{$row->vulnerable_percentage}}%;">{{ $row->vulnerable_count }}</div>
-													</div>
-												</li>
-											@endforeach
-										</ul>
-										<!--<div id="myChart_{{$survey->id}}" class="myChart" data-id="{{$survey->id}}" style="height:700px;width:700px;"></div>-->
+										<!--<ul class="list-unstyled list-info">
+										@foreach ($survey->stats as $num => $row)
+										<li>
+										<span class="pull-left">{{$num+1}}. {{$row->grouping->title}}</span>
+										<div class="progress progress-striped" style="margin: 0 0 5px 200px;">
+										<div class="progress-bar progress-bar-danger" style="width: {{$row->strong_percentage}}%;">{{ $row->strong_count }}</div>
+										<div class="progress-bar progress-bar-info" style="width: {{$row->vulnerable_percentage}}%;">{{ $row->vulnerable_count }}</div>
+										</div>
+										</li>
+										@endforeach
+										</ul>-->
+										<div id="myChart_{{$survey->id}}" class="myChart" data-id="{{$survey->id}}" style="height:700px;width:700px;"></div>
 									</div>
 
 								</div>
@@ -879,50 +877,59 @@
 	@section('script')
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 		<script type="text/javascript" src="{{ asset("/public/front/libs/morris/morris.min.js") }}"></script>
+		
 		<style type="text/css">
 			svg{
-				width:100% !important;
-				height: 100% !important;
+			width:100% !important;
 			}
 			.myChart{
-				width: 700px !important;
-				height: 100% !important;
+			width: 700px !important;
+			height: 100% !important;
 			}
 		</style>
+		
 		<script language="JavaScript" type="text/javascript">
 			var activeSection = "{{ \Input::get('s') }}";
-
-		
+			var bar;
+			
 			$(document).ready(function() {
-            	var graphData = {!! json_encode($survey->stats) !!};
 
-            	$('.myChart').each(function(){
-            		window['data_'+$(this).attr('data-id')].forEach(function(v){
-            			v['title'] = v['grouping']['title'];
-            		});
+			            var graphData = {!! json_encode($survey->stats) !!};
 
-        			var bar = Morris.Bar({
-		                element: 'myChart_'+$(this).attr('data-id'),
-		                data: window['data_'+$(this).attr('data-id')],
-		                xkey: 'title',
-		                parseTime: false,
-		                xLabels: ['Strengths-Based Aptitude','Emotional Competence','Social Connectedness','Moral Directedness','Adaptability','Managing Ambiguity','Agency and Resposibility','Persistence','Passion','Spiritual Eagerness'],
-		                xLabelAngle: 90,
-		                ykeys: ['vulnerable_count', 'strong_count'],
-		                labels: ['vulnerable', 'strong'],
-		                barSizeRatio: 0.8,
-		                barRatio: 1,
-		                barGap: 1,
-		                hideHover: 'auto',
-		                stacked: true,
-		                goal:[0,0],
-		                goalLineColors:["#9da3a9"],
-		                barColors: ["#9fc24d", "#e0b049"],
-		                resize: true,
-		                smooth: false,
-		            });
-				});
-        	});
-    	</script>
+			            $('.myChart').each(function(){
+				            $(this).hide();
+				            
+				            window['data_'+$(this).attr('data-id')].forEach(function(v){
+				            v['title'] = v['grouping']['title'];
+				            });
+
+				        		bar = Morris.Bar({
+					               element: 'myChart_'+$(this).attr('data-id'),
+					               data: window['data_'+$(this).attr('data-id')],
+					               xkey: 'title',
+					               parseTime: false,
+					               xLabelAngle: 90,
+					               ykeys: ['vulnerable_count', 'strong_count'],
+					               labels: ['vulnerable', 'strong'],
+					               barSizeRatio: 0.8,
+					               barRatio: 1,
+					               barGap: 1,
+					               hideHover: 'auto',
+					               stacked: true,
+					               goal:[0,0],
+					               goalLineColors:["#9da3a9"],
+					               barColors: ["#9fc24d", "#e0b049"],
+					               resize: true,
+					               smooth: false,
+				           		});
+						});
+			            
+			            setTimeout(function() {
+				           $(window).resize();
+				           $('.myChart').show();
+						}, 3500);
+
+			});
+		</script>
 	@stop
 @stop
