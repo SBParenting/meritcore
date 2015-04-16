@@ -76,7 +76,29 @@ class ManageController extends Controller {
 				$status = \Input::get('status');
 			}
 
-			$classes = Classroom::with('teacher')->where('school_id', '=', $school->id)->where('status', '=', $status)->orderBy('title', 'asc')->get();
+			$students = Student::where('school_id',$id)->get();
+			//dd($students);
+			
+			$surveys = $school->surveys;
+			//dd($surveys);
+
+			$active_surveys = Campaign::with('survey', 'students', 'students.student')->where('school_id', '=', $id)->where('status', '=', 'Active')->get();
+
+			$surveys = Campaign::with('survey', 'stats', 'stats.grouping')->where('school_id', '=', $id)->where('status', '=', 'Completed')->orderBy('created_at', 'desc')->get();
+
+			$data = [
+				'page'           => 'classes',
+				'school'         => $school,
+				'students'       => $students,
+				'teachers'       => $school->getTeachers(),
+				'surveys'        => $surveys,
+				'active_surveys' => $active_surveys,
+				'survey_types'   => Survey::all(),
+			];
+
+			return \View::make('front.manage.class', $data);
+
+			/*$classes = Classroom::with('teacher')->where('school_id', '=', $school->id)->where('status', '=', $status)->orderBy('title', 'asc')->get();
 
 			$data = [
 				'page'     => $page,
@@ -87,7 +109,7 @@ class ManageController extends Controller {
 				'status'   => $status,
 			];
 
-			return \View::make('front.manage.classes', $data);
+			return \View::make('front.manage.classes', $data);*/
 		}
 
 		abort(404);
@@ -101,10 +123,11 @@ class ManageController extends Controller {
 
 		if ($class)
 		{
+
 			$school = $class->school;
 
 			$students = $class->students;
-
+	//.dd($students);
 			$surveys = $class->surveys;
 
 			$active_surveys = Campaign::with('survey', 'students', 'students.student')->where('class_id', '=', $id)->where('status', '=', 'Active')->get();
