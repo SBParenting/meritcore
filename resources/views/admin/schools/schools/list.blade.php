@@ -48,7 +48,7 @@
 							</th>
 							<th class="sortable" data-field="name">Name</th>
 							<th class="sortable" data-field="schoolboard">School Board</th>
-							<!--<th class="sortable text-center" data-field="classes_count">Classes</th> -->
+							<th class="sortable text-center" data-field="classes_count">Classes</th>
 							<th class="sortable text-center" data-field="students_count">Students</th>
 							<th class="sortable text-center" data-field="surveys_total_count">Total Surveys</th>
 							<th class="sortable text-center" data-field="surveys_active_count">Active Surveys</th>
@@ -67,7 +67,7 @@
 								</td>
 								<td><a href="{{ url("/admin/s/schools/info/$record->id") }}">{{ $record->name }}</a></td>
 								<td>{{ str($record->school_board) }}</td>
-								<!--<td class="text-center"><a href="{{ url("/admin/s/schools/info-classes/$record->id") }}" class="label label-{{ $record->classes_count > 0 ? 'info' : 'default' }}">{{ $record->classes_count }}</a></td>-->
+								<td class="text-center"><a href="{{ url("/admin/s/schools/info-classes/$record->id") }}" class="label label-{{ $record->classes_count > 0 ? 'info' : 'default' }}">{{ $record->classes_count }}</a></td>
 								<td class="text-center"><a href="{{ url("/admin/s/schools/info-students/$record->id") }}" class="label label-{{ $record->students_count > 0 ? 'info' : 'default' }}">{{ $record->students_count }}</a></td>
 								<td class="text-center"><a href="{{ url("/admin/s/schools/info-surveys/$record->id") }}" class="label label-{{ $record->surveys_total_count > 0 ? 'info' : 'default' }}">{{ $record->surveys_total_count }}</a></td>
 								<td class="text-center"><a href="{{ url("/admin/s/schools/info-surveys/$record->id") }}" class="label label-{{ $record->surveys_active_count > 0 ? 'info' : 'default' }}">{{ $record->surveys_active_count }}</a></td>
