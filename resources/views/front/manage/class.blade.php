@@ -368,414 +368,344 @@
 							</div>
 						</div>
 					</div>
-
-
-<div id="addStudent" class="closed closable-panel">
-<div class="panel-group class-panel">
-<div class="panel panel-primary">
-<div class="panel-heading">
-Create Student
-</div>
-<div class="panel-body">
-{!! Form::open(['class'=>'form-horizontal', 'url' => "/m/classes/$school->id/students/add", 'data-return-url' => url("/m/classes/$school->id")."?s=1"   ]) !!}
-
-{!! Form::hidden('school_id', $school->id) !!}
-{!! Form::hidden('class_id', $school->id) !!}
-
-<br />
-
-<h4>Student Information</h4>
-
-<hr />
-
-<div class="form-group">
-<label class="col-sm-2">Student ID</label>
-<div class="col-sm-8">
-{!! Form::text('sid', null, ['class' => 'form-control', 'placeholder' => 'Student ID']) !!}
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-2">First Name</label>
-<div class="col-sm-8">
-{!! Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'First Name']) !!}
-</div>
-</div>
-<div class="form-group">
-<label class="col-sm-2">Last Name</label>
-<div class="col-sm-8">
-{!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => 'Last Name']) !!}
-</div>
-</div>
-
-<!--
-<div class="form-group">
-<label class="col-sm-2">Date of Birth</label>
-<div class="col-sm-8">
-<div class="input-group date">
-{!! Form::text('date_birth', null, ['class' => 'form-control', 'placeholder' => 'Date of Birth']) !!}
-<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-</div>
-</div>
-</div>
--->
-
-
-
-<!--
-<div class="form-group">
-<label class="col-sm-2">Email</label>
-<div class="col-sm-8">
-{!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) !!}
-</div>
-</div>
-
-<br />
-
-<h4>Address Information</h4>
-
-<hr />
-
-<div class="form-group">
-<label class="col-sm-2">Street</label>
-<div class="col-sm-8">
-{!! Form::text('address_street', null, ['class' => 'form-control', 'placeholder' => 'Address Street']) !!}
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-2">City</label>
-<div class="col-sm-8">
-{!! Form::text('address_city', null, ['class' => 'form-control', 'placeholder' => 'City']) !!}
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-2">Province</label>
-<div class="col-sm-8">
-<div class="js-dropdown-select padded">
-{!! Form::dropdown('address_province', ['AB' => 'Alberta', 'BC' => 'British Columbia', 'MB' => 'Manitoba', 'NB' => 'New Brunswick', 'NL' => 'Newfoundland', 'NS' => 'Nova Scotia', 'NT' => 'Northwest Territories', 'NU' => 'Nunavut', 'ON' => 'Ontario', 'PE' => 'Prince Edward Island', 'QC' => 'Quebec', 'SK' => 'Saskachewan', 'YK' => 'Yukon'], null, ['class' => 'form-control', 'placeholder' => 'Province'], 'btn btn-default') !!}
-</div>
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-2">Country</label>
-<div class="col-sm-8">
-{!! Form::text('address_country', null, ['class' => 'form-control', 'placeholder' => 'Country']) !!}
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-2">Postal Code</label>
-<div class="col-sm-8">
-{!! Form::text('address_postal_code', null, ['class' => 'form-control', 'placeholder' => 'Postal Code']) !!}
-</div>
-</div>
-
--->
-
-<hr />
-
-<a href="#" class="btn btn-default btn-lg show-panel dont-activate" data-target="#students" data-show="#studentInfoPanel" >Cancel</a>
-
-<button type="submit" class="btn btn-warning btn-lg pull-right"><i class="fa fa-check"></i> Save Changes</button>
-
-{!! Form::close() !!}
-</div>
-</div>
-
-</div>
-</div>
-
-
-@foreach ($students as $student)
-
-<div id="updateStudent{{$student->id}}" class="closed closable-panel">
-<div class="panel-group class-panel">
-<div class="panel panel-primary">
-<div class="panel-heading">
-Update Student
-</div>
-<div class="panel-body">
-{!! Form::open(['class'=>'form-horizontal', 'url' => "/m/classes/$school->id/students/$student->id/update", 'data-return-url' => url("/m/classes/$school->id")."?s=1"   ]) !!}
-
-<br />
-
-<h4>Student Information</h4>
-
-<hr />
-
-<div class="form-group">
-<label class="col-sm-2">Student ID</label>
-<div class="col-sm-8">
-{!! Form::text('sid', $student->sid, ['class' => 'form-control', 'placeholder' => 'Student ID']) !!}
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-2">First Name</label>
-<div class="col-sm-8">
-{!! Form::text('first_name', $student->first_name, ['class' => 'form-control', 'placeholder' => 'First Name']) !!}
-</div>
-</div>
-<div class="form-group">
-<label class="col-sm-2">Last Name</label>
-<div class="col-sm-8">
-{!! Form::text('last_name', $student->last_name, ['class' => 'form-control', 'placeholder' => 'Last Name']) !!}
-</div>
-</div>
-<hr />
-
-<a href="#" class="btn btn-default btn-lg show-panel dont-activate" data-target="#students" data-show="#studentInfoPanel" >Cancel</a>
-
-<button type="submit" class="btn btn-warning btn-lg pull-right"><i class="fa fa-check"></i> Save Changes</button>
-
-{!! Form::close() !!}
-</div>
-</div>
-
-</div>
-</div>
-
-@endforeach
-
-
-<div id="addSurvey" class="closed closable-panel">
-<div class="panel-group class-panel">
-<div class="panel panel-primary">
-<div class="panel-heading">
-Add Survey
-</div>
-<div class="panel-body">
-{!! Form::open(['class'=>'form-horizontal', 'url' => "/m/classes/$school->id/surveys/add", 'data-return-url' => url("/m/classes/$school->id")   ]) !!}
-
-{!! Form::hidden('school_id', $school->id) !!}
-{!! Form::hidden('class_id', $school->id) !!}
-
-<br />
-
-<h4>Survey Information</h4>
-
-<hr />
-
-<div class="form-group">
-<label class="col-sm-2">Title</label>
-<div class="col-sm-8">
-{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Title']) !!}
-</div>
-</div>
-
-<div class="form-group">
-<label class="col-sm-2">Questionaire</label>
-<div class="col-sm-8">
-<div class="js-dropdown-select padded">
-{!! Form::dropdown('survey_id', make_assoc_from_model($survey_types, 'id', 'title'), null, ['class' => 'form-control', 'placeholder' => 'Questionaire'], 'btn btn-default') !!}
-</div>
-</div>
-</div>
-
-<hr />
-
-<a href="#" class="btn btn-default btn-lg hide-panel dont-activate">Cancel</a>
-
-<button type="submit" class="btn btn-warning btn-lg pull-right"><i class="fa fa-check"></i> Save Changes</button>
-
-{!! Form::close() !!}
-</div>
-</div>
-
-</div>
-</div>
-
-@foreach ($active_surveys as $active_survey)
-
-<div id="manageSurvey{{$active_survey->id}}" class="closed closable-panel">
-<div class="panel-group class-panel">
-<div class="panel panel-primary">
-<div class="panel-heading">
-Manage Survey
-</div>
-<div class="panel-body">
-
-{!! Form::open(['class'=>'form-horizontal', 'url' => "/m/classes/$school->id/surveys/$active_survey->id/complete", 'data-return-url' => url("/m/classes/$school->id") ]) !!}
-
-<button type="submit" class="btn btn-warning btn-lg pull-right"><i class="fa fa-check"></i> End Survey!</button>
-
-{!! Form::close() !!}
-
-<br />
-
-<h4>Survey Participants</h4>
-
-<hr />
-
-@if (count($active_survey->students) == 0)
-<h4>No Students In This Survey Yet..</h4>
-@else
-<table class="table">
-<thead>
-<tr>
-<th>#</th>
-<th>Student Name</th>
-<th>Status</th>
-<th>Progress</th>
-</tr>
-</thead>
-<tbody>
-@foreach ($active_survey->students as $num => $student)
-<tr>
-<td class="text-info">{{ $num+1 }}</td>
-<td>{{ $student->student->getName("F L") }}</td>
-<td>{{ $student->status }}</td>
-<td>
-<div class="progress progress-striped">
-<div class="progress-bar progress-bar-info" style="width: {{ $student->getProgress() }}%;">
-{{ $student->count_completed }} of {{ $student->count_total }}
-</div>
-</div>
-</td>
-</tr>
-@endforeach
-</tbody>
-</table>
-@endif
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-@endforeach
-
-@foreach ($surveys as $survey)
-
-<div id="manageSurvey{{$survey->id}}" class="closed closable-panel">
-<div class="panel-group class-panel">
-<div class="panel panel-primary">
-<div class="panel-heading">
-Survey Results
-</div>
-<div class="panel-body">
-
-<a href="{{ url('/m/surveys/'.$survey->id.'/report') }}" class="btn btn-default btn-lg pull-right" target="_blank"><i class="fa fa-bar-chart"></i> Generate Survey Report</a>
-
-<br />
-
-<h4>Survey Summary</h4>
-
-<hr />
-
-<ul class="list-unstyled list-info">
-<li>
-<label>Participants</label>
-{{ $survey->count_total }}
-</li>
-<li>
-<label>Questions</label>
-{{ $survey->survey->count_questions }}
-</li>
-<li>
-<label>Date Started</label>
-9 Jan 2015
-</li>
-<li>
-<label>Date Ended</label>
-15 Feb 2015
-</li>
-</ul>
-
-<br /><br />
-
-<h4>Survey Results</h4>
-
-<hr />
-
-{!! "<script type='text/javascript'> var data_". $survey->id." = ". json_encode($survey->stats) . "</script>" !!}
-
-<ul class="list-unstyled list-info">
-
-@foreach ($survey->stats as $num => $row)
-<li>
-<span class="pull-left">{{$num+1}}. {{$row->grouping->title}}</span>
-<div class="progress progress-striped" style="margin: 0 0 5px 200px;">
-<div class="progress-bar progress-bar-danger" style="width: {{$row->strong_percentage}}%;">{{ $row->strong_count }}</div>
-<div class="progress-bar progress-bar-info" style="width: {{$row->vulnerable_percentage}}%;">{{ $row->vulnerable_count }}</div>
-</div>
-</li>
-@endforeach
-</ul>
-<!--<div id="myChart_{{$survey->id}}" class="myChart" data-id="{{$survey->id}}" style="height:700px;width:700px;"></div>-->
-</div>
-
-</div>
-
-</div>
-</div>
-
-@endforeach
-
-</div>
-
-</div>
-
-</div>
-
-@stop
-
-@section('script')
-<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script type="text/javascript" src="{{ asset("/public/front/libs/morris/morris.min.js") }}"></script>
-<style type="text/css">
-svg{
-width:100% !important;
-}
-.myChart{
-width: 700px !important;
-height: 100% !important;
-}
-</style>
-<script language="JavaScript" type="text/javascript">
-var activeSection = "{{ \Input::get('s') }}";
-var bar;
-$(document).ready(function() {
-
-            var graphData = {!! json_encode($survey->stats) !!};
-
-            $('.myChart').each(function(){
-            $(this).hide();
-            window['data_'+$(this).attr('data-id')].forEach(function(v){
-            v['title'] = v['grouping']['title'];
-            });
-
-        bar = Morris.Bar({
-               element: 'myChart_'+$(this).attr('data-id'),
-               data: window['data_'+$(this).attr('data-id')],
-               xkey: 'title',
-               parseTime: false,
-               xLabelAngle: 90,
-               ykeys: ['vulnerable_count', 'strong_count'],
-               labels: ['vulnerable', 'strong'],
-               barSizeRatio: 0.8,
-               barRatio: 1,
-               barGap: 1,
-               hideHover: 'auto',
-               stacked: true,
-               goal:[0,0],
-               goalLineColors:["#9da3a9"],
-               barColors: ["#9fc24d", "#e0b049"],
-               resize: true,
-               smooth: false,
-           });
-});
-            setTimeout(function() {
-           $(window).resize();
-           $('.myChart').show();
-}, 3500);
-
-        });
-    </script>
-@stop
+					<div id="addStudent" class="closed closable-panel">
+						<div class="panel-group class-panel">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									Create Student
+								</div>
+								<div class="panel-body">
+									{!! Form::open(['class'=>'form-horizontal', 'url' => "/m/classes/$school->id/students/add", 'data-return-url' => url("/m/classes/$school->id")."?s=1"   ]) !!}
+									{!! Form::hidden('school_id', $school->id) !!}
+									<br />
+									<h4>Student Information</h4>
+									<hr />
+
+									<div class="form-group">
+										<label class="col-sm-2">Student ID</label>
+										<div class="col-sm-8">
+											{!! Form::text('sid', null, ['class' => 'form-control', 'placeholder' => 'Student ID']) !!}
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2">First Name</label>
+										<div class="col-sm-8">
+											{!! Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'First Name']) !!}
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2">Last Name</label>
+										<div class="col-sm-8">
+											{!! Form::text('last_name', null, ['class' => 'form-control', 'placeholder' => 'Last Name']) !!}
+										</div>
+									</div>
+
+									<!--
+									<div class="form-group">
+									<label class="col-sm-2">Date of Birth</label>
+									<div class="col-sm-8">
+									<div class="input-group date">
+									{!! Form::text('date_birth', null, ['class' => 'form-control', 'placeholder' => 'Date of Birth']) !!}
+									<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+									</div>
+									</div>
+									</div>
+
+									<div class="form-group">
+									<label class="col-sm-2">Email</label>
+									<div class="col-sm-8">
+									{!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) !!}
+									</div>
+									</div>
+
+									<br />
+
+									<h4>Address Information</h4>
+
+									<hr />
+
+									<div class="form-group">
+									<label class="col-sm-2">Street</label>
+									<div class="col-sm-8">
+									{!! Form::text('address_street', null, ['class' => 'form-control', 'placeholder' => 'Address Street']) !!}
+									</div>
+									</div>
+
+									<div class="form-group">
+									<label class="col-sm-2">City</label>
+									<div class="col-sm-8">
+									{!! Form::text('address_city', null, ['class' => 'form-control', 'placeholder' => 'City']) !!}
+									</div>
+									</div>
+
+									<div class="form-group">
+									<label class="col-sm-2">Province</label>
+									<div class="col-sm-8">
+									<div class="js-dropdown-select padded">
+									{!! Form::dropdown('address_province', ['AB' => 'Alberta', 'BC' => 'British Columbia', 'MB' => 'Manitoba', 'NB' => 'New Brunswick', 'NL' => 'Newfoundland', 'NS' => 'Nova Scotia', 'NT' => 'Northwest Territories', 'NU' => 'Nunavut', 'ON' => 'Ontario', 'PE' => 'Prince Edward Island', 'QC' => 'Quebec', 'SK' => 'Saskachewan', 'YK' => 'Yukon'], null, ['class' => 'form-control', 'placeholder' => 'Province'], 'btn btn-default') !!}
+									</div>
+									</div>
+									</div>
+
+									<div class="form-group">
+									<label class="col-sm-2">Country</label>
+									<div class="col-sm-8">
+									{!! Form::text('address_country', null, ['class' => 'form-control', 'placeholder' => 'Country']) !!}
+									</div>
+									</div>
+
+									<div class="form-group">
+									<label class="col-sm-2">Postal Code</label>
+									<div class="col-sm-8">
+									{!! Form::text('address_postal_code', null, ['class' => 'form-control', 'placeholder' => 'Postal Code']) !!}
+									</div>
+									</div>
+
+									-->
+									<hr />
+									<a href="#" class="btn btn-default btn-lg show-panel dont-activate" data-target="#students" data-show="#studentInfoPanel" >Cancel</a>
+									<button type="submit" class="btn btn-warning btn-lg pull-right"><i class="fa fa-check"></i> Save Changes</button>
+									{!! Form::close() !!}
+								</div>
+							</div>
+						</div>
+					</div>
+
+					@foreach ($students as $student)
+						<div id="updateStudent{{$student->id}}" class="closed closable-panel">
+							<div class="panel-group class-panel">
+								<div class="panel panel-primary">
+									<div class="panel-heading">
+										Update Student
+									</div>
+									<div class="panel-body">
+										{!! Form::open(['class'=>'form-horizontal', 'url' => "/m/classes/$school->id/students/$student->id/update", 'data-return-url' => url("/m/classes/$school->id")."?s=1"   ]) !!}
+										<br />
+										<h4>Student Information</h4>
+										<hr />
+										<div class="form-group">
+											<label class="col-sm-2">Student ID</label>
+											<div class="col-sm-8">
+												{!! Form::text('sid', $student->sid, ['class' => 'form-control', 'placeholder' => 'Student ID']) !!}
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-2">First Name</label>
+											<div class="col-sm-8">
+												{!! Form::text('first_name', $student->first_name, ['class' => 'form-control', 'placeholder' => 'First Name']) !!}
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-2">Last Name</label>
+											<div class="col-sm-8">
+												{!! Form::text('last_name', $student->last_name, ['class' => 'form-control', 'placeholder' => 'Last Name']) !!}
+											</div>
+										</div>
+										<hr />
+										<a href="#" class="btn btn-default btn-lg show-panel dont-activate" data-target="#students" data-show="#studentInfoPanel" >Cancel</a>
+										<button type="submit" class="btn btn-warning btn-lg pull-right"><i class="fa fa-check"></i> Save Changes</button>
+										{!! Form::close() !!}
+									</div>
+								</div>
+							</div>
+						</div>
+					@endforeach
+					<div id="addSurvey" class="closed closable-panel">
+						<div class="panel-group class-panel">
+							<div class="panel panel-primary">
+								<div class="panel-heading">
+									Add Survey
+								</div>
+								<div class="panel-body">
+									{!! Form::open(['class'=>'form-horizontal', 'url' => "/m/classes/$school->id/surveys/add", 'data-return-url' => url("/m/classes/$school->id")   ]) !!}
+									{!! Form::hidden('school_id', $school->id) !!}
+									<br />
+									<h4>Survey Information</h4>
+									<hr />
+									<div class="form-group">
+										<label class="col-sm-2">Title</label>
+										<div class="col-sm-8">
+											{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Title']) !!}
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2">Questionaire</label>
+										<div class="col-sm-8">
+											<div class="js-dropdown-select padded">
+												{!! Form::dropdown('survey_id', make_assoc_from_model($survey_types, 'id', 'title'), null, ['class' => 'form-control', 'placeholder' => 'Questionaire'], 'btn btn-default') !!}
+											</div>
+										</div>
+									</div>
+									<hr />
+									<a href="#" class="btn btn-default btn-lg hide-panel dont-activate">Cancel</a>
+									<button type="submit" class="btn btn-warning btn-lg pull-right"><i class="fa fa-check"></i> Save Changes</button>
+									{!! Form::close() !!}
+								</div>
+							</div>
+						</div>
+					</div>
+
+					@foreach ($active_surveys as $active_survey)
+						<div id="manageSurvey{{$active_survey->id}}" class="closed closable-panel">
+							<div class="panel-group class-panel">
+								<div class="panel panel-primary">
+									<div class="panel-heading">
+										Manage Survey
+									</div>
+									<div class="panel-body">
+										{!! Form::open(['class'=>'form-horizontal', 'url' => "/m/classes/$school->id/surveys/$active_survey->id/complete", 'data-return-url' => url("/m/classes/$school->id") ]) !!}
+										<button type="submit" class="btn btn-warning btn-lg pull-right"><i class="fa fa-check"></i> End Survey!</button>
+										{!! Form::close() !!}
+										<br />
+										<h4>Survey Participants</h4>
+										<hr />
+										@if (count($active_survey->students) == 0)
+											<h4>No Students In This Survey Yet..</h4>
+										@else
+											<table class="table">
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>Student Name</th>
+														<th>Status</th>
+														<th>Progress</th>
+													</tr>
+												</thead>
+												<tbody>
+													@foreach ($active_survey->students as $num => $student)
+														<tr>
+															<td class="text-info">{{ $num+1 }}</td>
+															<td>{{ $student->student->getName("F L") }}</td>
+															<td>{{ $student->status }}</td>
+															<td>
+																<div class="progress progress-striped">
+																	<div class="progress-bar progress-bar-info" style="width: {{ $student->getProgress() }}%;">
+																		{{ $student->count_completed }} of {{ $student->count_total }}
+																	</div>
+																</div>
+															</td>
+														</tr>
+													@endforeach
+												</tbody>
+											</table>
+										@endif
+									</div>
+								</div>
+							</div>
+						</div>
+					@endforeach
+
+					@foreach ($surveys as $survey)
+						<div id="manageSurvey{{$survey->id}}" class="closed closable-panel">
+							<div class="panel-group class-panel">
+								<div class="panel panel-primary">
+									<div class="panel-heading">
+										Survey Results
+									</div>
+									<div class="panel-body">
+										<a href="{{ url('/m/surveys/'.$survey->id.'/report') }}" class="btn btn-default btn-lg pull-right" target="_blank"><i class="fa fa-bar-chart"></i> Generate Survey Report</a>
+										<br />
+										<h4>Survey Summary</h4>
+										<hr />
+										<ul class="list-unstyled list-info">
+											<li>
+												<label>Participants</label>
+												{{ $survey->count_total }}
+											</li>
+											<li>
+												<label>Questions</label>
+												{{ $survey->survey->count_questions }}
+											</li>
+											<li>
+												<label>Date Started</label>
+												9 Jan 2015
+											</li>
+											<li>
+												<label>Date Ended</label>
+												15 Feb 2015
+											</li>
+										</ul>
+										<br /><br />
+										<h4>Survey Results</h4>
+										<hr />
+										{!! "<script type='text/javascript'> var data_". $survey->id." = ". json_encode($survey->stats) . "</script>" !!}
+										<!--<ul class="list-unstyled list-info">
+										@foreach ($survey->stats as $num => $row)
+										<li>
+										<span class="pull-left">{{$num+1}}. {{$row->grouping->title}}</span>
+										<div class="progress progress-striped" style="margin: 0 0 5px 200px;">
+										<div class="progress-bar progress-bar-danger" style="width: {{$row->strong_percentage}}%;">{{ $row->strong_count }}</div>
+										<div class="progress-bar progress-bar-info" style="width: {{$row->vulnerable_percentage}}%;">{{ $row->vulnerable_count }}</div>
+										</div>
+										</li>
+										@endforeach
+										</ul>-->
+										<div id="myChart_{{$survey->id}}" class="myChart" data-id="{{$survey->id}}" style="height:700px;width:700px;"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					@endforeach
+				</div>
+			</div>
+		</div>
+	@stop
+	@section('script')
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+		<script type="text/javascript" src="{{ asset("/public/front/libs/morris/morris.min.js") }}"></script>
+		
+		<style type="text/css">
+			svg{
+			width:100% !important;
+			}
+			.myChart{
+			width: 700px !important;
+			height: 100% !important;
+			}
+		</style>
+		
+		<script language="JavaScript" type="text/javascript">
+			var activeSection = "{{ \Input::get('s') }}";
+			var bar;
+			
+			$(document).ready(function() {
+
+			            var graphData = {!! json_encode($survey->stats) !!};
+
+			            $('.myChart').each(function(){
+				            $(this).hide();
+				            
+				            window['data_'+$(this).attr('data-id')].forEach(function(v){
+				            v['title'] = v['grouping']['title'];
+				            });
+
+				        		bar = Morris.Bar({
+					               element: 'myChart_'+$(this).attr('data-id'),
+					               data: window['data_'+$(this).attr('data-id')],
+					               xkey: 'title',
+					               parseTime: false,
+					               xLabelAngle: 90,
+					               ykeys: ['vulnerable_count', 'strong_count'],
+					               labels: ['vulnerable', 'strong'],
+					               barSizeRatio: 0.8,
+					               barRatio: 1,
+					               barGap: 1,
+					               hideHover: 'auto',
+					               stacked: true,
+					               goal:[0,0],
+					               goalLineColors:["#9da3a9"],
+					               barColors: ["#9fc24d", "#e0b049"],
+					               resize: true,
+					               smooth: false,
+				           		});
+						});
+			            
+			            setTimeout(function() {
+				           $(window).resize();
+				           $('.myChart').show();
+						}, 3500);
+
+			});
+		</script>
+	@stop
 @stop
