@@ -894,7 +894,7 @@
 			
 			$(document).ready(function() {
 
-			            var graphData = {!! json_encode($survey->stats) !!};
+			            //
 
 			            $('.myChart').each(function(){
 				            $(this).hide();
@@ -918,7 +918,7 @@
 					               stacked: true,
 					               goal:[0,0],
 					               goalLineColors:["#9da3a9"],
-					               barColors: ["#9fc24d", "#e0b049"],
+					               barColors: ["#e0b049", "#9fc24d"],
 					               resize: true,
 					               smooth: false,
 				           		});

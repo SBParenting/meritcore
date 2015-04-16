@@ -101,11 +101,11 @@ class Campaign extends \App\Models\Model {
 			{
 				$strong_count = CampaignResult::where('campaign_id', '=', $this->id)->whereIn('result', [1,2,3])->whereIn('question_id', $question_ids)->count();
 
-				$strong_count = $strong_count / count($question_ids);
+				$strong_count = ceil($strong_count / count($question_ids));
 
 				$vulnerable_count = CampaignResult::where('campaign_id', '=', $this->id)->whereIn('result', [4,5])->whereIn('question_id', $question_ids)->count();
 
-				$vulnerable_count = $vulnerable_count / count($question_ids);
+				$vulnerable_count = floor($vulnerable_count / count($question_ids));
 
 				$total = $strong_count + $vulnerable_count;
 

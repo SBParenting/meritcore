@@ -59,7 +59,7 @@
 													<input name="students[{{$student->id}}]" type="checkbox" class="i-checks js-select" data-record-id="{{ $student->id }}" value="1">
 												@endif
 											</td>
-											<td>{{ $student->id }}</td>
+											<td>{{ $student->sid }}</td>
 											<td>{{ $student->getName() }}</td>
 											<td>
 												@if ($student->clasr)

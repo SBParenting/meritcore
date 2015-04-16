@@ -95,16 +95,17 @@ class SurveyController extends Controller {
 			$categories = [];
 			$strong = [];
 			$vulnerable = [];
-
+			//dd($survey->stats);
 		      foreach ($survey->stats as $stat)
 			   {
 				$gdata[]=[
 				'categories'=>$stat->grouping->title,
-				'strong' => (int)$stat->strong_count,
-				'vulnerable' => (int)$stat->vulnerable_count];
+				'strong' => ceil($stat->strong_count),
+				'vulnerable' => floor($stat->vulnerable_count)];
 			   }
 
  			 $data['gdata'] = $gdata;
+ 			 
 
 		    $data['categories'] = $categories;
 
@@ -119,7 +120,7 @@ class SurveyController extends Controller {
 		
 		    $data['chart'] = $filename;
 
-			//return \View::make('front.manage.reports.impact', $data)->render();
+			return \View::make('front.manage.reports.impact', $data)->render();
 			
 			$pdf = \PDF::loadView('front.manage.reports.impact', $data);
 			$pdf->setPaper('letter');
