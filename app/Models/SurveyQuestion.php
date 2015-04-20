@@ -12,4 +12,10 @@ class SurveyQuestion extends \App\Models\Model {
 	{
 		return $this->belongsTo('Survey');
 	}
+
+
+	public function groupings()
+	{
+		return $this->belongsToMany('App\Models\SurveyGrouping', 'survey_grouping_question', 'question_id', 'grouping_id');
+	}
 }

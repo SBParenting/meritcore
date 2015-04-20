@@ -111,7 +111,7 @@
     {!! HTML::script("public/admin/js/api.js") !!}
     {!! HTML::script("public/admin/js/app.js") !!}
     {!! HTML::script("public/admin/js/form.js") !!}
-
+    @yield('script');
 </body>
 
 </html>

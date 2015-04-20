@@ -4,7 +4,7 @@ class SurveyGrouping extends \App\Models\Model {
 
 	protected $table = 'survey_groupings';
 
-	protected $fillable = ['title'];
+	protected $fillable = ['survey_id','title'];
 
 	protected $hidden = ['deleted_at'];
 
@@ -15,6 +15,17 @@ class SurveyGrouping extends \App\Models\Model {
 
 	public function questions()
 	{
-		return $this->belongsToMany('App\Models\SurveyQuestion', 'survey_grouping_question', 'grouping_id', 'question_id');
+		return $this->belongsToMany('App\Models\SurveyQuestion','survey_grouping_question','grouping_id','question_id');
 	}
+
+	public static function getTitle(){
+        $competency = self::select('id','title')->groupBy('title')->get();
+        $array = [];
+        foreach ($competency as $competency)
+        {
+            $array[$competency->title] = $competency->title;
+        }
+        $array['Other'] = 'Others';
+        return $array;
+    }
 }

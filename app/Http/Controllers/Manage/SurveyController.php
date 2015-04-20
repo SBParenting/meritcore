@@ -100,8 +100,8 @@ class SurveyController extends Controller {
 			   {
 				$gdata[]=[
 				'categories'=>$stat->grouping->title,
-				'strong' => ceil($stat->strong_count),
-				'vulnerable' => floor($stat->vulnerable_count)];
+				'strong' => (int)$stat->strong_count,
+				'vulnerable' => (int)$stat->vulnerable_count];
 			   }
 
  			 $data['gdata'] = $gdata;

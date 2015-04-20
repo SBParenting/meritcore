@@ -1,5 +1,4 @@
 @extends('admin.layout.page')
-
 	@section('title')
 	   @if (!empty($record->question))
 			{{ $record->question }}
@@ -9,7 +8,6 @@
 	@stop
 
 	@section('page-content')
-
 		<div class="row">
 			<div class="col-md-12">
 				<ol class="breadcrumb">
@@ -20,7 +18,7 @@
 						<a href="{{ url('admin/s/surveys/') }}">Manage Survey</a>
 					</li>
 					<li>
-						<a href="{{ url("admin/s/surveys/quetions/$record->survey_id") }}">{{ $record->title }}</a>
+						<a href="{{ url("admin/s/surveys/questions/$record->survey_id") }}">{{ $record->title }}</a>
 					</li>
 					<li class="active">
 						<strong>Add Question</strong>
@@ -67,6 +65,20 @@
 							</div>
 						</div>
 
+						<div class="form-group">
+							<label class="col-md-2 control-label">Choose A Competency</label>
+							<div class="col-md-4">
+								{!! Form::select('competency', App\Models\SurveyGrouping::getTitle(), (isset($record))?$record->competency:null, ['class' => 'form-control', 'id' => 'competency']) !!}
+							</div>
+						</div>
+
+						<div class="form-group other">
+							<label class="col-md-2 control-label">Other</label>
+							<div class="col-md-4">
+								{!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Other Competency']) !!}
+							</div>
+						</div>
+
 						<div class="hr-line-dashed"></div>
 
 						<div class="form-group">
@@ -93,6 +105,27 @@
 		</div>
 
 		{!! Form::close() !!}
+
+		@section('script')
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.other').hide();
+			});
+			$('#competency').change(function(){
+				var value =  $(this).val();
+				if(value == 'Other')
+				{
+					$('.other').show();
+				}
+				else
+				{
+					$('.other').hide();
+				}
+			});
+		</script>
+
+	@stop
+
 
 	@stop
 
