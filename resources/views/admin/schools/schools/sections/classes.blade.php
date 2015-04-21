@@ -35,9 +35,9 @@
 				<td><a href="{{ url("/admin/s/classes/info/$record->id") }}">{{ $record->title }}</a></td>
 				<td>{{ $record->teacher_name }}</td>
 				<td>{{ $record->grade }}</td>
-				<td class="text-center"><a href="#" class="label label-{{ $record->students_count > 0 ? 'info' : 'default' }}">{{ $record->students_count }}</a></td>
-				<td class="text-center"><a href="#" class="label label-{{ $record->surveys_total_count > 0 ? 'info' : 'default' }}">{{ $record->surveys_total_count }}</a></td>
-				<td class="text-center"><a href="#" class="label label-{{ $record->surveys_active_count > 0 ? 'info' : 'default' }}">{{ $record->surveys_active_count }}</a></td>
+				<td class="text-center"><a href="{{ url("/admin/s/classes/info-students/$record->id") }}" class="label label-{{ $record->students_count > 0 ? 'info' : 'default' }}">{{ $record->students_count }}</a></td>
+				<td class="text-center"><a href="{{ url("/admin/s/classes/info-surveys/$record->id") }}" class="label label-{{ $record->surveys_total_count > 0 ? 'info' : 'default' }}">{{ $record->surveys_total_count }}</a></td>
+				<td class="text-center"><a href="{{ url("/admin/s/classes/info-surveys/$record->id") }}" class="label label-{{ $record->surveys_active_count > 0 ? 'info' : 'default' }}">{{ $record->surveys_active_count }}</a></td>
 				<td>
 					<a href="{{ url("/admin/s/classes/info/$record->id") }}" class="btn btn-xs btn-default do-tooltip" title="View class information."><i class="fa fa-info"></i> &nbsp;View</a>
 				</td>

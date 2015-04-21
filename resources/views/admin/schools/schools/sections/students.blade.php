@@ -35,7 +35,7 @@
 				<td>{{ $record->grade }}</td>
 				<td class="text-center">{{ get_date($record->created_at, "M j, Y") }}</a></td>
 				<td>
-					<a href="{{ url("/admin/s/classes/info/$record->id") }}" class="btn btn-xs btn-default do-tooltip" title="View class information."><i class="fa fa-info"></i> &nbsp;View</a>
+					<a href="{{ url("/admin/s/schools/update-student/$record->id") }}" class="btn btn-xs btn-default do-tooltip" title="View class information."><i class="fa fa-info"></i> &nbsp;View</a>
 				</td>
 			</tr>
 

@@ -1,7 +1,7 @@
 
 <br />
 
-<a href="{{ url('/admin/s/schools/add-student/'.$record->id) }}" class="btn btn-default close-button pull-right"><i class="fa fa-plus"></i> Add Student</a>
+<a href="{{ url('/admin/s/schools/add-student/'.$record->school_id.'/'.$record->id) }}" class="btn btn-default close-button pull-right"><i class="fa fa-plus"></i> Add Student</a>
 
 <div class="clearfix"></div>
 
@@ -35,7 +35,7 @@
 				<td>{{ $record->grade }}</td>
 				<td class="text-center">{{ get_date($record->created_at, "M j, Y") }}</a></td>
 				<td>
-					<a href="{{ url("/admin/s/classes/info/$record->id") }}" class="btn btn-xs btn-default do-tooltip" title="View class information."><i class="fa fa-info"></i> &nbsp;View</a>
+					<a href="{{ url("/admin/s/schools/update-student/$record->id") }}" class="btn btn-xs btn-default do-tooltip" title="View class information."><i class="fa fa-info"></i> &nbsp;View</a>
 				</td>
 			</tr>
 

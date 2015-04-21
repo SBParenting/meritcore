@@ -72,7 +72,9 @@ class SchoolsController extends AdminController {
 
 		$this->sorting( Record::$defaultSort, $this->base_url.'/info-students' );
 
-		$records = Student::getListable( Student::where('school_id', '=', $id) )->paginate(20);
+		$records = Student::getListable( Student::where('school_id', '=', $id))->paginate(20);
+			
+		//dd($records);
 
 		$data = [
 			'record'  => $record,
@@ -163,13 +165,14 @@ class SchoolsController extends AdminController {
 		return \View::make("admin.$this->view_path.info", $data);
 	}
 
-	public function getAddStudent($id)
+	public function getAddStudent($id,$class_id = null)
 	{
 		$record = Record::findOrFail($id);
+		$record['classroom_id'] = $class_id;
 
 		$data = [
 			'record'  => $record,
-			'grades'  => Classroom::$grades,
+			'classes'  => Classroom::getClasses($id),
 			'section' => 'addstudent',
 		];
 
@@ -229,6 +232,19 @@ class SchoolsController extends AdminController {
 		return \View::make("admin.$this->view_path.form", $data);
 	}
 
+	public function getUpdateStudent($id)
+	{
+		$record = Student::findOrFail($id);
+
+		$data = [
+			'record'  => $record,
+			'classes'  => Classroom::getClasses($record->school_id),
+			'section' => 'addstudent',
+		];
+
+		return \View::make("admin.$this->view_path.info", $data);
+	}
+
 	public function postAdd(Request $request)
 	{
 		$record = new Record;
@@ -276,7 +292,7 @@ class SchoolsController extends AdminController {
 			'first_name'          => 'required',
 			'last_name'           => 'required',
 			'date_birth'          => 'date',
-			'grade'               => 'required',
+			'classroom_id'        => 'required',
 		]);
 
 		$record = new Student;
@@ -284,12 +300,21 @@ class SchoolsController extends AdminController {
 		$input = $request->input();
 
 		$input['school_id'] = $id;
-
+		$input['grade'] = Classroom::getGrade($request->classroom_id);
 		$record->fill($input)->save();
+	
+		$school = Record::where('id',$id)->first();
+		$school->updateRecord()->save();
+
+		$class = Classroom::where('id',$request->classroom_id)->first();
+		$class->updateRecord()->save();
+
+
 
 		StudentAssoc::create([
 			'student_id' => $record->id,
 			'school_id'  => $id,
+			'class_id'	 => $request->classroom_id,
 		]);
 
 		return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url($this->base_url.'/info-students/'.$id)]);
@@ -375,6 +400,23 @@ class SchoolsController extends AdminController {
 		}
 
 		return \Response::json(['result' => false, 'msg' => trans('crud.failed_updated')]);
+	}
+
+	public function postUpdateStudent(Request $request,$id)
+	{
+		$record = Student::findOrFail($id);
+
+		if ($record)
+		{
+			$input = \Input::all();
+
+			$record->fill($input)->save();
+
+			return \Response::json(['result' => true, 'msg' => trans('crud.success_updated'), 'url' => url($this->base_url.'/info-students/'.$record->school_id) ]);
+		}
+
+		return \Response::json(['result' => false, 'msg' => trans('crud.failed_updated')]);
+
 	}
 
 	public function postRemove($id)

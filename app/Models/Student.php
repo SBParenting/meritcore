@@ -4,7 +4,7 @@ class Student extends \App\Models\Model {
 
 	protected $table = 'students';
 
-	protected $fillable = ['sid', 'first_name', 'last_name', 'date_birth', 'school_id', 'school', 'grade', 'classroom', 'email', 'address_street', 'address_city', 'address_province', 'address_country', 'address_postal_code', 'created_by'];
+	protected $fillable = ['sid', 'first_name', 'last_name', 'date_birth', 'school_id', 'school', 'grade', 'classroom', 'classroom_id', 'email', 'address_street', 'address_city', 'address_province', 'address_country', 'address_postal_code', 'created_by'];
 
 	public static $importable = ['student_id', 'first_name', 'last_name', 'date_birth', 'school', 'grade', 'classroom', 'email', 'street', 'city', 'province', 'country', 'postal_code'];
 
@@ -83,5 +83,10 @@ class Student extends \App\Models\Model {
 	    }
 
         return $query;
+    }
+
+    public static function getCountStudent($id){
+    	$count = self::where('classroom_id',$id)->count();
+    	return $count;
     }
 }

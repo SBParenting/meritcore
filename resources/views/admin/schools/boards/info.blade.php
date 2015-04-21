@@ -54,7 +54,7 @@
 
 				<hr />
 
-				<a href="{{ url('/admin/s/boards') }}" class="btn btn-default btn-lg close-button">Done</a>
+				<!--<a href="{{ url('/admin/s/boards') }}" class="btn btn-default btn-lg close-button">Done</a>-->
 
 			</div>
 

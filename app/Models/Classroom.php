@@ -98,4 +98,20 @@ class Classroom extends \App\Models\Model {
         return $query;
     }
 
+    public static function getClasses($id){
+    	$classes = self::select('id','title')->where('school_id',$id)->get();
+    	$array = [];
+
+    	foreach ($classes as $class) {
+			$array[$class->id] = $class->title;
+    	}
+
+    	return $array;
+    }
+
+     public static function getGrade($id){
+    	$record = self::select('grade')->where('id',$id)->first();
+  
+    	return $record->grade;
+    }
 }
