@@ -76,7 +76,7 @@
                 goals: [0,0],
                 stacked: true,
                 goalLineColors:["#9da3a9"],
-                barColors: ["#9fc24d", "#e0b049"]
+                barColors: ["#e0b049", "#9fc24d"]
             });
 
         var barWidth=(($('#myChart').width()/10)*(0.8))/2;
