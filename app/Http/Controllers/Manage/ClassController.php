@@ -88,6 +88,10 @@ class ClassController extends Controller {
 		$input['status'] = 'Active';
 
 		$class->fill($input)->save();
+		$class->updateRecord()->save();
+
+		$school = School::where('id',$request->school_id)->first();
+		$school->updateRecord()->save();
 
 		if ($request->input('teacher_first_name') && $request->input('teacher_last_name') && $request->input('teacher_email'))
 		{

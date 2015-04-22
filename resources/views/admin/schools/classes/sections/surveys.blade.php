@@ -1,7 +1,7 @@
 
 <br />
 
-<a href="{{ url('/admin/s/schools/add-survey/'.$record->id) }}" class="btn btn-default close-button pull-right"><i class="fa fa-plus"></i> Add Survey</a>
+<a href="{{ url('/admin/s/schools/add-survey/'.$record->school_id.'/'.$record->id) }}" class="btn btn-default close-button pull-right"><i class="fa fa-plus"></i> Add Survey</a>
 
 <div class="clearfix"></div>
 

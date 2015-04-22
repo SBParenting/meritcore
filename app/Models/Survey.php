@@ -40,4 +40,16 @@ class Survey extends \App\Models\Model {
 
         return $query;
     }
+
+    public static function getSurveys()
+    {
+    	$data = self::select('id','title')->get();
+        $array = [];
+        foreach ($data as $data)
+        {
+            $array[$data->id] = $data->title;
+        }
+       
+        return $array;
+    }
 }

@@ -9,8 +9,10 @@ use App\Models\UserAssoc;
 use App\Models\School as Record;
 use App\Models\Classroom;
 use App\Models\Campaign;
+use App\Models\CampaignStudent;
 use App\Models\Role;
 use App\Models\Student;
+use App\Models\Survey;
 use App\Models\StudentAssoc;
 use App\Models\SchoolBoard;
 use App\Models\UserRole as UserRole;
@@ -179,13 +181,15 @@ class SchoolsController extends AdminController {
 		return \View::make("admin.$this->view_path.info", $data);
 	}
 
-	public function getAddSurvey($id)
+	public function getAddSurvey($id, $class_id = null)
 	{
 		$record = Record::findOrFail($id);
-
+		$record['class_id'] = $class_id;
 		$data = [
-			'record'  => $record,
-			'section' => 'addsurvey',
+			'record'    => $record,
+			'classes'   => Classroom::getClasses($id),
+			'survey_id'	=> Survey::getSurveys(),
+			'section'   => 'addsurvey',
 		];
 
 		return \View::make("admin.$this->view_path.info", $data);
@@ -260,6 +264,49 @@ class SchoolsController extends AdminController {
 
 		return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url($this->base_url.'/info/'.$record->id) ]);
 
+	}
+
+	public function postAddSurvey(Request $request, $id)
+	{
+		$this->validate($request, [
+				'class_id'  => 'required',
+				'title'     => 'required',
+				'survey_id' => 'required',
+			]);
+
+		
+		$class = Classroom::with('students')->find($request->class_id);
+
+		if ($class)
+		{
+			
+
+			$survey = new Campaign;
+
+			$survey->fill($request->input());
+			$survey->secret = str_random(6);
+			$survey->status = 'Active';
+			$survey->start_date = new \DateTime;
+			$survey->count_total = count($class->students);
+			$survey->save();
+
+			foreach ($class->students as $student)
+			{
+				CampaignStudent::create([
+					'campaign_id' => $survey->id,
+					'student_id'  => $student->id,
+					'secret'      => str_random(50),
+					'status'      => 'NotStarted',
+					'count_total' => count($survey->survey->questions)
+				]);
+			}
+
+			$class->updateSurveyStatus();
+
+			return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url($this->base_url.'/info-surveys/'.$record->id)]);
+		}
+
+		return \Response::json(['result' => false, 'msg' => trans('crud.failed_added')]);
 	}
 
 	public function postAddClass(Request $request, $id)
