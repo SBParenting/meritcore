@@ -31,11 +31,19 @@ class StudentsController extends Controller {
 			//'address_postal_code' => 'required',
 		]);
 
+		$request['classroom_id'] = $request->input('class_id');
 		$record = new Record;
 
 		$record->fill($request->input());
 
 		$record->save();
+
+
+		$school = School::where('id',$request->input('school_id'))->first();
+		$school->updateRecord()->save();
+
+		$class = Classroom::where('id',$request->input('class_id'))->first();
+		$class->updateRecord()->save();
 
 		StudentAssoc::create([
 			'student_id' => $record->id,
