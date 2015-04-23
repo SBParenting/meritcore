@@ -913,8 +913,6 @@
 							var data = [];
 							var strong_count = parseInt(v['strong_count']);
 							var vulnerable_count = parseInt(v['vulnerable_count']);
-							if (strong_count == 0){ strong_count = ''; }
-							if (vulnerable_count == 0){ vulnerable_count = ''; }
 
 							data =[[strong_count,vulnerable_count],v['grouping']['title']];
 							arrayData.push(data);
@@ -931,7 +929,7 @@
 							height: 300, //default height of your graph
 							color: '#000000', // if you don't send colors for your data this will be default bars color
 							colors: ["#e0b049", "#9fc24d"], // array of colors that will be used for your bars and legends
-							sort: false, // sort your data before displaying graph, you can sort as 'asc' or 'desc'
+							sort: true, // sort your data before displaying graph, you can sort as 'asc' or 'desc'
 							position: 'bottom', // position of your bars, can be 'bottom' or 'top'. 'top' doesn't work for multi type
 							prefix: '', // text that will be shown before every label
 							postfix: '', // text that will be shown after every label
