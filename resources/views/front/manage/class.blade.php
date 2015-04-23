@@ -916,7 +916,7 @@
 							if (strong_count == 0){ strong_count = null; }
 							if (vulnerable_count == 0){ vulnerable_count = null; }
 
-							data =[[parseInt(v['strong_count']),parseInt(v['vulnerable_count'])],v['grouping']['title']];
+							data =[[strong_count,vulnerable_count],v['grouping']['title']];
 							arrayData.push(data);
 							v['title'] = v['grouping']['title'];
 						});
