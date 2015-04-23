@@ -951,7 +951,6 @@
 
 						$('.subBars'+$(this).attr('id')).css({
 							'text-align':'center',
-							'padding-top':'50px'
 						});
 
 						$('.graphValue'+$(this).attr('id')).css({
