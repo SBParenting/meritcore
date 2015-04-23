@@ -52,4 +52,14 @@ class Survey extends \App\Models\Model {
        
         return $array;
     }
+
+    public static function getImage($id){
+        if($id == 1 || $id == 3){
+            return 'heroes';
+        }
+        else
+        {
+            return 'heroes2';
+        }
+    }
 }

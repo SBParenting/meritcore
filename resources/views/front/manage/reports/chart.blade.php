@@ -37,7 +37,7 @@
 <body>
 
 	<div id="loader">Generating report, please wait....</div>
-
+    
     <div id="myChart" style="height:400px;width:500px;"></div>
 	<canvas id="canvasChart" style="height:400px;width:500px;"></canvas>
 

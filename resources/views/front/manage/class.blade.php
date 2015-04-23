@@ -862,7 +862,11 @@
 										</li>
 										@endforeach
 										</ul>-->
-										<div id="myChart_{{$survey->id}}" class="myChart" data-id="{{$survey->id}}"></div>
+										
+										<div id="myChart_{{$survey->id}}" class="myChart" data-id="{{$survey->id}}" style="width:650px;float:right;display: -webkit-inline-box;"></div>
+										<div style="transform:rotate(-90deg);display: -webkit-inline-box;float:left;margin-left:-80px;margin-top:-170px;font-size:x-large;">
+											Number of Students
+										</div>
 										</div>
 									</div>
 
@@ -928,7 +932,7 @@
 						$(this).jqBarGraph({
 							data: arrayData, // array of data for your graph
 							barSpace: 10, // this is default space between bars in pixels
-							width: 700, // default width of your graph
+							width: 650, // default width of your graph
 							height: 300, //default height of your graph
 							color: '#000000', // if you don't send colors for your data this will be default bars color
 							colors: ["#e0b049", "#9fc24d"], // array of colors that will be used for your bars and legends
