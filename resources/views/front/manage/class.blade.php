@@ -346,7 +346,7 @@
 														<em>{{ $survey->count_completed }} students completed survey.</em>
 													</li>
 												</ul>
-												<a href="{{ url('m/classes/'.$class->id) }}" class="btn btn-block btn-line-default show-panel" data-target="#manageSurvey{{$survey->id}}" data-show="#surveyInfoPanel{{$survey->id}}">View Survey Results</a>
+												<a href="{{ url('m/classes/'.$class->id) }}" class="btn btn-block btn-line-default show-panel" data-target="#manageSurvey{{$survey->id}}" data-show="#surveyInfoPanel{{$survey->id}}" id="result">View Survey Results</a>
 											</div>
 										</div>
 									</div>
@@ -842,6 +842,13 @@
 										<h4>Survey Results</h4>
 
 										<hr />
+										<div style="height: 600px;">
+											<div style="height:50px;display: -webkit-inline-box;margin-left:10px;">
+												<div style="height:20px;width:20px;background-color:#e0b049;"></div>&nbsp;&nbsp;Potential Strength
+											</div>
+											<div style="height:50px;display: -webkit-inline-box; margin-left:5px;">
+												<div style="height:20px;width:20px;background-color:#9fc24d;"></div>&nbsp;&nbsp;Optimal Strength
+											</div>
 
 										{!! "<script type='text/javascript'> var data_". $survey->id." = ". json_encode($survey->stats) . "</script>" !!}
 										<!--<ul class="list-unstyled list-info">
@@ -855,7 +862,8 @@
 										</li>
 										@endforeach
 										</ul>-->
-										<div id="myChart_{{$survey->id}}" class="myChart" data-id="{{$survey->id}}" style="height:700px;width:700px;"></div>
+										<div id="myChart_{{$survey->id}}" class="myChart" data-id="{{$survey->id}}"></div>
+										</div>
 									</div>
 
 								</div>
@@ -877,57 +885,82 @@
 	@section('script')
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 		<script type="text/javascript" src="{{ asset("/public/front/libs/morris/morris.min.js") }}"></script>
+		<script type="text/javascript" src="{{ asset("/public/front/libs/jqBarGraph/jqBarGraph.1.1.js") }}"></script>
+
 		
 		<style type="text/css">
-			svg{
-			width:100% !important;
-			}
-			.myChart{
-			width: 700px !important;
-			height: 100% !important;
-			}
+			
 		</style>
 		
 		<script language="JavaScript" type="text/javascript">
 			var activeSection = "{{ \Input::get('s') }}";
 			var bar;
 			
-			$(document).ready(function() {
-
-			            //
-
-			            $('.myChart').each(function(){
-				            $(this).hide();
-				            
-				            window['data_'+$(this).attr('data-id')].forEach(function(v){
-				            v['title'] = v['grouping']['title'];
-				            });
-
-				        		bar = Morris.Bar({
-					               element: 'myChart_'+$(this).attr('data-id'),
-					               data: window['data_'+$(this).attr('data-id')],
-					               xkey: 'title',
-					               parseTime: false,
-					               xLabelAngle: 90,
-					               ykeys: ['vulnerable_count', 'strong_count'],
-					               labels: ['vulnerable', 'strong'],
-					               barSizeRatio: 0.8,
-					               barRatio: 1,
-					               barGap: 1,
-					               hideHover: 'auto',
-					               stacked: true,
-					               goal:[0,0],
-					               goalLineColors:["#9da3a9"],
-					               barColors: ["#e0b049", "#9fc24d"],
-					               resize: true,
-					               smooth: false,
-				           		});
+			function parseSVG(s) {
+		        var div= document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
+		        div.innerHTML= '<svg xmlns="http://www.w3.org/2000/svg">'+s+'</svg>';
+		        var frag= document.createDocumentFragment();
+		        while (div.firstChild.firstChild)
+		            frag.appendChild(div.firstChild.firstChild);
+		        return frag;
+		    }
+		    $(document).ready(function(){
+				//$('#result').click(function() {
+					$('.myChart').each(function(){
+						var arrayData = [];
+						$(this).empty();
+						window['data_'+$(this).attr('data-id')].forEach(function(v){
+							var data = [];
+							data =[[parseInt(v['strong_count']),parseInt(v['vulnerable_count'])],v['grouping']['title']];
+							arrayData.push(data);
+							v['title'] = v['grouping']['title'];
 						});
-			            
-			            setTimeout(function() {
-				           $(window).resize();
-				           $('.myChart').show();
-						}, 3500);
+
+						console.log(arrayData);
+						var graphData = window['data_'+$(this).attr('data-id')];
+						
+						$(this).jqBarGraph({
+							data: arrayData, // array of data for your graph
+							barSpace: 10, // this is default space between bars in pixels
+							width: 700, // default width of your graph
+							height: 300, //default height of your graph
+							color: '#000000', // if you don't send colors for your data this will be default bars color
+							colors: ["#e0b049", "#9fc24d"], // array of colors that will be used for your bars and legends
+							sort: false, // sort your data before displaying graph, you can sort as 'asc' or 'desc'
+							position: 'bottom', // position of your bars, can be 'bottom' or 'top'. 'top' doesn't work for multi type
+							prefix: '', // text that will be shown before every label
+							postfix: '', // text that will be shown after every label
+							animate: true, // if you don't need animated appearance change to false
+							legendWidth: 150, // width of your legend box
+							legend: false,
+							legends: ['Potential Strength','Optimal Strength'],
+							type: 'stacked', // for multi array data default graph type is stacked, you can change to 'multi' for multi bar type
+							showValues: true, // you can use this for multi and stacked type and it will show values of every bar part
+							showValuesColor: '#fff' 
+						});
+						
+						$('.graphLabel'+$(this).attr('id')).css({
+							'transform':'rotate(-90deg)',
+							'position':'absolute',
+							'top':'400px',
+							'text-align': 'end',
+							'width': '165px',
+							'left': '-50px',
+							'margin-top': '5px'
+						});
+
+						$('.subBars'+$(this).attr('id')).css({
+							'text-align':'center',
+							'padding-top':'50px'
+						});
+
+						$('.graphValue'+$(this).attr('id')).css({
+							'display':'none'
+						});
+					//});
+				});
+			    
+			    
 
 			});
 		</script>
