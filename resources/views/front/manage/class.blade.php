@@ -911,10 +911,13 @@
 						$(this).empty();
 						window['data_'+$(this).attr('data-id')].forEach(function(v){
 							var data = [];
+							var value = [];
 							var strong_count = parseInt(v['strong_count']);
 							var vulnerable_count = parseInt(v['vulnerable_count']);
+							if (strong_count != 0){ value.push(strong_count); }
+							if (vulnerable_count != 0){ value.push(vulnerable_count); }
 
-							data =[[strong_count,vulnerable_count],v['grouping']['title']];
+							data =[value,v['grouping']['title']];
 							arrayData.push(data);
 							v['title'] = v['grouping']['title'];
 						});
