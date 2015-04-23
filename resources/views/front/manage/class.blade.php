@@ -911,6 +911,11 @@
 						$(this).empty();
 						window['data_'+$(this).attr('data-id')].forEach(function(v){
 							var data = [];
+							var strong_count = parseInt(v['strong_count']);
+							var vulnerable_count = parseInt(v['vulnerable_count']);
+							if (strong_count == 0){ strong_count = null; }
+							if (vulnerable_count == 0){ vulnerable_count = null; }
+
 							data =[[parseInt(v['strong_count']),parseInt(v['vulnerable_count'])],v['grouping']['title']];
 							arrayData.push(data);
 							v['title'] = v['grouping']['title'];
