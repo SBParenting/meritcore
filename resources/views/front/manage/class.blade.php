@@ -913,8 +913,8 @@
 							var data = [];
 							var strong_count = parseInt(v['strong_count']);
 							var vulnerable_count = parseInt(v['vulnerable_count']);
-							if (strong_count == 0){ strong_count = null; }
-							if (vulnerable_count == 0){ vulnerable_count = null; }
+							if (strong_count == 0){ strong_count = ''; }
+							if (vulnerable_count == 0){ vulnerable_count = ''; }
 
 							data =[[strong_count,vulnerable_count],v['grouping']['title']];
 							arrayData.push(data);
