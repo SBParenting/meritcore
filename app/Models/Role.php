@@ -23,4 +23,15 @@ class Role extends EntrustRole
 
 		return false;
 	}
+
+	public static function getRoles($id)
+	{
+		$roleArray = array('5' => array('5','6','7','8','9'), '6' => array('7','8','9'), '7' => array('8','9'));
+		
+
+		$roles = self::whereIn('id',$roleArray[$id])->get();
+
+        return $roles;
+	}
+	
 }

@@ -10,7 +10,7 @@ class AdminController extends Controller {
 	{
 		if (!\Auth::user()->ability(['admin'], [$id]))
 		{
-			App::abort(403);
+			\App::abort(403);
 		}
 
 		\View::share(['locked' => false]);

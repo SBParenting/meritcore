@@ -44,5 +44,15 @@ return [
 			'description' => 'Access the backend to manage the assignment of permissions to defined security roles.',
 		],
 
+		'school_board:manage_users' => [
+			'title'       => 'Impact - Manage Users',
+			'description' => 'Access the backend to manage users that has access to the schools.',
+		],
+
+		'school:manage_users' => [
+			'title'       => 'School - Manage Users',
+			'description' => 'Access the backend to manage users that has access to the school.',
+		],
+
 	],
 ];

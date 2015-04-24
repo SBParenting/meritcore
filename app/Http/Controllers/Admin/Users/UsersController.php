@@ -33,8 +33,10 @@ class UsersController extends AdminController {
 	}
 
 	public function getAdd()
-	{
-		return \View::make("admin.$this->view_path.form")->with('roles', Role::all());
+	{	
+		$array = Role::getRoles(\Auth::user()->role_id);
+		
+		return \View::make("admin.$this->view_path.form")->with('roles', $array);
 	}
 
 	public function getUpdate($id)
