@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Users;
 
 
+use App\Models\UserRole;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\AdminController;
 use App\Models\User as Record;
@@ -25,16 +26,27 @@ class UsersController extends AdminController {
 	public function getIndex()
 	{
 		$this->sorting( Record::$defaultSort );
-		
+
 		$list = Record::getListable()->paginate(1000);
+
+		if (!\Auth::user()->ability(['admin'],['*']))
+		{
+			foreach ($list as $key => $item) {
+				if($item->role == 'admin') {
+					$list[$key] = null;
+					unset($list[$key]);
+				}
+			}
+		}
+
 		//$list = Record::getListable()->paginate(20);
 
 		return \View::make("admin.$this->view_path.list")->with('records', $list);
 	}
 
 	public function getAdd()
-	{	
-		$array = Role::getRoles(\Auth::user()->role_id);
+	{
+		$array = Role::getRoles(\Auth::user()->roles[0]->name);
 		
 		return \View::make("admin.$this->view_path.form")->with('roles', $array);
 	}

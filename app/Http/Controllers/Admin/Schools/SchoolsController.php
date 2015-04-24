@@ -75,8 +75,6 @@ class SchoolsController extends AdminController {
 		$this->sorting( Record::$defaultSort, $this->base_url.'/info-students' );
 
 		$records = Student::getListable( Student::where('school_id', '=', $id))->paginate(20);
-			
-		//dd($records);
 
 		$data = [
 			'record'  => $record,
