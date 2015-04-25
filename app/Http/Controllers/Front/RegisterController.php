@@ -39,7 +39,7 @@ class RegisterController extends Controller {
 			}
 
 			$record->username = $record->email;
-			$record->status = 'Unverified';
+			$record->status = 'Active';
 			$record->verification_code = str_random(50);
 			$record->save();
 			$record->updateProfile($request->input());
@@ -47,7 +47,7 @@ class RegisterController extends Controller {
 			$record->attachRole($role);
 
 			$registration->user_id = $record->id;
-			$registration->status = 'Unverified';
+			$registration->status = 'Completed';
 			$registration->verification_code = $record->verification_code;
 			$registration->save();
 

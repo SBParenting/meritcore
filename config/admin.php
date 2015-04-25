@@ -44,7 +44,7 @@ return array(
 			'title'  => 'Manage Users',
 			'url'    => 'admin/users',
 			'icon'   => 'fa-user',
-			'access' => 'admin:manage_users',
+			'access' => ['admin:manage_users','school_board:manage_users'],
 		],
 
 		[

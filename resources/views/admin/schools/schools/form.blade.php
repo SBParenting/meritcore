@@ -63,6 +63,9 @@
 
 						{!! Form::hidden('id') !!}
 
+					@if(isset($school_board_id))
+						{!! Form::hidden('school_board_id',$school_board_id) !!}
+					@else
 						<div class="form-group">
 							<label class="col-md-2 control-label">School Board</label>
 							<div class="col-md-4">
@@ -71,7 +74,7 @@
 								</div>
 							</div>
 						</div>
-
+					@endif
 
 						<div class="form-group">
 							<label class="col-md-2 control-label">School Name</label>

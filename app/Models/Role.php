@@ -26,10 +26,29 @@ class Role extends EntrustRole
 
 	public static function getRoles($id)
 	{
-		$roleArray = array('5' => array('5','6','7','8','9'), '6' => array('7','8','9'), '7' => array('8','9'));
+//		$roleArray = array('5' => array('5','6','7','8','9'), '6' => array('7','8','9'), '7' => array('8','9'));
+
+		$roleArray = array(
+			'admin' => [
+				'admin',
+				'school_board',
+				'school',
+				'teacher',
+				'counsellor'
+			],
+			'school_board' => [
+				'school',
+				'teacher',
+				'counsellor'
+			],
+			'school' => [
+				'teacher',
+				'counsellor'
+			]
+		);
 		
 
-		$roles = self::whereIn('id',$roleArray[$id])->get();
+		$roles = self::whereIn('name',$roleArray[$id])->get();
 
         return $roles;
 	}

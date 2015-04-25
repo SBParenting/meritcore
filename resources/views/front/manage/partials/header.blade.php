@@ -7,7 +7,7 @@
                 {{ \Auth::user()->getName("F L") }} <i class="fa fa-caret-down"></i>
             </a>
             <ul class="dropdown-menu with-arrow pull-right">
-                @if (\Auth::user()->hasRole('admin'))
+                @if (\Auth::user()->hasRole('admin') || \Auth::user()->hasRole('school_board'))
                 	<li>
                         <a href="{{ url('/admin/dashboard') }}"><i class="fa fa-lock"></i> Administration</a>
                     </li>
