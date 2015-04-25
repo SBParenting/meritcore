@@ -327,11 +327,12 @@ class SurveyController extends \App\Http\Controllers\Controller {
 		}
 
 		$data = [
-			'key'       => $key,
+			'key'       => $keys,
 			'student'   => $student,
 			'campaign'  => $survey,
 			'questions' => $questions,
 		];
+
 
 		return \View::make('front.survey.base', $data);
 	}
