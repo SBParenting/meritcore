@@ -65,6 +65,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 Route::get('{key}', 'Front\SurveyController@getIndex');
 Route::post('{key}/confirm', 'Front\SurveyController@postConfirm');
+Route::post('{key}/add-info', 'Front\SurveyController@postAddInfo');
+Route::post('{key}/save-post-question', 'Front\SurveyController@postSavePostQuestion');
 
 require __DIR__ .'/functions.php';
 require __DIR__ .'/macros.php';

@@ -33,7 +33,7 @@ jQuery(function() {
 
 			$('#questionsContainer').html("");
 			$('#questionsMobileContainer').html("");
-
+			
 			for (var i = $.survey.current; i < ($.survey.current+5); i++)
 			{
 				if (typeof $.surveyQuestions[i] != 'undefined')
