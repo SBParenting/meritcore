@@ -27,9 +27,9 @@
 
         @yield('content')
 
-        @include('front.survey.partials.nav')
+<!--        @include('front.survey.partials.nav')
 
-        @include('front.survey.partials.help')
+        @include('front.survey.partials.help')-->
 
     </div>
 
