@@ -15,11 +15,9 @@
 			{!! Form::hidden('campaign_id', $campaign_id) !!}
 
 			<div class="survey-block survey-content hidden-xs">
-				<div class="container">
-					<label class="col-md-12 control-label">As a result of participating in the program - please answer yes or no</label>
-				</div>
-				<div class="container">
 				<div class="survey-row">
+						<div class="container">
+							<label class="col-md-12 control-label">As a result of participating in the program - please answer yes or no</label>
 							<table>
 								
 				@foreach($questions as $question)
@@ -30,7 +28,7 @@
 										<div class="col-md-2">{!! Form::radio('question['.$question->id.']', '0', false) !!} No </div>
 									</td>
 								</tr>
-								@if($question->question_num % 3 == 0 && $question->question_num != count($question))
+								@if($question->question_num % 3 == 0)
 									</table>
 									</div>
 								</div>
@@ -58,7 +56,6 @@
 					<a href="#" id="btnSurveyComplete" class="pull-right inline btn btn-warning closed" data-url="{{ url("api/survey/$key/complete") }}"><i class="glyphicon glyphicon-ok"></i> COMPLETE SURVEY</a>
 					<button class="btn btn-primary pull-right inline btn btn-warning" id="btnSurveyNext" type="submit"> Next <i class="glyphicon glyphicon-arrow-right"></i></button>
 				</div>
-			</div>
 			</div>
 		</div>
 	</div>
