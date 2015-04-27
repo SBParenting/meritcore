@@ -4,7 +4,7 @@ class SchoolBoard extends \App\Models\Model {
 
 	protected $table = 'school_boards';
 
-	protected $fillable = ['name', 'email', 'province', 'country'];
+	protected $fillable = ['name', 'email', 'province', 'country','schools_count'];
 
 	public static $sortable = ['name', 'email', 'province', 'country'];
 

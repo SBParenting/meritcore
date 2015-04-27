@@ -159,11 +159,18 @@ class BoardsController extends AdminController {
 			'address_city' => 'required',
 	    ]);
 
+
 	    $input = \Input::all();
 
 	    $input['school_board_id'] = $id;
 
 		$record->fill($input)->save();
+
+		$schoolBoard = SchoolBoard::where('id',$id)->first();
+		$school_count = School::where('school_board_id',$id)->count();
+		$schoolBoard->schools_count = $school_count;
+		$schoolBoard->save();
+
 
 		return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url('admin/s/schools/info/'.$record->id) ]);
 
