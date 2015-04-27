@@ -21,12 +21,6 @@
 							<table>
 								
 				@foreach($questions as $question)
-					@if($question->question_num % 3 == 0)
-						<div class="survey-row">
-							<div class="container">
-								<table>
-					@endif
-								
 								<tr>
 									<td>
 										<label class="col-md-8 control-label">{{$question->title}}</label>
@@ -34,19 +28,19 @@
 										<div class="col-md-2">{!! Form::radio('question['.$question->id.']', '0', false) !!} No </div>
 									</td>
 								</tr>
-					@if($question->question_num % 3 == 0)
-								</table>
-							</div>
-						</div>
-						<div class="survey-row">
-							<div class="container">
-								<table>
-					@endif
-					
+								@if($question->question_num % 3 == 0)
+									</table>
+									</div>
+								</div>
+								<div class="survey-row">
+						<div class="container">
+							<table>
+								@endif
 					@endforeach
-							</table>
+				</table>
 						</div>
 					</div>
+
 			</div>
 
 			<div class="survey-block survey-content visible-xs-block">
