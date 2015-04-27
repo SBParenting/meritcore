@@ -28,7 +28,7 @@
 							<tr>
 								<td>
 									<label class="col-md-4 control-label">Heroes was taught by?.</label>
-									<div class="col-md-2">{!! Form::radio('question_1', '1', true)!!} A Volunteer </div>
+									<div class="col-md-2">{!! Form::radio('question_1', '1', false)!!} A Volunteer </div>
 									<div class="col-md-2">{!! Form::radio('question_1', '2', false) !!} A Teacher </div>
 									<div class="col-md-2">{!! Form::radio('question_1', '3', false) !!} A Teacher and A Volunteer </div>
 								</td>
@@ -43,14 +43,14 @@
 							<tr>
 								<td>
 									<label class="col-md-4 control-label">My instructor's approch and style of presenting was enjoyable for me.</label>
-									<div class="col-md-2">{!! Form::radio('question_2', '1', true)!!} Yes </div>
+									<div class="col-md-2">{!! Form::radio('question_2', '1', false)!!} Yes </div>
 									<div class="col-md-2">{!! Form::radio('question_2', '0', false) !!} No </div>
 								</td>
 							</tr>
 							<tr>
 								<td>
 									<label class="col-md-4 control-label">The HEROES program offered good information that I am able to understand and use.</label>
-									<div class="col-md-2">{!! Form::radio('question_3', '1', true)!!} Yes </div>
+									<div class="col-md-2">{!! Form::radio('question_3', '1', false)!!} Yes </div>
 									<div class="col-md-2">{!! Form::radio('question_3', '0', false) !!} No </div>
 								</td>
 							</tr>
@@ -63,14 +63,14 @@
 							<tr>
 								<td>
 									<label class="col-md-4 control-label">We discussed things in the HEROES classes that are meaningful and important to me.</label>
-									<div class="col-md-2">{!! Form::radio('question_4', '1', true)!!} Yes </div>
+									<div class="col-md-2">{!! Form::radio('question_4', '1', false)!!} Yes </div>
 									<div class="col-md-2">{!! Form::radio('question_4', '0', false) !!} No </div>
 								</td>
 							</tr>
 							<tr>
 								<td>
 									<label class="col-md-4 control-label">I felt listened to and respected as I participated in the HEROES classes.</label>
-									<div class="col-md-2">{!! Form::radio('question_5', '1', true)!!} Yes </div>
+									<div class="col-md-2">{!! Form::radio('question_5', '1', false)!!} Yes </div>
 									<div class="col-md-2">{!! Form::radio('question_5', '0', false) !!} No </div>
 								</td>
 							</tr>
