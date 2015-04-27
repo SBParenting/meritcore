@@ -29,7 +29,7 @@
 										<div class="col-md-2">{!! Form::radio('question['.$question->id.']', '0', false) !!} No </div>
 									</td>
 								</tr>
-								@if($question->question_num % 3 == 0 || $question->question_num == count($question))
+								@if($question->question_num % 3 == 0 && $question->question_num != count($question))
 									</table>
 									</div>
 								</div>
