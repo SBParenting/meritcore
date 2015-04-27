@@ -59,6 +59,7 @@
 					<button class="btn btn-primary pull-right inline btn btn-warning" id="btnSurveyNext" type="submit"> Next <i class="glyphicon glyphicon-arrow-right"></i></button>
 				</div>
 			</div>
+			</div>
 		</div>
 	</div>
 
