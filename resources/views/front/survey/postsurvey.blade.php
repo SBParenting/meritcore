@@ -17,6 +17,7 @@
 			<div class="survey-block survey-content hidden-xs">
 				<div class="survey-row">
 						<div class="container">
+							<label class="col-md-8 control-label">As a result of participating in the program - please answer yes or no</label>
 							<table>
 								
 				@foreach($questions as $question)

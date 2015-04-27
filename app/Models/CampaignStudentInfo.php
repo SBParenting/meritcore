@@ -6,7 +6,7 @@ class CampaignStudentInfo extends \App\Models\Model {
 
 	public $timestamps = false;
 
-	protected $fillable = ['campaign_id', 'student_id', 'teacher_name', 'heroes_id', 'class', 'instructor_name', 'city', 'gender', 'age', 'grade'];
+	protected $fillable = ['campaign_id', 'student_id', 'survey_id', 'question_1', 'question_2', 'question_3', 'question_4', 'question_5'];
 
 	public function campaign()
 	{

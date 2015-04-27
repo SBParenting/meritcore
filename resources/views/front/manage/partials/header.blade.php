@@ -1,6 +1,6 @@
 <div class="signin-header">
 	<div class="container text-left">
-		<a href="{!! url('/dashboard') !!}" class="logo"><img src="{!! url('public/front/img/mc-logo-small.png') !!}" /></a>
+		<a href="{!! url('/m/schools') !!}" class="logo"><img src="{!! url('public/front/img/mc-logo-small.png') !!}" /></a>
 		<div class="header-info dropdown">
 			Logged in as
 			<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">

@@ -46,6 +46,10 @@
 							<em>None</em>
 						@endif
 					</li>
+					<!--<li>
+						<label>Completed Surveys</label>
+						{{ App\Models\Campaign::where('class_id',$class->id)->where('status','Completed')->count() }}
+					</li>-->
 				</ul>
 				<a href="{{ url('m/classes/'.$class->id) }}" class="btn btn-block btn-line-default">View Class</a>
 			</div>
