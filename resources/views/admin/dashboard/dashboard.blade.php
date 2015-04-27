@@ -16,7 +16,7 @@
 						</span>
 						<div class="box-info">
 							<p class="size-h1">Welcome <span class="size-h3">to your dashboard</span></p>
-							<p class="text-muted">May you have a Lorem Ipsum.</p>
+							<p class="text-muted"><!--May you have a Lorem Ipsum.--></p>
 						</div>
 					</div>
 				</div>
