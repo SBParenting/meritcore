@@ -15,9 +15,10 @@
 			{!! Form::hidden('campaign_id', $campaign_id) !!}
 
 			<div class="survey-block survey-content hidden-xs">
+				<div class="container">
+					<label class="col-md-12 control-label">As a result of participating in the program - please answer yes or no</label>
+				</div>
 				<div class="survey-row">
-						<div class="container">
-							<label class="col-md-8 control-label">As a result of participating in the program - please answer yes or no</label>
 							<table>
 								
 				@foreach($questions as $question)
@@ -28,7 +29,7 @@
 										<div class="col-md-2">{!! Form::radio('question['.$question->id.']', '0', false) !!} No </div>
 									</td>
 								</tr>
-								@if($question->question_num % 3 == 0)
+								@if($question->question_num % 3 == 0 || $question->question_num == count($question))
 									</table>
 									</div>
 								</div>
