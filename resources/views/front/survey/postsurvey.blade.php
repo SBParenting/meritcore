@@ -20,7 +20,12 @@
 							<label class="col-md-12 control-label">As a result of participating in the program - please answer yes or no</label>
 							<table>
 								<?php $count = 0; ?>
-				@foreach($questions as $question)
+								@foreach($questions as $question)
+									@if($count == 0)
+									<div class="survey-row">
+									<div class="container">
+									<table>
+									@endif
 								<tr>
 									<td>
 										<label class="col-md-8 control-label">{{$question->title}}</label>
@@ -28,15 +33,14 @@
 										<div class="col-md-2">{!! Form::radio('question['.$question->id.']', '0', false) !!} No </div>
 									</td>
 								</tr>
+								
 								<?php $count++; ?>
+								
 								@if($count == 3)
 									<?php $count=0; ?>
-									</table>
+										</table>
 									</div>
 								</div>
-								<div class="survey-row">
-						<div class="container">
-							<table>
 								@endif
 					@endforeach
 				</table>
