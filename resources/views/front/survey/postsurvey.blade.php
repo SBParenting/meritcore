@@ -19,7 +19,7 @@
 						<div class="container">
 							<label class="col-md-12 control-label">As a result of participating in the program - please answer yes or no</label>
 							<table>
-								<?php $count == 0; ?>
+								<?php $count = 0; ?>
 				@foreach($questions as $question)
 								<tr>
 									<td>
