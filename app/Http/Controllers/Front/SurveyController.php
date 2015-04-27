@@ -58,8 +58,14 @@ class SurveyController extends \App\Http\Controllers\Controller {
 							'questions' => $questions,
 						];
 
-						return \View::make('front.survey.survey', $data);
-						//return \View::make('front.survey.base', $data);
+						if($survey->survey_id == 3 || $survey->survey_id == 4){
+							return \View::make('front.survey.survey', $data);
+						}
+						else{
+							return \View::make('front.survey.base', $data);
+						}
+						
+						//
 					}
 				}
 				else
