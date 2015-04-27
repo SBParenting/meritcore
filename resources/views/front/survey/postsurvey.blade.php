@@ -28,7 +28,7 @@
 										<div class="col-md-2">{!! Form::radio('question['.$question->id.']', '0', false) !!} No </div>
 									</td>
 								</tr>
-								@if($question->question_num % 3 == 0)
+								@if($question->question_num % 2 == 0)
 									</table>
 									</div>
 								</div>
@@ -37,9 +37,7 @@
 							<table>
 								@endif
 					@endforeach
-				</table>
-						</div>
-					</div>
+				
 
 			</div>
 
