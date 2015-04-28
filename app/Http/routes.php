@@ -54,6 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::get('users/roles/{id?}', 'Admin\Users\RolesController@getIndex');
 	Route::post('users/roles/update/{id}', 'Admin\Users\RolesController@postUpdate');
 	Route::controller('users', 'Admin\Users\UsersController');
+	Route::post('users', 'Admin\Users\UsersController@getIndex');
 
 	Route::group(['prefix' => 's'], function() {
 		Route::controller('boards', 'Admin\Schools\BoardsController');

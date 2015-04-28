@@ -29,6 +29,17 @@ class UsersController extends AdminController {
 
 		$list = Record::getListable()->paginate(1000);
 
+		if (\Input::has('search')) {
+			$list = Record::getListable()
+				->where(function($query){
+					foreach(explode(' ',\Input::get('search')) as $term) {
+						$query->where('first_name','LIKE','%'.$term.'%');
+						$query->orWhere('last_name','LIKE','%'.$term.'%');
+						$query->orWhere('email','LIKE','%'.$term.'%');
+					}
+				})->paginate(1000);
+		}
+
 		if (!\Auth::user()->ability(['admin'],['*']))
 		{
 			foreach ($list as $key => $item) {
@@ -38,8 +49,6 @@ class UsersController extends AdminController {
 				}
 			}
 		}
-
-		//$list = Record::getListable()->paginate(20);
 
 		return \View::make("admin.$this->view_path.list")->with('records', $list);
 	}

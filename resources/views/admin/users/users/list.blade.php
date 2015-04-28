@@ -46,6 +46,23 @@
 		</div>
 
 		<div class="row">
+			<div class="col-md-4">
+				{!! Form::open(['class'=>'no-ajax search-box']) !!}
+				<div class="input-group">
+					{!! Form::text('search',null,['class'=>'form-control']) !!}
+					<span class="input-group-btn">
+						{!! Form::button('<i class="fa fa-search"></i>',['class'=>'btn btn-default', 'style'=>'padding-bottom:7px', 'type'=>'submit']) !!}
+					</span>
+				</div>
+				{!! Form::close() !!}
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12"><hr /></div>
+		</div>
+
+		<div class="row">
 
 			<div class="col-lg-12">
 
@@ -64,7 +81,7 @@
 							<th>Actions</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="entries">
 
 						{!! Form::token() !!}
 
@@ -105,6 +122,16 @@
 
 		</div>
 
+	@stop
+
+	@section('script')
+		<script type="text/javascript">
+			$('.search-box').find('input').on('keyup',function(e){
+				if (e.which == 13) {
+					$('.search-box').submit();
+				}
+			});
+		</script>
 	@stop
 
 @stop
