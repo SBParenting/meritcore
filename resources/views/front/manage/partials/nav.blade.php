@@ -1,7 +1,7 @@
 
 <div class="col-md-12">
 	<ul class="top-nav">
-		@if ($is_admin)
+		@if ($is_admin && can('manage:schools'))
 			<li><a href="{{ url('/m/schools/') }}" class="{{ $page == 'schools' ? 'active' : '' }}"><i class="fa fa-caret-left"></i> &nbsp;&nbsp;&nbsp;Schools</a></li>
 		@endif
 

@@ -55,6 +55,8 @@ class UsersController extends AdminController {
 	{
 		$record = Record::findOrFail($id);
 
+		$array = Role::getRoles(\Auth::user()->roles[0]->name);
+
 		\Form::data($record->toArray());
 
 		if ($record->profile)
@@ -62,7 +64,7 @@ class UsersController extends AdminController {
 			\Form::data($record->profile->toArray());
 		}
 
-		return \View::make("admin.$this->view_path.form")->with('user', $record)->with('roles', Role::all());
+		return \View::make("admin.$this->view_path.form")->with('user', $record)->with('roles', $array);
 	}
 
 	public function postAvatar()

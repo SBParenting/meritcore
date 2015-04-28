@@ -14,7 +14,7 @@ class ManageController extends Controller {
 
 	public function __construct()
 	{
-		\View::share('is_admin', can('manage:schools'));
+		\View::share('is_admin', (can('manage:schools') || can('manage:classes')));
 	}
 
 	public function getIndex()
