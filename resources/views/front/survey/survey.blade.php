@@ -29,8 +29,8 @@
 								<td>
 									<label class="col-md-4 control-label">Heroes was taught by?.</label>
 									<div class="col-md-2">{!! Form::radio('question_1', '1', false)!!} A Volunteer </div>
-									<div class="col-md-2">{!! Form::radio('question_1', '2', false) !!} A Teacher </div>
-									<div class="col-md-2">{!! Form::radio('question_1', '3', false) !!} A Teacher and A Volunteer </div>
+									<div class="col-md-2">{!! Form::radio('question_1', '2', false) !!} A Instructor </div>
+									<div class="col-md-2">{!! Form::radio('question_1', '3', false) !!} A Instructor and A Volunteer </div>
 								</td>
 							</tr>
 							

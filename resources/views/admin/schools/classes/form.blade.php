@@ -83,7 +83,7 @@
 						<div class="hr-line-dashed"></div>
 
 						<div class="form-group">
-							<label class="col-md-2 control-label">Teacher</label>
+							<label class="col-md-2 control-label">Instructor</label>
 							<div class="col-md-4">
 								<div class="js-dropdown-select padded">
 									{!! Form::dropdown('teacher_id', make_assoc_from_model($teachers, 'id', 'name'), null, ['class' => 'form-control', 'placeholder' => 'Teacher'], 'btn btn-default') !!}

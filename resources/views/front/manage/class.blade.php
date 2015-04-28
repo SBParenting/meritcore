@@ -105,7 +105,7 @@
 										{{ $school->name }}
 									</li>
 									<li>
-										<label>Teacher</label>
+										<label>Instructor</label>
 										@if ($class->teacher)
 											{{ $class->teacher->getName('F L') }}
 										@else
@@ -452,10 +452,10 @@
 										</div>
 
 										<div class="form-group">
-											<label class="col-sm-2">Teacher</label>
+											<label class="col-sm-2">Instructor</label>
 											<div class="col-sm-8">
 												<div class="js-dropdown-select padded">
-													{!! Form::dropdown('teacher_id', make_assoc_from_model($teachers, 'id', 'name'), $class->teacher_id, ['class' => 'form-control', 'placeholder' => 'Teacher'], 'btn btn-default') !!}
+													{!! Form::dropdown('teacher_id', make_assoc_from_model($teachers, 'id', 'name'), $class->teacher_id, ['class' => 'form-control', 'placeholder' => 'Instructor'], 'btn btn-default') !!}
 												</div>
 											</div>
 										</div>
@@ -463,28 +463,28 @@
 										<div class="form-group">
 											<label class="col-sm-2"></label>
 											<div class="col-sm-8 text-center">
-												OR CREATE NEW TEACHER
+												OR CREATE NEW INSTRUCTOR
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label class="col-sm-2">First Name</label>
 											<div class="col-sm-8">
-												{!! Form::text('teacher_first_name', null, ['class' => 'form-control', 'placeholder' => 'Teacher First Name']) !!}
+												{!! Form::text('teacher_first_name', null, ['class' => 'form-control', 'placeholder' => 'Instructor First Name']) !!}
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label class="col-sm-2">Last Name</label>
 											<div class="col-sm-8">
-												{!! Form::text('teacher_last_name', null, ['class' => 'form-control', 'placeholder' => 'Teacher Last Name']) !!}
+												{!! Form::text('teacher_last_name', null, ['class' => 'form-control', 'placeholder' => 'Instructor Last Name']) !!}
 											</div>
 										</div>
 
 										<div class="form-group">
 											<label class="col-sm-2">Email</label>
 											<div class="col-sm-8">
-												{!! Form::text('teacher_email', null, ['class' => 'form-control', 'placeholder' => 'Teacher Email']) !!}
+												{!! Form::text('teacher_email', null, ['class' => 'form-control', 'placeholder' => 'Instructor Email']) !!}
 											</div>
 										</div>
 

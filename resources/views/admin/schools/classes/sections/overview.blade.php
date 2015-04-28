@@ -14,7 +14,7 @@
 	</li>
 	<li>
 		<span class="icon light fa fa-caret-right"></span>
-		<label>Teacher</label>
+		<label>Instructor</label>
 		@if ($record->teacher)
 			<a href="{{ url("/admin/users/info/$record->teacher_id") }}">{{ $record->teacher->getName('F L') }}</a>
 		@endif

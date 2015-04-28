@@ -8,7 +8,7 @@
 			<div class="panel-body">
 				<ul class="list-unstyled list-info">
 					<li>
-						<label>Teacher</label>
+						<label>Instructor</label>
 						@if ($class->teacher)
 							{{ $class->teacher->getName('F L') }}
 						@else

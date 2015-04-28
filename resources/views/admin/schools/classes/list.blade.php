@@ -44,7 +44,7 @@
 							</th>
 							<th class="sortable" data-field="school">School</th>
 							<th class="sortable" data-field="title">Class Title</th>
-							<th class="sortable" data-field="teacher">Teacher</th>
+							<th class="sortable" data-field="teacher">Instructor</th>
 							<th class="sortable" data-field="grade">Grade</th>
 							<th class="sortable text-center" data-field="students_count">Students</th>
 							<th class="sortable text-center" data-field="surveys_total_count">Total Surveys</th>

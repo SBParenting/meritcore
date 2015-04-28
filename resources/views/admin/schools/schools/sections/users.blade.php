@@ -1,7 +1,7 @@
 
 <br />
 
-<a href="{{ url('/admin/s/schools/add-user/'.$record->id) }}" class="btn btn-default close-button pull-right"><i class="fa fa-plus"></i> Add Teacher/Personnel</a>
+<a href="{{ url('/admin/s/schools/add-user/'.$record->id) }}" class="btn btn-default close-button pull-right"><i class="fa fa-plus"></i> Add Instructor/Personnel</a>
 
 <div class="clearfix"></div>
 

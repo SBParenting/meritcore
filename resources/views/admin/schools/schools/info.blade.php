@@ -41,7 +41,7 @@
 				 <li class="{{ $section == 'classes' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/info-classes/$record->id") }}">Classes</a></li>
 				  <li class="{{ $section == 'students' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/info-students/$record->id") }}">Students</a></li>
 				  <li class="{{ $section == 'surveys' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/info-surveys/$record->id") }}">Surveys</a></li>
-				  <li class="{{ $section == 'users' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/info-users/$record->id") }}">Teachers &amp; Personnel</a></li>
+				  <li class="{{ $section == 'users' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/info-users/$record->id") }}">Instructor &amp; Personnel</a></li>
 				  @if ($section=='addclass')
 				  	<li class="{{ $section == 'addclass' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/add-class/$record->id") }}">Add Class</a></li>
 				  @endif
@@ -52,7 +52,7 @@
 				  	<li class="{{ $section == 'addsurvey' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/add-survey/$record->id") }}">Add Survey</a></li>
 				  @endif
 				  @if ($section=='adduser')
-				  	<li class="{{ $section == 'adduser' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/add-user/$record->id") }}">Add Teacher/Personnel</a></li>
+				  	<li class="{{ $section == 'adduser' ? 'active' : '' }}"><a href="{{ url("/admin/s/schools/add-user/$record->id") }}">Add Instructor/Personnel</a></li>
 				  @endif
 				</ul>
 

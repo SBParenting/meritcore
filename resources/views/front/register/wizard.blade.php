@@ -188,9 +188,9 @@
 						</fieldset>
 
 						<fieldset id="slide6" class="wizard-slide {{ $slide=='slide6' ? 'active' : 'closed' }}" data-slide-index="5">
-							<h2>5. Teacher(s) Information</h2>
-							<p>Please add the following information for all the teachers who require access.</p>
-							<p><em>Note: You can also add more teachers at a later time.</em></p>
+							<h2>5. Instructor(s) Information</h2>
+							<p>Please add the following information for all the Instructors who require access.</p>
+							<p><em>Note: You can also add more Instructors at a later time.</em></p>
 							<hr />
 
 							<div id="teachersContainer">
@@ -203,7 +203,7 @@
 									<div id="teacherInfo{{$i}}" class="teacher-info">
 
 										<a href="#" class="pull-right js-remove" data-target="#teacherInfo{{$i}}" data-callback="$.front.updateTeachers"><i class="fa fa-minus"></i> Remove</a>
-										<h4>Teacher no. <span data-num>{{$i}}</span></h4>
+										<h4>Instructor no. <span data-num>{{$i}}</span></h4>
 										<div class="form-group condensed">
 											<div class="input-group">
 												<span class="input-group-addon">
@@ -239,7 +239,7 @@
 
 							</div>
 
-							<a href="#" id="addTeacher" class="btn btn-line-default btn-lg btn-block js-add-template" data-template="#teacherTemplate" data-target="#teachersContainer" data-num="{{$teachers+1}}"><i class="fa fa-plus"></i> Add Teacher</a>
+							<a href="#" id="addTeacher" class="btn btn-line-default btn-lg btn-block js-add-template" data-template="#teacherTemplate" data-target="#teachersContainer" data-num="{{$teachers+1}}"><i class="fa fa-plus"></i> Add Instructor</a>
 
 							<hr />
 
@@ -279,7 +279,7 @@
 
 				<a href="#" class="pull-right js-remove" data-target="#teacherInfo{num}" data-callback="$.front.updateTeachers"><i class="fa fa-minus"></i> Remove</a>
 
-				<h4>Teacher no. <span data-num>{num}</span></h4>
+				<h4>Instructor no. <span data-num>{num}</span></h4>
 
 				<div class="form-group condensed">
 					<div class="input-group">
