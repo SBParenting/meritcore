@@ -17,4 +17,6 @@ class CampaignStudentInfo extends \App\Models\Model {
 	{
 		return $this->belongsTo('App\Models\Student');
 	}
+
+	
 }

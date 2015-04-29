@@ -842,11 +842,41 @@
 										<h4>Survey Results</h4>
 
 										<hr />
-										<div style="height: 600px;">
-											<div style="height:50px;display: -webkit-inline-box;margin-left:10px;">
+										<div style="height: auto;width:auto;margin:0 auto;">
+																					<br />
+
+										<h4>Engagement</h4>
+
+										{!! "<script type='text/javascript'> var engagement_". $survey->id." = ". json_encode($survey_engagement[$survey->id]) . "</script>" !!}
+										<div id="barchart_values_{{$survey->id}}" class="engagement" data-id="{{$survey->id}}"></div>
+										<table style="margin:0 auto;margin-bottom:40px;">
+											<tr>
+												<td>1</td>
+												<td style="padding-left:20px;">My instructor\'s approch and style of presenting was enjoyable for me.</td>
+											</tr>
+											<tr>
+												<td>2</td>
+												<td style="padding-left:20px;">The HEROES® program offered good information that I am able to understand and use.</td>
+											</tr>
+											<tr>
+												<td>3</td>
+												<td style="padding-left:20px;">We discussed things in the HEROES® classes that are meaningful and important to me.</td>
+											</tr>
+											<tr>
+												<td>4</td>
+												<td style="padding-left:20px;">I felt listened to and respected as I participated in the HEROES® classes.</td>
+											</tr>
+										</table>
+										</div>
+										<br />
+
+										<h4>10 Core Competencies Survey</h4>
+
+										<div style="height: 1000px;width:auto;margin-top:20px;">
+											<div style="height:50px;width:auto;display: -webkit-inline-box;display: -moz-inline-box;margin-left:10px;">
 												<div style="height:20px;width:20px;background-color:#e0b049;"></div>&nbsp;&nbsp;Potential Strength
 											</div>
-											<div style="height:50px;display: -webkit-inline-box; margin-left:5px;">
+											<div style="height:50px;display: -webkit-inline-box; margin-left:5px;display: -moz-inline-box;">
 												<div style="height:20px;width:20px;background-color:#9fc24d;"></div>&nbsp;&nbsp;Optimal Strength
 											</div>
 
@@ -865,7 +895,7 @@
 										<div style="clear:both"></div>
 											<div id="myChart_{{$survey->id}}" class="myChart" data-id="{{$survey->id}}" style="width:650px;float:right;display: -webkit-inline-box;"></div>
 
-											<div class='graphTitle' style="transform:rotate(-90deg);display:inline-box;float:left;margin-left:-80px;margin-top:-170px;font-size:x-large;">
+											<div class='graphTitle' style="transform:rotate(-90deg);-webkit-transform: rotate(-90deg);display:inline-box;float:left;margin-left:-80px;margin-top:-170px;font-size:x-large;">
 												Number of Students
 											</div>
 										<div style="clear:both"></div>
@@ -892,6 +922,8 @@
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 		<script type="text/javascript" src="{{ asset("/public/front/libs/morris/morris.min.js") }}"></script>
 		<script type="text/javascript" src="{{ asset("/public/front/libs/jqBarGraph/jqBarGraph.1.1.js") }}"></script>
+		 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		
 
 		
 		<style type="text/css">
@@ -909,17 +941,12 @@
 		</style>
 		
 		<script language="JavaScript" type="text/javascript">
+		google.load('visualization', '1.0', {
+					    	'packages': ['corechart']
+						});
+
 			var activeSection = "{{ \Input::get('s') }}";
-			var bar;
-			
-			function parseSVG(s) {
-		        var div= document.createElementNS('http://www.w3.org/1999/xhtml', 'div');
-		        div.innerHTML= '<svg xmlns="http://www.w3.org/2000/svg">'+s+'</svg>';
-		        var frag= document.createDocumentFragment();
-		        while (div.firstChild.firstChild)
-		            frag.appendChild(div.firstChild.firstChild);
-		        return frag;
-		    }
+
 		    $(document).ready(function(){
 				//$('#result').click(function() {
 					$('.myChart').each(function(){
@@ -953,7 +980,8 @@
 							prefix: '', // text that will be shown before every label
 							postfix: '', // text that will be shown after every label
 							animate: true, // if you don't need animated appearance change to false
-							legendWidth: 150, // width of your legend box
+							legendWidth: 150,
+							vAxis:"Numbers of Student", // width of your legend box
 							legend: false,
 							legends: ['Potential Strength','Optimal Strength'],
 							type: 'stacked', // for multi array data default graph type is stacked, you can change to 'multi' for multi bar type
@@ -981,6 +1009,53 @@
 							'display':'none'
 						});
 					//});
+				});
+				$('.engagement').each(function(){
+						var arrayData = window['engagement_'+$(this).attr('data-id')];
+						
+						google.setOnLoadCallback(drawChart);
+
+						var self = $(this);
+
+						function drawChart() {
+							console.log(arrayData);
+						    var data = google.visualization.arrayToDataTable(arrayData);
+
+						    var view = new google.visualization.DataView(data);
+						    
+						    view.setColumns([0, 1, {
+						        calc: "stringify",
+						        sourceColumn: 1,
+						        type: "string",
+						        role: "annotation"
+						    },
+						    2, {
+						        calc: "stringify",
+						        sourceColumn: 2,
+						        type: "string",
+						        role: "annotation"
+						    }]);
+						    var options = {
+						        title: "Engagement",
+						        width: 600,
+						        height: 400,
+						        vAxis: {
+						            title: "Questions",
+						           	format: "string"
+						        },
+						        isStacked: true,
+						        hAxis: {
+						            title: "Number of Students"
+						        },
+						        bar: {
+						            groupWidth: "60%"
+						        },
+						        colors: ["#e0b049", "#9fc24d"]
+						    };
+						    console.log(self);
+						    var chart = new google.visualization.BarChart(document.getElementById(self.attr('id')));
+						    chart.draw(view, options);
+						}
 				});
 			});
 		</script>

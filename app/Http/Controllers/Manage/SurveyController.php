@@ -4,8 +4,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Classroom;
 use App\Models\School;
 use App\Models\StudentAssoc;
+use App\Models\PostSurveyQuestion;
+use App\Models\PostSurveyAnswers;
 use App\Models\Campaign;
 use App\Models\CampaignStudent;
+use App\Models\CampaignStudentInfo;
 use Illuminate\Http\Request;
 
 class SurveyController extends Controller {
@@ -88,7 +91,7 @@ class SurveyController extends Controller {
 			];
 		}
 
-		if (!\Input::has('chart'))
+		if (!\Input::has('chart1'))
 		{
 			$gdata = [];
 
@@ -105,20 +108,64 @@ class SurveyController extends Controller {
 			   }
 
  			 $data['gdata'] = $gdata;
- 			 
 
+ 			$data2 = [];
+ 			$data2[] = ['Question','Yes','No'];
+ 			$questions = ['question_2' => 'My instructor\'s approch and style of presenting was enjoyable for me.',
+ 				'question_3' => 'The HEROES® program offered good information that I am able to understand and use.',
+ 				'question_4' => 'We discussed things in the HEROES® classes that are meaningful and important to me.',
+ 				'question_5' => 'I felt listened to and respected as I participated in the HEROES® classes.'];
+ 			 
+	 		foreach ($questions as $key => $value) {
+	 			$yesCount = CampaignStudentInfo::where('campaign_id',$id)->where($key,1)->count();
+	 			$noCount = CampaignStudentInfo::where('campaign_id',$id)->where($key,0)->count();
+	 			array_push($data2, array($value,$yesCount,$noCount));
+	 			//array_push($data2, array('title' => $value,'yes' => $yesCount,'no' => $noCount));
+	 		}
+	 		$data['gdata_2'] = $data2;
+
+ 			if($survey->survey_id == 3 || $survey->survey_id == 4 ){
+ 			 	$data3 = [];
+ 			 	$questions = PostSurveyQuestion::where('survey_id',$survey->survey_id)->get();
+ 			 
+	 			 if($questions){
+	 			 	foreach ($questions as $question) {
+	 			 		$yesCount = PostSurveyAnswers::where('campaign_id',$id)->where('question_id',$question->id)->where('answer',1)->count();
+	 			 		$noCount = PostSurveyAnswers::where('campaign_id',$id)->where('question_id',$question->id)->where('answer',0)->count();
+	 				 	array_push($data3, array('title' => $question->title,'yes' => $yesCount,'no' => $noCount));
+	 				 }
+	 			 }
+
+	 			 $data['gdata_3'] = $data3;
+	 		}
+ 			 
 		    $data['categories'] = $categories;
 
 			return \View::make('front.manage.reports.chart', $data)->render();
 		}
 		else
 		{
-			$chart = \Input::get('chart');
-			$filename = 'report-chart-'.$survey->id.'.png';
+			
+			$chart = \Input::get('chart2');
+			$filename = 'report-chart-participant-'.$survey->id.'.png';
 			$image = \Image::make($chart);
 			$image->save(app_path() . '/../public/front/img/report/charts/' . $filename);
-		
-		    $data['chart'] = $filename;
+		    $data['participant'] = $filename;
+
+		    $chart = \Input::get('chart3');
+		    if($chart != ""){
+		    	$filename = 'report-chart-impact-'.$survey->id.'.png';
+				$image = \Image::make($chart);
+				$image->save(app_path() . '/../public/front/img/report/charts/' . $filename);
+			    $data['impact'] = $filename;
+		    }
+			
+			$chart = \Input::get('chart1');
+			$filename = 'report-chart-ccc'.$survey->id.'.png';
+			$image = \Image::make($chart);
+			$image->save(app_path() . '/../public/front/img/report/charts/' . $filename);
+		    $data['ccc'] = $filename;
+
 
 			//return \View::make('front.manage.reports.impact', $data)->render();
 			
