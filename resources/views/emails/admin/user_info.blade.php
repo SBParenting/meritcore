@@ -13,9 +13,11 @@
 
 		<p>
 			Username: <em>{{ $user->username }}</em></br>
-			Password: <em>The password you specified</em>
+			Password: <em><a href="{{ URL::to('password/reset', array($token)) }}">Click here to set a new password</a></em>
 		</p>
 
-		<p><a href="{{ url('/login') }}">Log In on MeritCore</a></p>
+		Attention: The password link is valid for only 60 minutes. In case the link isn't valid anymore, contact your manager to send another email.
+
+		<p><a href="{{ url('/login') }}">Log In on Meritcore</a></p>
 	</body>
 </html>

@@ -3,7 +3,7 @@
 
 <head>
 
-	<title>Merit Core | @yield('title')</title>
+	<title>Meritcore | @yield('title')</title>
 	<link href="{{ asset("public/front/css/print.css") }}" rel="stylesheet" />    
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>

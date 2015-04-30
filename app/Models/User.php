@@ -69,11 +69,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return self::getAvatar($this->email, $size);
     }
 
-    public function sendMail()
+    public function sendMail($token = '')
     {
         $user = $this;
 
-        \Mail::send('emails.admin.user_info', ['user' => $user], function($message) use ($user)
+        \Mail::send('emails.admin.user_info', ['user' => $user, 'token' => $token], function($message) use ($user)
         {
             $message->to($user->email, $user->getName())->subject( \Config::get('site.title') . " Login Information" );
         });

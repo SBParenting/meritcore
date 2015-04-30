@@ -6,6 +6,7 @@ use App\Models\Classroom;
 use App\Models\Student;
 use App\Models\StudentAssoc;
 use App\Models\School;
+use App\Models\SchoolBoard;
 use App\Models\Survey;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
@@ -38,7 +39,12 @@ class ManageController extends Controller {
 
 		$school_board = $this->user->school_board->first();
 
-		$schools = $school_board->schools;
+		if (isset($school_board)) {
+			$schools = $school_board->schools;
+		} else {
+			$schools = $this->user->schools;
+			$school_board = SchoolBoard::findOrFail($this->user->schools->first()->school_board_id);
+		}
 
 		//$school_ids = array_fetch($schools->toArray(), 'id');
 

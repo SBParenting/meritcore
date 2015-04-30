@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Merit Core | @yield('title')</title>
+	<title>Meritcore | @yield('title')</title>
 
 	<link href="{{ asset("public/admin/libs/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" />
     <link href="{{ asset("public/admin/libs/icheck/custom.css") }}" rel="stylesheet" />

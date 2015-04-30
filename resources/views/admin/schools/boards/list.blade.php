@@ -39,9 +39,9 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>
-								<input type="checkbox" class="i-checks js-select-all">
-							</th>
+							{{--<th>--}}
+								{{--<input type="checkbox" class="i-checks js-select-all">--}}
+							{{--</th>--}}
 							<th class="sortable" data-field="name">Name</th>
 							<th class="sortable" data-field="email">Email</th>
 							<th class="sortable" data-field="province">Province</th>
@@ -57,9 +57,9 @@
 						@foreach($records as $record)
 
 							<tr id="record-{{ $record->id }}">
-								<td>
-									<input type="checkbox" class="i-checks js-select" data-record-id="{{ $record->id }}">
-								</td>
+								{{--<td>--}}
+									{{--<input type="checkbox" class="i-checks js-select" data-record-id="{{ $record->id }}">--}}
+								{{--</td>--}}
 								<td><a href="{{ url("/admin/s/boards/info/$record->id") }}">{{ $record->name }}</a></td>
 								<td>{{ $record->email }}</td>
 								<td>{{ str($record->province) }}</td>

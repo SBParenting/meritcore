@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Merit Core | @yield('title')</title>
+    <title>Meritcore | @yield('title')</title>
 
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
     {!! HTML::style("public/admin/libs/font-awesome/css/font-awesome.min.css") !!}
