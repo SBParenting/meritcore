@@ -64,7 +64,52 @@ Character Trait Questionnaire results and graphs.</p>
 		<img src="{{ url('public/front/img/report/footer1.png') }}" class="width-100" />
 	</div>
 
-	<div class="page-break"></div>
+<div class="page-break"></div>
+	
+	<div class="no-margin heading" style="margin-bottom:1cm;">
+		Engagement
+	</div>
+	<br>
+	<div class="content">
+		<p>
+			Research is clear that an individual develops positive character traits primarily based upon imitating the character qualities of significant people they are engaged with in their lives. It is about purposefully engaging children and youth and modeling the desired character traits by showing them what kind of person they should be, by being that kind of person yourself. Young people do not develop their values and character by being told how to think and act, rather it is through their desire to be like and imitate the qualities of someone they value and respect. Providing knowledge and skill building opportunities is important, but a person's purposeful use of knowledge and skill acquisition is based on the quality of a supporting relationship, the meaningfulness of the interactions and activities that occur and the overall approach that is used. People talk about the many ways of instilling or fostering good character traits, but the most basic and powerful method of them all is by demonstrating those traits in yourself as a teacher, administrator, coach, mentor, parent, etc.
+		</p>
+		<p>
+			The following results show the degree to which students felt engaged in meaningful activities and relationship with their instructor:
+		</p>
+		<div style="height:500px;max-height:500px;overflow:hidden;" class="width-100">
+			<img src="{{ url('/public/front/img/report/charts/'.$participant) }}?t={{time()}}" height="100%" width="100%" class="width-100" />
+		</div>
+		
+	</div>
+	
+	<div class="footer no-margin">
+		<img src="{{ url('public/front/img/report/footer3.jpg') }}" class="width-100" />
+	</div>
+
+	@if(isset($impact))
+		<div class="page-break"></div>
+	
+	<div class="no-margin heading" style="margin-bottom:1cm;">
+		Impact
+	</div>
+	<br>
+	<div class="content">
+		<p>
+			The data below shows the percentage of participants who reported a positive impact by the program in the following areas:
+		</p>
+		<br>
+		<div style="height:500px;max-height:500px;overflow:hidden;" class="width-100">
+			<img src="{{ url('/public/front/img/report/charts/'.$impact) }}?t={{time()}}" height="100%" width="100%" class="width-100" />
+		</div>
+		
+	</div>
+	
+	<div class="footer no-margin">
+		<img src="{{ url('public/front/img/report/footer3.jpg') }}" class="width-100" />
+	</div>
+	@endif
+<div class="page-break"></div>
 
 	<div class="no-margin heading">
 		10 Core Competencies of Character
@@ -96,7 +141,7 @@ Character Trait Questionnaire results and graphs.</p>
 		<div style="transform:rotate(-90deg);display: -webkit-inline-box;float:left;margin-left:-80px;margin-top:-170px;font-size:x-large;border:2px solid red;">
 											Number of Students
 										</div>
-		<img src="{{ url('/public/front/img/report/charts/'.$chart) }}?t={{time()}}" class="width-100" style="margin-left:-1cm;float:right;"/>
+		<img src="{{ url('/public/front/img/report/charts/'.$ccc) }}?t={{time()}}" class="width-100" style="margin-left:-1cm;float:right;"/>
 	</div>
 	
 	<div class="footer no-margin">
