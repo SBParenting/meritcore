@@ -137,13 +137,16 @@ class Campaign extends \App\Models\Model {
 	public function getImproveResults()
 	{
 		$data[$this->id] = [];
+
 		$class = Classroom::with('students')->find($this->class_id);
 		
 		$groupings = SurveyGrouping::where('survey_id', '=', $this->survey_id)->get();
 		foreach ($groupings as $group)
 		{	$studentCount = 0;
-			foreach($class->students as $student);
+
+			foreach($class->students as $student)
 			{
+				//var_dump($student->id);
 				
 				$questions = $this->survey->questions;
 
@@ -153,20 +156,23 @@ class Campaign extends \App\Models\Model {
 				{
 					$question_ids[] = $question->id;
 				}
-
+				
 				if (!empty($question_ids))
 				{
 					
-					$count = CampaignResult::where('campaign_id', '=', 15)->where('campaign_student_id', '=', $student->id)->whereIn('result',[1,2,3])->whereIn('question_id', $question_ids)->get();
+					$count = CampaignResult::where('campaign_id', '=', $this->id)->where('campaign_student_id', '=', $student->id)->whereIn('result',[1,2,3])->whereIn('question_id', $question_ids)->get();
+					
 					if(!empty($count))
 					{
 						$studentCount++;
 					}
 				}
+
+
 			}
 			array_push($data[$this->id], array($group->title,$studentCount));
 		}
-
+		//dd($data[$this->id]);
 		return $data[$this->id];
 	}
 

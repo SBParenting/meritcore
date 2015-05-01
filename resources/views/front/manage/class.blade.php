@@ -875,7 +875,6 @@
 										<br />
 
 										<h4>Number of Students Improve</h4>
-										
 										{!! "<script type='text/javascript'> var improve_". $survey->id." = ". json_encode($survey_improve[$survey->id]) . "</script>" !!}
 										<div id="columnchart_values_{{$survey->id}}" class="improve" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
 										<br />
@@ -965,9 +964,11 @@
         		startDrawingChart();
         		//alert("Resize");
     		};
+    		
  			
 		    $(document).ready(function(){
 		    	$('#result').click(function(){ startDrawingChart(); });
+
 				//$('#result').click(function() {
 					$('.myChart').each(function(){
 						var arrayData = [];
@@ -1029,6 +1030,7 @@
 
 					//});
 				});
+				startDrawingChart();
 			});
 		
 			function startDrawingChart(){
@@ -1056,11 +1058,11 @@
 						  	calc: "stringify",
 						    sourceColumn: 1,
 						    type: "string",
-						    position: "center",
 						    role: "annotation"
 						   }]);
 
 						  var options = {
+						  	width: 565,
 						    legend: {position:'none'},
 						    hAxis: {
 						        title: 'Competencies', 
@@ -1074,7 +1076,6 @@
 						        titleTextStyle: {color: 'black'}, 
 						        count: -1
 						    },
-						    isStacked: true,
                     		chartArea: {
 					            height: '50%',
 					            top: "5%"
@@ -1083,10 +1084,8 @@
 						    colors: ["#e0b049", "#9fc24d"]
 						  };
 
-
-						  var chart = new google.visualization.ColumnChart(document.getElementById(self.attr('id')));
-
-						  chart.draw(view, options);    
+						var chart = new google.visualization.ColumnChart(document.getElementById(self.attr('id')));
+						chart.draw(view, options);    
 						}
 					});
 				
