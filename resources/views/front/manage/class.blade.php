@@ -1063,6 +1063,7 @@
 
 						  var options = {
 						  	width: 565,
+						  	height:600,
 						    legend: {position:'none'},
 						    hAxis: {
 						        title: 'Competencies', 
@@ -1074,7 +1075,10 @@
 						    vAxis: {
 						        title: 'Number of Students', 
 						        titleTextStyle: {color: 'black'}, 
-						        count: -1
+						        count: -1,
+						        format:'#',
+						        viewWindowMode: 'explicit',
+						        viewWindow:{ min:0 }
 						    },
                     		chartArea: {
 					            height: '50%',

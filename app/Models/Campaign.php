@@ -154,21 +154,27 @@ class Campaign extends \App\Models\Model {
 
 				foreach ($group->questions as $question)
 				{
-					$question_ids[] = $question->id;
+
+						$question_ids[] = $question->id;
 				}
-				
+				$ansCount = 0;
+
 				if (!empty($question_ids))
 				{
-					
-					$count = CampaignResult::where('campaign_id', '=', $this->id)->where('campaign_student_id', '=', $student->id)->whereIn('result',[1,2,3])->whereIn('question_id', $question_ids)->get();
-					
-					if(!empty($count))
-					{
-						$studentCount++;
+					foreach ($question_ids as $question) {
+						
+						$count = CampaignResult::where('campaign_id', '=', $this->id)->where('campaign_student_id', '=', $student->id)->whereIn('result',[1,2,3])->where('question_id', $question)->first();
+						
+						if(!empty($count))
+						{
+							$ansCount++;
+						}
 					}
+					
 				}
-
-
+				if($ansCount == count($question_ids)){
+					$studentCount++;
+				}
 			}
 			array_push($data[$this->id], array($group->title,$studentCount));
 		}
