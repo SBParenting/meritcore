@@ -52,7 +52,7 @@ return array(
 			'title'  => 'Surveys & Reports',
 			'url'    => 'admin/s/surveys',
 			'icon'   => 'fa-bar-chart',
-			'access' => '*',
+			'access' => ['admin:manage_site'],
 		],
 
 		/*[

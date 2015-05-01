@@ -49,7 +49,14 @@ class ManageController extends Controller {
 			$school_board = SchoolBoard::findOrFail($this->user->schools->first()->school_board_id);
 		}
 
-		//$school_ids = array_fetch($schools->toArray(), 'id');
+		if (\Input::has('search')) {
+			$schools = School::where('school_board_id',$school_board->id)
+				->where(function($query){
+					foreach(explode(' ',\Input::get('search')) as $term) {
+						$query->orWhere('name','LIKE','%'.$term.'%');
+					}
+				})->get();
+		}
 
 		$data = [
 			'page'         => 'schools',

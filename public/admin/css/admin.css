@@ -107,4 +107,26 @@ a 										{ text-decoration: none !important; }
 .list-info li .icon.light 				{ color: #bbb; }
 .list-info li label 					{ width: 120px; }
 
-.label-fixed-width						{ width: 50px; display: inline-block; }
+.label-fixed-width						{ width: 65px; display: inline-block; }
+
+
+.select2-container--default .select2-selection--single {
+	border-radius: 2px!important;
+	height: 34px!important;
+	padding: 2px!important;
+	border-color:#ccc!important;
+}
+
+.select2-container--default .select2-selection--single:hover {
+	background: #e6e6e6;
+	border-color: #adadad;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+	margin-top: 3px;
+	margin-right: 6px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+	border-color: black transparent transparent transparent!important ;
+}

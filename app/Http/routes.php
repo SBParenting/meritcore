@@ -23,6 +23,7 @@ Route::group(['prefix' => 'm', 'middleware' => 'auth'], function() {
 
 	Route::get('/', 'Manage\ManageController@getIndex');
 	Route::get('/schools', 'Manage\ManageController@getSchools');
+	Route::post('/schools', 'Manage\ManageController@getSchools');
 	Route::post('/schools/add', 'Manage\SchoolsController@postAdd');
 	Route::post('/schools/{id}/remove', 'Manage\SchoolsController@postRemove');
 	Route::post('/schools/{id}/update', 'Manage\SchoolsController@postUpdate');

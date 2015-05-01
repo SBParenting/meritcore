@@ -111,7 +111,7 @@ class Classroom extends \App\Models\Model {
 
      public static function getGrade($id){
     	$record = self::select('grade')->where('id',$id)->first();
-  
+
     	return $record->grade;
     }
 }

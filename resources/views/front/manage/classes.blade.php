@@ -55,14 +55,17 @@
 
 					@endforeach
 
-					@if (count($classes) > 0)
+					@if (isset($status) && $status != 'Archived')
 
-						@include('front.manage.items.classroom_add')
+						@if (count($classes) > 0)
 
-					@else
+							@include('front.manage.items.classroom_add')
 
-						@include('front.manage.items.classroom_none')
+						@else
 
+							@include('front.manage.items.classroom_none')
+
+						@endif
 					@endif
 
 					<div class="col-md-12">

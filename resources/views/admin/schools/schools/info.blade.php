@@ -71,4 +71,15 @@
 
 	@stop
 
+	@section('script')
+		<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+		<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
+		<script type="text/javascript">
+			if($('#teacher-field').length) {
+				$('#teacher-field').select2();
+			}
+		</script>
+	@stop
+
 @stop
