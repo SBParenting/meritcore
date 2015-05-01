@@ -346,7 +346,7 @@
 														<em>{{ $survey->count_completed }} students completed survey.</em>
 													</li>
 												</ul>
-												<a href="{{ url('m/classes/'.$class->id) }}" class="btn btn-block btn-line-default show-panel" data-target="#manageSurvey{{$survey->id}}" data-show="#surveyInfoPanel{{$survey->id}}" id="result">View Survey Results</a>
+												<a href="{{ url('m/classes/'.$class->id) }}" class="btn btn-block btn-line-default show-panel result" data-target="#manageSurvey{{$survey->id}}" data-show="#surveyInfoPanel{{$survey->id}}" id="result">View Survey Results</a>
 											</div>
 										</div>
 									</div>
@@ -880,16 +880,18 @@
 										<br />
 
 										<h4>10 Core Competencies Survey</h4>
-
-										<div style="height: 1000px;width:auto;margin-top:20px;">
+										{!! "<script type='text/javascript'> var data_". $survey->id." = ". json_encode($survey->stats) . "</script>" !!}
+										<div id="competencies_values_{{$survey->id}}" class="ccc" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
+										<br />
+										<!--<div style="height: 1000px;width:auto;margin-top:20px;">
 											<div style="height:50px;width:auto;display: -webkit-inline-box;display: -moz-inline-box;margin-left:10px;">
 												<div style="height:20px;width:20px;background-color:#e0b049;"></div>&nbsp;&nbsp;Potential Strength
 											</div>
 											<div style="height:50px;display: -webkit-inline-box; margin-left:5px;display: -moz-inline-box;">
 												<div style="height:20px;width:20px;background-color:#9fc24d;"></div>&nbsp;&nbsp;Optimal Strength
-											</div>
+											</div>-->
 
-										{!! "<script type='text/javascript'> var data_". $survey->id." = ". json_encode($survey->stats) . "</script>" !!}
+										
 										<!--<ul class="list-unstyled list-info">
 										@foreach ($survey->stats as $num => $row)
 										<li>
@@ -901,14 +903,14 @@
 										</li>
 										@endforeach
 										</ul>-->
-										<div style="clear:both"></div>
+										<!--<div style="clear:both"></div>
 											<div id="myChart_{{$survey->id}}" class="myChart" data-id="{{$survey->id}}" style="width:650px;float:right;display: -webkit-inline-box;"></div>
 
 											<div class='graphTitle' style="transform:rotate(-90deg);-webkit-transform: rotate(-90deg);display:inline-box;float:left;margin-left:-80px;margin-top:-170px;font-size:x-large;">
 												Number of Students
 											</div>
 										<div style="clear:both"></div>
-											</div>
+											</div>-->
 									</div>
 
 								</div>
@@ -936,7 +938,10 @@
 
 		
 		<style type="text/css">
-			.engagement{
+			.improve{
+				width:750px !important;
+			}
+			.ccc{
 				width:750px !important;
 			}
 			@media (min-width: 1200px) {
@@ -945,7 +950,10 @@
 				}
 			}
 			@media (max-width: 1200px) {
-				.engagement{
+				.improve{
+					width:565px !important;
+				}
+				.ccc{
 					width:565px !important;
 				}
 			}
@@ -967,75 +975,20 @@
     		
  			
 		    $(document).ready(function(){
-		    	$('#result').click(function(){ startDrawingChart(); });
+		    	$('.result').on('click',function(){ 
+		    		$('.improve').html('');
+		    		$('.ccc').html('');
+		    		startDrawingChart(); 
+		    	});
 
 				//$('#result').click(function() {
-					$('.myChart').each(function(){
-						var arrayData = [];
-						$(this).empty();
-						window['data_'+$(this).attr('data-id')].forEach(function(v){
-							var data = [];
-							var value = [];
-							var strong_count = parseInt(v['strong_count']);
-							var vulnerable_count = parseInt(v['vulnerable_count']);
-							if (strong_count != 0){ value.push(strong_count); }
-							if (vulnerable_count != 0){ value.push(vulnerable_count); }
-
-							data =[value,v['grouping']['title']];
-							arrayData.push(data);
-							v['title'] = v['grouping']['title'];
-						});
-						var graphData = window['data_'+$(this).attr('data-id')];
-						
-						$(this).jqBarGraph({
-							data: arrayData, // array of data for your graph
-							barSpace: 5, // this is default space between bars in pixels
-							width: 535, // default width of your graph
-							height: 300, //default height of your graph
-							color: '#000000', // if you don't send colors for your data this will be default bars color
-							colors: ["#e0b049", "#9fc24d"], // array of colors that will be used for your bars and legends
-							sort: true, // sort your data before displaying graph, you can sort as 'asc' or 'desc'
-							position: 'bottom', // position of your bars, can be 'bottom' or 'top'. 'top' doesn't work for multi type
-							prefix: '', // text that will be shown before every label
-							postfix: '', // text that will be shown after every label
-							animate: true, // if you don't need animated appearance change to false
-							legendWidth: 150,
-							vAxis:"Numbers of Student", // width of your legend box
-							legend: false,
-							legends: ['Potential Strength','Optimal Strength'],
-							type: 'stacked', // for multi array data default graph type is stacked, you can change to 'multi' for multi bar type
-							showValues: true, // you can use this for multi and stacked type and it will show values of every bar part
-							showValuesColor: '#fff' 
-						});
-						
-						$('.graphLabel'+$(this).attr('id')).css({
-							'transform':'rotate(-90deg)',
-							'position':'absolute',
-							'top':'400px',
-							'text-align': 'end',
-							'width': '165px',
-							'left': '-50px',
-							'margin-top': '5px'
-						});
-
-						$('.subBars'+$(this).attr('id')).css({
-							'text-align':'center',
-							'padding-top': '20px'
-
-						});
-
-						$('.graphValue'+$(this).attr('id')).css({
-							'display':'none'
-						});
-
-					//});
-				});
-				startDrawingChart();
+					
+				// startDrawingChart();
 			});
 		
 			function startDrawingChart(){
-
 				$('.improve').each(function(){
+						$(this).empty();
 						var arrayData = window['improve_'+$(this).attr('data-id')];
 						//google.setOnLoadCallback(drawChart);
 						google.load("visualization", "1", {packages:["corechart"],callback: drawChart});
@@ -1062,9 +1015,12 @@
 						   }]);
 
 						  var options = {
-						  	width: 565,
-						  	height:600,
 						    legend: {position:'none'},
+						    annotation:{
+						    	textStyle:{
+						    		marginTop:'10px'
+						    	}
+						    },
 						    hAxis: {
 						        title: 'Competencies', 
 						        titleTextStyle: {color: 'black'}, 
@@ -1080,6 +1036,92 @@
 						        viewWindowMode: 'explicit',
 						        viewWindow:{ min:0 }
 						    },
+						    bar: {
+					            groupWidth: '90%'
+					        },
+                    		chartArea: {
+					            height: '50%',
+					            top: "5%"
+					        },
+						    backgroundColor: "transparent",
+						    colors: ["#9fc24d"]
+						  };
+
+						var chart = new google.visualization.ColumnChart(document.getElementById(self.attr('id')));
+						chart.draw(view, options);    
+						}
+					});
+					
+					$('.ccc').each(function(){
+						
+						var arrayData = [];
+						$(this).empty();
+						window['data_'+$(this).attr('data-id')].forEach(function(v){
+							var data = [];
+							var value = [];
+							var strong_count = parseInt(v['strong_count']);
+							var vulnerable_count = parseInt(v['vulnerable_count']);
+
+							data =[v['grouping']['title'],strong_count,vulnerable_count];
+							arrayData.push(data);
+						});
+						
+						google.load("visualization", "1", {packages:["corechart"],callback: drawChart});
+
+						var self = $(this);
+
+						function drawChart() {
+						  var data = new google.visualization.DataTable();
+						  data.addColumn('string', 'Competencies');
+						  data.addColumn('number', 'Strong');
+						  data.addColumn('number', 'Vulnerable');
+
+						  for (var i in arrayData){
+						    //alert(chartData[i][0]+'=>'+ parseInt(chartData[i][1]));
+						    data.addRow([arrayData[i][0], parseInt(arrayData[i][1]), parseInt(arrayData[i][2])]);
+						  }
+
+						  var view = new google.visualization.DataView(data);
+						    
+						  view.setColumns([0, 1, {
+						  	calc: "stringify",
+						    sourceColumn: 1,
+						    type: "string",
+						    role: "annotation"
+						   },2,{
+						   	calc: "stringify",
+						    sourceColumn: 2,
+						    type: "string",
+						    role: "annotation"
+						   }]);
+
+						  var options = {
+						    legend: {position:'top'},
+						    annotation:{
+						    	textStyle:{
+						    		marginTop:'10px'
+						    	}
+						    },
+						    hAxis: {
+						        title: 'Competencies', 
+						        titleTextStyle: {color: 'black'}, 
+						        textSize: 4,
+						        slantedText: true,
+						        slantedTextAngle: 90
+						    },  
+						    vAxis: {
+						        title: 'Number of Students', 
+						        titleTextStyle: {color: 'black'}, 
+						        count: -1,
+						        format:'#',
+						        viewWindowMode: 'explicit',
+						        viewWindow:{ min:0 }
+						    },
+						    isStacked:true,
+						    is3D: true,
+						    bar: {
+					            groupWidth: '90%'
+					        },
                     		chartArea: {
 					            height: '50%',
 					            top: "5%"
@@ -1092,8 +1134,7 @@
 						chart.draw(view, options);    
 						}
 					});
-				
-			}
+				}
 		</script>
 	@stop
 @stop
