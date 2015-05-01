@@ -842,32 +842,40 @@
 										<h4>Survey Results</h4>
 
 										<hr />
-										<div style="height: auto;width:auto;margin:0 auto;">
-																					<br />
+										<br />
 
 										<h4>Engagement</h4>
-
-										{!! "<script type='text/javascript'> var engagement_". $survey->id." = ". json_encode($survey_engagement[$survey->id]) . "</script>" !!}
-										<div id="barchart_values_{{$survey->id}}" class="engagement" data-id="{{$survey->id}}"></div>
-										<table style="margin:0 auto;margin-bottom:40px;">
+										<br />
+											<?php $i = 0; ?>
+										
+										@foreach($survey_engagement[$survey->id] as $data)
+											<?php $i++; ?>
+										<table width="100%" class="table table-striped">
 											<tr>
-												<td>1</td>
-												<td style="padding-left:20px;">My instructor\'s approch and style of presenting was enjoyable for me.</td>
+												<td width="5%"> {{ $i }} </td>
+												<td> {{ $data[0] }} </td>
+												<td width="20%" align="center"> Count </td>
+												<td width="20%" align="center"> Total % </td>
 											</tr>
 											<tr>
-												<td>2</td>
-												<td style="padding-left:20px;">The HEROES® program offered good information that I am able to understand and use.</td>
+												<td></td>
+												<!--<td bgcolor="#e0b049" width="{!! $data[1]*10 !!}%"></td>-->
+												<td><div style="width:{!! ($data[1]*100)/($data[1]+$data[2]) !!}%;background:#9fc24d;color:white;padding:3px 10px;text-align:left;">Yes</div></td>
+												<td align="center"> {{ $data[1] }}</td>
+												<td align="center">{{ ($data[1]*100)/($data[1]+$data[2]) }}%</td>
 											</tr>
 											<tr>
-												<td>3</td>
-												<td style="padding-left:20px;">We discussed things in the HEROES® classes that are meaningful and important to me.</td>
-											</tr>
-											<tr>
-												<td>4</td>
-												<td style="padding-left:20px;">I felt listened to and respected as I participated in the HEROES® classes.</td>
+												<td></td>
+												<td><div style="width:{!! ($data[2]*100)/($data[1]+$data[2]) !!}%;background:#e0b049;color:white;padding:3px 10px;text-align:left;">No</div></td>
+												<td align="center"> {{ $data[2] }}</td>
+												<td align="center">{{ ($data[2]*100)/($data[1]+$data[2]) }}%</td>
 											</tr>
 										</table>
-										</div>
+										@endforeach
+										
+										
+										<!--{!! "<script type='text/javascript'> var engagement_". $survey->id." = ". json_encode($survey_engagement[$survey->id]) . "</script>" !!}
+										<div id="barchart_values_{{$survey->id}}" class="engagement" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>-->
 										<br />
 
 										<h4>10 Core Competencies Survey</h4>
@@ -927,12 +935,19 @@
 
 		
 		<style type="text/css">
+			.engagement{
+				width:750px !important;
+			}
 			@media (min-width: 1200px) {
 				.graphTitle {
 					margin-left: 0!important;
 				}
 			}
-
+			@media (max-width: 1200px) {
+				.engagement{
+					width:565px !important;
+				}
+			}
 			@media (max-width: 674px) {
 				.graphTitle {
 					display: none;
@@ -941,13 +956,16 @@
 		</style>
 		
 		<script language="JavaScript" type="text/javascript">
-		google.load('visualization', '1.0', {
-					    	'packages': ['corechart']
-						});
+		
 
 			var activeSection = "{{ \Input::get('s') }}";
-
+			window.onresize = function(){
+        		startDrawingChart();
+        		//alert("Resize");
+    		};
+ 			
 		    $(document).ready(function(){
+		    	$('#result').click(function(){ startDrawingChart(); });
 				//$('#result').click(function() {
 					$('.myChart').each(function(){
 						var arrayData = [];
@@ -964,8 +982,6 @@
 							arrayData.push(data);
 							v['title'] = v['grouping']['title'];
 						});
-
-						console.log(arrayData);
 						var graphData = window['data_'+$(this).attr('data-id')];
 						
 						$(this).jqBarGraph({
@@ -1008,56 +1024,83 @@
 						$('.graphValue'+$(this).attr('id')).css({
 							'display':'none'
 						});
+
 					//});
 				});
+			});
+		
+			function startDrawingChart(){
+
 				$('.engagement').each(function(){
 						var arrayData = window['engagement_'+$(this).attr('data-id')];
-						
-						google.setOnLoadCallback(drawChart);
+						//google.setOnLoadCallback(drawChart);
+						google.load("visualization", "1", {packages:["corechart"],callback: drawChart});
 
 						var self = $(this);
 
 						function drawChart() {
-							console.log(arrayData);
-						    var data = google.visualization.arrayToDataTable(arrayData);
+						  var data = new google.visualization.DataTable();
+						  data.addColumn('string', 'Questions');
+						  data.addColumn('number', 'Yes');
+						  data.addColumn('number', 'No');
 
-						    var view = new google.visualization.DataView(data);
+						  for (var i in arrayData){
+						    //alert(chartData[i][0]+'=>'+ parseInt(chartData[i][1]));
+						    data.addRow([arrayData[i][0], parseInt(arrayData[i][1]), parseInt(arrayData[i][2])]);
+						  }
+
+						  var view = new google.visualization.DataView(data);
 						    
-						    view.setColumns([0, 1, {
-						        calc: "stringify",
-						        sourceColumn: 1,
-						        type: "string",
-						        role: "annotation"
+						  view.setColumns([0, 1, {
+						  	calc: "stringify",
+						    sourceColumn: 1,
+						    type: "string",
+						    role: "annotation"
+						   },
+						   2, {
+						   	calc: "stringify",
+						    sourceColumn: 2,
+						    type: "string",
+						    role: "annotation"
+						   }]);
+
+						  var options = {
+						    legend: {position:'top'},
+						    vAxis: {
+						        title: 'Questions', 
+						        titleTextStyle: {color: 'black'}, 
+						        textSize: 4,
+						        textStyle: {
+					                paddingRight: 20,
+					                marginRight: 20,
+					                'padding-right': 20,
+					                'margin-right': 20
+					            },
+						        slantedText: true
+						    },  
+						    hAxis: {
+						        title: 'Number of Students', 
+						        titleTextStyle: {color: 'black'}, 
+						        count: -1
 						    },
-						    2, {
-						        calc: "stringify",
-						        sourceColumn: 2,
-						        type: "string",
-						        role: "annotation"
-						    }]);
-						    var options = {
-						        title: "Engagement",
-						        width: 600,
-						        height: 400,
-						        vAxis: {
-						            title: "Questions",
-						           	format: "string"
-						        },
-						        isStacked: true,
-						        hAxis: {
-						            title: "Number of Students"
-						        },
-						        bar: {
-						            groupWidth: "60%"
-						        },
-						        colors: ["#e0b049", "#9fc24d"]
-						    };
-						    console.log(self);
-						    var chart = new google.visualization.BarChart(document.getElementById(self.attr('id')));
-						    chart.draw(view, options);
+						    isStacked: true,
+                    		chartArea: {
+					            width: '40%',
+					            left: '60%'
+					        },
+						    title: "Engagement",
+						    backgroundColor: "transparent",
+						    colors: ["#e0b049", "#9fc24d"]
+						  };
+
+
+						  var chart = new google.visualization.BarChart(document.getElementById(self.attr('id')));
+
+						  chart.draw(view, options);    
 						}
-				});
-			});
+					});
+				
+			}
 		</script>
 	@stop
 @stop

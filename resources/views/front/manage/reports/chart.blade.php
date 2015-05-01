@@ -20,10 +20,11 @@
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 	<style>
-		#myChart1 { position: absolute; z-index: 100; border: 1px solid red; }
-        #myChart2 { position: absolute; z-index: 100; border: 1px solid red; }
-        #myChart3 { position: absolute; z-index: 100; border: 1px solid red; }
-		#loader  { position: absolute; z-index: -10; width: 10px; height: 10px; top: 0; left: 0; padding: 100px 0 0 150px; font-family: 'Arial', sans-serif; background: #fff; }
+       body{position: fixed;width: 100%;height: 100%;overflow: hidden;}
+		#myChart1 { position: absolute; z-index: 10; border: 1px solid red; }
+        #myChart2 { position: absolute; z-index: 10; border: 1px solid red; }
+        #myChart3 { position: absolute; z-index: 10; border: 1px solid red; }
+		#loader  { position: absolute; z-index: 20; width: 100%; height: 100%; top: 0; left: 0; padding: 100px 0 0 150px; font-family: 'Arial', sans-serif; background: #fff; }
         .count{
           position:absolute;
           width:10px;
@@ -97,8 +98,6 @@
             var arrayData = {!! json_encode($gdata_2) !!};
             google.setOnLoadCallback(drawChart);
 
-            console.log(arrayData);
-
             function drawChart() {
                 var data = google.visualization.arrayToDataTable(arrayData);
                 var view = new google.visualization.DataView(data);
@@ -120,8 +119,8 @@
                 var options = {
                     title: "Engagement",
                     background: "#f0f0ef",
-                    width: 600,
-                    height: 400,
+                    width: 400,
+                    height: 600,
                     vAxis: {
                         title: "Questions"
                     },
@@ -222,60 +221,7 @@
         var barWidth=(($('#myChart2').width()/10)*(0.8))/2;
 
         //now each thru each bar (rect)
-        $('#myChart2').find('rect').each(function (i) {
-
-                var rect = i%2,
-                i = Math.floor(i/2),
-                pos=$(this).offset(),
-                tops=pos.top;
-                console.log(pos);
-
-            tops-=10; //originate at the tops of the bar
-
-          //get the height of the bar
-          var barHeight=bar2.bars[i];
-            
-            if (barHeight[0] == 0 && barHeight[1] == 0) {
-                tops = -999999;
-            } else if (barHeight[0] == barHeight[1]) {
-                if (rect == 0) {
-                tops+=barHeight[rect]/2; //so we can now stick the number in the vertical-center of the bar as desired
-                } else {
-                    tops = -9999999;
-                }
-            } else if (barHeight[0] == 0) {
-                if (rect == 0) {
-                    tops=-999999999; //so we can now stick the number in the vertical-center of the bar as desired
-                } else {
-                    tops+= barHeight[rect]/2;
-                }
-            } else {
-                if (rect == 0) {
-                    tops+=barHeight[rect]/2; //so we can now stick the number in the vertical-center of the bar as desired
-                } else {
-                    tops+= (barHeight[rect]-barHeight[0])/2;
-                }
-            }
-            
-
-            var left=pos.left;
-          //move it over a bit
-          left+=barWidth/2; 
-          //-size of element...
-          left-=8;//should approximately be horizontal center
-
-          var val = "";
-
-            if (rect) {
-                val = graphData2[i].yes; //get the count
-            } else {
-                val = graphData2[i].no; //get the count
-            }
-            
-            var div = '<text x="'+left+'" y="'+tops+'" text-anchor="middle" font="10px &quot;Arial&quot; thinner" stroke="none" fill="#FFFFFF" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: lighter; font-stretch: normal; font-size: 10px; line-height: normal; font-family: sans-serif;" font-size="10px" font-family="sans-serif" font-weight="lighter" transform="matrix(1,0,0,1,0,6)">'+val+'</text>'; 
-            document.getElementsByTagName('svg')[1].appendChild(parseSVG(div)); //stick it into the dom
-
-        });  
+        
 
          var barWidth=(($('#myChart3').width()/10)*(0.8))/2;
 

@@ -77,9 +77,31 @@ Character Trait Questionnaire results and graphs.</p>
 		<p>
 			The following results show the degree to which students felt engaged in meaningful activities and relationship with their instructor:
 		</p>
-		<div style="height:500px;max-height:500px;overflow:hidden;" class="width-100">
-			<img src="{{ url('/public/front/img/report/charts/'.$participant) }}?t={{time()}}" height="100%" width="100%" class="width-100" />
-		</div>
+		<br />
+		<?php $i = 0; ?>
+		@foreach($gdata_2 as $data)
+			<?php $i++; ?>
+			<table width="100%" class="table table-striped">
+				<tr>
+					<td width="5%"> {{ $i }} </td>
+					<td> {{ $data[0] }} </td>
+					<td width="20%" align="center"> Count </td>
+					<td width="20%" align="center"> Total % </td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><div style="width:{!! ($data[1]*100)/($data[1]+$data[2]) !!}%;background:#9fc24d;color:white;padding:3px 10px;text-align:left;">Yes</div></td>
+					<td align="center"> {{ $data[1] }}</td>
+					<td align="center">{{ ($data[1]*100)/($data[1]+$data[2]) }}%</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><div style="width:{!! ($data[2]*100)/($data[1]+$data[2]) !!}%;background:#e0b049;color:white;padding:3px 10px;text-align:left;">No</div></td>
+					<td align="center"> {{ $data[2] }}</td>
+					<td align="center">{{ ($data[2]*100)/($data[1]+$data[2]) }}%</td>
+				</tr>
+			</table>
+		@endforeach
 		
 	</div>
 	
