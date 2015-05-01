@@ -32,9 +32,6 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href="{{ url('lock') }}" class="js-post-lock"><i class="fa fa-lock"></i>Lock</a>
-                    </li>
-                    <li>
                         <a href="{{ url('/logout') }}"><i class="fa fa-sign-out"></i>Log Out</a>
                     </li>
                 </ul>

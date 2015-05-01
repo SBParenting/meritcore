@@ -54,7 +54,6 @@
 		                <section>
 		                	<hr />
 		                    <p class="text-center"><a href="{{ url('password/remind') }}">Forgot your password?</a></p>
-		                    <p class="text-center text-muted text-small">Don't have an account yet? <a href="{{ url('register') }}">Sign up</a></p>
 		                </section>
 		                
 		            </div>

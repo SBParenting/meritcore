@@ -47,7 +47,7 @@
 								<input type="checkbox" class="i-checks js-select-all">
 							</th>
 							<th class="sortable" data-field="title">Title</th>
-							<th class="sortable" data-field="count_questions">Total Question</th>
+							<th class="sortable" data-field="count_questions">Total Questions</th>
 							<th>Actions</th>
 						</tr>
 					</thead>

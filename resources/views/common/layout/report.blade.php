@@ -6,7 +6,7 @@
 		 
 		
 
-	<title>Merit Core | @yield('title')</title>
+	<title>Meritcore | @yield('title')</title>
 	<link href="{{ asset("public/front/css/print.css") }}" rel="stylesheet" /> 
 	<link href="{{ asset("public/admin/css/admin.css") }}" rel="stylesheet" />
     <script src="{{ asset("public/admin/libs/jquery/jquery-1.10.2.js") }}"></script>

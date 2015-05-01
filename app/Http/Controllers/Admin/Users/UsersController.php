@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Models\User as Record;
 use App\Models\Profile;
 use App\Models\Role;
+use Illuminate\Auth\Passwords\TokenRepositoryInterface as Token;
 
 class UsersController extends AdminController {
 
@@ -29,6 +30,17 @@ class UsersController extends AdminController {
 
 		$list = Record::getListable()->paginate(1000);
 
+		if (\Input::has('search')) {
+			$list = Record::getListable()
+				->where(function($query){
+					foreach(explode(' ',\Input::get('search')) as $term) {
+						$query->where('first_name','LIKE','%'.$term.'%');
+						$query->orWhere('last_name','LIKE','%'.$term.'%');
+						$query->orWhere('email','LIKE','%'.$term.'%');
+					}
+				})->paginate(1000);
+		}
+
 		if (!\Auth::user()->ability(['admin'],['*']))
 		{
 			foreach ($list as $key => $item) {
@@ -38,8 +50,6 @@ class UsersController extends AdminController {
 				}
 			}
 		}
-
-		//$list = Record::getListable()->paginate(20);
 
 		return \View::make("admin.$this->view_path.list")->with('records', $list);
 	}
@@ -55,6 +65,8 @@ class UsersController extends AdminController {
 	{
 		$record = Record::findOrFail($id);
 
+		$array = Role::getRoles(\Auth::user()->roles[0]->name);
+
 		\Form::data($record->toArray());
 
 		if ($record->profile)
@@ -62,7 +74,7 @@ class UsersController extends AdminController {
 			\Form::data($record->profile->toArray());
 		}
 
-		return \View::make("admin.$this->view_path.form")->with('user', $record)->with('roles', Role::all());
+		return \View::make("admin.$this->view_path.form")->with('user', $record)->with('roles', $array);
 	}
 
 	public function postAvatar()
@@ -234,14 +246,41 @@ class UsersController extends AdminController {
 		{
 			$record = Record::find($id);
 
-			if ($record)
-			{
-				$record->sendMail();
+			$token = \Password::sendResetLink(['email'=>$record->email],function($message) use ($record) {
 
-				return \Response::json(['result' => true, 'msg' => trans('crud.success_process')]);
-			}
+				if ($record)
+				{
+					$token = \DB::table('password_resets')->where('email',$record->email)->first();
+
+					$record->sendMail($token->token);
+
+				}
+
+				//prevents the default password reminder message
+				\Mail::pretend();
+
+				return 'password.sent';
+
+			});
+
+			return \Response::json(['result' => true, 'msg' => trans('crud.success_process')]);
 		}
 
 		return \Response::json(['result' => false, 'msg' => trans('crud.failed_process')]);
+	}
+
+	public function getInfo($id) {
+		$record = Record::findOrFail($id);
+
+		$array = Role::getRoles(\Auth::user()->roles[0]->name);
+
+		\Form::data($record->toArray());
+
+		if ($record->profile)
+		{
+			\Form::data($record->profile->toArray());
+		}
+
+		return \View::make("admin.$this->view_path.form")->with('user', $record)->with('roles', $array);
 	}
 }

@@ -54,7 +54,7 @@ return [
 	|
 	*/
 
-	'from' => ['address' => 'info@aquanode.com', 'name' => 'Aquanode Interactive'],
+	'from' => ['address' => 'noreply@survey.impactsociety.com', 'name' => 'Impact Society'],
 
 	/*
 	|--------------------------------------------------------------------------

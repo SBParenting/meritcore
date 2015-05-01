@@ -18,7 +18,11 @@
 
 					<div class="col-md-12">
 
-						<a href="{{ url('m/schools') }}" class="btn btn-default pull-right"><i class="fa fa-arrow-left"></i> Back to Schools List</a>
+						@if(can('manage:schools'))
+
+							<a href="{{ url('m/schools') }}" class="btn btn-default pull-right"><i class="fa fa-arrow-left"></i> Back to Schools List</a>
+
+						@endif
 
 						@if ($is_admin)
 

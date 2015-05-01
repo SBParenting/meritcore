@@ -1,6 +1,6 @@
 <?php
 	return array(
 		
-		'title' 	=> 'Merit Core',
+		'title' 	=> 'Meritcore',
 		'per_page'	=> 20,
 	);
