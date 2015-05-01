@@ -860,13 +860,13 @@
 											<tr>
 												<td></td>
 												<!--<td bgcolor="#e0b049" width="{!! $data[1]*10 !!}%"></td>-->
-												<td><div style="width:{!! (($data[1] + $data[2]) == 0) ? 0 : ($data[1]*100)/($data[1]+$data[2]) !!}%;background:#9fc24d;color:white;padding:3px 10px;text-align:left;">Yes</div></td>
+												<td><div style="width:{!! (($data[1] + $data[2]) == 0) ? 0 : ($data[1]*100)/($data[1]+$data[2]) !!}%;background:#9fc24d;color:white; {!! (($data[1] + $data[2]) == 0) ? '' : 'padding:3px 10px;' !!} text-align:left;">Yes</div></td>
 												<td align="center"> {{ $data[1] }}</td>
 												<td align="center">{{ (($data[1] + $data[2]) == 0) ? 0 : ($data[1]*100)/($data[1]+$data[2]) }}%</td>
 											</tr>
 											<tr>
 												<td></td>
-												<td><div style="width:{!! (($data[1] + $data[2]) == 0) ? 0 : ($data[2]*100)/($data[1]+$data[2]) !!}%;background:#e0b049;color:white;padding:3px 10px;text-align:left;">No</div></td>
+												<td><div style="width:{!! (($data[1] + $data[2]) == 0) ? 0 : ($data[2]*100)/($data[1]+$data[2]) !!}%;background:#e0b049;color:white;{!! (($data[1] + $data[2]) == 0) ? '' : 'padding:3px 10px;' !!}text-align:left;">No</div></td>
 												<td align="center"> {{ $data[2] }}</td>
 												<td align="center">{{ (($data[1] + $data[2]) == 0) ? 0 : ($data[2]*100)/($data[1]+$data[2]) }}%</td>
 											</tr>
