@@ -131,26 +131,27 @@ class ManageController extends Controller {
 			$survey_engagement = [];
 			$improveData =[];
 			foreach ($surveys as $survey) {
-				
-				$data2 = [];
- 				$questions = ['question_2' => 'My instructor\'s approch and style of presenting was enjoyable for me.',
- 					'question_3' => 'The HEROES® program offered good information that I am able to understand and use.',
- 					'question_4' => 'We discussed things in the HEROES® classes that are meaningful and important to me.',
- 					'question_5' => 'I felt listened to and respected as I participated in the HEROES® classes.'];
+				if($survey->survey_id == 3 || $survey->survey_id == 4){
+					$data2 = [];
+	 				$questions = ['question_2' => 'My instructor\'s approch and style of presenting was enjoyable for me.',
+	 					'question_3' => 'The HEROES® program offered good information that I am able to understand and use.',
+	 					'question_4' => 'We discussed things in the HEROES® classes that are meaningful and important to me.',
+	 					'question_5' => 'I felt listened to and respected as I participated in the HEROES® classes.'];
 
- 				$questions2 = ['question_2' => '1',
- 				'question_3' => '2',
- 				'question_4' => '3',
- 				'question_5' => '4'];
- 			 
-	 			foreach ($questions as $key => $value) {
-	 				$yesCount = CampaignStudentInfo::where('campaign_id',$survey->id)->where($key,1)->count();
-	 				$noCount = CampaignStudentInfo::where('campaign_id',$survey->id)->where($key,0)->count();
-	 				array_push($data2, array($value,$yesCount,$noCount));
+	 				$questions2 = ['question_2' => '1',
+	 				'question_3' => '2',
+	 				'question_4' => '3',
+	 				'question_5' => '4'];
+	 			 
+		 			foreach ($questions as $key => $value) {
+		 				$yesCount = CampaignStudentInfo::where('campaign_id',$survey->id)->where($key,1)->count();
+		 				$noCount = CampaignStudentInfo::where('campaign_id',$survey->id)->where($key,0)->count();
+		 				array_push($data2, array($value,$yesCount,$noCount));
+		 			}
+		 			$survey_engagement[$survey->id] = $data2;
+
+		 			$improveData[$survey->id] = $survey->getImproveResults();
 	 			}
-	 			$survey_engagement[$survey->id] = $data2;
-
-	 			$improveData[$survey->id] = $survey->getImproveResults();
 			}
 
 			$data = [

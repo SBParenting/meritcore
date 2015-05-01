@@ -843,7 +843,7 @@
 
 										<hr />
 										<br />
-
+										@if(isset($survey_engagement[$survey->id]))
 										<h4>Engagement</h4>
 										<br />
 											<?php $i = 0; ?>
@@ -873,12 +873,13 @@
 										</table>
 										@endforeach
 										<br />
-
+										@endif
+										@if(isset($survey_improve[$survey->id])) 
 										<h4>Number of Students Improve</h4>
 										{!! "<script type='text/javascript'> var improve_". $survey->id." = ". json_encode($survey_improve[$survey->id]) . "</script>" !!}
 										<div id="columnchart_values_{{$survey->id}}" class="improve" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
 										<br />
-
+										@endif
 										<h4>10 Core Competencies Survey</h4>
 										{!! "<script type='text/javascript'> var data_". $survey->id." = ". json_encode($survey->stats) . "</script>" !!}
 										<div id="competencies_values_{{$survey->id}}" class="ccc" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
