@@ -46,7 +46,11 @@ class ManageController extends Controller {
 			$schools = $school_board->schools;
 		} else {
 			$schools = $this->user->schools;
-			$school_board = SchoolBoard::findOrFail($this->user->schools->first()->school_board_id);
+			if(!$schools->isEmpty()) {
+				$school_board = SchoolBoard::findOrFail($this->user->schools->first()->school_board_id);
+			} else {
+				return \Redirect::to('/admin');
+			}
 		}
 
 		if (\Input::has('search')) {
