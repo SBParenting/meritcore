@@ -142,6 +142,8 @@ class ManageController extends Controller {
 	 				array_push($data2, array($value,$yesCount,$noCount));
 	 			}
 	 			$survey_engagement[$survey->id] = $data2;
+
+	 			$survey->getImproveResults();
 			}
 
 			//dd($survey_engagement);
