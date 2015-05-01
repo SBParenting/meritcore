@@ -129,7 +129,7 @@ class ManageController extends Controller {
 
 			//dd($surveys);
 			$survey_engagement = [];
-			
+			$improveData =[];
 			foreach ($surveys as $survey) {
 				
 				$data2 = [];
