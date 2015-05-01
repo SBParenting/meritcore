@@ -133,7 +133,8 @@ class SurveyController extends Controller {
 	 			 	foreach ($questions as $question) {
 	 			 		$yesCount = PostSurveyAnswers::where('campaign_id',$id)->where('question_id',$question->id)->where('answer',1)->count();
 	 			 		$noCount = PostSurveyAnswers::where('campaign_id',$id)->where('question_id',$question->id)->where('answer',0)->count();
-	 				 	array_push($data3, array('title' => $question->title,'yes' => $yesCount,'no' => $noCount));
+	 				 	array_push($data3, array($question->title,$yesCount,$noCount));
+	 				 	//array_push($data3, array('title' => $question->title,'yes' => $yesCount,'no' => $noCount));
 	 				 }
 	 			 }
 
