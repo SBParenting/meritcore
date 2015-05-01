@@ -144,7 +144,7 @@
             if(graphData3 != null){
                 var bar3 = Morris.Bar({
                     element: 'myChart3',
-                    data: graphData2,
+                    data: graphData3,
                     xkey: 'title',
                     parseTime: false,
                     xLabels: "Questions",
