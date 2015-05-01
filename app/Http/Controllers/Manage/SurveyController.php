@@ -126,6 +126,7 @@ class SurveyController extends Controller {
 
  			if($survey->survey_id == 3 || $survey->survey_id == 4 ){
  			 	$data3 = [];
+ 			 	$data2[] = ['Question','Yes','No'];
  			 	$questions = PostSurveyQuestion::where('survey_id',$survey->survey_id)->get();
  			 
 	 			 if($questions){
