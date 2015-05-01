@@ -142,24 +142,49 @@
              var graphData3 = {!! json_encode((isset($gdata_3)?$gdata_3:null)) !!};
             
             if(graphData3 != null){
-                var bar3 = Morris.Bar({
-                    element: 'myChart3',
-                    data: graphData3,
-                    xkey: 'title',
-                    parseTime: false,
-                    xLabels: "Questions",
-                    xLabelAngle: 90,
-                    ykeys: ['yes', 'no'],
-                    labels: ['Yes', 'No'],
-                    barSizeRatio: 0.5,
-                    barGap: 1,
-                    xLabelMargin: 5,
-                    hideHover: 'auto',
-                    goals: [0,0],
-                    stacked: true,
-                    goalLineColors:["#9da3a9"],
-                    barColors: ["#e0b049", "#9fc24d"]
-                });
+                var arrayData = graphData3;
+                google.setOnLoadCallback(drawChart2);
+
+                function drawChart2() {
+                    var data = google.visualization.arrayToDataTable(arrayData);
+                    var view = new google.visualization.DataView(data);
+                                
+                    view.setColumns([0, 1, {
+                        calc: "stringify",
+                        sourceColumn: 1,
+                        type: "string",
+                        role: "annotation"
+                        },
+                        2, {
+                            calc: "stringify",
+                            sourceColumn: 2,
+                            type: "string",
+                            role: "annotation"
+                        }
+                    ]);
+                    
+                    var options = {
+                        title: "Impact",
+                        background: "#f0f0ef",
+                        width: 400,
+                        height: 600,
+                        vAxis: {
+                            title: "Questions"
+                        },
+                        isStacked: true,
+                        hAxis: {
+                            title: "Number of Students"
+                        },
+                        bar: {
+                            groupWidth: "60%"
+                        },
+                        colors: ["#e0b049", "#9fc24d"],
+                         backgroundColor: "transparent"
+                    };
+                    
+                    var chart = new google.visualization.BarChart(document.getElementById('myChart3'));
+                    chart.draw(view, options);
+                }
             }
 
         var barWidth=(($('#myChart1').width()/10)*(0.8))/2;
@@ -217,108 +242,6 @@
           document.getElementsByTagName('svg')[0].appendChild(parseSVG(div)); //stick it into the dom
 
         });
-
-        var barWidth=(($('#myChart2').width()/10)*(0.8))/2;
-
-        //now each thru each bar (rect)
-        
-
-         var barWidth=(($('#myChart3').width()/10)*(0.8))/2;
-
-        //now each thru each bar (rect)
-        $('#myChart3').find('rect').each(function (i) {
-            var rect = i%2,
-                i = Math.floor(i/2),
-                pos=$(this).offset(),
-                top=pos.top;
-              
-            top-=10; //originate at the top of the bar
-
-          //get the height of the bar
-          var barHeight=bar3.bars[i];
-            
-            if (barHeight[0] == 0 && barHeight[1] == 0) {
-                top = -999999;
-            } else if (barHeight[0] == barHeight[1]) {
-                if (rect == 0) {
-                top+=barHeight[rect]/2; //so we can now stick the number in the vertical-center of the bar as desired
-                } else {
-                    top = -9999999;
-                }
-            } else if (barHeight[0] == 0) {
-                if (rect == 0) {
-                    top=-999999999; //so we can now stick the number in the vertical-center of the bar as desired
-                } else {
-                    top+= barHeight[rect]/2;
-                }
-            } else {
-                if (rect == 0) {
-                    top+=barHeight[rect]/2; //so we can now stick the number in the vertical-center of the bar as desired
-                } else {
-                    top+= (barHeight[rect]-barHeight[0])/2;
-                }
-            }
-            
-
-            var left=pos.left;
-          //move it over a bit
-          left+=barWidth/2; 
-          //-size of element...
-          left-=8;//should approximately be horizontal center
-
-          var val = "";
-
-            if (rect) {
-                val = graphData3[i].yes; //get the count
-            } else {
-                val = graphData3[i].no; //get the count
-            }
-
-            var div = '<text x="'+left+'" y="'+top+'" text-anchor="middle" font="10px &quot;Arial&quot; thinner" stroke="none" fill="#FFFFFF" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: lighter; font-stretch: normal; font-size: 10px; line-height: normal; font-family: sans-serif;" font-size="10px" font-family="sans-serif" font-weight="lighter" transform="matrix(1,0,0,1,0,6)">'+val+'</text>'; 
-
-          document.getElementsByTagName('svg')[2].appendChild(parseSVG(div)); //stick it into the dom
-
-        });  
-
-
-
-              /* $('#myChart').highcharts({
-                    chart: {
-                        type: 'bar'
-                    },
-                    xAxis: {
-                        categories: {!! json_encode($categories) !!}
-                    },
-                    yAxis: {
-                        title: {
-                            text: 'Number of Students'
-                        }
-                    },
-                    series: {!! json_encode($gdata) !!},
-                    credits: { enabled:false }
-                });*/
-	        /*var barData = {
-                labels: {!! json_encode($categories) !!},
-                datasets: {!! json_encode($gdata) !!}
-            };
-
-            var barOptions = { 
-                scaleBeginAtZero : true,
-                scaleShowGridLines : true,
-                scaleGridLineColor : "rgba(0,0,0,.05)",
-                scaleGridLineWidth : 1,
-                scaleShowHorizontalLines: true,
-                scaleShowVerticalLines: true,
-                barShowStroke : true,
-                barStrokeWidth : 2,
-                barValueSpacing : 5,
-                barDatasetSpacing : 1,
-                legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
-            };
-
-
-            var ctx = document.getElementById("myChart").getContext("2d");
-            var myNewChart = new Chart(ctx).Bar(barData, barOptions);*/
 
             setTimeout(function()
             {
