@@ -133,13 +133,12 @@ class ManageController extends Controller {
 			foreach ($surveys as $survey) {
 				
 				$data2 = [];
-				$data2 [] = ['Question','Yes','No'];
- 				$questions2 = ['question_2' => 'My instructor\'s approch and style of presenting was enjoyable for me.',
+ 				$questions = ['question_2' => 'My instructor\'s approch and style of presenting was enjoyable for me.',
  					'question_3' => 'The HEROES® program offered good information that I am able to understand and use.',
  					'question_4' => 'We discussed things in the HEROES® classes that are meaningful and important to me.',
  					'question_5' => 'I felt listened to and respected as I participated in the HEROES® classes.'];
 
- 				$questions = ['question_2' => '1',
+ 				$questions2 = ['question_2' => '1',
  				'question_3' => '2',
  				'question_4' => '3',
  				'question_5' => '4'];

@@ -152,6 +152,22 @@ class SurveyController extends Controller {
 			$image->save(app_path() . '/../public/front/img/report/charts/' . $filename);
 		    $data['participant'] = $filename;
 
+		    $data2 = [];
+ 			//$data2[] = ['Question','Yes','No'];
+ 			$questions = ['question_2' => 'My instructor\'s approch and style of presenting was enjoyable for me.',
+ 				'question_3' => 'The HEROES® program offered good information that I am able to understand and use.',
+ 				'question_4' => 'We discussed things in the HEROES® classes that are meaningful and important to me.',
+ 				'question_5' => 'I felt listened to and respected as I participated in the HEROES® classes.'];
+ 			 
+	 		foreach ($questions as $key => $value) {
+	 			$yesCount = CampaignStudentInfo::where('campaign_id',$id)->where($key,1)->count();
+	 			$noCount = CampaignStudentInfo::where('campaign_id',$id)->where($key,0)->count();
+	 			array_push($data2, array($value,$yesCount,$noCount));
+	 			//array_push($data2, array('title' => $value,'yes' => $yesCount,'no' => $noCount));
+	 		}
+	 		$data['gdata_2'] = $data2;
+
+
 		    $chart = \Input::get('chart3');
 		    if($chart != ""){
 		    	$filename = 'report-chart-impact-'.$survey->id.'.png';
