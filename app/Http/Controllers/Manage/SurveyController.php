@@ -178,7 +178,7 @@ class SurveyController extends Controller {
 		    }
 			
 			$chart = \Input::get('chart1');
-			$filename = 'report-chart-ccc'.$survey->id.'.png';
+			$filename = 'report-chart-ccc-'.$survey->id.'.png';
 			$image = \Image::make($chart);
 			$image->save(app_path() . '/../public/front/img/report/charts/' . $filename);
 		    $data['ccc'] = $filename;
