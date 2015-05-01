@@ -25,7 +25,7 @@
 	<li>
 		<span class="icon light fa fa-caret-right"></span>
 		<label>Classes</label>
-		<a href="{{ url("/admin/s/schools/info-classes/$record->id") }}" class="label label-{{ $record->classes_count > 0 ? 'info' : 'default' }} label-fixed-width">{{ $record->classes_count }}</a>
+		<a href="{{ url("/admin/s/schools/info-classes/$record->id") }}" class="label label-{{ $record->classes_count > 0 ? 'info' : 'default' }} label-fixed-width">{{ $record->classes_count > 0 ? $record->classes_count : 'Unknown' }}</a>
 	</li>
 
 	<li>

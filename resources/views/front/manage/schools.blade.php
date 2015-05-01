@@ -340,8 +340,18 @@
 				</div>
 
 			</div>
-		</script
+		</script>
 
+	@stop
+
+	@section('script')
+		<script type="text/javascript">
+			$('.search-box').find('input').on('keyup',function(e){
+				if (e.which == 13) {
+					$('.search-box').submit();
+				}
+			});
+		</script>
 	@stop
 
 @stop
