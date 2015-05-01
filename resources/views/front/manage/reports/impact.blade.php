@@ -106,7 +106,7 @@ Character Trait Questionnaire results and graphs.</p>
 	</div>
 	
 	<div class="footer no-margin">
-		<img src="{{ url('public/front/img/report/footer3.jpg') }}" class="width-100" />
+		<img src="{{ url('public/front/img/report/footer2.jpg') }}" class="width-100" />
 	</div>
 
 	@if(isset($impact))
