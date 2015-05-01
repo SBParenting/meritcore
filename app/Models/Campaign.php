@@ -134,10 +134,40 @@ class Campaign extends \App\Models\Model {
 			}
 		}
 	}
-	public function getImproveResults(){
+	public function getImproveResults()
+	{
+		$data[$this->id] = [];
 		$class = Classroom::with('students')->find($this->class_id);
+		
+		$groupings = SurveyGrouping::where('survey_id', '=', $this->survey_id)->get();
+		foreach ($groupings as $group)
+		{	$studentCount = 0;
+			foreach($class->students as $student);
+			{
+				
+				$questions = $this->survey->questions;
 
-		dd($class->student());
+				$question_ids = [];
+
+				foreach ($group->questions as $question)
+				{
+					$question_ids[] = $question->id;
+				}
+
+				if (!empty($question_ids))
+				{
+					
+					$count = CampaignResult::where('campaign_id', '=', 15)->where('campaign_student_id', '=', $student->id)->whereIn('result',[1,2,3])->whereIn('question_id', $question_ids)->get();
+					if(!empty($count))
+					{
+						$studentCount++;
+					}
+				}
+			}
+			array_push($data[$this->id], array($group->title,$studentCount));
+		}
+
+		return $data[$this->id];
 	}
 
 }

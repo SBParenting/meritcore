@@ -150,10 +150,8 @@ class ManageController extends Controller {
 	 			}
 	 			$survey_engagement[$survey->id] = $data2;
 
-	 			$survey->getImproveResults();
+	 			$improveData[$survey->id] = $survey->getImproveResults();
 			}
-
-			//dd($survey_engagement);
 
 			$data = [
 				'page'           => 'classes',
@@ -166,6 +164,7 @@ class ManageController extends Controller {
 				'active_surveys' => $active_surveys,
 				'survey_types'   => Survey::all(),
 				'survey_engagement' => $survey_engagement,
+				'survey_improve' => $improveData,
 
 			];
 

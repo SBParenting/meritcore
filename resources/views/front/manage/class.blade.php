@@ -872,10 +872,12 @@
 											</tr>
 										</table>
 										@endforeach
+										<br />
+
+										<h4>Number of Students Improve</h4>
 										
-										
-										<!--{!! "<script type='text/javascript'> var engagement_". $survey->id." = ". json_encode($survey_engagement[$survey->id]) . "</script>" !!}
-										<div id="barchart_values_{{$survey->id}}" class="engagement" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>-->
+										{!! "<script type='text/javascript'> var improve_". $survey->id." = ". json_encode($survey_improve[$survey->id]) . "</script>" !!}
+										<div id="columnchart_values_{{$survey->id}}" class="improve" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
 										<br />
 
 										<h4>10 Core Competencies Survey</h4>
@@ -1031,8 +1033,8 @@
 		
 			function startDrawingChart(){
 
-				$('.engagement').each(function(){
-						var arrayData = window['engagement_'+$(this).attr('data-id')];
+				$('.improve').each(function(){
+						var arrayData = window['improve_'+$(this).attr('data-id')];
 						//google.setOnLoadCallback(drawChart);
 						google.load("visualization", "1", {packages:["corechart"],callback: drawChart});
 
@@ -1040,13 +1042,12 @@
 
 						function drawChart() {
 						  var data = new google.visualization.DataTable();
-						  data.addColumn('string', 'Questions');
-						  data.addColumn('number', 'Yes');
-						  data.addColumn('number', 'No');
+						  data.addColumn('string', 'Competencies');
+						  data.addColumn('number', 'Students');
 
 						  for (var i in arrayData){
 						    //alert(chartData[i][0]+'=>'+ parseInt(chartData[i][1]));
-						    data.addRow([arrayData[i][0], parseInt(arrayData[i][1]), parseInt(arrayData[i][2])]);
+						    data.addRow([arrayData[i][0], parseInt(arrayData[i][1])]);
 						  }
 
 						  var view = new google.visualization.DataView(data);
@@ -1055,46 +1056,35 @@
 						  	calc: "stringify",
 						    sourceColumn: 1,
 						    type: "string",
-						    role: "annotation"
-						   },
-						   2, {
-						   	calc: "stringify",
-						    sourceColumn: 2,
-						    type: "string",
+						    position: "center",
 						    role: "annotation"
 						   }]);
 
 						  var options = {
-						    legend: {position:'top'},
-						    vAxis: {
-						        title: 'Questions', 
+						    legend: {position:'none'},
+						    hAxis: {
+						        title: 'Competencies', 
 						        titleTextStyle: {color: 'black'}, 
 						        textSize: 4,
-						        textStyle: {
-					                paddingRight: 20,
-					                marginRight: 20,
-					                'padding-right': 20,
-					                'margin-right': 20
-					            },
-						        slantedText: true
+						        slantedText: true,
+						        slantedTextAngle: 90
 						    },  
-						    hAxis: {
+						    vAxis: {
 						        title: 'Number of Students', 
 						        titleTextStyle: {color: 'black'}, 
 						        count: -1
 						    },
 						    isStacked: true,
                     		chartArea: {
-					            width: '40%',
-					            left: '60%'
+					            height: '50%',
+					            top: "5%"
 					        },
-						    title: "Engagement",
 						    backgroundColor: "transparent",
 						    colors: ["#e0b049", "#9fc24d"]
 						  };
 
 
-						  var chart = new google.visualization.BarChart(document.getElementById(self.attr('id')));
+						  var chart = new google.visualization.ColumnChart(document.getElementById(self.attr('id')));
 
 						  chart.draw(view, options);    
 						}
