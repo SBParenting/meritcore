@@ -1128,7 +1128,7 @@
 					            top: "5%"
 					        },
 						    backgroundColor: "transparent",
-						    colors: ["#e0b049", "#9fc24d"]
+						    colors: ["#9fc24d","#e0b049"]
 						  };
 
 						var chart = new google.visualization.ColumnChart(document.getElementById(self.attr('id')));
