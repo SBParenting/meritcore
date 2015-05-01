@@ -105,6 +105,8 @@ class UsersController extends AdminController {
 
 		$record->fill(\Input::all())->save();
 
+		$record->roles()->attach(\Input::get('role_id'));
+
 		$record->updateProfile(\Input::all());
 
 		return \Response::json(['result' => true, 'msg' => trans('crud.success_added'), 'url' => url($this->base_url) ]);
