@@ -134,6 +134,7 @@ class ManageController extends Controller {
 			//dd($surveys);
 			$survey_engagement = [];
 			$improveData =[];
+			$demonstrateData =[];
 			foreach ($surveys as $survey) {
 				if($survey->survey_id == 3 || $survey->survey_id == 4){
 					$data2 = [];
@@ -155,21 +156,24 @@ class ManageController extends Controller {
 		 			$survey_engagement[$survey->id] = $data2;
 
 		 			$improveData[$survey->id] = $survey->getImproveResults();
+
+		 			$demonstrateData[$survey->id] = $survey->getDemonstrateResults();
 	 			}
 			}
-
+			//dd($demonstrateData);
 			$data = [
-				'page'           => 'classes',
-				'school'         => $school,
-				'class'          => $class,
-				'students'       => $students,
-				'grades'         => Classroom::$grades,
-				'teachers'       => $school->getTeachers(),
-				'surveys'        => $surveys,
-				'active_surveys' => $active_surveys,
-				'survey_types'   => Survey::all(),
+				'page'           	=> 'classes',
+				'school'         	=> $school,
+				'class'          	=> $class,
+				'students'       	=> $students,
+				'grades'         	=> Classroom::$grades,
+				'teachers'       	=> $school->getTeachers(),
+				'surveys'        	=> $surveys,
+				'active_surveys' 	=> $active_surveys,
+				'survey_types'   	=> Survey::all(),
 				'survey_engagement' => $survey_engagement,
-				'survey_improve' => $improveData,
+				'survey_improve' 	=> $improveData,
+				'survey_demonstrate'=> $demonstrateData,
 
 			];
 

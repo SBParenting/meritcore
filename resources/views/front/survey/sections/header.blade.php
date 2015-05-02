@@ -5,7 +5,7 @@
 		<a href="#" class="logo"><img src="{{ url('public/front/img/mc-logo.png') }}" /></a>
 		<h1>STUDENT SURVEY</h1>
 		<div class="progress">
-			<div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;"></div>
+			<div id="progressBar" class="progress-bar" role="progressbar" style="width: {{isset($width) ? $width : '0%'}};">{{ isset($label) ? $label : '' }}</div>
 		</div>
 	</div>
 </div>

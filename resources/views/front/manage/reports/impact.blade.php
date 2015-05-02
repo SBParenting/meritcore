@@ -63,7 +63,7 @@ Character Trait Questionnaire results and graphs.</p>
 	<div class="footer no-margin">
 		<img src="{{ url('public/front/img/report/footer1.png') }}" class="width-100" />
 	</div>
-
+@if(isset($gdata_2))
 <div class="page-break"></div>
 	
 	<div class="no-margin heading" style="margin-bottom:1cm;">
@@ -108,8 +108,8 @@ Character Trait Questionnaire results and graphs.</p>
 	<div class="footer no-margin">
 		<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100" />
 	</div>
-
-	@if(isset($impact))
+	@endif
+	@if(isset($gdata_3))
 		<div class="page-break"></div>
 	
 	<div class="no-margin heading" style="margin-bottom:1cm;">
@@ -120,16 +120,87 @@ Character Trait Questionnaire results and graphs.</p>
 		<p>
 			The data below shows the percentage of participants who reported a positive impact by the program in the following areas:
 		</p>
+		<br />
+		<?php $i = 0; ?>
+		@foreach($gdata_3 as $data)
+			<?php $i++; ?>
+			@if($i == 8)
+					</div>
+					<div class="page-break"></div>
+					<div class="no-margin heading">
+						Class Results of Core Character Trails 
+					</div>
+					<br>
+					<div class="content">
+					
+				@endif
+			<table width="100%" class="table table-striped">
+
+				<tr>
+					<td width="5%"> {{ $i }} </td>
+					<td> {{ $data[0] }} </td>
+					<td width="20%" align="center"> Count </td>
+					<td width="20%" align="center"> Total % </td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><div style="width:{!! (($data[1] + $data[2]) == 0) ? 0 : ($data[1]*100)/($data[1]+$data[2]) !!}%;background:#9fc24d;color:white;{!! ($data[1] == 0) ? '' : 'padding:3px 10px;' !!} text-align:left;">Yes</div></td>
+					<td align="center"> {{ $data[1] }}</td>
+					<td align="center">{{ (($data[1] + $data[2]) == 0) ? 0 : round(($data[1]*100)/($data[1]+$data[2])) }}%</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><div style="width:{!! (($data[1] + $data[2]) == 0) ? 0 : ($data[2]*100)/($data[1]+$data[2]) !!}%;background:#e0b049;color:white;{!! ($data[2] == 0) ? '' : 'padding:3px 10px;' !!}text-align:left;">No</div></td>
+					<td align="center"> {{ $data[2] }}</td>
+					<td align="center">{{ (($data[1] + $data[2]) == 0) ? 0 : round(($data[2]*100)/($data[1]+$data[2])) }}%</td>
+				</tr>
+			</table>
+		@endforeach
+		
+		
+	</div>
+	
+	@endif
+	@if(isset($improve))
+		<div class="page-break"></div>
+	
+	<div class="no-margin heading">
+		Class Results of Core Character Trails 
+	</div>
+	<br>
+	<div class="content">
+		<p>
+			The following report summarizes the aggregated (non-individual) results of HEROES2® student's who completed the widely used self-assessment questionnaire. *Prior to reviewing this information, please read the <strong>Limitations and Confidentiality</strong> statements in Appendix A.
+		</p>
 		<br>
+		<br>
+		<br>
+		<p><strong>Chart 1: Number of Students Who Improved</strong></p>
+		<br>
+		<p>The chart below shows the number of HEROES® students who demonstrated an increase in each of the Core
+Character Traits upon completion of the program.</p>
 		<div style="height:500px;max-height:500px;overflow:hidden;" class="width-100">
-			<img src="{{ url('/public/front/img/report/charts/'.$impact) }}?t={{time()}}" height="100%" width="100%" class="width-100" />
+			<img src="{{ url('/public/front/img/report/charts/'.$improve) }}?t={{time()}}" height="100%" class="width-100"/>
+		</div>
+	@endif
+
+	@if(isset($improve))
+		<div class="page-break"></div>
+	
+	<div class="no-margin heading">
+		Class Results of Core Character Trails (Cont..)
+	</div>
+		<br>
+		<p><strong>Chart 2: Number of Students who Now Demonstrate Strength</strong></p>
+		<br>
+		<p>The following chart shows the number of HEROES2® students who demonstrated moving from vulnerability to strength
+in each of the Core Character Traits upon completion of the program.</p>
+		<div style="height:500px;max-height:500px;overflow:hidden;" class="width-100">
+			<img src="{{ url('/public/front/img/report/charts/'.$demonstrate) }}?t={{time()}}" height="100%" class="width-100"/>
 		</div>
 		
 	</div>
 	
-	<div class="footer no-margin">
-		<img src="{{ url('public/front/img/report/footer3.jpg') }}" class="width-100" />
-	</div>
 	@endif
 <div class="page-break"></div>
 

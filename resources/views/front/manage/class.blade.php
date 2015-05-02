@@ -880,6 +880,12 @@
 										<div id="columnchart_values_{{$survey->id}}" class="improve" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
 										<br />
 										@endif
+										@if(isset($survey_improve[$survey->id])) 
+										<h4>Number of Students who Now Demonstrate Strength</h4>
+										{!! "<script type='text/javascript'> var demonstrate_". $survey->id." = ". json_encode($survey_demonstrate[$survey->id]) . "</script>" !!}
+										<div id="demonstratechart_values_{{$survey->id}}" class="demonstrate" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
+										<br />
+										@endif
 										<h4>10 Core Competencies Survey</h4>
 										{!! "<script type='text/javascript'> var data_". $survey->id." = ". json_encode($survey->stats) . "</script>" !!}
 										<div id="competencies_values_{{$survey->id}}" class="ccc" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
@@ -1052,6 +1058,72 @@
 						chart.draw(view, options);    
 						}
 					});
+
+					$('.demonstrate').each(function(){
+						$(this).empty();
+						var arrayData = window['demonstrate_'+$(this).attr('data-id')];
+						//google.setOnLoadCallback(drawChart);
+						google.load("visualization", "1", {packages:["corechart"],callback: drawChart3});
+
+						var self = $(this);
+
+						function drawChart3() {
+						  var data = new google.visualization.DataTable();
+						  data.addColumn('string', 'Competencies');
+						  data.addColumn('number', 'Students');
+
+						  for (var i in arrayData){
+						    //alert(chartData[i][0]+'=>'+ parseInt(chartData[i][1]));
+						    data.addRow([arrayData[i][0], parseInt(arrayData[i][1])]);
+						  }
+
+						  var view = new google.visualization.DataView(data);
+						    
+						  view.setColumns([0, 1, {
+						  	calc: "stringify",
+						    sourceColumn: 1,
+						    type: "string",
+						    role: "annotation"
+						   }]);
+
+						  var options = {
+						    legend: {position:'none'},
+						    annotation:{
+						    	textStyle:{
+						    		marginTop:'10px'
+						    	}
+						    },
+						    hAxis: {
+						        title: 'Competencies', 
+						        titleTextStyle: {color: 'black'}, 
+						        textSize: 4,
+						        slantedText: true,
+						        slantedTextAngle: 90
+						    },  
+						    vAxis: {
+						        title: 'Number of Students', 
+						        titleTextStyle: {color: 'black'}, 
+						        count: -1,
+						        format:'#',
+						        viewWindowMode: 'explicit',
+						        viewWindow:{ min:0 }
+						    },
+						    bar: {
+					            groupWidth: '90%'
+					        },
+                    		chartArea: {
+					            height: '50%',
+					            top: "5%"
+					        },
+						    backgroundColor: "transparent",
+						    colors: ["#9fc24d"]
+						  };
+
+						var chart = new google.visualization.ColumnChart(document.getElementById(self.attr('id')));
+						chart.draw(view, options);    
+						}
+					});
+
 					
 					$('.ccc').each(function(){
 						

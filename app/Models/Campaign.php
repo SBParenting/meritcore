@@ -163,7 +163,7 @@ class Campaign extends \App\Models\Model {
 				{
 					foreach ($question_ids as $question) {
 						
-						$count = CampaignResult::where('campaign_id', '=', $this->id)->where('campaign_student_id', '=', $student->id)->whereIn('result',[1,2,3])->where('question_id', $question)->first();
+						$count = CampaignResult::where('campaign_id', '=', $this->id)->where('student_id', '=', $student->id)->whereIn('result',[1,2,3])->where('question_id', $question)->first();
 						
 						if(!empty($count))
 						{
@@ -177,6 +177,67 @@ class Campaign extends \App\Models\Model {
 				}
 			}
 			array_push($data[$this->id], array($group->title,$studentCount));
+		}
+		//dd($data[$this->id]);
+		return $data[$this->id];
+	}
+
+	public function getDemonstrateResults()
+	{
+		$postSurvey = $this->survey_id;
+		$preSurvey = ($this->survey_id == 3)?1:2;
+
+		$preCampaign = self::with('survey', 'stats', 'stats.grouping')->where('survey_id',$preSurvey)->where('class_id',$this->class_id)->first();
+
+		$data[$this->id] = [];
+
+		$class = Classroom::with('students')->find($this->class_id);
+		
+		$postGroupings = SurveyGrouping::where('survey_id', $this->survey_id)->get();
+		foreach ($postGroupings as $postGroup)
+		{	$studentCount = 0;
+
+			foreach($class->students as $student)
+			{
+				//var_dump($student->id);
+				$preGroup = SurveyGrouping::where('title',$postGroup->title)->first();
+				
+				$preQuestion_ids = [];
+				$postQuestion_ids = [];
+
+				foreach ($postGroup->questions as $question)
+				{
+					$postQuestion_ids[] = $question->id;
+				}
+				foreach ($preGroup->questions as $question)
+				{
+					$preQuestion_ids[] = $question->id;
+				}
+
+				$ansCount = 0;
+
+				if (!empty($postQuestion_ids) && !empty($preQuestion_ids) && count($postQuestion_ids) == count($preQuestion_ids))
+				{
+					for($i = 0; $i<count($postQuestion_ids); $i++)
+					{
+						$preAnswers = CampaignResult::where('campaign_id', $preCampaign->id)->where('student_id', $student->id)->where('question_id', $preQuestion_ids[$i])->first();
+						$preAnswer = ($preAnswers)?$preAnswers->result:0;
+						$postAnswers = CampaignResult::where('campaign_id', $this->id)->where('student_id', $student->id)->where('question_id', $postQuestion_ids[$i])->first();
+						$postAnswer = ($postAnswers)?$postAnswers->result:0;;
+						
+						if($preAnswer == 4 || $preAnswer == 5){
+							if($postAnswer == 1 || $postAnswer == 2 || $postAnswer == 3){
+								$ansCount++;
+							}
+						}
+
+					}
+				}
+				if($ansCount == count($postQuestion_ids)){
+					$studentCount++;
+				}
+			}
+			array_push($data[$this->id], array($postGroup->title,$studentCount));
 		}
 		//dd($data[$this->id]);
 		return $data[$this->id];
