@@ -8,6 +8,7 @@ use App\Models\PostSurveyQuestion;
 use App\Models\PostSurveyAnswers;
 use App\Models\Campaign;
 use App\Models\CampaignStudent;
+use App\Models\Survey;
 use App\Models\CampaignStudentInfo;
 use Illuminate\Http\Request;
 
@@ -179,6 +180,13 @@ class SurveyController extends Controller {
 					$image->save(app_path() . '/../public/front/img/report/charts/' . $filename);
 				    $data['demonstrate'] = $filename;
 			    }
+			    $preSurvey_id = ($survey->survey_id == 3)?1:2;
+				$data['preSurvey'] = Survey::getTitle($preSurvey_id);
+			    $data['postSurvey'] = Survey::getTitle($survey->survey_id);
+
+			    $preCampaign = Campaign::where('survey_id',$preSurvey_id)->where('class_id',$survey->class_id)->first();
+			    $data['preCampaign'] = Campaign::getTitle($preCampaign->id);
+			    $data['postCampaign'] =  Campaign::getTitle($survey->id);
 			}
 			//dd($data);
 			$chart = \Input::get('chart1');
@@ -187,10 +195,15 @@ class SurveyController extends Controller {
 			$image->save(app_path() . '/../public/front/img/report/charts/' . $filename);
 		    $data['ccc'] = $filename;
 
-
+		    
 			//return \View::make('front.manage.reports.impact', $data)->render();
+			if($survey->survey_id == 3 || $survey->survey_id == 4 ){
+				$pdf = \PDF::loadView('front.manage.reports.competency', $data);
+			}
+			else{
+				$pdf = \PDF::loadView('front.manage.reports.impact', $data);
+			}
 			
-			$pdf = \PDF::loadView('front.manage.reports.impact', $data);
 			$pdf->setPaper('letter');
 
 			return $pdf->stream();

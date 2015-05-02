@@ -38,6 +38,6 @@ body {
 .competencies .first { margin-top: 0px;}
 .competencies li { margin-top:15px;font-size: 10pt;}
 
-.content { padding:30px;padding-left: 50px;}
+.content { padding:30px;padding-left: 50px;text-align: justify;}
 .lable{ width:200px;}
 .white {background: white;}

@@ -243,4 +243,11 @@ class Campaign extends \App\Models\Model {
 		return $data[$this->id];
 	}
 
+	public static function getTitle($id){
+        //dd($id);
+        $survey = self::where('id',$id)->first();
+        //dd($survey);
+        return $survey->title;
+    }
+
 }

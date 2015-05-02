@@ -1146,12 +1146,13 @@
 						function drawChart() {
 						  var data = new google.visualization.DataTable();
 						  data.addColumn('string', 'Competencies');
-						  data.addColumn('number', 'Strong');
 						  data.addColumn('number', 'Vulnerable');
+						  data.addColumn('number', 'Strong');
+						  
 
 						  for (var i in arrayData){
 						    //alert(chartData[i][0]+'=>'+ parseInt(chartData[i][1]));
-						    data.addRow([arrayData[i][0], parseInt(arrayData[i][1]), parseInt(arrayData[i][2])]);
+						    data.addRow([arrayData[i][0], parseInt(arrayData[i][2]), parseInt(arrayData[i][1])]);
 						  }
 
 						  var view = new google.visualization.DataView(data);
@@ -1200,7 +1201,7 @@
 					            top: "5%"
 					        },
 						    backgroundColor: "transparent",
-						    colors: ["#9fc24d","#e0b049"]
+						    colors: ["#e0b049", "#9fc24d"]
 						  };
 
 						var chart = new google.visualization.ColumnChart(document.getElementById(self.attr('id')));

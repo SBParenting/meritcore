@@ -62,4 +62,11 @@ class Survey extends \App\Models\Model {
             return 'heroes2';
         }
     }
+
+    public static function getTitle($id){
+        //dd($id);
+        $survey = self::where('id',$id)->first();
+        //dd($survey);
+        return $survey->title;
+    }
 }

@@ -38,7 +38,7 @@
 		</tr>
 		<tr>
 			<td><b>Questionnaires Date Range:</b></td>
-			<td>{{ get_date($survey->start_date, "M j/y") }} - {{ get_date($survey->end_date, "M j/y") }} </td>
+			<td>{{ get_date($survey->start_date, "F j, Y") }} - {{ get_date($survey->end_date, "F j, Y") }} </td>
 		</tr>
 	</table>
 
