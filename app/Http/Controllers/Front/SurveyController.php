@@ -234,14 +234,14 @@ class SurveyController extends \App\Http\Controllers\Controller {
 
 	public function postAddInfo(Request $request, $key)
 	{
-		$this->validate($request, [
+		/*$this->validate($request, [
 				'survey_id'		=> 'required',
 				'question_1'	=> 'required',
 				'question_2' 	=> 'required',
 				'question_3'	=> 'required',
 				'question_4'	=> 'required',
 				'question_5'    => 'required'
-		    ]);
+		    ]);*/
 
 
 		$studentInfo = new CampaignStudentInfo;
@@ -299,7 +299,7 @@ class SurveyController extends \App\Http\Controllers\Controller {
 	{
 		$campaign_id = $request->campaign_id;
 		$student_id = $request->student_id;
-
+		if($request->get('question')){
 		foreach($request->get('question') as $key => $value) {
 			$answer = new PostSurveyAnswers;
 
@@ -312,7 +312,7 @@ class SurveyController extends \App\Http\Controllers\Controller {
 
 			$answer->fill($data)->save();
 		}
-		
+		}
 		$survey = Campaign::where('secret', '=', $keys)->first();
 		
 		$student = CampaignStudent::where('campaign_id', '=', $survey->id)->where('secret', '=', \Session::get('student.survey.confirmed'))->first();

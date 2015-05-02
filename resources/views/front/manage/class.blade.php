@@ -168,7 +168,7 @@
 										</li>
 										<li>
 											<label>Questionaire</label>
-											{{ $active_survey->survey->title }}
+											{{ htmlspecialchars($active_survey->survey->title) }}
 										</li>
 										<li>
 											<label>Created</label>

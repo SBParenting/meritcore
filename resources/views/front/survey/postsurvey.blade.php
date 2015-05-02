@@ -13,12 +13,14 @@
 			{!! Form::open(['class'=>'form-horizontal', 'url' => $key.'/save-post-question' ]) !!}
 			{!! Form::hidden('student_id', $student_id) !!}
 			{!! Form::hidden('campaign_id', $campaign_id) !!}
+			
+			<div class="survey-block survey-content">
 
-			<div class="survey-block survey-content hidden-xs">
 				<div class="survey-row">
 						<div class="container">
-							
+							<label class="col-md-12 control-label  hidden-xs" style="color:white;text-align:right;padding-right:8%;">All questions need to be filled</label>
 							<table>
+
 								<?php $count = 0; ?>
 				@foreach($questions as $question)
 								<tr>
@@ -41,9 +43,16 @@
 					@endforeach
 				</table>
 						</div>
+						<div class="survey-block survey-footer visible-xs-block" style="bottom:-50px;">
+						<div class="container">
+							<a href="#" id="btnSurveyBack" class="pull-left btn btn-primary"><i class="glyphicon glyphicon-arrow-left"></i> BACK</a>
+							<a href="#" id="btnSurveyComplete" class="pull-right inline btn btn-warning closed" data-url="{{ url("api/survey/$key/complete") }}"><i class="glyphicon glyphicon-ok"></i> COMPLETE SURVEY</a>
+							<button class="btn btn-primary pull-right inline btn btn-warning" id="btnSurveyNext" type="submit"> Next <i class="glyphicon glyphicon-arrow-right"></i></button>
+						</div>
+					</div>
 					</div>
 
-					<div class="survey-block survey-footer" style="bottom:-50px;">
+					<div class="survey-block survey-footer hidden-xs" style="bottom:-50px;">
 						<div class="container">
 							<a href="#" id="btnSurveyBack" class="pull-left btn btn-primary"><i class="glyphicon glyphicon-arrow-left"></i> BACK</a>
 							<a href="#" id="btnSurveyComplete" class="pull-right inline btn btn-warning closed" data-url="{{ url("api/survey/$key/complete") }}"><i class="glyphicon glyphicon-ok"></i> COMPLETE SURVEY</a>
