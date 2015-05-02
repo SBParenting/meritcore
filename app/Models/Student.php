@@ -1,5 +1,6 @@
 <?php namespace App\Models;
 
+use App\Models\Classroom;
 class Student extends \App\Models\Model {
 
 	protected $table = 'students';
@@ -88,5 +89,18 @@ class Student extends \App\Models\Model {
     public static function getCountStudent($id){
     	$count = self::where('classroom_id',$id)->count();
     	return $count;
+    }
+    
+    public static function getGradeData($id){
+    	$datas = Classroom::$grades;
+    	//dd($datas);
+    	$dataArray = [];
+
+    	foreach ($datas as $key => $value) {
+    		$count = self::where('classroom_id',$id)->where('grade',$key)->count();
+    		array_push($dataArray, array($key,$count));
+    	}
+    	
+    	return $dataArray;
     }
 }

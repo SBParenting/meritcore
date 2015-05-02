@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Models\Classroom;
+use App\Models\Student;
 use App\Models\School;
 use App\Models\StudentAssoc;
 use App\Models\PostSurveyQuestion;
@@ -187,6 +188,10 @@ class SurveyController extends Controller {
 			    $preCampaign = Campaign::where('survey_id',$preSurvey_id)->where('class_id',$survey->class_id)->first();
 			    $data['preCampaign'] = Campaign::getTitle($preCampaign->id);
 			    $data['postCampaign'] =  Campaign::getTitle($survey->id);
+			    $data['totalStudents'] = Student::where('classroom_id',$survey->class_id)->count();
+			    $data['grade'] = Student::getGradeData($survey->class_id);
+
+			    
 			}
 			//dd($data);
 			$chart = \Input::get('chart1');

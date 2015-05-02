@@ -116,9 +116,9 @@
 			</ol>
 		</div>
 
-		<div class="footer no-margin">
+		<!--<div class="footer no-margin">
 			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100" />
-		</div>
+		</div>-->
 
 	@if(isset($improve))
 	<div class="page-break"></div>
@@ -141,9 +141,9 @@
 				<img src="{{ url('/public/front/img/report/charts/'.$improve) }}?t={{time()}}" height="100%" class="width-100"/>
 			</div>
 		</div>
-		<div class="footer no-margin">
+		<!--<div class="footer no-margin">
 			<img src="{{ url('public/front/img/report/footer3.jpg') }}" class="width-100" />
-		</div>
+		</div>-->
 	@endif
 
 	@if(isset($demonstrate))
@@ -162,9 +162,9 @@
 				<img src="{{ url('/public/front/img/report/charts/'.$demonstrate) }}?t={{time()}}" height="100%" class="width-100"/>
 			</div>
 		</div>
-		<div class="footer no-margin">
+		<!--<div class="footer no-margin">
 			<img src="{{ url('public/front/img/report/footer3.jpg') }}" class="width-100" />
-		</div>
+		</div>-->
 	@endif
 
 	@if(isset($gdata_2))
@@ -209,9 +209,9 @@
 			
 		</div>
 		
-		<div class="footer no-margin">
+		<!--<div class="footer no-margin">
 			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100" />
-		</div>
+		</div>-->
 	@endif
 
 	@if(isset($gdata_3))
@@ -265,9 +265,9 @@
 				</table>
 			@endforeach
 		</div>
-		<div class="footer no-margin">
+		<!--<div class="footer no-margin">
 			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100" />
-		</div> 
+		</div> -->
 	@endif
 
 	<div class="page-break"></div>
@@ -332,7 +332,7 @@
 				
 		<div class="content">
 			<center><strong>Core Character Competencies and Positive Youth Development</strong></center>
-			<center><blockquote><p>"Modeling isn't one way of influencing people. It's the only way"</p></blockquote></ceneter>
+			<center><blockquote><p>"Modeling isn't one way of influencing people. It's the only way"</p></blockquote></center>
 			<blockquote style="float:right;"><footer><cite title="Source Title">Albert Einstein</cite></footer></blockquote>
 
 			<p>For many children, the transition through early childhood towards the teenage years can be challenging with increased involvement in what have been called risk behaviours or problem behaviours, including school failure, truancy at school, substance abuse, violence and negative peer involvement. As a result, the tendency of community interventions has been a focus on trying to understand "what goes wrong" in so called troubled children and the development of problem- specific programs. But a risk-focused approach tends to neglect the fact that childhood years are a critical period of time where a child starts to develop the ability to navigate and negotiate life's challenges through exploring their unique talents, strengths, skills and interests. This emphasis on the positive and adaptive aspects of child and youth development is often referred to as "positive youth development". From this perspective, positive childhood health is not identified as the absence of risk or challenges. Rather, it is the presence of positive core social and emotional character traits that enable a child to reach their full potential and successfully transition through the teenage years towards adulthood.</p>
@@ -517,29 +517,24 @@
 		</div>
 
 		<div class="content">
-			<p><strong>Recommended Readings</strong></p>
-			<br />
-			<p> Goleman, D. (1995). <i>Emotional intelligence</i>. New York: Bantam Books.</p>
-			<br />
-			<p> Hammond, W. (2012). <i>Embracing a Strength-Based Perspective and Practice in Education</i>.</p>
-			<br />
-			<p> Henderson, N., Benard, B., & Sharp-Light, N. (2000) <i>Mentoring for resiliency: Setting up programs for moving youth from "stressed to success."</i> San Diego, CA: Resiliency in Action.</p>
-			<br />
-			<p> Henderson, N., & Milstein, M. M., (2003) <i>Resiliency in Schools: Making it happen for students and educators.</i> Thousand Oaks, CA: Corwin Press.</p>
-			<br />
-			<p> Henderson, N., & Sharp-Light, N., & Benard, B. eds. (1999) <i>Schoolwide approaches for fostering resiliency.</i> San Diego, CA: Resiliency in Action, Inc.</p>
-			<br />
-			<p> Sanchez, H. (2003) <i>The mentors guide to promoting resiliency.</i> Xlibris Corp.</p>
-			<br />
-			<p> Seligman, M. L. P. (1998) <i>Learned optimism: How to change your mind and your life.</i> New York: Simon and Shuster.</p>
-			<br />
-			<p> Seligman, M. L. P. (2007). <i>The optimistic child: A proven program to safeguard children against depression and build lifelong resilience.</i> New York: Houghton Mifflin Harcourt.</p>
-			<br />
-			<p> Ungar, M. (2002) <i>Playing at being bad: The hidden resilience of troubled teens.</i>w Halifax: Nimbus.</p>
-			<br />
-			<p> Ungar, M. (2007) <i>Too safe for their own good: How risk and responsibility help teens thrive.</i> Toronto: McClelland and Stewart.</p>
-			<br />
-			<p> Waxman, H.C., Padron, Y., & Gray, J.P. (2004). <i>Educational resiliency: Student, teacher and school perspectives.</i> Greenwich: Information Age Publishing.</p>
+			<table width="100%" class="table table-striped" style="border-top: 0.5px solid black;margin-bottom:0.25cm;">
+									<tr>
+						<td width="5%"> 1. </td>
+						<td width="60%"> What Grade are you in? </td>
+						<td> Answer </td>
+						<td width="20%" align="center"> Count </td>
+						<td width="20%" align="center"> Total % </td>
+					</tr>
+			@foreach($grade as $data)
+					<tr>
+						<td></td>
+						<td><div style="width:{!! (($totalStudents) == 0) ? 0 : ($data[1]*100)/($totalStudents) !!}%;min-height:5px;background:#9fc24d;color:white;{!! ($data[1] == 0) ? '' : 'padding:3px 10px;' !!} text-align:left;">{{ ($data[1]==0)?'':$data[1] }}</div></td>
+						<td align="right"> {{ $data[0] }}</td>
+						<td align="right"> {{ $data[1] }}</td>
+						<td align="right">{{ (($totalStudents) == 0) ? 0 : round(($data[1]*100)/($totalStudents)) }}%</td>
+					</tr>
+			@endforeach
+			</table>
 		</div>
 		<!--<div class="footer no-margin">
 			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100"/>
