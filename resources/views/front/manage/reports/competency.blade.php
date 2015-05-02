@@ -333,7 +333,7 @@
 		<div class="content">
 			<center><strong>Core Character Competencies and Positive Youth Development</strong></center>
 			<center><blockquote><p>"Modeling isn't one way of influencing people. It's the only way"</p></blockquote></center>
-			<blockquote style="float:right;"><footer><cite title="Source Title">Albert Einstein</cite></footer></blockquote>
+			<blockquote class="pull-right"><footer><cite title="Source Title">Albert Einstein</cite></footer></blockquote>
 
 			<p>For many children, the transition through early childhood towards the teenage years can be challenging with increased involvement in what have been called risk behaviours or problem behaviours, including school failure, truancy at school, substance abuse, violence and negative peer involvement. As a result, the tendency of community interventions has been a focus on trying to understand "what goes wrong" in so called troubled children and the development of problem- specific programs. But a risk-focused approach tends to neglect the fact that childhood years are a critical period of time where a child starts to develop the ability to navigate and negotiate life's challenges through exploring their unique talents, strengths, skills and interests. This emphasis on the positive and adaptive aspects of child and youth development is often referred to as "positive youth development". From this perspective, positive childhood health is not identified as the absence of risk or challenges. Rather, it is the presence of positive core social and emotional character traits that enable a child to reach their full potential and successfully transition through the teenage years towards adulthood.</p>
 			<br/>

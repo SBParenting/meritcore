@@ -20,28 +20,29 @@
 						<div class="container">
 							<label class="col-md-12 control-label  hidden-xs" style="color:white;text-align:right;padding-right:8%;">All questions need to be filled</label>
 							<table>
-
-								<?php $count = 0; ?>
-				@foreach($questions as $question)
-								<tr>
-									<td>
-										<label class="col-md-8 control-label">{{$question->title}}</label>
-										<div class="col-md-2">{!! Form::radio('question['.$question->id.']', '1', false)!!} Yes </div>
-										<div class="col-md-2">{!! Form::radio('question['.$question->id.']', '0', false) !!} No </div>
-									</td>
-								</tr>
-								<?php $count++; ?>
-								@if($count == 2)
-									<?php $count=0; ?>
-									</table>
-									</div>
-								</div>
-								<div class="survey-row">
-						<div class="container">
-							<table>
-								@endif
-					@endforeach
-				</table>
+							<?php $count = 0; ?>
+								@foreach($questions as $question)
+									<tr>
+										<td>
+											<label class="col-md-8 control-label" style="margin-bottom:30px;">{{$question->title}}</label>
+											<div class="col-md-2">{!! Form::radio('question['.$question->id.']', '1', false)!!} Yes </div>
+											<div class="col-md-2">{!! Form::radio('question['.$question->id.']', '0', false) !!} No </div>
+										</td>
+									</tr>
+									
+									<?php $count++; ?>
+									
+									@if($count >= 3)
+										<?php $count=0; ?>
+										</table>
+										</div>
+										</div>
+										<div class="survey-row">
+										<div class="container">
+										<table>
+									@endif
+								@endforeach
+							</table>
 						</div>
 						<div class="survey-block survey-footer visible-xs-block" style="bottom:-50px;">
 						<div class="container">
