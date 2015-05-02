@@ -182,6 +182,7 @@ Character Traits upon completion of the program.</p>
 		<div style="height:500px;max-height:500px;overflow:hidden;" class="width-100">
 			<img src="{{ url('/public/front/img/report/charts/'.$improve) }}?t={{time()}}" height="100%" class="width-100"/>
 		</div>
+	</div>
 	@endif
 
 	@if(isset($improve))
@@ -191,6 +192,7 @@ Character Traits upon completion of the program.</p>
 		Class Results of Core Character Trails (Cont..)
 	</div>
 		<br>
+		<div class="content">
 		<p><strong>Chart 2: Number of Students who Now Demonstrate Strength</strong></p>
 		<br>
 		<p>The following chart shows the number of HEROES2® students who demonstrated moving from vulnerability to strength
