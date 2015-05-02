@@ -346,7 +346,9 @@
 														<em>{{ $survey->count_completed }} students completed survey.</em>
 													</li>
 												</ul>
+												@if($survey->count_completed!=0)
 												<a href="{{ url('m/classes/'.$class->id) }}" class="btn btn-block btn-line-default show-panel result" data-target="#manageSurvey{{$survey->id}}" data-show="#surveyInfoPanel{{$survey->id}}" id="result">View Survey Results</a>
+												@endif
 											</div>
 										</div>
 									</div>
