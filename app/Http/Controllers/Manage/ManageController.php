@@ -135,6 +135,7 @@ class ManageController extends Controller {
 			$survey_engagement = [];
 			$improveData =[];
 			$demonstrateData =[];
+			$survey_impact = [];
 			foreach ($surveys as $survey) {
 				if($survey->survey_id == 3 || $survey->survey_id == 4){
 					$data2 = [];
