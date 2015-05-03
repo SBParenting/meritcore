@@ -155,6 +155,21 @@ class ManageController extends Controller {
 		 			}
 		 			$survey_engagement[$survey->id] = $data2;
 
+		 			$data3 = [];
+	 			 	//$data3[] = ['Question','Yes','No'];
+	 			 	$questions = PostSurveyQuestion::where('survey_id',$survey->survey_id)->get();
+	 			 
+		 			 if($questions){
+		 			 	foreach ($questions as $question) {
+		 			 		$yesCount = PostSurveyAnswers::where('campaign_id',$survey->id)->where('question_id',$question->id)->where('answer',1)->count();
+		 			 		$noCount = PostSurveyAnswers::where('campaign_id',$survey->id)->where('question_id',$question->id)->where('answer',0)->count();
+		 				 	array_push($data3, array($question->title,$yesCount,$noCount));
+		 				 	//array_push($data3, array('title' => $question->title,'yes' => $yesCount,'no' => $noCount));
+		 				 }
+		 			 }
+		 			 //dd($data3);
+		 			 $survey_impact[$survey->id] = $data3;
+		 			//dd($survey->getImproveResults());
 		 			$improveData[$survey->id] = $survey->getImproveResults();
 
 		 			$demonstrateData[$survey->id] = $survey->getDemonstrateResults();
@@ -174,6 +189,7 @@ class ManageController extends Controller {
 				'survey_engagement' => $survey_engagement,
 				'survey_improve' 	=> $improveData,
 				'survey_demonstrate'=> $demonstrateData,
+				'survey_impact'		=> $survey_impact,
 
 			];
 
@@ -227,7 +243,7 @@ class ManageController extends Controller {
 			'page'   => 'surveys',
 			'school' => $school,
 		];
-
+		dd($data);
 		return \View::make('front.manage.surveys', $data);
 	}
 

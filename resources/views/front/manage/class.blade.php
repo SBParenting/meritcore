@@ -845,6 +845,21 @@
 
 										<hr />
 										<br />
+										
+										@if(isset($survey_improve[$survey->id])) 
+										<h4>Number of Students Improve</h4>
+										{!! "<script type='text/javascript'> var improve_". $survey->id." = ". json_encode($survey_improve[$survey->id]) . "</script>" !!}
+										<div id="columnchart_values_{{$survey->id}}" class="improve" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
+										<br />
+										@endif
+										
+										@if(isset($survey_improve[$survey->id])) 
+										<h4>Number of Students who Now Demonstrate Strength</h4>
+										{!! "<script type='text/javascript'> var demonstrate_". $survey->id." = ". json_encode($survey_demonstrate[$survey->id]) . "</script>" !!}
+										<div id="demonstratechart_values_{{$survey->id}}" class="demonstrate" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
+										<br />
+										@endif
+										
 										@if(isset($survey_engagement[$survey->id]))
 										<h4>Engagement</h4>
 										<br />
@@ -876,18 +891,39 @@
 										@endforeach
 										<br />
 										@endif
-										@if(isset($survey_improve[$survey->id])) 
-										<h4>Number of Students Improve</h4>
-										{!! "<script type='text/javascript'> var improve_". $survey->id." = ". json_encode($survey_improve[$survey->id]) . "</script>" !!}
-										<div id="columnchart_values_{{$survey->id}}" class="improve" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
+
+										@if(isset($survey_impact[$survey->id]))
+										<h4>Impact</h4>
+										<br />
+											<?php $i = 0; ?>
+										
+										@foreach($survey_impact[$survey->id] as $data)
+											<?php $i++; ?>
+										<table width="100%" class="table table-striped">
+											<tr>
+												<td width="5%"> {{ $i }} </td>
+												<td> {{ $data[0] }} </td>
+												<td width="20%" align="center"> Count </td>
+												<td width="20%" align="center"> Total % </td>
+											</tr>
+											<tr>
+												<td></td>
+												<!--<td bgcolor="#e0b049" width="{!! $data[1]*10 !!}%"></td>-->
+												<td><div style="width:{!! (($data[1] + $data[2]) == 0) ? 0 : ($data[1]*100)/($data[1]+$data[2]) !!}%;background:#9fc24d;color:white; {!! ($data[1] == 0) ? '' : 'padding:3px 10px;' !!} text-align:left;">Yes</div></td>
+												<td align="center"> {{ $data[1] }}</td>
+												<td align="center">{{ (($data[1] + $data[2]) == 0) ? 0 : round(($data[1]*100)/($data[1]+$data[2])) }}%</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td><div style="width:{!! (($data[1] + $data[2]) == 0) ? 0 : ($data[2]*100)/($data[1]+$data[2]) !!}%;background:#e0b049;color:white;{!! ($data[2] == 0) ? '' : 'padding:3px 10px;' !!}text-align:left;">No</div></td>
+												<td align="center"> {{ $data[2] }}</td>
+												<td align="center">{{ (($data[1] + $data[2]) == 0) ? 0 : round(($data[2]*100)/($data[1]+$data[2])) }}%</td>
+											</tr>
+										</table>
+										@endforeach
 										<br />
 										@endif
-										@if(isset($survey_improve[$survey->id])) 
-										<h4>Number of Students who Now Demonstrate Strength</h4>
-										{!! "<script type='text/javascript'> var demonstrate_". $survey->id." = ". json_encode($survey_demonstrate[$survey->id]) . "</script>" !!}
-										<div id="demonstratechart_values_{{$survey->id}}" class="demonstrate" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
-										<br />
-										@endif
+
 										<h4>10 Core Competencies Survey</h4>
 										{!! "<script type='text/javascript'> var data_". $survey->id." = ". json_encode($survey->stats) . "</script>" !!}
 										<div id="competencies_values_{{$survey->id}}" class="ccc" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>

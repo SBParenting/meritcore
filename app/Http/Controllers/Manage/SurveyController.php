@@ -79,12 +79,13 @@ class SurveyController extends Controller {
 
 	public function getReport($id)
 	{
-		$survey = Campaign::with('classroom', 'stats', 'stats.grouping')->find($id);
+		$survey = Campaign::with('classroom', 'stats', 'stats.grouping', 'school')->find($id);
 
 		$data = [];
 
 		if ($survey)
 		{
+			//dd($survey);
 			$school = $survey->school;
 
 			$data = [
@@ -122,7 +123,7 @@ class SurveyController extends Controller {
 	 			 }
 
 	 			 $data['gdata_3'] = $data3;
-
+	 			 //dd($survey->getImproveResults());
 	 			 $data['improve'] = $survey->getImproveResults();
 
 		 		 $data['demonstrate'] = $survey->getDemonstrateResults();
@@ -166,7 +167,7 @@ class SurveyController extends Controller {
 
 	 			 $data['gdata_3'] = $data3;
 
-			    $improve = \Input::get('improve');
+			    $improve = \Input::get('improved');
 			    if($improve != ""){
 			    	$filename = 'report-chart-improve-'.$survey->id.'.png';
 					$image = \Image::make($improve);
@@ -174,7 +175,7 @@ class SurveyController extends Controller {
 				    $data['improve'] = $filename;
 			    }
 
-			    $demonstrate = \Input::get('demonstrate');
+			    $demonstrate = \Input::get('demonstrated');
 			    if($demonstrate != ""){
 			    	$filename = 'report-chart-demonstrate-'.$survey->id.'.png';
 					$image = \Image::make($demonstrate);

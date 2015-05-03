@@ -63,8 +63,8 @@
     {!! Form::textarea('chart1', null, ['id' => 'data1', 'style' => 'display:none']) !!}
     {!! Form::textarea('chart2', null, ['id' => 'data2', 'style' => 'display:none']) !!}
 	{!! Form::textarea('chart3', null, ['id' => 'data3', 'style' => 'display:none']) !!}
-    {!! Form::textarea('improve', null, ['id' => 'improves', 'style' => 'display:none']) !!}
-    {!! Form::textarea('demonstrate', null, ['id' => 'demonstrates', 'style' => 'display:none']) !!}
+    {!! Form::textarea('improved', null, ['id' => 'improves', 'style' => 'display:none']) !!}
+    {!! Form::textarea('demonstrated', null, ['id' => 'demonstrates', 'style' => 'display:none']) !!}
 
 	{!! Form::close() !!}
 
@@ -199,7 +199,7 @@
             data.addColumn('number', 'Students');
 
             for (var i in arrayData4){
-                data.addRow([arrayData[i][0], parseInt(arrayData[i][1])]);
+                data.addRow([arrayData4[i][0], parseInt(arrayData4[i][1])]);
             }
 
             var view = new google.visualization.DataView(data);
@@ -263,7 +263,7 @@
             data.addColumn('number', 'Students');
 
             for (var i in arrayData5){
-                data.addRow([arrayData[i][0], parseInt(arrayData[i][1])]);
+                data.addRow([arrayData5[i][0], parseInt(arrayData5[i][1])]);
             }
 
             var view = new google.visualization.DataView(data);

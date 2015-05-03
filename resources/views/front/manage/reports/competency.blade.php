@@ -10,7 +10,7 @@
 
 @section('page1')
 	
-	<img src="{{ url('public/front/img/report/page1.png') }}" class="width-100"/>
+	<img src="{{ url('public/front/img/report/postPage1.png') }}" class="width-100"/>
 	<div class="page-break"></div>
 @stop
 
@@ -171,7 +171,7 @@
 	<div class="page-break"></div>
 		
 		<div class="no-margin heading">
-			Engagement
+			Student Engagement
 		</div>
 		<br>
 		<div class="content">
@@ -218,7 +218,7 @@
 	<div class="page-break"></div>
 	
 		<div class="no-margin heading">
-			Impact
+			Program Impact
 		</div>
 		<br>
 		<div class="content">
@@ -236,7 +236,7 @@
 						</div>
 						<div class="page-break"></div>
 						<div class="no-margin heading">
-							Impact (cont.) 
+							Program Impact (cont.) 
 						</div>
 						<br>
 						<div class="content">
@@ -517,21 +517,49 @@
 		</div>
 
 		<div class="content">
+			<p><strong>Recommended Readings</strong></p>
+			<p>Goleman, D. (1995). <i>Emotional intelligence. New York: Bantam Books.</i></p>
+			<p>Hammond, W. (2012). <i>Embracing a Strength-Based Perspective and Practice in Education.</i></p>
+			<p>Henderson, N., Benard, B., & Sharp-Light, N. (2000) <i>Mentoring for resiliency: Setting up programs for moving youth from "stressed to success."</i> San Diego, CA: Resiliency in Action.</p>
+			<p>Henderson, N., & Milstein, M. M., (2003) <i>Resiliency in Schools: Making it happen for students and educators.</i> Thousand Oaks, CA: Corwin Press.</p>
+			<p>Henderson, N., & Sharp-Light, N., & Benard, B. eds. (1999) <i>Schoolwide approaches for fostering resiliency.</i> San Diego, CA: Resiliency in Action, Inc.</p>
+			<p>Sanchez, H. (2003) <i>The mentors guide to promoting resiliency.</i> Xlibris Corp.</p>
+			<p>Seligman, M. L. P. (1998) <i>Learned optimism: How to change your mind and your life.</i> New York: Simon and Shuster.</p>
+			<p>Seligman, M. L. P. (2007). <i>The optimistic child: A proven program to safeguard children against depression and build lifelong resilience.</i> New York: Houghton Mifflin Harcourt.</p>
+			<p>Ungar, M. (2002) <i>Playing at being bad: The hidden resilience of troubled teens.</i> Halifax: Nimbus.</p>
+			<p>Ungar, M. (2007) <i>Too safe for their own good: How risk and responsibility help teens thrive.</i> Toronto: McClelland and
+			Stewart.</p>
+			<p>Waxman, H.C., Padron, Y., & Gray, J.P. (2004). <i>E</i>ducational resiliency: Student, teacher and school perspectives.</i> Greenwich: Information Age Publishing.</p>
+
+		</div>
+		<!--<div class="footer no-margin">
+			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100"/>
+		</div>-->
+
+	<div class="page-break"></div>
+
+		<div class="no-margin heading">
+			Appendix E
+		</div>
+
+		<div class="content">
 			<table width="100%" class="table table-striped" style="border-top: 0.5px solid black;margin-bottom:0.25cm;">
 									<tr>
-						<td width="5%"> 1. </td>
+						<td width="2%"> 1. </td>
 						<td width="60%"> What Grade are you in? </td>
-						<td> Answer </td>
-						<td width="20%" align="center"> Count </td>
-						<td width="20%" align="center"> Total % </td>
+						<td width="8%" align="right"> Answer </td>
+						<td width="15%" align="right"> Count </td>
+						<td width="15%" align="right"> Total % </td>
 					</tr>
+			</table>
 			@foreach($grade as $data)
+			<table width="100%" class="table table-striped" style="border-bottom: 0.5px solid black;">
 					<tr>
-						<td></td>
-						<td><div style="width:{!! (($totalStudents) == 0) ? 0 : ($data[1]*100)/($totalStudents) !!}%;min-height:5px;background:#9fc24d;color:white;{!! ($data[1] == 0) ? '' : 'padding:3px 10px;' !!} text-align:left;">{{ ($data[1]==0)?'':$data[1] }}</div></td>
-						<td align="right"> {{ $data[0] }}</td>
-						<td align="right"> {{ $data[1] }}</td>
-						<td align="right">{{ (($totalStudents) == 0) ? 0 : round(($data[1]*100)/($totalStudents)) }}%</td>
+						<td width="2%"></td>
+						<td width="60%"><div style="width:{!! (($totalStudents) == 0) ? 0 : ($data[1]*100)/($totalStudents) !!}%;min-height:5px;background:#9fc24d;color:white;{!! ($data[1] == 0) ? '' : 'padding:3px 10px;' !!} text-align:left;">{{ ($data[1]==0)?'':$data[1] }}</div></td>
+						<td width="8%" align="right"> {{ $data[0] }}</td>
+						<td width="15%" align="right"> {{ $data[1] }}</td>
+						<td width="15%" align="right">{{ (($totalStudents) == 0) ? 0 : round(($data[1]*100)/($totalStudents)) }}%</td>
 					</tr>
 			@endforeach
 			</table>

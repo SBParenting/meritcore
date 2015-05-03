@@ -20,11 +20,12 @@
 
 					<hr />
 
+					
+						</div>
+
+					</div>
+
 				</div>
-
-			</div>
-
-		</div>
 
 	@stop
 

@@ -135,7 +135,7 @@ class Campaign extends \App\Models\Model {
 		}
 	}
 	public function getImproveResults()
-	{
+	{	
 		$data[$this->id] = [];
 
 		$class = Classroom::with('students')->find($this->class_id);
