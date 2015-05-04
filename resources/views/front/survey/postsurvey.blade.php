@@ -25,14 +25,14 @@
 									<tr>
 										<td>
 											<label class="col-md-8 control-label" style="margin-bottom:30px;">{{$question->title}}</label>
-											<div class="col-md-2">{!! Form::radio('question['.$question->id.']', '1', false)!!} Yes </div>
-											<div class="col-md-2">{!! Form::radio('question['.$question->id.']', '0', false) !!} No </div>
+											<div class="col-md-2"><label>{!! Form::radio('question['.$question->id.']', '1', false)!!} Yes </label></div>
+											<div class="col-md-2"><label>{!! Form::radio('question['.$question->id.']', '0', false) !!} No </label></div>
 										</td>
 									</tr>
 									
 									<?php $count++; ?>
 									
-									@if($count >= 3)
+									@if($count >= 2)
 										<?php $count=0; ?>
 										</table>
 										</div>
@@ -48,7 +48,7 @@
 						<div class="container">
 							<a href="#" id="btnSurveyBack" class="pull-left btn btn-primary"><i class="glyphicon glyphicon-arrow-left"></i> BACK</a>
 							<a href="#" id="btnSurveyComplete" class="pull-right inline btn btn-warning closed" data-url="{{ url("api/survey/$key/complete") }}"><i class="glyphicon glyphicon-ok"></i> COMPLETE SURVEY</a>
-							<button class="btn btn-primary pull-right inline btn btn-warning" id="btnSurveyNext" type="submit"> Next <i class="glyphicon glyphicon-arrow-right"></i></button>
+							<button class="btn btn-primary pull-right inline btn btn-warning next disabled" id="btnSurveyNext" type="submit"> Next <i class="glyphicon glyphicon-arrow-right"></i></button>
 						</div>
 					</div>
 					</div>
@@ -57,7 +57,7 @@
 						<div class="container">
 							<a href="#" id="btnSurveyBack" class="pull-left btn btn-primary"><i class="glyphicon glyphicon-arrow-left"></i> BACK</a>
 							<a href="#" id="btnSurveyComplete" class="pull-right inline btn btn-warning closed" data-url="{{ url("api/survey/$key/complete") }}"><i class="glyphicon glyphicon-ok"></i> COMPLETE SURVEY</a>
-							<button class="btn btn-primary pull-right inline btn btn-warning" id="btnSurveyNext" type="submit"> Next <i class="glyphicon glyphicon-arrow-right"></i></button>
+							<button class="btn btn-primary pull-right inline btn btn-warning next disabled" id="btnSurveyNext" type="submit"> Next <i class="glyphicon glyphicon-arrow-right"></i></button>
 						</div>
 					</div>
 
@@ -78,17 +78,15 @@
 
 	@include('front.survey.templates.question_mobile')
 
-		<script type="text/javascript">
+	<script type="text/javascript">
 		$(document).ready(function(){
-			$('input[type = radio]').change(function(){
+			$('input[type=radio]').on('load change',function(){
 				var empty = 0;
-				$('input[type = radio]').each(function(){
-					if($(this).val()){
-						empty++;
-					}
-				});
-				if(empty == 0){
-					$('#btnSurveyNext').removeClass('disabled');
+				if ($('input[type=radio]:checked').length >= {!! count($questions) !!} ){
+					empty++;
+				}
+				if(empty != 0){
+					$('.next').removeClass('disabled');
 				}
 			});
 		});

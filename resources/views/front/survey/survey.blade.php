@@ -21,16 +21,16 @@
 							<tr>
 								<td>
 									<label class="col-md-4 control-label">I  am in</label>
-									<div class="col-md-2">{!! Form::radio('survey_id', '1', ($campaign->survey_id == '1')?true:false)!!} HEROES® </div>
-									<div class="col-md-2">{!! Form::radio('survey_id', '2', ($campaign->survey_id == '2')?true:false) !!} HEROES® 2 </div>
+									<div class="col-md-2"><label>{!! Form::radio('survey_id', '1', ($campaign->survey_id == '1')?true:false)!!} HEROES® </label></div>
+									<div class="col-md-2"><label>{!! Form::radio('survey_id', '2', ($campaign->survey_id == '2')?true:false) !!} HEROES® 2 </label></div>
 								</td>
 							</tr>
 							<tr>
 								<td>
 									<label class="col-md-4 control-label">HEROES® was taught by?.</label>
-									<div class="col-md-2">{!! Form::radio('question_1', '1', false)!!} A Volunteer </div>
-									<div class="col-md-2">{!! Form::radio('question_1', '2', false) !!} An Instructor </div>
-									<div class="col-md-2">{!! Form::radio('question_1', '3', false) !!} A Instructor and A Volunteer </div>
+									<div class="col-md-2"><label>{!! Form::radio('question_1', '1', false)!!} A Volunteer </label></div>
+									<div class="col-md-2"><label>{!! Form::radio('question_1', '2', false) !!} An Instructor </label></div>
+									<div class="col-md-2"><label>{!! Form::radio('question_1', '3', false) !!} A Instructor and A Volunteer </label></div>
 								</td>
 							</tr>
 							
@@ -42,16 +42,16 @@
 						<table>
 							<tr>
 								<td>
-									<label class="col-md-4 control-label">My instructor's approch and style of presenting was enjoyable for me.</label>
-									<div class="col-md-2">{!! Form::radio('question_2', '1', false)!!} Yes </div>
-									<div class="col-md-2">{!! Form::radio('question_2', '0', false) !!} No </div>
+									<label class="col-md-4 control-label">My instructor's approach and style of presenting was enjoyable for me.</label>
+									<div class="col-md-2"><label>{!! Form::radio('question_2', '1', false)!!} Yes </label></div>
+									<div class="col-md-2"><label>{!! Form::radio('question_2', '0', false) !!} No </label></div>
 								</td>
 							</tr>
 							<tr>
 								<td>
 									<label class="col-md-4 control-label">The HEROES® program offered good information that I am able to understand and use.</label>
-									<div class="col-md-2">{!! Form::radio('question_3', '1', false)!!} Yes </div>
-									<div class="col-md-2">{!! Form::radio('question_3', '0', false) !!} No </div>
+									<div class="col-md-2"><label>{!! Form::radio('question_3', '1', false)!!} Yes </label></div>
+									<div class="col-md-2"><label>{!! Form::radio('question_3', '0', false) !!} No </label></div>
 								</td>
 							</tr>
 						</table>
@@ -63,15 +63,15 @@
 							<tr>
 								<td>
 									<label class="col-md-4 control-label">We discussed things in the HEROES® classes that are meaningful and important to me.</label>
-									<div class="col-md-2">{!! Form::radio('question_4', '1', false)!!} Yes </div>
-									<div class="col-md-2">{!! Form::radio('question_4', '0', false) !!} No </div>
+									<div class="col-md-2"><label>{!! Form::radio('question_4', '1', false)!!} Yes </label></div>
+									<div class="col-md-2"><label>{!! Form::radio('question_4', '0', false) !!} No </label></div>
 								</td>
 							</tr>
 							<tr>
 								<td>
 									<label class="col-md-4 control-label">I felt listened to and respected as I participated in the HEROES® classes.</label>
-									<div class="col-md-2">{!! Form::radio('question_5', '1', false)!!} Yes </div>
-									<div class="col-md-2">{!! Form::radio('question_5', '0', false) !!} No </div>
+									<div class="col-md-2"><label>{!! Form::radio('question_5', '1', false)!!} Yes </label></div>
+									<div class="col-md-2"><label>{!! Form::radio('question_5', '0', false) !!} No </label></div>
 								</td>
 							</tr>
 						</table>
@@ -81,7 +81,7 @@
 						<div class="container">
 							<a href="#" id="btnSurveyBack" class="pull-left btn btn-primary"><i class="glyphicon glyphicon-arrow-left"></i> BACK</a>
 							<a href="#" id="btnSurveyComplete" class="pull-right inline btn btn-warning closed" data-url="{{ url("api/survey/$key/complete") }}"><i class="glyphicon glyphicon-ok"></i> COMPLETE SURVEY</a>
-							<button class="btn btn-primary pull-right inline btn btn-warning" id="btnSurveyNext" type="submit"> Next <i class="glyphicon glyphicon-arrow-right"></i></button>
+							<button class="btn btn-primary pull-right inline btn btn-warning disabled next" id="btnSurveyNext" type="submit"> Next <i class="glyphicon glyphicon-arrow-right"></i></button>
 						</div>
 					</div>
 					</div>
@@ -90,7 +90,7 @@
 						<div class="container">
 							<a href="#" id="btnSurveyBack" class="pull-left btn btn-primary"><i class="glyphicon glyphicon-arrow-left"></i> BACK</a>
 							<a href="#" id="btnSurveyComplete" class="pull-right inline btn btn-warning closed" data-url="{{ url("api/survey/$key/complete") }}"><i class="glyphicon glyphicon-ok"></i> COMPLETE SURVEY</a>
-							<button class="btn btn-primary pull-right inline btn btn-warning" id="btnSurveyNext" type="submit"> Next <i class="glyphicon glyphicon-arrow-right"></i></button>
+							<button class="btn btn-primary pull-right inline btn btn-warning disabled next" id="btnSurveyNext" type="submit"> Next <i class="glyphicon glyphicon-arrow-right"></i></button>
 						</div>
 					</div>
 			<div class="survey-block survey-content visible-xs-block">
@@ -106,16 +106,24 @@
 	</div>
 
 	<script type="text/javascript">
+		function canNext() {
+			var next = true;
+			$('input[type=radio]').each(function(i,item){
+				if($(this).find('.ui-slider-handle').text() == "") {
+					next = false;
+				}
+			});
+			return next;
+		}
+
 		$(document).ready(function(){
-			$('.form-control').change(function(){
+			$('input[type=radio]').change(function(){
 				var empty = 0;
-				$('.form-control').each(function(){
-					if(!$(this).val()){
-						empty++;
-					}
-				});
-				if(empty == 0){
-					$('#btnSurveyNext').removeClass('disabled');
+				if ($('input[type=radio]:checked').length >= 6) {
+					empty++;
+				}
+				if(empty != 0){
+					$('.next').removeClass('disabled');
 				}
 			});
 		});
