@@ -16,7 +16,7 @@
 			</table>
 			<table class="indicators">
 				<tr>
-					<td class="indicator-question-(data:id)-1">
+					<td class="indicator-question-(data:num)-1">
 						<span class="circle-selector">
 							<span class="connector first"></span>
 							<i class="icon-circle bg"></i>
