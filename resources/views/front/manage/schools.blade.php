@@ -81,6 +81,11 @@
 								<input id="importFile" type="file" name="files[]" data-url="{{ url('m/import/') }}" multiple>
 							</span>
 						</div>
+						<div class="container">
+							<br/>
+							<a href="/public/uploads/example.xlsx" class="text-center" style="display:block" >Example</a>
+							<br/>
+						</div>
 					</div>
 
 					<div id="importProgressContainer" class="panel panel-default closed">
