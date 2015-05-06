@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Front;
 
+use App\Models\SurveyQuestion;
 use \Illuminate\Http\Request;
 use \App\Models\Campaign;
 use \App\Models\CampaignStudent;
@@ -59,6 +60,36 @@ class SurveyController extends \App\Http\Controllers\Controller {
 						];
 
 						if($survey->survey_id == 3 || $survey->survey_id == 4){
+
+							$q = [
+								new SurveyQuestion([
+									'num' => 1,
+									'question' => 'I am in'
+								]),
+								new SurveyQuestion([
+									'num' => 2,
+									'question' => 'HEROES® was taught by?'
+								]),
+								new SurveyQuestion([
+									'num' => 3,
+									'question' => "My instructor's approach and style of presenting was enjoyable for me"
+								]),
+								new SurveyQuestion([
+									'num' => 4,
+									'question' => 'The HEROES® program offered good information that I am able to understand and use'
+								]),
+								new SurveyQuestion([
+									'num' => 5,
+									'question' => "We discussed things in the HEROES® classes that are meaningful and important to me"
+								]),
+								new SurveyQuestion([
+									'num' => 6,
+									'question' => 'I felt listened to and respected as I participated in the HEROES® classes'
+								]),
+							];
+
+							$data['questions'] = $q;
+
 							return \View::make('front.survey.survey', $data);
 						}
 						else{
@@ -232,89 +263,106 @@ class SurveyController extends \App\Http\Controllers\Controller {
 		return \Response::json(['result' => false, 'msg' => 'Could not confirm the student details.']);
 	}
 
-	public function postAddInfo(Request $request, $key)
+	public function postInfo(Request $request, $key) {
+		$campaign = Campaign::where('secret', '=', $key)->first();
+		$studentInfo = CampaignStudentInfo::where('campaign_id',$campaign->id)->first();
+
+		if (!isset($studentInfo)) {
+			$studentInfo = new CampaignStudentInfo([
+				'campaign_id' => $campaign->id,
+				'student_id' => \Session::get('student_id')
+			]);
+		}
+
+		if($request->question_id == 1) {
+			$studentInfo->survey_id = $request->result;
+		} else {
+			$studentInfo->fill([
+				'question_'.($request->question_id - 1) => $request->result
+			]);
+		}
+
+		$studentInfo->save();
+
+		return \Response::json(['result' => true, 'msg' => 'Successfully saved survey result.']);
+
+	}
+
+	public function postAddInfo($key)
 	{
-		/*$this->validate($request, [
-				'survey_id'		=> 'required',
-				'question_1'	=> 'required',
-				'question_2' 	=> 'required',
-				'question_3'	=> 'required',
-				'question_4'	=> 'required',
-				'question_5'    => 'required'
-		    ]);*/
+		$survey = Campaign::where('secret', '=', $key)->first();
+		$questions = PostSurveyQuestion::where('survey_id',$survey->survey_id)->get();
+		$student = Student::findOrFail(\Session::get('student_id'));
 
+		$data = [
+			'key'       => $key,
+			'student'   => $student,
+			'campaign_id'  => $survey->id,
+			'questions' => $questions,
+		];
 
-		$studentInfo = new CampaignStudentInfo;
-
-		$studentInfo->fill($request->all())->save();
-
-		if($studentInfo){
+		if($survey->survey_id == 3 || $survey->survey_id == 4){
+			return \View::make('front.survey.postsurvey', $data);
+		}
+		else{
 			$survey = Campaign::where('secret', '=', $key)->first();
-			$questions = PostSurveyQuestion::where('survey_id',$survey->survey_id)->get();
+
+			$student = CampaignStudent::where('campaign_id', '=', $survey->id)->where('secret', '=', \Session::get('student.survey.confirmed'))->first();
+			$questions = $survey->survey->getQuestions();
+
+			$results = CampaignResult::where('campaign_student_id', '=', $student->id)->get();
+
+			foreach ($results as $row)
+			{
+				if ($row->result > 0)
+				{
+					$question = $questions->where('id', $row->question_id)->first();
+					$question->value = $row->result;
+					$question->done = true;
+				}
+			}
 
 			$data = [
 				'key'       => $key,
-				'student_id'   => $studentInfo->student_id,
-				'campaign_id'  => $studentInfo->campaign_id,
+				'student'   => $student,
+				'campaign'  => $survey,
 				'questions' => $questions,
 			];
-			if($survey->survey_id == 3 || $survey->survey_id == 4){
-				return \View::make('front.survey.postsurvey', $data);
-			}
-			else{
-				$survey = Campaign::where('secret', '=', $key)->first();
-		
-				$student = CampaignStudent::where('campaign_id', '=', $survey->id)->where('secret', '=', \Session::get('student.survey.confirmed'))->first();
-				$questions = $survey->survey->getQuestions();
 
-				$results = CampaignResult::where('campaign_student_id', '=', $student->id)->get();
+			return \View::make('front.survey.base', $data);
 
-				foreach ($results as $row)
-				{
-					if ($row->result > 0)
-					{
-						$question = $questions->where('id', $row->question_id)->first();
-						$question->value = $row->result;
-						$question->done = true;
-					}
-				}
-
-				$data = [
-					'key'       => $key,
-					'student'   => $student,
-					'campaign'  => $survey,
-					'questions' => $questions,
-				];
-
-				return \View::make('front.survey.base', $data);
-
-			}
-			
 		}
 
-		return \Response::json(['result' => false, 'msg' => 'Could not save the student details.']);
 	}
 
-	public function postSavePostQuestion(Request $request, $keys)
+	public function postSavePostQuestion(Request $request, $key)
 	{
-		$campaign_id = $request->campaign_id;
-		$student_id = $request->student_id;
-		if($request->get('question')){
-		foreach($request->get('question') as $key => $value) {
-			$answer = new PostSurveyAnswers;
+		$campaign = Campaign::where('secret', '=', $key)->first();
+		$surveyAnswer = PostSurveyAnswers::where('campaign_id',$campaign->id)->where('question_id',$request->question_id)->first();
 
-			$data = array();
-
-			$data['question_id'] = $key;
-			$data['student_id'] = $student_id;
-			$data['campaign_id'] = $campaign_id;
-			$data['answer'] = $value;
-
-			$answer->fill($data)->save();
+		if (!isset($surveyAnswer)) {
+			$surveyAnswer = new PostSurveyAnswers([
+				'campaign_id' => $campaign->id,
+				'student_id' => \Session::get('student_id')
+			]);
 		}
-		}
-		$survey = Campaign::where('secret', '=', $keys)->first();
-		
+
+		$surveyAnswer->fill([
+			'question_id' => $request->question_id,
+			'answer' => $request->result
+		]);
+
+		$surveyAnswer->save();
+
+		dd($surveyAnswer);
+
+		return \Response::json(['result' => true, 'msg' => 'Successfully saved survey result.']);
+	}
+
+	public function postSurvey($key) {
+
+		$survey = Campaign::where('secret', '=', $key)->first();
+
 		$student = CampaignStudent::where('campaign_id', '=', $survey->id)->where('secret', '=', \Session::get('student.survey.confirmed'))->first();
 		$questions = $survey->survey->getQuestions();
 
@@ -331,7 +379,7 @@ class SurveyController extends \App\Http\Controllers\Controller {
 		}
 
 		$data = [
-			'key'       => $keys,
+			'key'       => $key,
 			'student'   => $student,
 			'campaign'  => $survey,
 			'questions' => $questions,

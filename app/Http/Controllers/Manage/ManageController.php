@@ -139,7 +139,7 @@ class ManageController extends Controller {
 			foreach ($surveys as $survey) {
 				if($survey->survey_id == 3 || $survey->survey_id == 4){
 					$data2 = [];
-	 				$questions = ['question_2' => 'My instructor\'s approch and style of presenting was enjoyable for me.',
+	 				$questions = ['question_2' => 'My instructor\'s approach and style of presenting was enjoyable for me.',
 	 					'question_3' => 'The HEROES® program offered good information that I am able to understand and use.',
 	 					'question_4' => 'We discussed things in the HEROES® classes that are meaningful and important to me.',
 	 					'question_5' => 'I felt listened to and respected as I participated in the HEROES® classes.'];
@@ -244,7 +244,7 @@ class ManageController extends Controller {
 			'page'   => 'surveys',
 			'school' => $school,
 		];
-		dd($data);
+
 		return \View::make('front.manage.surveys', $data);
 	}
 
