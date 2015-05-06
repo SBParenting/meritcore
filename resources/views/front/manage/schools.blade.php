@@ -43,7 +43,6 @@
 										<th>City</th>
 										<th>Classes</th>
 										<th>Students</th>
-										<th>Surveys</th>
 										<th>Actions</th>
 									</tr>
 								</thead>
@@ -57,13 +56,6 @@
 											</td>
 											<td>
 												<a href="{{ url('m/students/'.$school->id) }}" class="btn btn-sm btn-default">{{ $school->students_count }} Students</a>
-											</td>
-											<td>
-												@if ($school->surveys_active_count > 0)
-													<a href="{{ url('m/surveys/'.$school->id) }}" class="btn btn-sm btn-default">{{ $school->surveys_active_count }} Active Surveys</a>
-												@else
-													<a href="{{ url('m/surveys/'.$school->id) }}" class="btn btn-sm btn-default">{{ $school->surveys_total_count }} Completed Surveys</a>
-												@endif
 											</td>
 											<td>
 												<a href="#" class="btn btn-xs btn-default show-panel" data-target="#updateSchool{{$school->id}}"><i class="fa fa-pencil"></i></a>

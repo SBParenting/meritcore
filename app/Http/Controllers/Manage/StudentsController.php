@@ -273,8 +273,6 @@ class StudentsController extends Controller {
 
 	private function updateSchools()
 	{
-		ini_set('max_execution_time', 300);
-
 		$list = Record::whereNotNull('school')->groupBy('school')->get();
 
 		foreach ($list as $row)
@@ -320,33 +318,33 @@ class StudentsController extends Controller {
 
 				$classrooms_list = Record::whereNotNull('classroom')->groupBy('classroom')->get();
 
-				foreach ($classrooms_list as $r)
-				{
-					$classroom = Classroom::where('school_id', '=', $school->id)->where(\DB::raw("LOWER(title)"), '=', strtolower($r->classroom))->first();
-
-					if (empty($classroom))
-					{
-						$classroom = Classroom::create([
-							'school_id' => $school->id,
-							'title'     => $r->classroom,
-						]);
-					}
-
-					if ($classroom)
-					{
-						Record::where('classroom', '=', $r->classroom)->update(['classroom_id' => $classroom->id]);
-
-						foreach (Record::where('classroom_id', '=', $classroom->id)->get() as $student)
-						{
-							StudentAssoc::create([
-								'student_id' => $student->id,
-								'class_id' => $classroom->id,
-							]);
-						}
-					}
-
-					$classroom->updateRecord()->save();
-				}
+//				foreach ($classrooms_list as $r)
+//				{
+//					$classroom = Classroom::where('school_id', '=', $school->id)->where(\DB::raw("LOWER(title)"), '=', strtolower($r->classroom))->first();
+//
+//					if (empty($classroom))
+//					{
+//						$classroom = Classroom::create([
+//							'school_id' => $school->id,
+//							'title'     => $r->classroom,
+//						]);
+//					}
+//
+//					if ($classroom)
+//					{
+//						Record::where('classroom', '=', $r->classroom)->update(['classroom_id' => $classroom->id]);
+//
+//						foreach (Record::where('classroom_id', '=', $classroom->id)->get() as $student)
+//						{
+//							StudentAssoc::create([
+//								'student_id' => $student->id,
+//								'class_id' => $classroom->id,
+//							]);
+//						}
+//					}
+//
+//					$classroom->updateRecord()->save();
+//				}
 
 				$school->updateRecord()->save();
 			}
