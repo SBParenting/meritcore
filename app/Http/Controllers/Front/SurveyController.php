@@ -354,8 +354,6 @@ class SurveyController extends \App\Http\Controllers\Controller {
 
 		$surveyAnswer->save();
 
-		dd($surveyAnswer);
-
 		return \Response::json(['result' => true, 'msg' => 'Successfully saved survey result.']);
 	}
 
