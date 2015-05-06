@@ -1,7 +1,7 @@
 
 <script type="text/template" id="questionMobileTemplate">
 
-<div class="survey-row-mobile question-row-(data:num)">
+<div class="survey-row-mobile question-row-(data:question_num)">
 		<div class="container">
 			<table class="content">
 				<tr>
@@ -16,12 +16,12 @@
 			</table>
 			<table class="indicators">
 				<tr>
-					<td class="indicator-question-(data:num)-1">
+					<td class="indicator-question-(data:question_num)-1">
 						<span class="circle-selector">
 							<span class="connector first"></span>
 							<i class="icon-circle bg"></i>
 							<i class="icon-circle border"></i>
-							<i class="icon-circle selector" data-url="{{ url("api/survey/$key/saveInfo") }}" data-value="1" data-question-id="(data:num)" data-indicator=".indicator-question-(data:num)-1" data-question-row=".question-row-(data:num)"></i>
+							<i class="icon-circle selector" data-url="{{ url("api/survey/$key/saveInfo") }}" data-value="1" data-question-id="(data:question_num)" data-indicator=".indicator-question-(data:question_num)-1" data-question-row=".question-row-(data:question_num)"></i>
 						</span>
 						<br />
 						yes
