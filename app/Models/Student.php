@@ -38,7 +38,11 @@ class Student extends \App\Models\Model {
 
     public static function createFromImport($data)
     {
-    	$student = new self;
+		$student = self::where('first_name',$data['first_name'])->where('last_name',$data['last_name'])->first();
+
+		if(!isset($student)) {
+			$student = new self;
+		}
 
     	$student->fill([
 			'sid'                 => $data['student_id'], 
