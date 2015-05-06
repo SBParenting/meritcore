@@ -265,7 +265,7 @@ class SurveyController extends \App\Http\Controllers\Controller {
 
 	public function postInfo(Request $request, $key) {
 		$campaign = Campaign::where('secret', '=', $key)->first();
-		$studentInfo = CampaignStudentInfo::where('campaign_id',$campaign->id)->first();
+		$studentInfo = CampaignStudentInfo::where('campaign_id',$campaign->id)->where('student_id',\Session::get('student_id'))->first();
 
 		if (!isset($studentInfo)) {
 			$studentInfo = new CampaignStudentInfo([
@@ -338,7 +338,7 @@ class SurveyController extends \App\Http\Controllers\Controller {
 	public function postSavePostQuestion(Request $request, $key)
 	{
 		$campaign = Campaign::where('secret', '=', $key)->first();
-		$surveyAnswer = PostSurveyAnswers::where('campaign_id',$campaign->id)->where('question_id',$request->question_id)->first();
+		$surveyAnswer = PostSurveyAnswers::where('campaign_id',$campaign->id)->where('question_id',$request->question_id)->where('student_id',\Session::get('student_id'))->first();
 
 		if (!isset($surveyAnswer)) {
 			$surveyAnswer = new PostSurveyAnswers([
