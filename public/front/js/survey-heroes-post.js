@@ -235,7 +235,6 @@ jQuery(function() {
 
 		appendQuestion: function(question)
 		{
-			console.log(question);
 			var container = $('#questionsContainer');
 			var questionT = $('#questionTemplate');
 			container.append( $.api.template(questionT, question, {'value':'selected', 'done':'done'}));
