@@ -210,7 +210,6 @@ jQuery(function() {
 			var total = $.survey.total;
 
 			$.each($.surveyQuestions, function(k, v) {
-				console.log(v.done);
 				if (v.done === true)
 				{
 					done++;
