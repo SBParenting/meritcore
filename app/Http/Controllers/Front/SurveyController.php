@@ -34,6 +34,8 @@ class SurveyController extends \App\Http\Controllers\Controller {
 							'student' => $student,
 						];
 
+						\Session::forget('student.survey.confirmed');
+
 						return \View::make('front.survey.complete', $data);
 					}
 					else
