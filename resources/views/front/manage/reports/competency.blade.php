@@ -48,13 +48,63 @@
 			</tr>
 		</table>
 		<div class="content">
+			<p><b>Table of Contents</b></p>
+			<br/>
+			<table class="width-100">
+				<tr class="grey">
+					<td width="10%"><b> No. </b></td>
+					<td><b> Content </b></td>
+					<td align="center" width="10%"><b> Page No. </b></td>
+				</tr>
+				<tr class="light-grey">
+					<td>1</td>
+					<td align="left">Introduction</td>
+					<td align="center">1</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td align="left">10 Core Competencies of Character Report</td>
+					<td align="center">2</td>
+				</tr>
+				<tr class="light-grey">
+					<td>3</td>
+					<td align="left">Number of Student who improved</td>
+					<td align="center">3</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td align="left">Number of Student who moved to 'Strength'</td>
+					<td align="center">4</td>
+				</tr>
+				<tr class="light-grey">
+					<td>5</td>
+					<td align="left">Student Engagement</td>
+					<td align="center">5</td>
+				</tr>
+				<tr>
+					<td>6</td>
+					<td align="left">Program Impact</td>
+					<td align="center">7</td>
+				</tr>
+				<tr class="light-grey">
+					<td>7</td>
+					<td align="left">Appendix A</td>
+					<td align="center">9</td>
+				</tr>
+				<tr>
+					<td>8</td>
+					<td align="left">Appendix B</td>
+					<td align="center">10</td>
+				</tr>
+			</table>
+			<br/>
 			<p>For many young people, the transition through early childhood toward the teenage years can be challenging with increased involvement in what have been called risk behaviours including school failure, truancy at school, substance abuse, violence and negative peer involvement. As a result, there has been a focus on understanding "what goes wrong". However, a risk-focused approach tends to neglect the fact that childhood and adolescent years are a critical period of time where young people start to develop the ability to navigate and negotiate life's challenges through exploring their unique talents, strengths, skills and interests. This emphasis on these positive and adaptive aspects are often referred to as "positive youth development" where healthy development is not identified as the absence of risk or challenges. Rather, it is the presence of positive core social and emotional character traits that enable young people to reach their full potential and successfully transition through the teenage years toward adulthood.</p>
 
+			<center>
+				<img src="{{ url('public/front/img/report/impact_soc.jpg') }}" style="margin-top:0.5cm" width="40px" height="50px"/>
+				<img src="{{ url('public/front/img/report/'.\App\Models\Survey::getImage($survey->survey_id).'Logo.png') }}" style="margin-top:0.5cm;margin-left:20px;margin-bottom:15px;" width="90px" height="25px"/>
+			</center>
 		</div>
-		<center>
-			<img src="{{ url('public/front/img/report/impact_soc.jpg') }}" style="margin-top:2cm;" width="80px" height="105px"/>
-			<img src="{{ url('public/front/img/report/'.\App\Models\Survey::getImage($survey->survey_id).'Logo.png') }}" style="margin-top:2cm;margin-left:20px;margin-bottom:15px;" width="180px" height="50px"/>
-		</center>
 		<div class="footer no-margin">
 			<img src="{{ url('public/front/img/report/footer1.png') }}" class="width-100" />
 		</div>
@@ -67,7 +117,7 @@
 		<br>
 		<div class="competencies content">
 			<p>
-				The Core Character Traits questionnaire provides a balanced, evidence assessment of the foundational attitudes, skills and knowledge that are directly related to resiliency, well-being and success:
+				The 10 Core Competencies of Character Survey (CCCS) provides a balanced, evidence assessment of the foundational attitudes, skills and knowledge that are directly related to resiliency, well-being and success:
 			</p>
 			<br>
 			<ol  style="marker-offset:4px;list-style:outside;">
@@ -116,55 +166,58 @@
 			</ol>
 		</div>
 
-		<!--<div class="footer no-margin">
+		<!-- <div class="footer no-margin">
+			<div class="page-number">2</div>
+			<img src="{{ url('public/front/img/report/pageFooter.jpg') }}" class="width-100" />
+		</div> -->
+		<div class="footer no-margin">
 			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100" />
-		</div>-->
+		</div>
 
 	@if(isset($improve))
 	<div class="page-break"></div>
 		<div class="no-margin heading">
-			Class Results of Core Character Traits 
+			Class Results of Core Competencies of Character 
 		</div>
 		<br>
 		<div class="content">
 			<p>
-				The following report summarizes the aggregated (non-individual) results of {{ ucwords(substr($preSurvey, 0,11)) }} student's who completed the widely used self-assessment questionnaire. *Prior to reviewing this information, please read the <strong>Limitations and Confidentiality</strong> statements in Appendix A.
+				The following report summarizes the aggregated (non-identified) results of {{ ucwords(substr($preSurvey, 0,11)) }} student's who completed the CCCS. *Prior to reviewing this information, please read the <strong>Limitations and Confidentiality</strong> statements in Appendix A.
 			</p>
 			<br>
 			<br>
 			<br>
 			<p><strong>Chart 1: Number of Students Who Improved</strong></p>
 			<br>
-			<p>The chart below shows the number of {{ ucwords(substr($preSurvey, 0,11)) }} students who demonstrated an increase in each of the Core
-	Character Traits upon completion of the program.</p>
+			<p>The chart below shows the number of {{ ucwords(substr($preSurvey, 0,11)) }} students who demonstrated an increase in their ability to understand and draw upon each of the Core Competencies of Character upon completion of the program.</p>
 			<div style="height:500px;max-height:500px;overflow:hidden;" class="width-100">
 				<img src="{{ url('/public/front/img/report/charts/'.$improve) }}?t={{time()}}" height="100%" class="width-100"/>
 			</div>
 		</div>
-		<!--<div class="footer no-margin">
+		<div class="footer no-margin">
 			<img src="{{ url('public/front/img/report/footer3.jpg') }}" class="width-100" />
-		</div>-->
+		</div>
 	@endif
 
 	@if(isset($demonstrate))
 	<div class="page-break"></div>
 		
 		<div class="no-margin heading">
-			Class Results of Core Character Traits (Cont..)
+			Class Results of Core Competencies of Character (Cont..)
 		</div>
 			<br>
 			<div class="content">
 			<p><strong>Chart 2: Number of Students who Now Demonstrate Strength</strong></p>
 			<br>
 			<p>The following chart shows the number of {{ ucwords(substr($preSurvey, 0,11)) }} students who demonstrated moving from vulnerability to strength
-	in each of the Core Character Traits upon completion of the program.</p>
+	in each of the Core Competencies of Character upon completion of the program.</p>
 			<div style="height:500px;max-height:500px;overflow:hidden;" class="width-100">
 				<img src="{{ url('/public/front/img/report/charts/'.$demonstrate) }}?t={{time()}}" height="100%" class="width-100"/>
 			</div>
 		</div>
-		<!--<div class="footer no-margin">
-			<img src="{{ url('public/front/img/report/footer3.jpg') }}" class="width-100" />
-		</div>-->
+		<div class="footer no-margin">
+			<img src="{{ url('public/front/img/report/footer4.png') }}" class="width-100" />
+		</div>
 	@endif
 
 	@if(isset($gdata_2))
@@ -209,9 +262,9 @@
 			
 		</div>
 		
-		<!--<div class="footer no-margin">
-			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100" />
-		</div>-->
+		<div class="footer no-margin">
+			<img src="{{ url('public/front/img/report/footer5.png') }}" class="width-100" />
+		</div>
 	@endif
 
 	@if(isset($gdata_3))
@@ -232,7 +285,7 @@
 				@if($i == 8)
 						</div>
 						<div class="footer no-margin">
-							<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100" />
+							<img src="{{ url('public/front/img/report/footer6.png') }}" class="width-100" />
 						</div>
 						<div class="page-break"></div>
 						<div class="no-margin heading">
@@ -265,12 +318,12 @@
 				</table>
 			@endforeach
 		</div>
-		<!--<div class="footer no-margin">
-			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100" />
-		</div> -->
+		<div class="footer no-margin">
+			<img src="{{ url('public/front/img/report/footer7.png') }}" class="width-100" />
+		</div>
 	@endif
 
-	<div class="page-break"></div>
+	<!-- <div class="page-break"></div>
 
 		<div class="no-margin heading">
 			10 Core Competencies of Character
@@ -301,10 +354,10 @@
 			</table>
 			<img src="{{ url('/public/front/img/report/charts/'.$ccc) }}?t={{time()}}" class="width-100" style="margin-left:-1cm;float:right;"/>
 		</div>
-		<!--<div class="footer no-margin">
-			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100"/>
-		</div>-->
-
+		<div class="footer no-margin">
+			<img src="{{ url('public/front/img/report/footer8.png') }}" class="width-100"/>
+		</div>
+ -->
 	<div class="page-break"></div>
 
 		<div class="no-margin heading">
@@ -319,9 +372,9 @@
 				<li>All contents of this report are CONFIDENTIAL and only reported in an aggregated/non-identifiable format to be used for the purposes agreed upon by the respondent and/or their parents/guardians and/or caregivers. </li>
 			</ul>
 		</div>
-		<!--<div class="footer no-margin">
-			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100"/>
-		</div>-->
+		<div class="footer no-margin">
+			<img src="{{ url('public/front/img/report/footer8.png') }}" class="width-100"/>
+		</div>
 
 
 	<div class="page-break"></div>
@@ -332,13 +385,12 @@
 				
 		<div class="content">
 			<center><strong>Core Character Competencies and Positive Youth Development</strong></center>
-			<center><blockquote><p>"Modeling isn't one way of influencing people. It's the only way"</p></blockquote></center>
-			<blockquote class="pull-right"><footer><cite title="Source Title">Albert Einstein</cite></footer></blockquote>
+			<center><blockquote><p>"Modeling isn't one way of influencing people. It's the only way"</p><footer><cite title="Source Title">Albert Einstein</cite></footer></blockquote></center>
 
 			<p>For many children, the transition through early childhood towards the teenage years can be challenging with increased involvement in what have been called risk behaviours or problem behaviours, including school failure, truancy at school, substance abuse, violence and negative peer involvement. As a result, the tendency of community interventions has been a focus on trying to understand "what goes wrong" in so called troubled children and the development of problem- specific programs. But a risk-focused approach tends to neglect the fact that childhood years are a critical period of time where a child starts to develop the ability to navigate and negotiate life's challenges through exploring their unique talents, strengths, skills and interests. This emphasis on the positive and adaptive aspects of child and youth development is often referred to as "positive youth development". From this perspective, positive childhood health is not identified as the absence of risk or challenges. Rather, it is the presence of positive core social and emotional character traits that enable a child to reach their full potential and successfully transition through the teenage years towards adulthood.</p>
 			<br/>
 			<p>
-				Although there is not a universally agreed-on list of key character traits of positive childhood development, the following is Resiliency Initiatives' Core Character Competency framework. These Core Character Competencies are the foundational attitudes, skills and knowledge that are directly related to social capacity, well-being and success:
+				Although there is not a universally agreed-on list of key character traits of positive childhood development, the following is Resiliency Initiatives' Core Competencies of Character framework. These Core Competencies of Character are the foundational attitudes, skills and knowledge that are directly related to social capacity, well-being and success:
 			</p>
 
 			<ol>
@@ -369,11 +421,14 @@
 				<li>
 					Passion (positive spark) - An intense and compelling enthusiasm for one or more interests, activities, causes or subjects.
 				</li>
+				<li>
+					Spiritual Eagerness (positive spiritual awareness) - Is engaged in a curious exploration of their spiritual sense of self and its implications for ones purpose and meaning in life.
+				</li>
 			</ol>
 		</div>
-		<!--<div class="footer no-margin">
-			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100"/>
-		</div>-->
+		<div class="footer no-margin">
+			<img src="{{ url('public/front/img/report/footer9.png') }}" class="width-100"/>
+		</div>
 
 	<div class="page-break"></div>
 
@@ -388,7 +443,7 @@
 			</p>
 			<br/>
 			<p>
-				Essential traits of significant adults who nurture those core character competencies in children are:
+				Essential traits of significant adults who nurture those core competency of character in children are:
 			</p>
 
 			<ul>
@@ -424,11 +479,11 @@
 				</li>
 			</ul>
 		</div>
-		<!--<div class="footer no-margin">
-			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100"/>
-		</div>-->
+		<div class="footer no-margin">
+			<img src="{{ url('public/front/img/report/footer10.png') }}" class="width-100"/>
+		</div>
 
-	<div class="page-break"></div>
+	<!-- <div class="page-break"></div>
 
 		<div class="no-margin heading">
 			Appendix C
@@ -506,11 +561,11 @@
 				</tr>
 			</table>
 		</div>
-		<!--<div class="footer no-margin">
+		<div class="footer no-margin">
 			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100"/>
 		</div>-->
 
-	<div class="page-break"></div>
+	<!-- <div class="page-break"></div>
 
 		<div class="no-margin heading">
 			Appendix D
@@ -531,12 +586,12 @@
 			Stewart.</p>
 			<p>Waxman, H.C., Padron, Y., & Gray, J.P. (2004). <i>E</i>ducational resiliency: Student, teacher and school perspectives.</i> Greenwich: Information Age Publishing.</p>
 
-		</div>
+		</div> -->
 		<!--<div class="footer no-margin">
 			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100"/>
 		</div>-->
 
-	<div class="page-break"></div>
+	<!-- <div class="page-break"></div>
 
 		<div class="no-margin heading">
 			Appendix E
@@ -563,7 +618,7 @@
 					</tr>
 			@endforeach
 			</table>
-		</div>
+		</div> -->
 		<!--<div class="footer no-margin">
 			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100"/>
 		</div>-->
