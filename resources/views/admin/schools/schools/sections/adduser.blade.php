@@ -4,7 +4,7 @@
 		<label class="col-md-2 control-label">Instructor</label>
 		<div class="col-md-4">
 			<div class="js-dropdown-select padded">
-				{!! Form::select('user_id',array_merge([''=>'Instructor'], \App\Models\User::getUsers()), null, ['class' => 'form-control', 'placeholder' => 'Instructor','id' => 'teacher-field'], 'btn btn-default') !!}
+				{!! Form::select('user_id',([''=>'Instructor'] + \App\Models\User::getUsers()), null, ['class' => 'form-control', 'placeholder' => 'Instructor','id' => 'teacher-field'], 'btn btn-default') !!}
 			</div>
 		</div>
 	</div>
