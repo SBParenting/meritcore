@@ -128,7 +128,7 @@
 
 								<div class="text-right">
 
-									<a href="{{ url('m/classes/'.$class->id) }}" id="btnUpdateClassInfo" class="btn btn-line-info show-panel" data-target="#class" data-show="#classInfoPanel">Update Class</a>
+{{--									<a href="{{ url('m/classes/'.$class->id) }}" id="btnUpdateClassInfo" class="btn btn-line-info show-panel" data-target="#class" data-show="#classInfoPanel">Update Class</a>--}}
 
 									@if ($class->status == 'Active')
 										<a href="{{ url('m/classes/'.$class->id.'/archive') }}" class="btn btn-line-danger js-post">Archive Class</a>

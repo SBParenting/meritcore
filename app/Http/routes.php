@@ -16,6 +16,8 @@ Route::post('register/{code}', 'Front\RegisterController@postWizard');
 Route::group(['prefix' => 'api'], function() {
 
 	Route::post('survey/{key}/save', 	 'Front\SurveyController@postSave');
+	Route::post('survey/{key}/saveInfo', 'Front\SurveyController@postInfo');
+	Route::post('survey/{key}/savePost', 'Front\SurveyController@postSavePostQuestion');
 	Route::post('survey/{key}/complete', 'Front\SurveyController@postComplete');
 });
 
@@ -67,8 +69,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 Route::get('{key}', 'Front\SurveyController@getIndex');
 Route::post('{key}/confirm', 'Front\SurveyController@postConfirm');
-Route::post('{key}/add-info', 'Front\SurveyController@postAddInfo');
-Route::post('{key}/save-post-question', 'Front\SurveyController@postSavePostQuestion');
+Route::get('{key}/postSurvey', 'Front\SurveyController@postAddInfo');
+Route::get('{key}/survey', 'Front\SurveyController@postSurvey');
 
 require __DIR__ .'/functions.php';
 require __DIR__ .'/macros.php';

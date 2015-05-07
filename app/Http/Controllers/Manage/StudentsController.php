@@ -315,39 +315,32 @@ class StudentsController extends Controller {
 						]);
 					}
 				}
-			}
 
-			$classrooms_list = Record::whereNotNull('classroom')->groupBy('classroom')->get();
+				$classrooms_list = Record::whereNotNull('classroom')->groupBy('classroom')->get();
 
-			foreach ($classrooms_list as $r)
-			{
-				$classroom = Classroom::where('school_id', '=', $school->id)->where(\DB::raw("LOWER(title)"), '=', strtolower($r->classroom))->first();
-
-				if (empty($classroom))
+				foreach ($classrooms_list as $r)
 				{
-					$classroom = Classroom::create([
-						'school_id' => $school->id,
-						'title'     => $r->classroom,
-					]);
-				}
 
-				if ($classroom)
-				{
-					Record::where('classroom', '=', $r->classroom)->update(['classroom_id' => $classroom->id]);
+					$classroom = Classroom::where('school_id', '=', $school->id)->where(\DB::raw("LOWER(title)"), '=', strtolower($r->classroom))->first();
 
-					foreach (Record::where('classroom_id', '=', $classroom->id)->get() as $student)
+					if (empty($classroom))
 					{
+						$classroom = Classroom::create([
+							'school_id' => $school->id,
+							'title'     => $r->classroom,
+						]);
+					} else {
+						Record::where('classroom', '=', $r->classroom)->update(['classroom_id' => $classroom->id]);
+
 						StudentAssoc::create([
-							'student_id' => $student->id,
+							'student_id' => $r->id,
 							'class_id' => $classroom->id,
 						]);
 					}
+					$classroom->updateRecord()->save();
 				}
-
-				$classroom->updateRecord()->save();
+				$school->updateRecord()->save();
 			}
-
-			$school->updateRecord()->save();
 
 			$row->school = null;
 
