@@ -187,19 +187,6 @@ class StudentsController extends Controller {
 				'school'     => 'required',
 			];
 
-			$school = false;
-
-			$schools = \Auth::user()->schools;
-
-			if (count($schools) != 1)
-			{
-				unset($required['school']);
-			}
-			else
-			{
-				$school = $schools->first();
-			}
-
 			foreach ($fields as $key => $match)
 			{
 				if (empty($match) || $match == '--' || $match == 'null')
@@ -220,7 +207,7 @@ class StudentsController extends Controller {
 
 			$count = 0;
 
-			$excel = \Excel::load($path.$filename, function($reader) use($fields, &$count, $school)
+			$excel = \Excel::load($path.$filename, function($reader) use($fields, &$count)
 			{
 				$row_data = [
 					'student_id'  => '',
@@ -240,11 +227,6 @@ class StudentsController extends Controller {
 					'created_by'  => \Auth::user()->id,
 				];
 
-				if ($school)
-				{
-					$row_data['school_id'] = $school->id;
-				}
-
 				$sheet = $reader->get();
 
 			    $sheet->first()->each(function($row) use (&$row_data, $fields, &$count) {
@@ -257,13 +239,49 @@ class StudentsController extends Controller {
 						}
 					}
 
-					Record::createFromImport($row_data);
+					$school = School::where('name',$row_data['school'])->first();
+
+					if ($school)
+					{
+						$row_data['school_id'] = $school->id;
+					}
+
+					$student = Record::createFromImport($row_data);
+
+					$class = Classroom::where('title', $student->classroom)->where('school_id',$school->id)->first();
+
+					if (!$class) {
+						$class = Classroom::create([
+							'school_id' => $school->id,
+							'title' => $student->classroom,
+							'grade' => $student->grade,
+							'status' => 'Active'
+						]);
+					}
+
+					$assoc = StudentAssoc::where('student_id',$student->id)->where('class_id',$class->id)->first();
+
+					if(!$assoc) {
+						StudentAssoc::create([
+							'student_id' => $student->id,
+							'school_id' => $school->id,
+							'class_id' => $class->id
+						]);
+					}
 
 					$count++;
 				});
+
+				$student = Record::where('sid',$row_data['student_id'])->where('first_name',$row_data['first_name'])->first();
+				$school = School::where('name',$row_data['school'])->first();
+				$class = Classroom::where('title', $student->classroom)->where('school_id',$school->id)->first();
+				$studentCount = StudentAssoc::where('class_id',$class->id)->count();
+
+				$class->students_count = $studentCount;
+				$class->save();
 			});
 
-			$this->updateSchools();
+//			$this->updateSchools();
 
 			\Session::flash('success', "Successfully imported $count students.");
 
