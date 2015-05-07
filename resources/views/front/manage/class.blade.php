@@ -128,7 +128,7 @@
 
 								<div class="text-right">
 
-{{--									<a href="{{ url('m/classes/'.$class->id) }}" id="btnUpdateClassInfo" class="btn btn-line-info show-panel" data-target="#class" data-show="#classInfoPanel">Update Class</a>--}}
+									<a href="{{ url('m/classes/'.$class->id) }}" id="btnUpdateClassInfo" class="btn btn-line-info show-panel" data-target="#class" data-show="#classInfoPanel">Update Class</a>
 
 									@if ($class->status == 'Active')
 										<a href="{{ url('m/classes/'.$class->id.'/archive') }}" class="btn btn-line-danger js-post">Archive Class</a>
@@ -462,33 +462,33 @@
 											</div>
 										</div>
 
-										<div class="form-group">
-											<label class="col-sm-2"></label>
-											<div class="col-sm-8 text-center">
-												OR CREATE NEW INSTRUCTOR
-											</div>
-										</div>
+										{{--<div class="form-group">--}}
+											{{--<label class="col-sm-2"></label>--}}
+											{{--<div class="col-sm-8 text-center">--}}
+												{{--OR CREATE NEW INSTRUCTOR--}}
+											{{--</div>--}}
+										{{--</div>--}}
 
-										<div class="form-group">
-											<label class="col-sm-2">First Name</label>
-											<div class="col-sm-8">
-												{!! Form::text('teacher_first_name', null, ['class' => 'form-control', 'placeholder' => 'Instructor First Name']) !!}
-											</div>
-										</div>
+										{{--<div class="form-group">--}}
+											{{--<label class="col-sm-2">First Name</label>--}}
+											{{--<div class="col-sm-8">--}}
+												{{--{!! Form::text('teacher_first_name', null, ['class' => 'form-control', 'placeholder' => 'Instructor First Name']) !!}--}}
+											{{--</div>--}}
+										{{--</div>--}}
 
-										<div class="form-group">
-											<label class="col-sm-2">Last Name</label>
-											<div class="col-sm-8">
-												{!! Form::text('teacher_last_name', null, ['class' => 'form-control', 'placeholder' => 'Instructor Last Name']) !!}
-											</div>
-										</div>
+										{{--<div class="form-group">--}}
+											{{--<label class="col-sm-2">Last Name</label>--}}
+											{{--<div class="col-sm-8">--}}
+												{{--{!! Form::text('teacher_last_name', null, ['class' => 'form-control', 'placeholder' => 'Instructor Last Name']) !!}--}}
+											{{--</div>--}}
+										{{--</div>--}}
 
-										<div class="form-group">
-											<label class="col-sm-2">Email</label>
-											<div class="col-sm-8">
-												{!! Form::text('teacher_email', null, ['class' => 'form-control', 'placeholder' => 'Instructor Email']) !!}
-											</div>
-										</div>
+										{{--<div class="form-group">--}}
+											{{--<label class="col-sm-2">Email</label>--}}
+											{{--<div class="col-sm-8">--}}
+												{{--{!! Form::text('teacher_email', null, ['class' => 'form-control', 'placeholder' => 'Instructor Email']) !!}--}}
+											{{--</div>--}}
+										{{--</div>--}}
 
 										<hr />
 
