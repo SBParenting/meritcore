@@ -808,7 +808,7 @@
 							<div class="panel-group class-panel">
 								<div class="panel panel-primary">
 									<div class="panel-heading">
-										Survey Results
+										{{($survey->survey_id==3 ||$survey->survey_id==4)?"Post ":"Pre "}}Survey Results
 									</div>
 									<div class="panel-body">
 
@@ -816,7 +816,7 @@
 
 										<br />
 
-										<h4>Survey Summary</h4>
+										<h4>{{($survey->survey_id==3 ||$survey->survey_id==4)?"Post ":"Pre "}}Survey Summary</h4>
 
 										<hr />
 
@@ -841,20 +841,22 @@
 
 										<br /><br />
 
-										<h4>Survey Results</h4>
+										<h4>{{($survey->survey_id==3 ||$survey->survey_id==4)?"Post ":"Pre "}}Survey Results</h4>
 
 										<hr />
 										<br />
 										
 										@if(isset($survey_improve[$survey->id])) 
-										<h4>Number of Students Improve</h4>
+										<h4>Number of Students that improved:</h4>
+										<h6>N = {{ $survey->count_total }}</h6>
 										{!! "<script type='text/javascript'> var improve_". $survey->id." = ". json_encode($survey_improve[$survey->id]) . "</script>" !!}
 										<div id="columnchart_values_{{$survey->id}}" class="improve" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
 										<br />
 										@endif
 										
 										@if(isset($survey_improve[$survey->id])) 
-										<h4>Number of Students who Now Demonstrate Strength</h4>
+										<h4>Number of Students who moved from Vulnerable to Strong</h4>
+										<h6>N = {{ $survey->count_total }}</h6>
 										{!! "<script type='text/javascript'> var demonstrate_". $survey->id." = ". json_encode($survey_demonstrate[$survey->id]) . "</script>" !!}
 										<div id="demonstratechart_values_{{$survey->id}}" class="demonstrate" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
 										<br />
@@ -924,7 +926,8 @@
 										<br />
 										@endif
 
-										<h4>10 Core Competencies Survey</h4>
+										<h4>10 Core Competencies of Character Survey</h4>
+										<h6><center>N = {{ $survey->count_total }}</center></h6>
 										{!! "<script type='text/javascript'> var data_". $survey->id." = ". json_encode($survey->stats) . "</script>" !!}
 										<div id="competencies_values_{{$survey->id}}" class="ccc" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
 										<br />
