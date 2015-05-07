@@ -202,7 +202,7 @@ class SurveyController extends Controller {
 		    $data['ccc'] = $filename;
 
 		    
-			//return \View::make('front.manage.reports.impact', $data)->render();
+			//return \View::make('front.manage.reports.competency', $data)->render();
 			if($survey->survey_id == 3 || $survey->survey_id == 4 ){
 				$pdf = \PDF::loadView('front.manage.reports.competency', $data);
 			}
