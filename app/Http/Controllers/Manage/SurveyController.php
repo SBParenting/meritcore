@@ -191,6 +191,9 @@ class SurveyController extends Controller {
 			    $data['postCampaign'] =  Campaign::getTitle($survey->id);
 			    $data['totalStudents'] = Student::where('classroom_id',$survey->class_id)->count();
 			    $data['grade'] = Student::getGradeData($survey->class_id);
+			    $data['student_pre'] = $survey->getStudents('pre');
+			    $data['student_post'] = $survey->getStudents('post');
+			    $data['student_both'] = $survey->getStudents('both');
 
 			    
 			}

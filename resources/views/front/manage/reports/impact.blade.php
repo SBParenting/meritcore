@@ -21,49 +21,53 @@
 		Summary Report Details
 	</div>
 	
-	<table class="content white width-100">
-		<tr>
-			<td class="lable"><b>School Name:</b></td>
-			<td>{{ $school->name }}</td>
-		</tr>
-		@if ($survey->classroom)
-			<tr>
-				<td><b>Classroom:</b></td>
-				<td>{{ $survey->classroom->title }}</td>
-			</tr>
-		@endif
-		<tr>
-			<td><b>Date of Report:</b></td>
-			<td>{{ date("F j, Y") }}</td>
-		</tr>
-		<tr>
-			<td><b>Questionnaires Date Range:</b></td>
-			<td>{{ get_date($survey->start_date, "F j, Y") }} - {{ get_date($survey->end_date, "F j, Y") }} </td>
-		</tr>
-	</table>
+	<div class="content white width-100"> 
+		<div id="left-content">
+			<table>
+				<tr>
+					<td class="lable"><b>School Name:</b></td>
+					<td>{{ $school->name }}</td>
+				</tr>
+				@if ($survey->classroom)
+					<tr>
+						<td><b>Classroom:</b></td>
+						<td>{{ $survey->classroom->title }}</td>
+					</tr>
+				@endif
+				<tr>
+					<td><b>Date of Report:</b></td>
+					<td>{{ date("F j, Y") }}</td>
+				</tr>
+				<tr>
+					<td><b>Questionnaires Date Range:</b></td>
+					<td>{{ get_date($survey->start_date, "F j, Y") }} - {{ get_date($survey->end_date, "F j, Y") }} </td>
+				</tr>
+			</table>
+		</div>
+		<div id="student-summary">
+			<b>Overall No. of Student: </b>{{ $survey->count_total }}<br />
+			<b>N = </b>{{ $survey->count_completed }}<br />
+		</div>
+	</div>
 	<div class="content">
 		<p><b>Table of Contents</b></p>
 		<br/>
 		<table class="width-100">
 			<tr class="grey">
-				<td width="10%"><b> No. </b></td>
-				<td><b> Content </b></td>
 				<td align="center" width="10%"><b> Page No. </b></td>
+				<td><b> Content </b></td>
 			</tr>
 			<tr class="light-grey">
-				<td>1</td>
-				<td align="left">Introduction</td>
 				<td align="center">1</td>
+				<td align="left">Introduction</td>
 			</tr>
 			<tr>
-				<td>2</td>
-				<td align="left">10 Core Competencies of Character Report</td>
 				<td align="center">2</td>
+				<td align="left">10 Core Competencies of Character Report</td>
 			</tr>
 			<tr class="light-grey">
-				<td>3</td>
-				<td align="left">Definition of CCC</td>
 				<td align="center">3</td>
+				<td align="left">Definition of CCC</td>
 			</tr>
 		</table>
 		<br/>
@@ -94,7 +98,7 @@
 		
 	<div style="padding:2cm;">
 		<p>
-			<b>The graph below shows the number of HEROES® students who demonstrated strength tobe developed (as indicated by the Green bar) and potential strength (as indicated by the Yellow bar) in each of the Core Competencies of Character detailed on the following page.</b>
+			<b>The graph below shows the number of HEROES® students who demonstrated strength (as indicated by the Green bar) and potential strength to be developed (as indicated by the Yellow bar) in each of the Core Competencies of Character detailed on the following page.</b>
 		</p>
 
 		<table class="legend" style="margin-top:0.5cm;margin-bottom:1cm;">
