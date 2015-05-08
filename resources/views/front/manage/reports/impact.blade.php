@@ -25,16 +25,25 @@
 		<tr>
 			<td class="lable"><b>School Name:</b></td>
 			<td>{{ $school->name }}</td>
+			<td><b>Overall No. of Student</b></td>
+			<td>{{ $survey->count_total }}</td>
+
 		</tr>
 		@if ($survey->classroom)
 			<tr>
 				<td><b>Classroom:</b></td>
 				<td>{{ $survey->classroom->title }}</td>
+				<td><b>N</b></td>
+				<td>{{ $survey->count_completed }}</td>
 			</tr>
 		@endif
 		<tr>
 			<td><b>Date of Report:</b></td>
 			<td>{{ date("F j, Y") }}</td>
+			@if(!$survey->classroom)
+				<td><b>N</b></td>
+				<td>{{ $survey->count_completed }}</td>
+			@endif
 		</tr>
 		<tr>
 			<td><b>Questionnaires Date Range:</b></td>
