@@ -43,4 +43,5 @@ body {
 .white {background: white;}
 .grey {background-color: #dcddda;}
 .light-grey {background-color: #eaebe8;}
-.page-number{ position:absolute; padding-bottom:19px; padding-right:29px; z-index:100; color:white; font-weight:bold;font-size: 21pt; bottom: 0px;right:10px; }
+.page-number{ position:absolute; padding-bottom:19px; padding-right:29px; z-index:100; color:red; font-weight:bold;font-size: 21pt; bottom: 0px;right:10px; }
+#author{float:right;right:3cm;position: absolute;}

@@ -46,24 +46,20 @@
 		<br/>
 		<table class="width-100">
 			<tr class="grey">
-				<td width="10%"><b> No. </b></td>
-				<td><b> Content </b></td>
 				<td align="center" width="10%"><b> Page No. </b></td>
+				<td><b> Content </b></td>
 			</tr>
 			<tr class="light-grey">
-				<td>1</td>
-				<td align="left">Introduction</td>
 				<td align="center">1</td>
+				<td align="left">Introduction</td>
 			</tr>
 			<tr>
-				<td>2</td>
-				<td align="left">10 Core Competencies of Character Report</td>
 				<td align="center">2</td>
+				<td align="left">10 Core Competencies of Character Report</td>
 			</tr>
 			<tr class="light-grey">
-				<td>3</td>
-				<td align="left">Definition of CCC</td>
 				<td align="center">3</td>
+				<td align="left">Definition of CCC</td>
 			</tr>
 		</table>
 		<br/>
@@ -94,7 +90,7 @@
 		
 	<div style="padding:2cm;">
 		<p>
-			<b>The graph below shows the number of HEROES® students who demonstrated strength tobe developed (as indicated by the Green bar) and potential strength (as indicated by the Yellow bar) in each of the Core Competencies of Character detailed on the following page.</b>
+			<b>The graph below shows the number of HEROES® students who demonstrated strength (as indicated by the Green bar) and potential strength to be developed (as indicated by the Yellow bar) in each of the Core Competencies of Character detailed on the following page.</b>
 		</p>
 
 		<table class="legend" style="margin-top:0.5cm;margin-bottom:1cm;">

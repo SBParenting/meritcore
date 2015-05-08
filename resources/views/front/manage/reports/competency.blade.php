@@ -52,49 +52,40 @@
 			<br/>
 			<table class="width-100">
 				<tr class="grey">
-					<td width="10%"><b> No. </b></td>
-					<td><b> Content </b></td>
 					<td align="center" width="10%"><b> Page No. </b></td>
+					<td><b> Content </b></td>
 				</tr>
 				<tr class="light-grey">
-					<td>1</td>
-					<td align="left">Introduction</td>
 					<td align="center">1</td>
+					<td align="left">Introduction</td>
 				</tr>
 				<tr>
-					<td>2</td>
-					<td align="left">10 Core Competencies of Character Report</td>
 					<td align="center">2</td>
+					<td align="left">10 Core Competencies of Character Report</td>
 				</tr>
 				<tr class="light-grey">
-					<td>3</td>
-					<td align="left">Number of Student who improved</td>
 					<td align="center">3</td>
+					<td align="left">Number of Student who improved</td>
 				</tr>
 				<tr>
-					<td>4</td>
-					<td align="left">Number of Student who moved to 'Strength'</td>
 					<td align="center">4</td>
+					<td align="left">Number of Student who moved to 'Strength'</td>
 				</tr>
 				<tr class="light-grey">
-					<td>5</td>
-					<td align="left">Student Engagement</td>
 					<td align="center">5</td>
+					<td align="left">Student Engagement</td>
 				</tr>
 				<tr>
-					<td>6</td>
-					<td align="left">Program Impact</td>
 					<td align="center">7</td>
+					<td align="left">Program Impact</td>
 				</tr>
 				<tr class="light-grey">
-					<td>7</td>
-					<td align="left">Appendix A</td>
 					<td align="center">9</td>
+					<td align="left">Appendix A</td>
 				</tr>
 				<tr>
-					<td>8</td>
-					<td align="left">Appendix B</td>
 					<td align="center">10</td>
+					<td align="left">Appendix B</td>
 				</tr>
 			</table>
 			<br/>
@@ -166,13 +157,14 @@
 			</ol>
 		</div>
 
-		<!-- <div class="footer no-margin">
-			<div class="page-number">2</div>
-			<img src="{{ url('public/front/img/report/pageFooter.jpg') }}" class="width-100" />
-		</div> -->
 		<div class="footer no-margin">
-			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100" />
+			<img src="{{ url('public/front/img/report/pageFooter.jpg') }}" class="width-100" />
+			<div class="page-number">2</div>
+			
 		</div>
+		<!-- <div class="footer no-margin">
+			<img src="{{ url('public/front/img/report/footer2.png') }}" class="width-100" />
+		</div> -->
 
 	@if(isset($improve))
 	<div class="page-break"></div>
@@ -385,8 +377,8 @@
 				
 		<div class="content">
 			<center><strong>Core Character Competencies and Positive Youth Development</strong></center>
-			<center><blockquote><p>"Modeling isn't one way of influencing people. It's the only way"</p><footer><cite title="Source Title">Albert Einstein</cite></footer></blockquote></center>
-
+			<center><blockquote><p>"Modeling isn't one way of influencing people. It's the only way"</p><footer><cite id="author" title="Source Title">- Albert Einstein</cite></footer></blockquote></center>
+			<br/>
 			<p>For many children, the transition through early childhood towards the teenage years can be challenging with increased involvement in what have been called risk behaviours or problem behaviours, including school failure, truancy at school, substance abuse, violence and negative peer involvement. As a result, the tendency of community interventions has been a focus on trying to understand "what goes wrong" in so called troubled children and the development of problem- specific programs. But a risk-focused approach tends to neglect the fact that childhood years are a critical period of time where a child starts to develop the ability to navigate and negotiate life's challenges through exploring their unique talents, strengths, skills and interests. This emphasis on the positive and adaptive aspects of child and youth development is often referred to as "positive youth development". From this perspective, positive childhood health is not identified as the absence of risk or challenges. Rather, it is the presence of positive core social and emotional character traits that enable a child to reach their full potential and successfully transition through the teenage years towards adulthood.</p>
 			<br/>
 			<p>
@@ -443,7 +435,7 @@
 			</p>
 			<br/>
 			<p>
-				Essential traits of significant adults who nurture those core competency of character in children are:
+				Essential traits of significant adults who nurture those Core Competency of Character in children are:
 			</p>
 
 			<ul>
