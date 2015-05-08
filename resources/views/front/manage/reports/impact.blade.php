@@ -21,35 +21,34 @@
 		Summary Report Details
 	</div>
 	
-	<table class="content white width-100">
-		<tr>
-			<td class="lable"><b>School Name:</b></td>
-			<td>{{ $school->name }}</td>
-			<td><b>Overall No. of Student</b></td>
-			<td>{{ $survey->count_total }}</td>
-
-		</tr>
-		@if ($survey->classroom)
-			<tr>
-				<td><b>Classroom:</b></td>
-				<td>{{ $survey->classroom->title }}</td>
-				<td><b>N</b></td>
-				<td>{{ $survey->count_completed }}</td>
-			</tr>
-		@endif
-		<tr>
-			<td><b>Date of Report:</b></td>
-			<td>{{ date("F j, Y") }}</td>
-			@if(!$survey->classroom)
-				<td><b>N</b></td>
-				<td>{{ $survey->count_completed }}</td>
-			@endif
-		</tr>
-		<tr>
-			<td><b>Questionnaires Date Range:</b></td>
-			<td>{{ get_date($survey->start_date, "F j, Y") }} - {{ get_date($survey->end_date, "F j, Y") }} </td>
-		</tr>
-	</table>
+	<div class="content white width-100"> 
+		<div id="left-content">
+			<table>
+				<tr>
+					<td class="lable"><b>School Name:</b></td>
+					<td>{{ $school->name }}</td>
+				</tr>
+				@if ($survey->classroom)
+					<tr>
+						<td><b>Classroom:</b></td>
+						<td>{{ $survey->classroom->title }}</td>
+					</tr>
+				@endif
+				<tr>
+					<td><b>Date of Report:</b></td>
+					<td>{{ date("F j, Y") }}</td>
+				</tr>
+				<tr>
+					<td><b>Questionnaires Date Range:</b></td>
+					<td>{{ get_date($survey->start_date, "F j, Y") }} - {{ get_date($survey->end_date, "F j, Y") }} </td>
+				</tr>
+			</table>
+		</div>
+		<div id="student-summary">
+			<b>Overall No. of Student: </b>{{ $survey->count_total }}<br />
+			<b>N = </b>{{ $survey->count_completed }}<br />
+		</div>
+	</div>
 	<div class="content">
 		<p><b>Table of Contents</b></p>
 		<br/>
