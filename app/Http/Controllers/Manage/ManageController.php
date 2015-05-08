@@ -62,6 +62,12 @@ class ManageController extends Controller {
 				})->get();
 		}
 
+		foreach ($schools as $school) {
+			$school->classes_count  = Classroom::where('school_id',$school->id)->count();
+
+			$school->students_count = Student::where('school_id',$school->id)->count();
+		}
+
 		$data = [
 			'page'         => 'schools',
 			'school_board' => $school_board,
