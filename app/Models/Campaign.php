@@ -238,6 +238,38 @@ class Campaign extends \App\Models\Model {
 		return $data[$this->id];
 	}
 
+	public function getStudents($action){
+		$postSurvey = $this->survey_id;
+		$preSurvey = ($this->survey_id == 3)?1:2;
+
+		$preCampaign = self::with('survey', 'stats', 'stats.grouping')->where('survey_id',$preSurvey)->where('class_id',$this->class_id)->first();
+
+		$preStudents = CampaignStudent::where('campaign_id',$this->id)->where('status','Completed')->get();
+
+		$postStudents = CampaignStudent::where('campaign_id',$preCampaign->id)->where('status','Completed')->get();
+
+		foreach ($preStudents as $student) {
+			$student_ids[] = $student->student_id;
+		}
+		
+		$count = CampaignStudent::where('campaign_id',$preCampaign->id)->where('status','Completed')->whereIn('student_id',$student_ids)->count();
+		
+		switch ($action) {
+			case 'both':
+				return $count;
+				break;
+
+			case 'pre':
+				return count($preStudents);
+				break;
+
+			case 'post':
+				return count($postStudents);
+				break;
+		}
+		
+	}
+
 	public static function getTitle($id){
         //dd($id);
         $survey = self::where('id',$id)->first();

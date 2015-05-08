@@ -20,33 +20,44 @@
 			Summary Report Details
 		</div>
 		
-		<table class="content white width-100" style>
-			<tr>
-				<td class="lable"><b>School Name:</b></td>
-				<td>{{ $school->name }}</td>
-			</tr>
-			@if ($survey->classroom)
-				<tr>
-					<td><b>Classroom:</b></td>
-					<td>{{ $survey->classroom->title }}</td>
-				</tr>
-			@endif
-			<tr>
-				<td class="lable" rowspan="2"><b>Quesstionnaire Type:</b></td>
-				<td>{{ ($preSurvey." - ".$preCampaign) }}</td>
-			</tr>
-			<tr>
-				<td>{{ ($postSurvey." - ".$postCampaign) }}</td>
-			</tr>
-			<tr>
-				<td><b>Date of Report:</b></td>
-				<td>{{ date("F j, Y") }}</td>
-			</tr>
-			<tr>
-				<td><b>Questionnaires Date Range:</b></td>
-				<td>{{ get_date($survey->start_date, "F j, Y") }} - {{ get_date($survey->end_date, "F j, Y") }} </td>
-			</tr>
-		</table>
+		<div class="content white width-100"> 
+			<div id="left-content">
+				<table>
+					<tr>
+						<td class="lable"><b>School Name:</b></td>
+						<td>{{ $school->name }}</td>
+					</tr>
+					@if ($survey->classroom)
+						<tr>
+							<td><b>Classroom:</b></td>
+							<td>{{ $survey->classroom->title }}</td>
+						</tr>
+					@endif
+					<tr>
+						<td class="lable" rowspan="2"><b>Quesstionnaire Type:</b></td>
+						<td>{{ ($preSurvey." - ".$preCampaign) }}</td>
+					</tr>
+					<tr>
+						<td>{{ ($postSurvey." - ".$postCampaign) }}</td>
+					</tr>
+					<tr>
+						<td><b>Date of Report:</b></td>
+						<td>{{ date("F j, Y") }}</td>
+					</tr>
+					<tr>
+						<td><b>Questionnaires Date Range:</b></td>
+						<td>{{ get_date($survey->start_date, "F j, Y") }} - {{ get_date($survey->end_date, "F j, Y") }} </td>
+					</tr>
+				</table>
+			</div>
+			<div id="student-summary">
+				<b>Overall No. of Student: </b>{{ $survey->count_total }}<br />
+				<b>PRE = </b>{{ $student_pre }}<br />
+				<b>POST = </b>{{ $student_post }}<br />
+				<b>N = </b>{{ $student_both }}<br />
+			</div>
+		</div>
+
 		<div class="content">
 			<p><b>Table of Contents</b></p>
 			<br/>

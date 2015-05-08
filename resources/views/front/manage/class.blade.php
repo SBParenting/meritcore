@@ -848,7 +848,7 @@
 										
 										@if(isset($survey_improve[$survey->id])) 
 										<h4>Number of Students that improved:</h4>
-										<h6>N = {{ $survey->count_completed }}</h6>
+										<h6>N = {{ $survey->count_completed }}</h6>									
 										{!! "<script type='text/javascript'> var improve_". $survey->id." = ". json_encode($survey_improve[$survey->id]) . "</script>" !!}
 										<div id="columnchart_values_{{$survey->id}}" class="improve" data-id="{{$survey->id}}" style="width:750px;height:600px;"></div>
 										<br />
