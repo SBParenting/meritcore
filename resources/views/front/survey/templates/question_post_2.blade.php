@@ -17,7 +17,7 @@
 							<span class="connector first"></span>
 							<i class="icon-circle bg"></i>
 							<i class="icon-circle border"></i>
-							<i class="icon-circle selector" data-url="{{ url("api/survey/$key/savePost") }}" data-value="1" data-question-id="(data:question_num)" data-indicator=".indicator-question-(data:question_num)-1" data-question-row=".question-row-(data:question_num)"></i>
+								<i class="icon-circle selector" data-url="{{ url("api/survey/$key/savePost") }}" data-value="1" data-question-id="(data:id)" data-indicator=".indicator-question-(data:id)-1" data-question-row=".question-row-(data:id)"></i>
 						</span>
 						yes
 					</td>
@@ -26,7 +26,7 @@
 							<span class="connector last"></span>
 						  	<i class="icon-circle bg"></i>
 						  	<i class="icon-circle border"></i>
-						  	<i class="icon-circle selector" data-url="{{ url("api/survey/$key/savePost") }}" data-value="2" data-question-id="(data:question_num)" data-indicator=".indicator-question-(data:question_num)-2" data-question-row=".question-row-(data:question_num)"></i>
+								<i class="icon-circle selector" data-url="{{ url("api/survey/$key/savePost") }}" data-value="2" data-question-id="(data:id)" data-indicator=".indicator-question-(data:id)-2" data-question-row=".question-row-(data:id)"></i>
 						</span>
 						no
 					</td>

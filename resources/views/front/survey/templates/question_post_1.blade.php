@@ -111,7 +111,7 @@
 							<span class="connector last"></span>
 						  	<i class="icon-circle bg"></i>
 						  	<i class="icon-circle border"></i>
-						  	<i class="icon-circle selector" data-url="{{ url("api/survey/$key/saveInfo") }}" data-value="3" data-question-id="(data:num)" data-indicator=".indicator-question-(data:num)-5" data-question-row=".question-row-(data:num)"></i>
+						  	<i class="icon-circle selector" data-url="{{ url("api/survey/$key/saveInfo") }}" data-value="3" data-question-id="(data:num)" data-indicator=".indicator-question-(data:num)-3" data-question-row=".question-row-(data:num)"></i>
 						</span>
 						A Instructor and A Volunteer
 					</td>

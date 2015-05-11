@@ -294,8 +294,7 @@ class SurveyController extends \App\Http\Controllers\Controller {
 	{
 		$survey = Campaign::where('secret', '=', $key)->first();
 		$questions = PostSurveyQuestion::where('survey_id',$survey->survey_id)->get();
-		$cs = CampaignStudent::findOrFail(\Session::get('student_id'));
-		$student = Student::findOrFail($cs->student_id);
+		$student = CampaignStudent::findOrFail(\Session::get('student_id'));
 
 		$data = [
 			'key'       => $key,

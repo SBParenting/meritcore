@@ -113,6 +113,10 @@ class ManageController extends Controller {
 				'status'   => $status,
 			];
 
+			foreach ($classes as $class) {
+				$class->students_count = StudentAssoc::where('class_id',$class->id)->count();
+			}
+
 			return \View::make('front.manage.classes', $data);
 		}
 
