@@ -45,7 +45,7 @@
 			</table>
 		</div>
 		<div id="student-summary">
-			<b>Overall No. of Student: </b>{{ $survey->count_total }}<br />
+			<b>Overall # of Student: </b>{{ $survey->count_total }}<br />
 			<b>N = </b>{{ $survey->count_completed }}<br />
 		</div>
 	</div>
@@ -119,7 +119,10 @@
 				</td>
 			</tr>
 		</table>
-		<img src="{{ url('/public/front/img/report/charts/'.$ccc) }}?t={{time()}}" class="width-100" style="margin-left:-1cm;float:right;"/>
+		<div style="height:573px;max-height:573px;overflow:hidden;" class="width-100">
+			<img src="{{ url('/public/front/img/report/charts/'.$ccc) }}?t={{time()}}" height="100%" class="width-100"/>
+		</div>
+		
 	</div>
 	
 	<div class="footer no-margin">

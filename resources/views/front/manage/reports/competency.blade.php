@@ -51,7 +51,7 @@
 				</table>
 			</div>
 			<div id="student-summary">
-				<b>Overall No. of Student: </b>{{ $survey->count_total }}<br />
+				<b>Overall # of Student: </b>{{ $survey->count_total }}<br />
 				<b>PRE = </b>{{ $student_pre }}<br />
 				<b>POST = </b>{{ $student_post }}<br />
 				<b>N = </b>{{ $student_both }}<br />
@@ -193,7 +193,7 @@
 			<p><strong>Chart 1: Number of Students Who Improved</strong></p>
 			<br>
 			<p>The chart below shows the number of {{ ucwords(substr($preSurvey, 0,11)) }} students who demonstrated an increase in their ability to understand and draw upon each of the Core Competencies of Character upon completion of the program.</p>
-			<div style="height:500px;max-height:500px;overflow:hidden;" class="width-100">
+			<div style="height:600px;max-height:600px;overflow:hidden;" class="width-100">
 				<img src="{{ url('/public/front/img/report/charts/'.$improve) }}?t={{time()}}" height="100%" class="width-100"/>
 			</div>
 		</div>
@@ -214,7 +214,7 @@
 			<br>
 			<p>The following chart shows the number of {{ ucwords(substr($preSurvey, 0,11)) }} students who demonstrated moving from vulnerability to strength
 	in each of the Core Competencies of Character upon completion of the program.</p>
-			<div style="height:500px;max-height:500px;overflow:hidden;" class="width-100">
+			<div style="height:600px;max-height:600px;overflow:hidden;" class="width-100">
 				<img src="{{ url('/public/front/img/report/charts/'.$demonstrate) }}?t={{time()}}" height="100%" class="width-100"/>
 			</div>
 		</div>

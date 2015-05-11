@@ -43,20 +43,20 @@
 
 	<div id="loader">Generating report, please wait....</div>
     
-    <div id="myChart1" style="height:400px;width:500px;"></div>
-	<canvas id="canvasChart1" style="height:400px;width:500px;"></canvas>
+    <div id="myChart1" style="height:800px;width:1000px;"></div>
+	<canvas id="canvasChart1" style="height:800px;width:1000px;"></canvas>
     
-    <div id="myChart2" style="height:1000px;width:500px;"></div>
-    <canvas id="canvasChart2" style="height:400px;width:500px;"></canvas>
+    <div id="myChart2" style="height:800px;width:1000px;"></div>
+    <canvas id="canvasChart2" style="height:800px;width:1000px;"></canvas>
     
-    <div id="myChart3" style="height:400px;width:500px;"></div>
-    <canvas id="canvasChart3" style="height:400px;width:500px;"></canvas>
+    <div id="myChart3" style="height:800px;width:1000px;"></div>
+    <canvas id="canvasChart3" style="height:800px;width:1000px;"></canvas>
 
-    <div id="improve" style="height:400px;width:500px;"></div>
-    <canvas id="canvasImprove" style="height:400px;width:500px;"></canvas>
+    <div id="improve" style="height:800px;width:1000px;"></div>
+    <canvas id="canvasImprove" style="height:800px;width:1000px;"></canvas>
 
-    <div id="demonstrate" style="height:400px;width:500px;"></div>
-    <canvas id="canvasDemonstrate" style="height:400px;width:500px;"></canvas>
+    <div id="demonstrate" style="height:800px;width:1000px;"></div>
+    <canvas id="canvasDemonstrate" style="height:800px;width:1000px;"></canvas>
 
 	{!! Form::open(['id' => 'form']) !!}
 
