@@ -51,7 +51,7 @@
 				</table>
 			</div>
 			<div id="student-summary">
-				<b>Overall No. of Student: </b>{{ $survey->count_total }}<br />
+				<b>Overall # of Student: </b>{{ $survey->count_total }}<br />
 				<b>PRE = </b>{{ $student_pre }}<br />
 				<b>POST = </b>{{ $student_post }}<br />
 				<b>N = </b>{{ $student_both }}<br />
