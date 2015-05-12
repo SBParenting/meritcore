@@ -55,7 +55,7 @@
 
 					@endforeach
 
-					@if (isset($status) && $status != 'Archived')
+					@if (isset($status) && $status != 'Archived' && \Auth::user()->hasRole('teacher') == false)
 
 						@if (count($classes) > 0)
 

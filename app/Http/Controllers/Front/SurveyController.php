@@ -212,9 +212,9 @@ class SurveyController extends \App\Http\Controllers\Controller {
 		    	CampaignResult::create($data);
 		    }
 
-		    $survey->updateRecord();
+		    $survey->save();
 
-		    $student->updateRecord();
+		    $student->save();
 
 		    $classroom = $survey->classroom;
 

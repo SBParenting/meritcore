@@ -246,18 +246,20 @@ class StudentsController extends Controller {
 						$row_data['school_id'] = $school->id;
 					}
 
-					$student = Record::createFromImport($row_data);
-
-					$class = Classroom::where('title', $student->classroom)->where('school_id',$school->id)->first();
+					$class = Classroom::where('title', $row_data['classroom'])->where('school_id',$school->id)->first();
 
 					if (!$class) {
 						$class = Classroom::create([
 							'school_id' => $school->id,
-							'title' => $student->classroom,
-							'grade' => $student->grade,
+							'title' => $row_data['classroom'],
+							'grade' => $row_data['grade'],
 							'status' => 'Active'
 						]);
 					}
+
+					$row_data['classroom_id'] = $class->id;
+
+					$student = Record::createFromImport($row_data);
 
 					$assoc = StudentAssoc::where('student_id',$student->id)->where('class_id',$class->id)->first();
 
@@ -277,7 +279,6 @@ class StudentsController extends Controller {
 				$class = Classroom::where('title', $student->classroom)->where('school_id',$school->id)->first();
 				$studentCount = StudentAssoc::where('class_id',$class->id)->count();
 
-				$class->students_count = $studentCount;
 				$class->save();
 			});
 

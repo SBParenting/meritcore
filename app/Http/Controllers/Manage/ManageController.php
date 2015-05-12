@@ -102,7 +102,11 @@ class ManageController extends Controller {
 				$status = \Input::get('status');
 			}
 
-			$classes = Classroom::with('teacher')->where('school_id', '=', $school->id)->where('status', '=', $status)->orderBy('title', 'asc')->get();
+			if (\Auth::user()->hasRole('teacher')) {
+				$classes = Classroom::with('teacher')->where('teacher_id', '=', \Auth::user()->id)->where('status', '=', $status)->orderBy('title', 'asc')->get();
+			} else {
+				$classes = Classroom::with('teacher')->where('school_id', '=', $school->id)->where('status', '=', $status)->orderBy('title', 'asc')->get();
+			}
 
 			$data = [
 				'page'     => $page,
@@ -117,7 +121,16 @@ class ManageController extends Controller {
 				$class->students_count = StudentAssoc::where('class_id',$class->id)->count();
 			}
 
-			return \View::make('front.manage.classes', $data);
+			if(count($classes)) {
+				return \View::make('front.manage.classes', $data);
+			} else {
+				return \View::make('front.manage.no-class');
+			}
+
+		}
+		else
+		{
+			return \View::make('front.manage.no-class');
 		}
 
 		abort(404);

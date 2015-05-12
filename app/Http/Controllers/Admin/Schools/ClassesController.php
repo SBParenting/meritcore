@@ -37,6 +37,10 @@ class ClassesController extends AdminController {
 	{
 		$record = Record::with('school')->findOrFail($id);
 
+		$record->students_count = Student::where('classroom_id',$record->id)->count();
+		$record->surveys_total_count = Campaign::where('class_id',$record->id)->count();
+		$record->surveys_active_count = Campaign::where('class_id',$record->id)->where('status','Active')->count();
+
 		$data = [
 			'record'  => $record,
 			'section' => 'overview',
@@ -139,7 +143,7 @@ class ClassesController extends AdminController {
 
 			$record->fill($input)->save();
 
-			$record->updateRecord()->save();
+			$record->save();
 
 			return \Response::json(['result' => true, 'msg' => trans('crud.success_updated'), 'url' => url($this->base_url.'/info/'.$id) ]);
 		}

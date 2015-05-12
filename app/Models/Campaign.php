@@ -62,15 +62,15 @@ class Campaign extends \App\Models\Model {
 
 	public function updateRecord()
 	{
-		$this->count_total = CampaignStudent::where('campaign_id', '=', $this->id)->count();
-		$this->count_started = CampaignStudent::where('campaign_id', '=', $this->id)->where('status', '=', 'InProgress')->count();
-		$this->count_completed = CampaignStudent::where('campaign_id', '=', $this->id)->where('status', '=', 'Completed')->count();
-
-		if($this->count_total > 0)
-		{
-			$this->started_progress = round($this->count_started / $this->count_total * 100);
-			$this->completed_progress = round($this->count_completed / $this->count_total * 100);
-		}
+//		$this->count_total = CampaignStudent::where('campaign_id', '=', $this->id)->count();
+//		$this->count_started = CampaignStudent::where('campaign_id', '=', $this->id)->where('status', '=', 'InProgress')->count();
+//		$this->count_completed = CampaignStudent::where('campaign_id', '=', $this->id)->where('status', '=', 'Completed')->count();
+//
+//		if($this->count_total > 0)
+//		{
+//			$this->started_progress = round($this->count_started / $this->count_total * 100);
+//			$this->completed_progress = round($this->count_completed / $this->count_total * 100);
+//		}
 
 		$this->save();
 	}

@@ -168,7 +168,6 @@ class BoardsController extends AdminController {
 
 		$schoolBoard = SchoolBoard::where('id',$id)->first();
 		$school_count = School::where('school_board_id',$id)->count();
-		$schoolBoard->schools_count = $school_count;
 		$schoolBoard->save();
 
 

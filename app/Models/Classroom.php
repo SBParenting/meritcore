@@ -55,9 +55,9 @@ class Classroom extends \App\Models\Model {
 
 	public function updateRecord()
 	{
-		$this->students_count = Student::where('classroom_id', '=', $this->id)->count();
-		$this->surveys_total_count = Campaign::where('class_id', '=', $this->id)->count();
-		$this->surveys_active_count = Campaign::where('status', '=', 'Active')->where('class_id', '=', $this->id)->count();
+//		$this->students_count = Student::where('classroom_id', '=', $this->id)->count();
+//		$this->surveys_total_count = Campaign::where('class_id', '=', $this->id)->count();
+//		$this->surveys_active_count = Campaign::where('status', '=', 'Active')->where('class_id', '=', $this->id)->count();
 
 		return $this;
 	}
@@ -70,7 +70,13 @@ class Classroom extends \App\Models\Model {
 
         $query->leftJoin('users', 'users.id', '=', 'school_classes.teacher_id');
 
-        $query->select('school_classes.*', 'schools.name as school_name', \DB::raw("CONCAT(users.first_name, ' ', users.last_name) as teacher_name"));
+		$query->leftJoin(\DB::raw('(SELECT classroom_id, COUNT(*) as students_count FROM students GROUP BY classroom_id) AS s'),'s.classroom_id','=','school_classes.id');
+
+		$query->leftJoin(\DB::raw('(SELECT class_id, COUNT(*) as surveys_total_count FROM campaigns GROUP BY class_id) AS c'),'c.class_id','=','school_classes.id');
+
+		$query->leftJoin(\DB::raw('(SELECT class_id, COUNT(*) as surveys_active_count FROM campaigns WHERE status="Active" GROUP BY class_id) AS c2'),'c2.class_id','=','school_classes.id');
+
+        $query->select('school_classes.*', 'schools.name as school_name', \DB::raw("CONCAT(users.first_name, ' ', users.last_name) as teacher_name"),'students_count','surveys_total_count','surveys_active_count');
         
         $filters = static::initStatic($var);
 
