@@ -76,6 +76,7 @@ class ManageController extends Controller {
 		];
 
 		return \View::make('front.manage.schools', $data);
+		//return \View::make('front.manage.projects', $data);
 	}
 
 	public function getClasses($id=false)
