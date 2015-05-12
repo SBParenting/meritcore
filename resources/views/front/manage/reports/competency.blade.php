@@ -87,15 +87,15 @@
 					<td align="left">Student Engagement</td>
 				</tr>
 				<tr>
-					<td align="center">7</td>
+					<td align="center">6</td>
 					<td align="left">Program Impact</td>
 				</tr>
 				<tr class="light-grey">
-					<td align="center">9</td>
+					<td align="center">8</td>
 					<td align="left">Appendix A</td>
 				</tr>
 				<tr>
-					<td align="center">10</td>
+					<td align="center">9</td>
 					<td align="left">Appendix B</td>
 				</tr>
 			</table>

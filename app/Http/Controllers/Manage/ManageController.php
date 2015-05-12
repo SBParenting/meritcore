@@ -75,7 +75,8 @@ class ManageController extends Controller {
 			'fields'	   => Student::$importable,
 		];
 
-		return \View::make('front.manage.schools', $data);
+		//return \View::make('front.manage.schools', $data);
+		return \View::make('front.manage.projects', $data);
 	}
 
 	public function getClasses($id=false)
