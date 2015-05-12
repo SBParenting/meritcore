@@ -122,7 +122,7 @@ class ManageController extends Controller {
 				$class->students_count = StudentAssoc::where('class_id',$class->id)->count();
 			}
 
-			if(count($classes)) {
+			if(count($classes) || !\Auth::user()->hasRole('teacher')) {
 				return \View::make('front.manage.classes', $data);
 			} else {
 				return \View::make('front.manage.no-class');
