@@ -33,7 +33,7 @@ class CampaignStudent extends \App\Models\Model {
 
 	public function updateRecord()
 	{
-//		$this->count_completed = CampaignResult::where('campaign_id', '=', $this->campaign_id)->where('campaign_student_id', '=', $this->id)->where('result', '>', '0')->count();
+		$this->count_completed = CampaignResult::where('campaign_id', '=', $this->campaign_id)->where('campaign_student_id', '=', $this->id)->where('result', '>', '0')->count();
 
 		$this->save();
 	}

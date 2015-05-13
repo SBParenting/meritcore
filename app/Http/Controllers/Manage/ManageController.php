@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\Controller;
+use App\Models\CampaignStudent;
 use App\Models\User as Record;
 use App\Models\Classroom;
 use App\Models\Student;
@@ -155,7 +156,6 @@ class ManageController extends Controller {
 
 			$surveys = Campaign::with('survey', 'stats', 'stats.grouping')->where('class_id', '=', $id)->where('status', '=', 'Completed')->orderBy('created_at', 'desc')->get();
 
-			//dd($surveys);
 			$survey_engagement = [];
 			$improveData =[];
 			$demonstrateData =[];
@@ -181,7 +181,7 @@ class ManageController extends Controller {
 		 			$survey_engagement[$survey->id] = $data2;
 
 		 			$data3 = [];
-	 			 	//$data3[] = ['Question','Yes','No'];
+
 	 			 	$questions = PostSurveyQuestion::where('survey_id',$survey->survey_id)->get();
 	 			 
 		 			 if($questions){
@@ -192,15 +192,15 @@ class ManageController extends Controller {
 		 				 	//array_push($data3, array('title' => $question->title,'yes' => $yesCount,'no' => $noCount));
 		 				 }
 		 			 }
-		 			 //dd($data3);
+
 		 			 $survey_impact[$survey->id] = $data3;
-		 			//dd($survey->getImproveResults());
+
 		 			$improveData[$survey->id] = $survey->getImproveResults();
 
 		 			$demonstrateData[$survey->id] = $survey->getDemonstrateResults();
 	 			}
 			}
-			//dd($demonstrateData);
+
 			$data = [
 				'page'           	=> 'classes',
 				'school'         	=> $school,

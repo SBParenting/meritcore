@@ -85,7 +85,6 @@ class SurveyController extends Controller {
 
 		if ($survey)
 		{
-			//dd($survey);
 			$school = $survey->school;
 
 			$data = [
@@ -101,7 +100,7 @@ class SurveyController extends Controller {
 			$categories = [];
 			$strong = [];
 			$vulnerable = [];
-			//dd($survey->stats);
+
 		      foreach ($survey->stats as $stat)
 			   {
 				$gdata[]= array($stat->grouping->title, (int)$stat->strong_count, (int)$stat->vulnerable_count);
@@ -123,14 +122,13 @@ class SurveyController extends Controller {
 	 			 }
 
 	 			 $data['gdata_3'] = $data3;
-	 			 //dd($survey->getImproveResults());
+
 	 			 $data['improve'] = $survey->getImproveResults();
 
 		 		 $data['demonstrate'] = $survey->getDemonstrateResults();
 	 		}
  			 
 		    $data['categories'] = $categories;
-		    // dd($data);
 
 			return \View::make('front.manage.reports.chart', $data)->render();
 		}
@@ -197,7 +195,7 @@ class SurveyController extends Controller {
 
 			    
 			}
-			//dd($data);
+
 			$chart = \Input::get('chart1');
 			$filename = 'report-chart-ccc-'.$survey->id.'.png';
 			$image = \Image::make($chart);

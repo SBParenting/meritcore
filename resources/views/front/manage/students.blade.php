@@ -48,7 +48,7 @@
 										<th>Student Name</th>
 										<th>Class</th>
 										<th>Email</th>
-										<th></th>
+										<th>Active Survey</th>
 									</tr>
 								</thead>
 								<tbody>

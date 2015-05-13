@@ -214,7 +214,7 @@ class SurveyController extends \App\Http\Controllers\Controller {
 
 		    $survey->save();
 
-		    $student->save();
+		    $student->updateRecord()->save();
 
 		    $classroom = $survey->classroom;
 
