@@ -15,6 +15,7 @@
 				<br /><br />
 
 				<div class="col-md-12">
+					<a href="{{ url('m/projects/') }}" id="btnManageProjects" class="btn btn-default btn-lg pull-right inline"> Manage Projects</a>
 
 					<a href="#" id="btnImportStudents" class="btn btn-default btn-lg pull-right show-panel inline" data-target="#import" data-hide="#btnCreateSchool"><i class="fa fa-upload"></i> Import Students</a>
 
