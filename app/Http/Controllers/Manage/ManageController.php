@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 use App\Models\PostSurveyQuestion;
 use App\Models\PostSurveyAnswers;
 use App\Models\CampaignStudentInfo;
+use App\Models\Projects;
+use App\Models\SchoolProject;
 
 class ManageController extends Controller {
 
@@ -35,6 +37,34 @@ class ManageController extends Controller {
 		}
 
 		abort(403);
+	}
+
+	public function getProjects()
+	{
+		$this->access('manage:projects');
+
+		if (\Input::has('search')) {
+			$projects = Projects::where('id','<>', '0')
+				->where(function($query){
+					foreach(explode(' ',\Input::get('search')) as $term) {
+						$query->orWhere('project_name','LIKE','%'.$term.'%');
+					}
+				})->get();
+		}
+		else{
+			$projects = Projects::all();
+		}
+
+		foreach ($projects as $project) {
+			$project->school_count  = SchoolProject::where('project_id',$project->id)->count();
+		}
+
+		$data = [
+			'page'         => 'projects',
+			'projects'     => $projects,
+		];
+
+		return \View::make('front.manage.projects', $data);
 	}
 
 	public function getSchools()
@@ -77,7 +107,6 @@ class ManageController extends Controller {
 		];
 
 		return \View::make('front.manage.schools', $data);
-		//return \View::make('front.manage.projects', $data);
 	}
 
 	public function getClasses($id=false)

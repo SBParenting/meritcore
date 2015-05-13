@@ -45,7 +45,7 @@
 			</table>
 		</div>
 		<div id="student-summary">
-			<b>Overall # of Student: </b>{{ $survey->count_total }}<br />
+			<b>Overall # of students: </b>{{ $survey->count_total }}<br />
 			<b>N = </b>{{ $survey->count_completed }}<br />
 		</div>
 	</div>

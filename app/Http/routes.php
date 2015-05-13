@@ -48,6 +48,18 @@ Route::group(['prefix' => 'm', 'middleware' => 'auth'], function() {
 	Route::post('/import', 'Manage\StudentsController@postImport');
 	Route::post('/import/process', 'Manage\StudentsController@postImportProcess');
 	Route::post('/import/complete', 'Manage\StudentsController@postImportComplete');
+	
+	Route::get('/projects/', 'Manage\ManageController@getProjects');
+	Route::post('/projects', 'Manage\ManageController@getProjects');
+	
+	Route::post('/projects/add', 'Manage\ProjectsController@postAdd');
+	Route::post('/projects/{id}/update', 'Manage\ProjectsController@postUpdate');
+	Route::post('/projects/{id}/remove', 'Manage\ProjectsController@postRemove');
+	
+	Route::get('/projects/schools/{id}', 'Manage\ProjectsController@getSchools');
+	Route::post('/projects/schools/{id}', 'Manage\ProjectsController@getSchools');
+	Route::post('/projects/schools/{id}/add', 'Manage\ProjectsController@postSchoolAdd');
+	Route::post('/projects/schools/{id}/remove/{project_id}', 'Manage\ProjectsController@postSchoolRemove');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
