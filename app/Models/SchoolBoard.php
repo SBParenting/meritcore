@@ -21,7 +21,7 @@ class SchoolBoard extends \App\Models\Model {
 
 	public function updateRecord()
 	{
-		$this->schools_count = School::where('school_board_id', '=', $this->id)->count();
+//		$this->schools_count = School::where('school_board_id', '=', $this->id)->count();
 
 		return $this;
 	}

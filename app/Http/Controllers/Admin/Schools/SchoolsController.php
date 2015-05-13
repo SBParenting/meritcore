@@ -43,6 +43,11 @@ class SchoolsController extends AdminController {
 	{
 		$record = Record::with('board')->findOrFail($id);
 
+		$record->classes_count = Classroom::where('school_id',$record->id)->count();
+		$record->students_count = Student::where('school_id',$record->id)->count();
+		$record->surveys_total_count = Campaign::where('school_id',$record->id)->count();
+		$record->surveys_active_count = Campaign::where('school_id',$record->id)->where('status','Active')->count();
+
 		$data = [
 			'record'  => $record,
 			'section' => 'overview',

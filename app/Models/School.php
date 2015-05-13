@@ -50,10 +50,10 @@ class School extends \App\Models\Model {
 
 	public function updateRecord()
 	{
-		$this->classes_count = Classroom::where('school_id', '=', $this->id)->count();
-		$this->students_count = Student::where('school_id', '=', $this->id)->count();
-		$this->surveys_total_count = Campaign::where('school_id', '=', $this->id)->count();
-		$this->surveys_active_count = Campaign::where('status', '=', 'Active')->where('school_id', '=', $this->id)->count();
+//		$this->classes_count = Classroom::where('school_id', '=', $this->id)->count();
+//		$this->students_count = Student::where('school_id', '=', $this->id)->count();
+//		$this->surveys_total_count = Campaign::where('school_id', '=', $this->id)->count();
+//		$this->surveys_active_count = Campaign::where('status', '=', 'Active')->where('school_id', '=', $this->id)->count();
 
 		return $this;
 	}
@@ -94,10 +94,20 @@ class School extends \App\Models\Model {
     {
         $query   = static::initListable($var);
 
+        $query->select('schools.*', 'school_boards.name as school_board', \DB::raw('COUNT(`school_classes`.`id`) AS classes_count'), 's.students_count','c.surveys_total_count','c2.surveys_active_count');
+
         $query->leftJoin('school_boards', 'school_boards.id', '=', 'schools.school_board_id');
 
-        $query->select('schools.*', 'school_boards.name as school_board');
-       
+		$query->leftJoin('school_classes','school_classes.school_id','=','schools.id');
+
+		$query->leftJoin(\DB::raw('(SELECT school_id, COUNT(*) as students_count FROM students GROUP BY school_id) AS s'),'s.school_id','=','schools.id');
+
+		$query->leftJoin(\DB::raw('(SELECT school_id, COUNT(*) as surveys_total_count FROM campaigns GROUP BY school_id) AS c'),'c.school_id','=','schools.id');
+
+		$query->leftJoin(\DB::raw('(SELECT school_id, COUNT(*) as surveys_active_count FROM campaigns WHERE status="Active" GROUP BY school_id) AS c2'),'c.school_id','=','schools.id');
+
+		$query->groupBy('schools.id');
+
         $filters = static::initStatic($var);
 
         $sort = self::getSort();
