@@ -235,7 +235,7 @@ class StudentsController extends Controller {
 			    	{
 			    		if ($field != 'skip')
 			    		{
-							$row_data[$key] = $row->{$field};
+							$row_data[$field] = $row->{$key};
 						}
 					}
 
